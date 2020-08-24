@@ -1,11 +1,8 @@
 package controllers;
 
 import frames.AboutFrame;
-import frames.DayFrame;
 
 import frames.MainFrame;
-import frames.RuleFrame;
-import util.LoadFileUtil;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,7 +15,6 @@ public class MainController implements ActionListener {
     private ActionListener globalListener;
     private JFrame frame;
     private MainFrame mf;
-    private RuleFrame rf;
     private AboutFrame af;
     private Container panelMain;
     private Container panelRule;
@@ -30,12 +26,10 @@ public class MainController implements ActionListener {
     }
 
     public void start() {
-        mf = new MainFrame(this);
-        rf = new RuleFrame(this);
-        af = new AboutFrame(this);
+        mf = new MainFrame(globalListener);
+        af = new AboutFrame(globalListener);
 
         panelMain = mf.getContentPane();
-        panelRule = rf.getContentPane();
         panelAbout = af.getContentPane();
 
         switchPanel((JPanel) panelMain);

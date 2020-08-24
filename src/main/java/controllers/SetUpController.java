@@ -3,25 +3,27 @@ package controllers;
 import frames.PlayerCountFrame;
 import frames.PlayerNameFrame;
 import frames.RoleSelectionFrame;
-import org.jnativehook.keyboard.NativeKeyListener;
-import org.jnativehook.keyboard.NativeKeyEvent;
-import playerInfo.Player;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.List;
 
 public class SetUpController implements ActionListener {
 
     private ActionListener globalListener;
     private JFrame frame;
-    private ArrayList<JTextField> textFields = new ArrayList<>();
-    private int playerTotal;
+
     private PlayerCountFrame pcf;
     private PlayerNameFrame pnf;
     private RoleSelectionFrame rsf;
+
+    private Container panelCount;
+    private Container panelName;
+    private Container panelRole;
+
+    private int playerTotal;
 
     public SetUpController(JFrame frame, ActionListener globalListener) {
         this.frame = frame;
@@ -31,21 +33,36 @@ public class SetUpController implements ActionListener {
     public void start() {
 
         pcf = new PlayerCountFrame(globalListener);
-        pnf = new PlayerNameFrame(globalListener);
-        rsf = new RoleSelectionFrame(globalListener);
+        pnf = new PlayerNameFrame(this, globalListener);
+        rsf = new RoleSelectionFrame(this, globalListener);
+
+        panelCount = pcf.getContentPane();
+        panelName = pnf.getContentPane();
+        panelRole = rsf.getContentPane();
+
         playerTotal = 3;
+
+        switchPanel((JPanel) panelCount);
     }
 
-    public void displayPlayerCenter(int playerTotal) {
-        for(int i=0; i<playerTotal; i++) {
-            textFields.add(new JTextField());
-        }
+    private void switchPanel(JPanel panel){
+        System.out.println("SWITCHING: "+panel.getName());
+        frame.getContentPane().setVisible(false);
+        frame.setContentPane(panel);
+        frame.getContentPane().setVisible(true);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        JButton source = (JButton) e.getSource();
+        String name = source.getName();
+        switch (name) {
+            case "Continue_PlayerCount":
+                pnf.displayCenter(playerTotal);
+                switchPanel((JPanel) panelName);
+                break;
+        }
     }
-
     public List<String> getPlayerNames() {
         return pnf.getPlayerNames();
     }

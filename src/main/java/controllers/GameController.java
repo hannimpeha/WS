@@ -40,10 +40,10 @@ public class GameController implements ActionListener {
 
     public void start(List<Player> playerInfo) throws FileNotFoundException {
         g = new Game(playerInfo);
-        df = new DayFrame(this);
-        nf = new NightFrame(this);
-        cpf = new CheckPlayerFrame(this);
-        vf = new VictoryFrame(this);
+        df = new DayFrame(this, globalListener);
+        nf = new NightFrame(this, globalListener);
+        cpf = new CheckPlayerFrame(globalListener);
+        vf = new VictoryFrame(globalListener);
 
         fillPanels();
 

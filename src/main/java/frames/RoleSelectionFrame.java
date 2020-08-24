@@ -11,10 +11,18 @@ import java.util.Scanner;
 public class RoleSelectionFrame extends JFrame {
 
     private ActionListener globalListener;
+    private ActionListener packageListener;
+    private JButton btnContinue;
+    private JButton btnHome;
 
-    public RoleSelectionFrame(ActionListener globalListener){
+    public RoleSelectionFrame(ActionListener packageListener, ActionListener globalListener){
+        this.packageListener = packageListener;
         this.globalListener = globalListener;
         System.out.println("Press RoleSelection to start");
+    }
+    public void display() {
+        btnHome.addActionListener(globalListener);
+        btnContinue.addActionListener(packageListener);
     }
 
     public List<String> getRoles() {
