@@ -1,5 +1,7 @@
 package frames;
 
+import playerInfo.Player;
+
 import javax.swing.*;
 import java.awt.event.ActionListener;
 
@@ -12,4 +14,9 @@ public class VictoryFrame extends JFrame {
         System.out.println("Press Night to start");
     }
 
+    public void setPlayerInfo(Player copy) {
+    }
+
+    public void setWinner(String victor) {
+    }
 }

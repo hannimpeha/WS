@@ -2,12 +2,11 @@ package controllers;
 
 import util.LoadFileUtil;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.*;
+import java.awt.event.*;
 import java.io.FileNotFoundException;
-import javax.swing.JFrame;
+import java.util.concurrent.CountDownLatch;
+import javax.swing.*;
 
 public class Controller implements ActionListener, KeyListener {
 
@@ -18,11 +17,7 @@ public class Controller implements ActionListener, KeyListener {
     private MainController mc;
 
     public Controller() {
-        System.out.println("start");
-        frame = new JFrame();
-        frame.addKeyListener(this);
-        frame.setFocusable(true);
-        frame.setFocusTraversalKeysEnabled(false);
+        createFrame();
     }
 
     public void run() {
@@ -32,13 +27,18 @@ public class Controller implements ActionListener, KeyListener {
         fu = new LoadFileUtil();
     }
 
+    private void createFrame() {
+        frame = new JFrame();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //frame.addKeyListener(this);
+        //frame.setFocusable(true);
+        //frame.setFocusTraversalKeysEnabled(false);
+    }
     @Override
     public void actionPerformed(ActionEvent e) {
-    }
-
-    @Override
-    public void keyTyped(KeyEvent e) {
-        String name = KeyEvent.getKeyText(e.getKeyCode());
+        System.out.println("Type Home/Day/Night to Start Mafia Game");
+        JButton source = (JButton)e.getSource();
+        String name = source.getName();
         switch(name) {
             case "Day":
                 suc.start();
@@ -56,10 +56,29 @@ public class Controller implements ActionListener, KeyListener {
     }
 
     @Override
+    public void keyTyped(KeyEvent e) {
+        // String name = KeyEvent.getKeyText(e.getKeyCode());
+    }
+
+    @Override
     public void keyPressed(KeyEvent e) {
     }
     @Override
     public void keyReleased(KeyEvent e) {
+    }
+
+    public void waitForSpace() throws InterruptedException {
+        final CountDownLatch latch = new CountDownLatch(1);
+        KeyEventDispatcher dispatcher = new KeyEventDispatcher() {
+            public boolean dispatchKeyEvent(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_SPACE)
+                    latch.countDown();
+                return false;
+            }
+        };
+        KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(dispatcher);
+        latch.await();
+        KeyboardFocusManager.getCurrentKeyboardFocusManager().removeKeyEventDispatcher(dispatcher);
     }
 
 }

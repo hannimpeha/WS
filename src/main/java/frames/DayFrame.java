@@ -11,4 +11,7 @@ public class DayFrame extends JFrame {
         this.globalListener = globalListener;
         System.out.println("Press Day to start");
     }
+
+    public void displayPlayerButton(String name, int y) {
+    }
 }

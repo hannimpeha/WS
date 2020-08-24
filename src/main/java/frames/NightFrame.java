@@ -1,5 +1,7 @@
 package frames;
 
+import playerInfo.Player;
+
 import javax.swing.*;
 import java.awt.event.ActionListener;
 
@@ -10,5 +12,11 @@ public class NightFrame extends JFrame {
     public NightFrame(ActionListener globalListener){
         this.globalListener = globalListener;
         System.out.println("Press Night to start");
+    }
+
+    public void setDisplay(Player player) {
+    }
+
+    public void displayPlayerButton(String name, int y) {
     }
 }

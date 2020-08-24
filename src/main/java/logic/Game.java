@@ -95,4 +95,7 @@ public class Game {
         }
     }
 
+    public List<String> getPlayerNames() {
+        return playerNames;
+    }
 }

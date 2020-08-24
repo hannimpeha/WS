@@ -1,12 +1,9 @@
 import controllers.Controller;
-import org.jnativehook.NativeHookException;
-
-import java.io.IOException;
 
 
 public class main{
 
-    public static void main(String[] args) throws NativeHookException, IOException {
+    public static void main(String[] args) throws InterruptedException {
 
         Controller c = new Controller();
         c.run();
