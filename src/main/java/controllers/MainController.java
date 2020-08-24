@@ -1,11 +1,6 @@
 package controllers;
 
 import frames.DayFrame;
-import frames.MainFrame;
-import org.jnativehook.GlobalScreen;
-import org.jnativehook.NativeHookException;
-import org.jnativehook.keyboard.NativeKeyListener;
-import org.jnativehook.keyboard.NativeKeyEvent;
 
 import util.LoadFileUtil;
 
@@ -21,7 +16,7 @@ public class MainController implements ActionListener {
     private LoadFileUtil fu;
     private SetUpController suc;
     private GameController gc;
-    private MainFrame mf;
+    private DayFrame df;
 
     public MainController(JFrame frame, ActionListener globalListener) {
         this.frame = frame;
@@ -29,7 +24,7 @@ public class MainController implements ActionListener {
     }
 
     public void start() {
-        mf = new MainFrame(globalListener);
+        df.getContentPane();
     }
 
     @Override

@@ -4,19 +4,25 @@ import util.LoadFileUtil;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.FileNotFoundException;
 import javax.swing.JFrame;
 
-public class Controller implements ActionListener {
+public class Controller implements ActionListener, KeyListener {
 
     private JFrame frame;
     private LoadFileUtil fu;
     private SetUpController suc;
     private GameController gc;
     private MainController mc;
+    private ActionEvent globalListener;
 
     public Controller() {
         frame = new JFrame();
+        frame.addKeyListener((KeyListener) globalListener);
+        frame.setFocusable(true);
+        frame.setFocusTraversalKeysEnabled(false);
     }
 
     public void run() {
@@ -28,14 +34,15 @@ public class Controller implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        JFrame source = (JFrame) e.getSource();
-        String name = source.getName();
+    }
 
-        switch (name) {
+    @Override
+    public void keyTyped(KeyEvent e) {
+        String name = KeyEvent.getKeyText(e.getKeyCode());
+        switch(name) {
             case "Day":
                 suc.start();
                 fu.newFile(suc.getPlayerNames(), suc.getRoles());
-                break;
             case "Night":
                 fu.loadFile();
                 try {
@@ -43,12 +50,16 @@ public class Controller implements ActionListener {
                 } catch (FileNotFoundException exception) {
                     exception.printStackTrace();
                 }
-                break;
             case "Home":
                 mc.start();
-                break;
-            default:
-                break;
         }
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
     }
 }

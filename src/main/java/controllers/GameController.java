@@ -1,6 +1,5 @@
 package controllers;
 
-
 import frames.CheckPlayerFrame;
 import frames.DayFrame;
 import frames.NightFrame;

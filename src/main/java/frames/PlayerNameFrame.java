@@ -2,21 +2,17 @@ package frames;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PlayerNameFrame extends JFrame implements KeyListener {
+public class PlayerNameFrame extends JFrame {
 
     private ActionListener globalListener;
     private JFrame frame;
 
     public PlayerNameFrame(ActionListener globalListener){
         this.globalListener = globalListener;
-        addKeyListener((KeyListener) globalListener);
-        setFocusable(true);
-        setFocusTraversalKeysEnabled(false);
+        System.out.println("Press PlayerCount to start");
     }
 
     public List<String> getPlayerNames() {
@@ -27,18 +23,5 @@ public class PlayerNameFrame extends JFrame implements KeyListener {
             names.add(frame.getContentPane().getName());
         }
         return names;
-    }
-
-    @Override
-    public void keyTyped(KeyEvent e) {
-        if(KeyEvent.getKeyText(e.getKeyCode())=="yes"){}
-    }
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
     }
 }

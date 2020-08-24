@@ -10,15 +10,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class RoleSelectionFrame extends JFrame implements KeyListener {
+public class RoleSelectionFrame extends JFrame {
 
     private ActionListener globalListener;
 
     public RoleSelectionFrame(ActionListener globalListener){
         this.globalListener = globalListener;
-        addKeyListener((KeyListener) globalListener);
-        setFocusable(true);
-        setFocusTraversalKeysEnabled(false);
+        System.out.println("Press RoleSelection to start");
     }
 
     public List<String> getRoles() {
@@ -37,15 +35,4 @@ public class RoleSelectionFrame extends JFrame implements KeyListener {
         return availableRoles;
     }
 
-    @Override
-    public void keyTyped(KeyEvent e) {
-    }
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-    }
 }
