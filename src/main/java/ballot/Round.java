@@ -47,7 +47,7 @@ public class Round {
 
     public HashSet<String> findTopCandidates(Collection<String> restriction) {
         if (restriction.isEmpty()) {
-            return new HashSet<>(Set.of());
+            return new HashSet<>();
         }
         HashMap<String, Integer> voteDistRestricted = (HashMap<String, Integer>) voteDistribution.clone();
         for (String candidate : voteDistribution.keySet()) {

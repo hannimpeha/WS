@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Contest {
     private final ArrayList<Round> rounds = new ArrayList<>();
-    private HashMap<String, Pile> piles;
+    private final HashMap<String, Pile> piles;
     private HashSet<String> activeCandidates;
     private HashSet<String> allCandidates;
     private boolean contestRun = false;
