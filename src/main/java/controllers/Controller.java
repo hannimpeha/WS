@@ -8,6 +8,9 @@ import org.jnativehook.NativeHookException;
 
 import util.LoadFileUtil;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class Controller implements NativeKeyListener {
 
     private NativeKeyEvent frame;
@@ -21,6 +24,8 @@ public class Controller implements NativeKeyListener {
         gc = new GameController(frame, this);
         mc = new MainController(frame, this);
         fu = new LoadFileUtil();
+        Logger logger = Logger.getLogger(GlobalScreen.class.getPackage().getName());
+        logger.setLevel(Level.OFF);
         GlobalScreen.registerNativeHook();
         GlobalScreen.addNativeKeyListener(new GlobalKeyListener());
     }

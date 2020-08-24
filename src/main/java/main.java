@@ -1,4 +1,3 @@
-import ballot.Run;
 import controllers.Controller;
 import org.jnativehook.NativeHookException;
 
@@ -11,6 +10,7 @@ public class main{
 
         Controller c = new Controller();
         c.run();
+
     }
 
 }
