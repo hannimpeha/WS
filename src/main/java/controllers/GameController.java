@@ -10,11 +10,13 @@ import java.util.List;
 public class GameController implements NativeKeyListener {
 
     private NativeKeyListener globalListener;
+    private NativeKeyEvent frame;
     private Game g;
     private int position;
     private boolean target;
 
-    public GameController(NativeKeyListener globalListener) {
+    public GameController(NativeKeyEvent frame, NativeKeyListener globalListener) {
+        this.frame = frame;
         this.globalListener = globalListener;
     }
 

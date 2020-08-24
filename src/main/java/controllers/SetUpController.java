@@ -6,17 +6,20 @@ import org.jnativehook.keyboard.NativeKeyEvent;
 import javax.swing.*;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.lang.annotation.Native;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class SetUpController extends JFrame implements NativeKeyListener {
+public class SetUpController implements NativeKeyListener {
 
     private NativeKeyListener globalListener;
+    private NativeKeyEvent frame;
     private ArrayList<JTextField> textFields = new ArrayList<>();
     private int playerTotal;
 
-    public SetUpController(NativeKeyListener globalListener) {
+    public SetUpController(NativeKeyEvent frame, NativeKeyListener globalListener) {
+        this.frame = frame;
         this.globalListener = globalListener;
     }
 

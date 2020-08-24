@@ -1,28 +1,23 @@
-package controllers;
+package listener;
 
-import listener.GlobalKeyListener;
-import org.jnativehook.keyboard.NativeKeyListener;
-import org.jnativehook.keyboard.NativeKeyEvent;
+import controllers.GameController;
+import controllers.MainController;
+import controllers.SetUpController;
 import org.jnativehook.GlobalScreen;
 import org.jnativehook.NativeHookException;
-
+import org.jnativehook.keyboard.NativeKeyEvent;
+import org.jnativehook.keyboard.NativeKeyListener;
 import util.LoadFileUtil;
 
-public class Controller implements NativeKeyListener {
+public class GlobalKeyListener implements NativeKeyListener {
 
-    private NativeKeyEvent frame;
     private LoadFileUtil fu;
     private SetUpController suc;
     private GameController gc;
     private MainController mc;
 
-    public void run() throws NativeHookException {
-        suc = new SetUpController(frame, this);
-        gc = new GameController(frame, this);
-        mc = new MainController(frame, this);
-        fu = new LoadFileUtil();
-        GlobalScreen.registerNativeHook();
-        GlobalScreen.addNativeKeyListener(new GlobalKeyListener());
+    public void procedure(String source) {
+        MainController.manufacture(source, suc, fu, gc);
     }
 
     @Override
@@ -38,10 +33,6 @@ public class Controller implements NativeKeyListener {
         }
     }
 
-    public void procedure(String source) {
-        MainController.manufacture(source, suc, fu, gc);
-    }
-
     @Override
     public void nativeKeyReleased(NativeKeyEvent e) {
     }
@@ -49,5 +40,4 @@ public class Controller implements NativeKeyListener {
     @Override
     public void nativeKeyTyped(NativeKeyEvent e) {
     }
-
 }

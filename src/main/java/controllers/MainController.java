@@ -11,16 +11,18 @@ public class MainController implements NativeKeyListener {
 
     private NativeKeyListener packageListener;
     private NativeKeyListener globalListener;
+    private NativeKeyEvent frame;
     private LoadFileUtil fu;
     private SetUpController suc;
     private GameController gc;
 
-    public MainController(NativeKeyListener globalListener) {
+    public MainController(NativeKeyEvent frame, NativeKeyListener globalListener) {
+        this.frame = frame;
         this.globalListener = globalListener;
     }
 
     public void start() {
-        new MainController(globalListener);
+
     }
 
 
