@@ -16,13 +16,11 @@ public class Controller implements ActionListener, KeyListener {
     private SetUpController suc;
     private GameController gc;
     private MainController mc;
-    private KeyListener listener;
-    private ActionEvent event;
 
     public Controller() {
         System.out.println("start");
         frame = new JFrame();
-        frame.addKeyListener((KeyListener) event);
+        frame.addKeyListener(this);
         frame.setFocusable(true);
         frame.setFocusTraversalKeysEnabled(false);
     }
@@ -30,7 +28,7 @@ public class Controller implements ActionListener, KeyListener {
     public void run() {
         suc = new SetUpController(frame, this);
         gc = new GameController(frame, this);
-        mc = new MainController(frame, this);
+        mc = new MainController(frame,  this);
         fu = new LoadFileUtil();
     }
 
