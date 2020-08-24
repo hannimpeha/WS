@@ -4,6 +4,7 @@ import util.LoadFileUtil;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
 import javax.swing.JFrame;
 
 public class Controller implements ActionListener {
@@ -37,7 +38,11 @@ public class Controller implements ActionListener {
                 break;
             case "Night":
                 fu.loadFile();
-                gc.start(fu.getPlayerInfo());
+                try {
+                    gc.start(fu.getPlayerInfo());
+                } catch (FileNotFoundException exception) {
+                    exception.printStackTrace();
+                }
                 break;
             case "Home":
                 mc.start();
