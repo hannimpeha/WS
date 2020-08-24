@@ -1,0 +1,3 @@
+Doctor|Heal another player each night|Lynch all members of the Mafia
+Townie|You have nothing to do at night.|Lynch all members of the Mafia
+Mafia|Kill a different player each night|Make the majority of the town Mafia by any means
