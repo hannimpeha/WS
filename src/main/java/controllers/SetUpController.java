@@ -1,31 +1,45 @@
 package controllers;
 
+import frames.PlayerCountFrame;
+import frames.PlayerNameFrame;
+import frames.RoleSelectionFrame;
 import org.jnativehook.keyboard.NativeKeyListener;
 import org.jnativehook.keyboard.NativeKeyEvent;
+import playerInfo.Player;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.lang.annotation.Native;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class SetUpController implements NativeKeyListener {
+public class SetUpController implements ActionListener {
 
-    private NativeKeyListener globalListener;
-    private NativeKeyEvent frame;
+    private ActionListener globalListener;
+    private JFrame frame;
     private ArrayList<JTextField> textFields = new ArrayList<>();
     private int playerTotal;
+    private PlayerCountFrame pcf;
+    private PlayerNameFrame pnf;
+    private RoleSelectionFrame rsf;
 
-    public SetUpController(NativeKeyEvent frame, NativeKeyListener globalListener) {
+    public SetUpController(JFrame frame, ActionListener globalListener) {
         this.frame = frame;
         this.globalListener = globalListener;
     }
 
     public void start() {
+
+        pcf = new PlayerCountFrame(globalListener);
+        pnf = new PlayerNameFrame(globalListener);
+        rsf = new RoleSelectionFrame(globalListener);
         playerTotal = 3;
+
     }
+
 
     public void displayPlayerCenter(int playerTotal) {
         for(int i=0; i<playerTotal; i++) {
@@ -33,45 +47,21 @@ public class SetUpController implements NativeKeyListener {
         }
     }
 
-    public List<String> getPlayerNames() {
-        List<String> names = new ArrayList<>();
-        for(JTextField f: textFields) {
-            if(f.getText().equals("")||f.getText()==null){
-                names.add(f.getName());
-            }else{
-                names.add(f.getText());
-            }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        JFrame source = (JFrame) e.getSource();
+        String name = source.getName();
+        switch(name) {
+            case"Continue_PlayerCount":
+            break;
         }
-        return names;
+    }
+
+    public List<String> getPlayerNames() {
+        return pnf.getPlayerNames();
     }
 
     public List<String> getRoles() {
-        List<String> availableRoles = new ArrayList<>();
-        Scanner fileScanner = null;
-        try {
-            fileScanner = new Scanner(new File("src/resources/roles.txt"));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        while(fileScanner.hasNextLine()) {
-            String line = fileScanner.nextLine();
-            String[] split = line.split("\\|");
-            availableRoles.add(split[0]);
-        }
-        return availableRoles;
+        return rsf.getRoles();
     }
-
-
-    @Override
-    public void nativeKeyPressed(NativeKeyEvent e) {
-    }
-
-    @Override
-    public void nativeKeyReleased(NativeKeyEvent e) {
-    }
-
-    @Override
-    public void nativeKeyTyped(NativeKeyEvent e) {
-    }
-
 }

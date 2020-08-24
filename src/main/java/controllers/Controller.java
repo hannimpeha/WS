@@ -1,58 +1,49 @@
 package controllers;
 
-import listener.GlobalKeyListener;
-import org.jnativehook.keyboard.NativeKeyListener;
-import org.jnativehook.keyboard.NativeKeyEvent;
-import org.jnativehook.GlobalScreen;
-import org.jnativehook.NativeHookException;
-
 import util.LoadFileUtil;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JFrame;
 
-public class Controller implements NativeKeyListener {
+public class Controller implements ActionListener {
 
-    private NativeKeyEvent frame;
+    private JFrame frame;
     private LoadFileUtil fu;
     private SetUpController suc;
     private GameController gc;
     private MainController mc;
 
-    public void run() throws NativeHookException {
+    public Controller() {
+        frame = new JFrame();
+    }
+
+    public void run() {
         suc = new SetUpController(frame, this);
         gc = new GameController(frame, this);
         mc = new MainController(frame, this);
         fu = new LoadFileUtil();
-        Logger logger = Logger.getLogger(GlobalScreen.class.getPackage().getName());
-        logger.setLevel(Level.OFF);
-        GlobalScreen.registerNativeHook();
-        GlobalScreen.addNativeKeyListener(new GlobalKeyListener());
     }
 
     @Override
-    public void nativeKeyPressed(NativeKeyEvent e) {
-        String source = NativeKeyEvent.getKeyText(e.getKeyCode());
-        procedure(source);
-        if (e.getKeyCode() == NativeKeyEvent.VC_ESCAPE) {
-            try {
-                GlobalScreen.unregisterNativeHook();
-            } catch (NativeHookException nativeHookException) {
-                nativeHookException.printStackTrace();
-            }
+    public void actionPerformed(ActionEvent e) {
+        JFrame source = (JFrame) e.getSource();
+        String name = source.getName();
+
+        switch (name) {
+            case "Day":
+                suc.start();
+                fu.newFile(suc.getPlayerNames(), suc.getRoles());
+                break;
+            case "Night":
+                fu.loadFile();
+                gc.start(fu.getPlayerInfo());
+                break;
+            case "Home":
+                mc.start();
+                break;
+            default:
+                break;
         }
     }
-
-    public void procedure(String source) {
-        MainController.manufacture(source, suc, fu, gc);
-    }
-
-    @Override
-    public void nativeKeyReleased(NativeKeyEvent e) {
-    }
-
-    @Override
-    public void nativeKeyTyped(NativeKeyEvent e) {
-    }
-
 }
