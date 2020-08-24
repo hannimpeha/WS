@@ -1,19 +1,20 @@
 package panels;
 
-import javax.swing.*;
-import java.awt.event.ActionListener;
+import org.jnativehook.keyboard.NativeKeyListener;
+
+import javax.swing.*;s
 import java.util.ArrayList;
 import java.util.List;
 
 public class Night {
 
-    private ActionListener packageListener;
+    private NativeKeyListener packageListener;
     private JButton btnContinue;
     private JButton btnDoctor;
     private List<JButton> playerButtonList = new ArrayList<>();
     private String lynchTarget;
 
-    public Night(ActionListener packageListener, List<String> mafiaMember, String lynchTarget) {
+    public Night(NativeKeyListener packageListener, List<String> mafiaMember, String lynchTarget) {
         this.packageListener = packageListener;
         this.lynchTarget = lynchTarget;
         btnContinue.addActionListener(packageListener);
