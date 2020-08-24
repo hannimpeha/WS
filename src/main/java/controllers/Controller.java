@@ -16,11 +16,13 @@ public class Controller implements ActionListener, KeyListener {
     private SetUpController suc;
     private GameController gc;
     private MainController mc;
-    private ActionEvent globalListener;
+    private KeyListener listener;
+    private ActionEvent event;
 
     public Controller() {
+        System.out.println("start");
         frame = new JFrame();
-        frame.addKeyListener((KeyListener) globalListener);
+        frame.addKeyListener((KeyListener) event);
         frame.setFocusable(true);
         frame.setFocusTraversalKeysEnabled(false);
     }
@@ -58,8 +60,8 @@ public class Controller implements ActionListener, KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
     }
-
     @Override
     public void keyReleased(KeyEvent e) {
     }
+
 }
