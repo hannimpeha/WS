@@ -7,9 +7,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class BallotMain {
+public class Run {
 
-    public BallotMain() throws IOException {
+    public Run() throws IOException {
         ArrayList<List<String>> rawBallots = new ArrayList<>();
         BufferedReader br = new BufferedReader(new FileReader("src/resources/rawBallots.csv"));
         String line = br.readLine();

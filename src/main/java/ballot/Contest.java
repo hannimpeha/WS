@@ -4,28 +4,29 @@ import java.util.*;
 
 public class Contest {
     private final ArrayList<Round> rounds = new ArrayList<>();
-    private final HashMap<String, Pile> piles;
+    private HashMap<String, Pile> piles;
     private HashSet<String> activeCandidates;
     private HashSet<String> allCandidates;
     private boolean contestRun = false;
 
-    public Contest(Collection<String> candidates, Collection<List<String>> rawBallots) {}
+    public Contest(Collection<String> candidates, Collection<List<String>> rawBallots) {
         allCandidates = new HashSet<>(candidates);
         activeCandidates = new HashSet<>(candidates);
         piles = new HashMap<>(candidates.size());
         Pile pile;
-        for(String candidate: candidates) {
+        for (String candidate : candidates) {
             pile = new Pile(candidate);
             piles.put(candidate, pile);
         }
         Pile initialPile = new Pile("__initialPile");
         Ballot ballot;
-        for(List<String> rawBallot: rawBallots) {
+        for (List<String> rawBallot : rawBallots) {
             ballot = new Ballot(rawBallot);
             initialPile.addBallot(ballot);
         }
         piles.put("__initialPile", initialPile);
         allCandidates.add("__initialPile");
+    }
 
     private void runContest() {
         contestRun = true;
@@ -35,7 +36,7 @@ public class Contest {
             round = createNewRound();
             rounds.add(round);
             activeCandidates = round.getNonEliminatedCandidates();
-            eliminateCadidates();
+            eliminateCandidates();
         } while (!activeCandidates.isEmpty());
     }
 
@@ -44,7 +45,7 @@ public class Contest {
         Pile activeCandidatePile;
         for(String activeCandidate: activeCandidates) {
             activeCandidatePile = piles.get(activeCandidate);
-            activeCandidatePiles.add(activeCandidatePile);
+            activeCandidatesPiles.add(activeCandidatePile);
         }
         return new Round(activeCandidatesPiles);
     }
