@@ -1,11 +1,11 @@
 package panels;
 
 import ballot.Voting;
+import controllers.Controller;
 import controllers.GameController;
 import util.LoadFileUtil;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class DayPanel {
@@ -20,13 +20,12 @@ public class DayPanel {
     private int round;
     private String playerLine;
 
-    public DayPanel(String input, int round, String playerLine) {
-        this.playerLine = playerLine;
+    public DayPanel(String input, int round){
         this.input = input;
         this.round = round;
     }
 
-    public BufferedReader start(int round) {
+    public void start(int round) {
         ir = new InputStreamReader(System.in);
         br = new BufferedReader(ir);
         if (round == 0) {
@@ -46,6 +45,5 @@ public class DayPanel {
             fu.saveGame();
             System.out.println("Type \"night\" to continue.");
         }
-        return br;
     }
 }

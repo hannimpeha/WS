@@ -1,9 +1,9 @@
 package panels;
 
+import controllers.Controller;
 import controllers.GameController;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class NightPanel {
@@ -18,7 +18,7 @@ public class NightPanel {
         this.input = input;
     }
 
-    public BufferedReader start() {
+    public void start() {
         if(round==0) {
             System.out.println("what to do in the nights.");
         } else {
@@ -27,7 +27,6 @@ public class NightPanel {
         System.out.println("Type \"day\" to continue.");
         ir = new InputStreamReader(System.in);
         br = new BufferedReader(ir);
-        return br;
     }
 
 }

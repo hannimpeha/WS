@@ -35,7 +35,7 @@ public class GameController {
 
     public void daysToCome(int round) {
         while(round>0) {
-            dp = new DayPanel(input, round, playerLine);
+            dp = new DayPanel(input, round);
             dp.start(round);
         }
     }

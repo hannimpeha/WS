@@ -20,17 +20,14 @@ public class SetUpController {
     private GameController gc;
     private String playerLine;
 
-    public SetUpController(String input, int round, String playerLine) {
-        this.playerLine = playerLine;
-        this.input = input;
-        dp = new DayPanel(playerLine, round, playerLine);
+    public SetUpController(String input) {
+        dp = new DayPanel(input, round);
         np = new NightPanel(input);
     }
 
-    public String start(int round) throws IOException {
-        dp = new DayPanel(input, round, playerLine);
-        gc = new GameController(dp.start(round).readLine(), round);
-        return input;
+    public void start(int round) {
+        dp = new DayPanel(input, round);
+        gc = new GameController(input, round);
     }
 
 
