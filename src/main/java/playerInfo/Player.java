@@ -27,6 +27,12 @@ public abstract class Player {
         this.target = false;
     }
 
+    public Player(String name, int status, boolean target) {
+        this.name = name;
+        this.status = status;
+        this.target = target;
+    }
+
     public Player(String name, int position, int status, boolean target) {
         this.name = name;
         this.position = position;

@@ -1,0 +1,7 @@
+hyo,ji,vi,se,ari,mi,yoo
+hyo,yoo,ji,vi,se,ari,mi
+hyo,yoo,mi,vi,se,ari,ji
+hyo,ji,mi,vi,se,ari,yoo
+ji,yoo,mi,hyo,vi,se,ari
+hyo,ji,mi,vi,se,ari,yoo
+hyo,ji,mi,vi,se,ari,yoo

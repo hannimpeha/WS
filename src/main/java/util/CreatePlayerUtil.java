@@ -20,4 +20,5 @@ public class CreatePlayerUtil {
             default : return new Townie(name, position, status, target);
         }
     }
+
 }

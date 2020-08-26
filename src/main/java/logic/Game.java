@@ -15,7 +15,6 @@ public class Game {
 
     public Game(List<Player> playerInfo) {
         this.playerInfo = playerInfo;
-        //this.setPlayer(players);
         playerNames();
     }
 
@@ -74,9 +73,7 @@ public class Game {
     public void setPlayerTarget(int position, boolean target) {
         playerInfo.get(position).setTarget(target);
     }
-    //protected void setPlayer(List<Player> players) {
-    //    this.players = players;
-    //}
+
     public List<Player> getPlayerInfo() {
         List<Player> clone = new ArrayList<Player>(playerInfo);
         return clone;

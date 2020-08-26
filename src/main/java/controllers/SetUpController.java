@@ -1,73 +1,44 @@
 package controllers;
 
-import frames.PlayerCountFrame;
-import frames.PlayerNameFrame;
-import frames.RoleSelectionFrame;
+import panels.DayPanel;
+import panels.NightPanel;
+import util.LoadFileUtil;
 
-import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.util.List;
 
-public class SetUpController implements ActionListener {
+public class SetUpController {
 
-    private ActionListener globalListener;
-    private JFrame frame;
+    private String input;
+    private BufferedReader br;
+    private DayPanel dp;
+    private NightPanel np;
+    private LoadFileUtil fu;
+    private int round;
+    private GameController gc;
+    private String playerLine;
 
-    private PlayerCountFrame pcf;
-    private PlayerNameFrame pnf;
-    private RoleSelectionFrame rsf;
-
-    private Container panelCount;
-    private Container panelName;
-    private Container panelRole;
-
-    private int playerTotal;
-
-    public SetUpController(JFrame frame, ActionListener globalListener) {
-        this.frame = frame;
-        this.globalListener = globalListener;
+    public SetUpController(String input, int round, String playerLine) {
+        this.playerLine = playerLine;
+        this.input = input;
+        dp = new DayPanel(playerLine, round, playerLine);
+        np = new NightPanel(input);
     }
 
-    public void start() {
-
-        pcf = new PlayerCountFrame(globalListener);
-        pnf = new PlayerNameFrame(this, globalListener);
-        rsf = new RoleSelectionFrame(this, globalListener);
-
-        panelCount = pcf.getContentPane();
-        panelName = pnf.getContentPane();
-        panelRole = rsf.getContentPane();
-
-        playerTotal = 3;
-
-        switchPanel((JPanel) panelCount);
+    public String start(int round) throws IOException {
+        dp = new DayPanel(input, round, playerLine);
+        gc = new GameController(dp.start(round).readLine(), round);
+        return input;
     }
 
-    private void switchPanel(JPanel panel){
-        System.out.println("SWITCHING: "+panel.getName());
-        frame.getContentPane().setVisible(false);
-        frame.setContentPane(panel);
-        frame.getContentPane().setVisible(true);
-    }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        JButton source = (JButton) e.getSource();
-        String name = source.getName();
-        switch (name) {
-            case "Continue_PlayerCount":
-                pnf.displayCenter(playerTotal);
-                switchPanel((JPanel) panelName);
-                break;
-        }
-    }
-    public List<String> getPlayerNames() {
-        return pnf.getPlayerNames();
+    public void getPlayerNames() {
+        System.out.println(fu.loadFile());
     }
 
     public List<String> getRoles() {
-        return rsf.getRoles();
+        return null;
     }
 }

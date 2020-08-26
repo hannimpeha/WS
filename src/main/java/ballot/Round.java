@@ -23,7 +23,6 @@ public class Round {
 
     public int getVotes(String candidate) {
         int votes = 0;
-
         if (voteDistribution.containsKey(candidate)) {
             votes = voteDistribution.get(candidate);
         }

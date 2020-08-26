@@ -2,83 +2,44 @@ package controllers;
 
 import util.LoadFileUtil;
 
-import java.awt.*;
-import java.awt.event.*;
-import java.io.FileNotFoundException;
-import java.util.concurrent.CountDownLatch;
-import javax.swing.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
-public class Controller implements ActionListener, KeyListener {
+public class Controller {
 
-    private JFrame frame;
-    private LoadFileUtil fu;
     private SetUpController suc;
     private GameController gc;
-    private MainController mc;
+    private InputStreamReader ir;
+    private BufferedReader br;
+    private LoadFileUtil fu;
+    private String input;
 
     public Controller() {
-        createFrame();
     }
 
     public void run() {
-        suc = new SetUpController(frame, this);
-        gc = new GameController(frame, this);
-        mc = new MainController(frame,  this);
+        System.out.println("\"game\" or \"exit\".");
+        ir = new InputStreamReader(System.in);
+        br = new BufferedReader(ir);
         fu = new LoadFileUtil();
-    }
-
-    private void createFrame() {
-        frame = new JFrame();
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //frame.addKeyListener(this);
-        //frame.setFocusable(true);
-        //frame.setFocusTraversalKeysEnabled(false);
-    }
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        System.out.println("Type Home/Day/Night to Start Mafia Game");
-        JButton source = (JButton)e.getSource();
-        String name = source.getName();
-        switch(name) {
-            case "Day":
-                suc.start();
-                fu.newFile(suc.getPlayerNames(), suc.getRoles());
-            case "Night":
-                fu.loadFile();
-                try {
-                    gc.start(fu.getPlayerInfo());
-                } catch (FileNotFoundException exception) {
-                    exception.printStackTrace();
-                }
-            case "Home":
-                mc.start();
+        input = null;
+        int round = 0;
+        try {
+            do{
+                input = br.readLine();
+                switch(input) {
+                    case "game":
+                        fu.newFile();
+                        input = br.readLine();
+                        suc = new SetUpController(input, 0, fu.loadFile());
+                        suc.start(0);
+                    default:
+                        break;
+                    }
+            } while (!input.equalsIgnoreCase("exit"));
+        }catch(IOException exception) {
+            exception.printStackTrace();
         }
     }
-
-    @Override
-    public void keyTyped(KeyEvent e) {
-        // String name = KeyEvent.getKeyText(e.getKeyCode());
-    }
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-    }
-    @Override
-    public void keyReleased(KeyEvent e) {
-    }
-
-    public void waitForSpace() throws InterruptedException {
-        final CountDownLatch latch = new CountDownLatch(1);
-        KeyEventDispatcher dispatcher = new KeyEventDispatcher() {
-            public boolean dispatchKeyEvent(KeyEvent e) {
-                if (e.getKeyCode() == KeyEvent.VK_SPACE)
-                    latch.countDown();
-                return false;
-            }
-        };
-        KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(dispatcher);
-        latch.await();
-        KeyboardFocusManager.getCurrentKeyboardFocusManager().removeKeyEventDispatcher(dispatcher);
-    }
-
 }
