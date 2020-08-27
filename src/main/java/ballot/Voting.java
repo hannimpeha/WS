@@ -28,7 +28,6 @@ public class Voting {
         rawBallots = preliminary();
         Contest contest = new Contest(candidates, rawBallots);
         System.out.println("Player \""+contest.getWinner().iterator().next()+"\" has been picked to be lynched.");
-        //System.out.println("Player \""+"Hyo"+"\" has been picked to be lynched.");
     }
 
     public ArrayList<List<String>> preliminary() {

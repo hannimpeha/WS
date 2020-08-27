@@ -1,6 +1,9 @@
 package controllers;
 
 import util.LoadFileUtil;
+
+import javax.swing.*;
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -13,8 +16,23 @@ public class Controller {
     private BufferedReader br;
     private LoadFileUtil fu;
     private String input;
+    private ConsolePane cp;
 
     public void Controller() {
+        EventQueue.invokeLater(() -> {
+            try {
+                UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+            } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
+            }
+
+            JFrame frame = new JFrame("Mafia Game");
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setLayout(new BorderLayout());
+            frame.add(new ConsolePane());
+            frame.pack();
+            frame.setLocationRelativeTo(null);
+            frame.setVisible(true);
+        });
     }
 
     public void run() {
