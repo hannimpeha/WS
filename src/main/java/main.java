@@ -5,7 +5,8 @@ public class main{
 
     public static void main(String[] args) {
 
-        new Controller();
+        Controller c = new Controller();
+        c.run();
 
     }
 

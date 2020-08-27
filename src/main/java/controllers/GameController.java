@@ -2,6 +2,7 @@ package controllers;
 
 import consoles.AppendTask;
 import consoles.CommandListener;
+import consoles.ConsolePane;
 import consoles.Terminal;
 import logic.Game;
 import panels.DayPanel;
@@ -12,50 +13,23 @@ import javax.swing.*;
 import java.util.List;
 
 
-public class GameController implements CommandListener, Terminal {
+public class GameController  {
 
     private JFrame frame;
-    private CommandListener commandListener;
-    private Terminal cmd;
+    private ConsolePane cp;
     private Game g;
     private DayPanel dp;
     private NightPanel np;
     private List<Player> playerInfo;
 
-    public GameController(JFrame frame, CommandListener commandListener, Terminal cmd) {
+    public GameController(JFrame frame, ConsolePane cp) {
         this.frame = frame;
-        this.commandListener = commandListener;
-        this.cmd = cmd;
+        this.cp = cp;
     }
 
     public void start() {
         g = new Game(playerInfo);
         dp = new DayPanel();
-        np = new NightPanel(commandListener);
     }
 
-    @Override
-    public void commandOutput(String text) {
-        SwingUtilities.invokeLater(new AppendTask(this, text));
-    }
-
-    @Override
-    public void commandCompleted(String cmd, int result) {
-        SwingUtilities.invokeLater(new AppendTask(this, "Command failed."));
-    }
-
-    @Override
-    public void commandFailed(Exception exp) {
-        appendText("\n> " + cmd + " exit.\n");
-    }
-
-    @Override
-    public void appendText(String text) {
-        this.appendText(text);
-    }
-
-    @Override
-    public int getUserInputStart() {
-        return 0;
-    }
 }

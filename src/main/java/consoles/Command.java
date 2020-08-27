@@ -37,7 +37,6 @@ public class Command {
                         values.addAll(Arrays.asList(parts));
                     }
                     values.add(quote.trim());
-
                 }
 
                 if (!cmd.trim().isEmpty()) {

@@ -6,6 +6,12 @@ import java.awt.*;
 
 public class Controller {
 
+    private JFrame frame;
+    private MainController mc;
+    private SetUpController suc;
+    private GameController gc;
+    private ConsolePane cp;
+
     public Controller() {
         EventQueue.invokeLater(new Runnable() {
             @Override
@@ -19,12 +25,12 @@ public class Controller {
         });
     }
 
-//    public void run() {
-//        //mc = new MainController(frame, listener, this);
-//        //gc = new GameController(frame,  listener, this);
-//        //suc = new SetUpController(frame, listener, this);
-//        //mc.start();
-//    }
+    public void run() {
+        mc = new MainController(frame, cp);
+        suc = new SetUpController(frame, cp);
+        gc = new GameController(frame,  cp);
+        mc.start();
+    }
 
     public void createFrame() {
         JFrame frame = new JFrame("Hannah's Mafia Game");

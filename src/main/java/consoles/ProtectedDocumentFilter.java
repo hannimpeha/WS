@@ -7,13 +7,19 @@ import javax.swing.text.DocumentFilter;
 public class ProtectedDocumentFilter extends DocumentFilter {
 
     private UserInput userInput;
+    private UserOutput userOutput;
 
-    public ProtectedDocumentFilter(UserInput userInput) {
+    public ProtectedDocumentFilter(UserInput userInput, UserOutput userOutput) {
         this.userInput = userInput;
+        this.userOutput = userOutput;
     }
 
     public UserInput getUserInput() {
         return userInput;
+    }
+
+    public UserOutput getUserOutput() {
+        return userOutput;
     }
 
     @Override

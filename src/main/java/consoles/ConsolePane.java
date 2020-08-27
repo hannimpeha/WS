@@ -12,17 +12,22 @@ import java.util.logging.Logger;
 public class ConsolePane extends JPanel implements CommandListener, Terminal {
 
     private JTextArea textArea;
+    private JTextField textField;
     private int userInputStart = 0;
     private Command cmd;
 
     public ConsolePane(){
         cmd = new Command(this);
+        textArea = new JTextArea(20, 30);
+        textField = new JTextField("Game or Exit", 30);
 
-        setLayout(new BorderLayout());
-        textArea = new JTextArea(30, 30);
+        ((AbstractDocument) textField.getDocument()).setDocumentFilter(
+                new ProtectedDocumentFilter(this,this));
         ((AbstractDocument) textArea.getDocument()).setDocumentFilter(
-                new ProtectedDocumentFilter(this));
-        add(new JScrollPane(textArea));
+                new ProtectedDocumentFilter(this,this));
+
+        add(new JScrollPane(textField), new BorderLayout().NORTH);
+        add(new JScrollPane(textArea), new BorderLayout().CENTER);
 
         InputMap im = textArea.getInputMap(WHEN_FOCUSED);
         ActionMap am = textArea.getActionMap();
@@ -51,11 +56,12 @@ public class ConsolePane extends JPanel implements CommandListener, Terminal {
                 oldAction.actionPerformed(e);
             }
         });
+
     }
 
     @Override
     public void commandOutput(String text) {
-        SwingUtilities.invokeLater(new AppendTask(this, text));
+        SwingUtilities.invokeLater(new AppendTask(this, text, textField.getText()));
     }
 
     @Override
@@ -66,7 +72,14 @@ public class ConsolePane extends JPanel implements CommandListener, Terminal {
 
     @Override
     public void commandFailed(Exception exp) {
-        SwingUtilities.invokeLater(new AppendTask(this, "Command failed - " + exp.getMessage()));
+        SwingUtilities.invokeLater(new AppendTask(
+                this, "Command failed - " + exp.getMessage(),
+                textField.getText()));
+    }
+
+    @Override
+    public void appendOrder(String order) {
+        textField.getActionListeners();
     }
 
     @Override
@@ -84,5 +97,10 @@ public class ConsolePane extends JPanel implements CommandListener, Terminal {
         int pos = textArea.getCaretPosition();
         textArea.setCaretPosition(textArea.getText().length());
         userInputStart = pos;
+    }
+
+    @Override
+    public int getUserOutputStart() {
+        return 0;
     }
 }

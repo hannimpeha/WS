@@ -25,12 +25,15 @@ public class ProcessRunner extends Thread {
             process = pb.start();
             StreamReader reader =
                     new StreamReader(listener, process.getInputStream());
+            StreamWriter writer =
+                    new StreamWriter(listener, process.getOutputStream());
             // Need a stream writer...
 
             int result = process.waitFor();
 
             // Terminate the stream writer
             reader.join();
+            writer.join();
 
             StringJoiner sj = new StringJoiner(" ");
             cmds.stream().forEach((cmd) -> {
