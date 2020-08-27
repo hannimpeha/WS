@@ -1,21 +1,14 @@
 package controllers;
 
+import consoles.ConsolePane;
 import util.LoadFileUtil;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 
 public class Controller {
 
-    private SetUpController suc;
-    private GameController gc;
-    private InputStreamReader ir;
-    private BufferedReader br;
     private LoadFileUtil fu;
-    private String input;
     private ConsolePane cp;
 
     public void Controller() {
@@ -25,7 +18,7 @@ public class Controller {
             } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
             }
 
-            JFrame frame = new JFrame("Mafia Game");
+            JFrame frame = new JFrame("Hannah's Mafia Game");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setLayout(new BorderLayout());
             frame.add(new ConsolePane());
@@ -36,26 +29,7 @@ public class Controller {
     }
 
     public void run() {
-        System.out.println("\"game\" or \"exit\".");
-        ir = new InputStreamReader(System.in);
-        br = new BufferedReader(ir);
-        fu = new LoadFileUtil();
-        int round = 0;
-        try {
-            do{
-                input = br.readLine();
-                switch(input) {
-                    case "game":
-                        fu.newFile();
-                        input = br.readLine();
-                        new SetUpController(input).start(0);
-                    default:
-                        break;
-                    }
-            } while (!input.equalsIgnoreCase("exit"));
-        }catch(IOException exception) {
-            exception.printStackTrace();
-        }
+
     }
 
 }

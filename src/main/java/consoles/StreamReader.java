@@ -1,4 +1,6 @@
-package controllers;
+package consoles;
+
+import consoles.CommandListener;
 
 import java.io.IOException;
 import java.io.InputStream;
