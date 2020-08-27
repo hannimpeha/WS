@@ -1,7 +1,5 @@
 package consoles;
 
-import consoleExample.ConsoleExample;
-
 import javax.swing.*;
 import javax.swing.text.AbstractDocument;
 import javax.swing.text.BadLocationException;
@@ -48,7 +46,7 @@ public class ConsolePane extends JPanel implements CommandListener, Terminal {
                         }
                     }
                 } catch (BadLocationException ex) {
-                    Logger.getLogger(ConsoleExample.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(ConsolePane.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 oldAction.actionPerformed(e);
             }
