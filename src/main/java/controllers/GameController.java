@@ -16,15 +16,15 @@ import java.util.List;
 public class GameController  {
 
     private JFrame frame;
-    private ConsolePane cp;
+    private CommandListener listener;
     private Game g;
     private DayPanel dp;
     private NightPanel np;
     private List<Player> playerInfo;
 
-    public GameController(JFrame frame, ConsolePane cp) {
+    public GameController(JFrame frame, CommandListener listener) {
         this.frame = frame;
-        this.cp = cp;
+        this.listener = listener;
     }
 
     public void start() {

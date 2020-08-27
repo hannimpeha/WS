@@ -7,19 +7,20 @@ import consoles.Terminal;
 import util.LoadFileUtil;
 
 import javax.swing.*;
+import java.io.FileNotFoundException;
 
 public class SetUpController {
 
     private JFrame frame;
-    private ConsolePane cp;
+    private CommandListener listener;
     private LoadFileUtil fu;
 
-    public SetUpController(JFrame frame, ConsolePane cp) {
+    public SetUpController(JFrame frame, CommandListener listener) {
         this.frame = frame;
-        this.cp = cp;
+        this.listener = listener;
     }
 
-    public void start() {
+    public void start() throws FileNotFoundException {
         fu = new LoadFileUtil();
         fu.newFile();
     }

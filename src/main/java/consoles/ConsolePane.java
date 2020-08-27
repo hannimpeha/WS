@@ -14,12 +14,13 @@ public class ConsolePane extends JPanel implements CommandListener, Terminal {
     private JTextArea textArea;
     private JTextField textField;
     private int userInputStart = 0;
+    private String userOutputStart = "Game or Exit";
     private Command cmd;
 
     public ConsolePane(){
         cmd = new Command(this);
         textArea = new JTextArea(20, 30);
-        textField = new JTextField("Game or Exit", 30);
+        textField = new JTextField(userOutputStart, 20);
 
         ((AbstractDocument) textField.getDocument()).setDocumentFilter(
                 new ProtectedDocumentFilter(this,this));

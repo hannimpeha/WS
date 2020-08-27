@@ -3,6 +3,7 @@ package controllers;
 import consoles.*;
 import javax.swing.*;
 import java.awt.*;
+import java.io.FileNotFoundException;
 
 public class Controller {
 
@@ -10,7 +11,7 @@ public class Controller {
     private MainController mc;
     private SetUpController suc;
     private GameController gc;
-    private ConsolePane cp;
+    private CommandListener listener;
 
     public Controller() {
         EventQueue.invokeLater(new Runnable() {
@@ -25,11 +26,11 @@ public class Controller {
         });
     }
 
-    public void run() {
-        mc = new MainController(frame, cp);
-        suc = new SetUpController(frame, cp);
-        gc = new GameController(frame,  cp);
-        mc.start();
+    public void run() throws FileNotFoundException {
+        mc = new MainController(frame, listener);
+        suc = new SetUpController(frame, listener);
+        gc = new GameController(frame,  listener);
+        suc.start();
     }
 
     public void createFrame() {

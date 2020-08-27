@@ -1,59 +1,51 @@
 package util;
 
+import consoles.Command;
+import consoles.CommandListener;
+import consoles.ConsolePane;
 import playerInfo.Player;
 
-import java.io.*;
-import java.util.*;
+import javax.swing.*;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
-import static java.lang.Boolean.parseBoolean;
-import static java.lang.Integer.parseInt;
+public class LoadFileUtil extends ConsolePane {
 
-public class LoadFileUtil {
-
-    private List<Player> playerInfo = new ArrayList<>();
-    private String playerLine;
-    private List<String> playerName = new ArrayList<>();
-    private List<String> playerRole = new ArrayList<>();
+    private CommandListener listener;
     private PrintWriter pw;
-    private BufferedReader br;
-    private String str;
-    private String lynched;
-    private Scanner scanner;
-    private Scanner tokenizer;
-    private int status;
-    private StringBuilder sb;
     private CreatePlayerUtil cpu;
+    private List<Player> playerInfo;
+    private List<String> playerName;
+    private List<String> playerRole;
+    private Command cmd;
+
+    private InputStream is;
 
     public LoadFileUtil() {
+        this.listener = listener;
+        this.cmd = cmd;
     }
 
-    public void newFile() {
-        System.out.println("Type players' names separated by Enter and \"end\".");
-        scanner = new Scanner(System.in);
-        try {
-            do {
-                str = scanner.nextLine();
-                pw = new PrintWriter(
-                        "/Users/hannimpeha/HANNIMPEHA/Thesis/" +
-                                "FascinatingProject" +
-                                "/src/main/java/resource/players.txt");
-                tokenizer = new Scanner(str);
-                tokenizer.useDelimiter(",");
-                while(tokenizer.hasNext()) {
-                    playerName.add(tokenizer.next());
-                }
-            } while (!str.equalsIgnoreCase("end"));
-            playerName.remove(playerName.size()-1);
-            pw.print(playerName);
-            pw.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void newFile() throws FileNotFoundException {
+        listener.commandOutput("Type players' names separated by Enter and \"end\"");
+        pw = new PrintWriter("/Users/" +
+                "hannimpeha/" +
+                "HANNIMPEHA/Thesis/" +
+                "FascinatingProject" +
+                "/src/main/java/resource/" +
+                "players.txt");
+        pw.println(this.cmd);
         pw.close();
-        System.out.println("You have typed " + playerName.size() + " players in total. Assigned roles are as follows.");
-        createRoles(playerName);
-        setAllPlayers(playerName, playerRole);
-        System.out.println("Type \"day\" to continue.");
+        //System.out.println("You have typed " + playerName.size() + " " +
+        //        "players in total. Assigned roles are as follows.");
+        //createRoles(playerName);
+        //setAllPlayers(playerName, playerRole);
     }
 
     public void createRoles(List<String> playerName) {
@@ -89,52 +81,52 @@ public class LoadFileUtil {
     }
 
     private void setLynchTarget() {
-        this.status=0;
+        //this.status=0;
     }
 
-    public String loadFile() {
-        String file = "/Users/hannimpeha/HANNIMPEHA/Thesis/" +
-                "FascinatingProject" +
-                "/src/main/java/resource/saveGame.txt";
-        try {
-            br = new BufferedReader(new FileReader(new File(file)));
-            sb = new StringBuilder();
-            String str = br.readLine();
-            while (str != null) {
-                sb.append(str);
-                sb.append(System.lineSeparator());
-                str = br.readLine();
-            }
-            playerLine = sb.toString();
-            //System.out.println(sb.toString().split(","));
-        } catch (IOException exception) {
-            exception.printStackTrace();
-        }
-        return playerLine;
+    public void loadFile() {
+//        String file = "/Users/hannimpeha/HANNIMPEHA/Thesis/" +
+//                "FascinatingProject" +
+//                "/src/main/java/resource/saveGame.txt";
+//        try {
+//            br = new BufferedReader(new FileReader(new File(file)));
+//            sb = new StringBuilder();
+//            String str = br.readLine();
+//            while (str != null) {
+//                sb.append(str);
+//                sb.append(System.lineSeparator());
+//                str = br.readLine();
+//            }
+//            playerLine = sb.toString();
+//            //System.out.println(sb.toString().split(","));
+//        } catch (IOException exception) {
+//            exception.printStackTrace();
+//        }
+//        return playerLine;
     }
 
     public void saveGame() {
-        deletePlayers(makePlayer(loadFile()),lynched);
-        System.out.println(makePlayer(loadFile()).size());
+        //deletePlayers(makePlayer(loadFile()),lynched);
+        //System.out.println(makePlayer(loadFile()).size());
     }
 
-    private List<Player> makePlayer(String playerLine) {
-        String name = playerLine.split(",")[0];
-        String role = playerLine.split(",")[1];
-        int status = parseInt(playerLine.split(",")[2]);
-        boolean target = parseBoolean(playerLine.split(",")[3]);
-        switch(role) {
-            case "Mafia":
-                playerInfo.add(cpu.createPlayer(
-                        name, "Mafia",0, status, target));
-            case "Townie":
-                playerInfo.add(cpu.createPlayer(
-                        name, "Townie", 1, status, target));
-            case "Doctor":
-                playerInfo.add(cpu.createPlayer(
-                        name, "Doctor", 2, status, target));
-        }
-        return playerInfo;
+    private void makePlayer(String playerLine) {
+//        String name = playerLine.split(",")[0];
+//        String role = playerLine.split(",")[1];
+//        int status = parseInt(playerLine.split(",")[2]);
+//        boolean target = parseBoolean(playerLine.split(",")[3]);
+//        switch(role) {
+//            case "Mafia":
+//                playerInfo.add(cpu.createPlayer(
+//                        name, "Mafia",0, status, target));
+//            case "Townie":
+//                playerInfo.add(cpu.createPlayer(
+//                        name, "Townie", 1, status, target));
+//            case "Doctor":
+//                playerInfo.add(cpu.createPlayer(
+//                        name, "Doctor", 2, status, target));
+//        }
+//        return playerInfo;
     }
 
     public List<Player> getPlayerInfo() {
