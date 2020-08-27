@@ -1,33 +1,19 @@
 package panels;
 
-import controllers.Controller;
-import controllers.GameController;
+import consoles.CommandListener;
+import consoles.ConsolePane;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+public class NightPanel extends ConsolePane {
 
-public class NightPanel {
+    private CommandListener commandListener;
 
-    private String input;
-    private GameController gc;
-    private BufferedReader br;
-    private InputStreamReader ir;
-    private int round;
-
-    public NightPanel(String input) {
-        this.input = input;
+    public NightPanel(CommandListener commandListener) {
+        this.commandListener = commandListener;
     }
 
     public void start() {
-        if(round==0) {
-            System.out.println("what to do in the nights.");
-        } else {
-        System.out.println("This is second time nights.");
-        }
-        System.out.println("Type \"day\" to continue.");
-        ir = new InputStreamReader(System.in);
-        br = new BufferedReader(ir);
+        System.out.println("Press Night to Continue.");
     }
-
 }
+
 

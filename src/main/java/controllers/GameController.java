@@ -1,50 +1,45 @@
 package controllers;
 
+import consoles.CommandListener;
 import logic.Game;
 import panels.DayPanel;
 import panels.NightPanel;
-import panels.VictoryPanel;
 import playerInfo.Player;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import javax.swing.*;
+import java.util.List;
 
-public class GameController {
 
+public class GameController implements CommandListener {
+
+    private JFrame frame;
+    private CommandListener commandListener;
     private Game g;
-    private String input;
     private DayPanel dp;
     private NightPanel np;
-    private VictoryPanel vp;
-    private BufferedReader br;
-    private InputStreamReader ir;
-    private int round;
-    private String playerLine;
+    private List<Player> playerInfo;
 
-    public GameController(String input, int round)  {
-        this.input = input;
-        this.round = round;
+    public GameController(JFrame frame, CommandListener commandListener) {
+        this.frame = frame;
+        this.commandListener = commandListener;
     }
 
-    public void nightsToCome()  {
-        np = new NightPanel(input);
-        np.start();
+    public void start() {
+        g = new Game(playerInfo);
+        dp = new DayPanel();
+        np = new NightPanel(commandListener);
     }
 
-    public void daysToCome(int round) {
-        while(round>0) {
-            dp = new DayPanel(input, round);
-            dp.start(round);
-        }
+    @Override
+    public void commandOutput(String text) {
     }
 
-    private void switchVictory(String victor) {
-        for(Player p: g.getPlayerInfo()) {
-            vp.setPlayerInfo(p.copy());
-        }
-        vp.setWinner(victor);
+    @Override
+    public void commandCompleted(String cmd, int result) {
+    }
+
+    @Override
+    public void commandFailed(Exception exp) {
     }
 
 }

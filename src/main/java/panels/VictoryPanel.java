@@ -1,18 +1,17 @@
 package panels;
 
-import playerInfo.Player;
+import consoles.CommandListener;
+import consoles.ConsolePane;
 
-public class VictoryPanel {
+public class VictoryPanel extends ConsolePane {
 
-    private String input;
+    private CommandListener commandListener;
 
-    public VictoryPanel(String input) {
-        this.input = input;
+    public VictoryPanel(CommandListener commandListener) {
+        this.commandListener = commandListener;
     }
 
-    public void setPlayerInfo(Player copy) {
-    }
-
-    public void setWinner(String victor) {
+    public void start() {
+        System.out.println("Victory!");
     }
 }

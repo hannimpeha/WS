@@ -6,8 +6,8 @@ public class AppendTask implements Runnable {
     private String text;
 
         public AppendTask(Terminal textArea, String text) {
-        this.terminal = textArea;
-        this.text = text;
+            this.terminal = textArea;
+            this.text = text;
     }
 
     @Override

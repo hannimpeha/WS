@@ -9,7 +9,6 @@ public class Command {
 
     private CommandListener listener;
     private ProcessRunner runner;
-
     public Command(CommandListener listener) {
         this.listener = listener;
     }

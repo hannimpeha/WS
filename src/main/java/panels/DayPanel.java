@@ -1,49 +1,80 @@
 package panels;
 
-import ballot.Voting;
-import controllers.Controller;
-import controllers.GameController;
-import util.LoadFileUtil;
+import consoleExample.ConsoleExample;
+import consoles.Command;
+import consoles.ConsolePane;
+import consoles.ProtectedDocumentFilter;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import javax.swing.*;
+import javax.swing.text.AbstractDocument;
+import javax.swing.text.BadLocationException;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-public class DayPanel {
 
-    private LoadFileUtil fu;
-    private NightPanel np;
-    private String input;
-    private Voting vote;
-    private BufferedReader br;
-    private InputStreamReader ir;
-    private GameController gc;
-    private int round;
-    private String playerLine;
+public class DayPanel extends ConsolePane {
 
-    public DayPanel(String input, int round){
-        this.input = input;
-        this.round = round;
+    protected int userInputStart = 0;
+    protected JTextArea textArea = new JTextArea(30, 30);
+    protected ConsolePane cp;
+    protected Command cmd = new Command(cp);
+
+    public DayPanel() {
+
+        setLayout(new BorderLayout());
+        ((AbstractDocument) textArea.getDocument()).setDocumentFilter(
+                new ProtectedDocumentFilter(this));
+        add(new JScrollPane(textArea));
+
+        InputMap im = textArea.getInputMap(WHEN_FOCUSED);
+        ActionMap am = textArea.getActionMap();
+
+        Action oldAction = am.get("insert-break");
+        am.put("insert-break", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int range = textArea.getCaretPosition() - userInputStart;
+                try {
+                    String text = textArea.getText(userInputStart, range).trim();
+                    System.out.println("[" + text + "]");
+                    userInputStart += range;
+                    if (!cmd.isRunning()) {
+                        cmd.execute(text);
+                    } else {
+                        try {
+                            cmd.send(text + "\n");
+                        } catch (IOException ex) {
+                            appendText("!! Failed to send command to process: " + ex.getMessage() + "\n");
+                        }
+                    }
+                } catch (BadLocationException ex) {
+                    Logger.getLogger(ConsoleExample.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                oldAction.actionPerformed(e);
+            }
+        });
+        setTheme();
     }
 
-    public void start(int round) {
-        ir = new InputStreamReader(System.in);
-        br = new BufferedReader(ir);
-        if (round == 0) {
-            vote = new Voting();
-            System.out.println(round);
-            vote.run();
-            System.out.println("Type \"night\" to continue.");
-            np = new NightPanel(input);
-            np.start();
-        } else {
-            ir = new InputStreamReader(System.in);
-            br = new BufferedReader(ir);
-            fu.loadFile();
-            vote = new Voting();
-            System.out.println(round);
-            vote.run();
-            fu.saveGame();
-            System.out.println("Type \"night\" to continue.");
+    public void start() {
+        System.out.println("Press Day to Continue.");
+    }
+
+    protected void setTheme(){
+        try {
+            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Nimbus theme is not found.");
+            e.printStackTrace();
         }
     }
+
 }

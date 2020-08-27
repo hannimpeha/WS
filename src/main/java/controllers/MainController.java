@@ -2,30 +2,30 @@ package controllers;
 
 import consoles.AppendTask;
 import consoles.CommandListener;
-import util.LoadFileUtil;
+import consoles.ConsolePane;
+import panels.DayPanel;
 
 import javax.swing.*;
 
-public class SetUpController implements CommandListener {
+public class MainController implements CommandListener {
 
     private JFrame frame;
     private CommandListener commandListener;
-    private LoadFileUtil fu;
+    private DayPanel dp;
 
-    public SetUpController(JFrame frame, CommandListener commandListener) {
+    public MainController(JFrame frame, CommandListener commandListener) {
         this.frame = frame;
         this.commandListener = commandListener;
     }
 
-
     public void start() {
-        fu = new LoadFileUtil();
-        fu.newFile();
+        new ConsolePane();
+        //frame.add(dp);
     }
-
 
     @Override
     public void commandOutput(String text) {
+        SwingUtilities.invokeLater(new AppendTask(dp, text));
     }
 
     @Override

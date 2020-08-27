@@ -6,15 +6,15 @@ import java.util.StringJoiner;
 
 public class ProcessRunner extends Thread {
 
-        private List<String> cmds;
-        private CommandListener listener;
-        private Process process;
+    private List<String> cmds;
+    private CommandListener listener;
+    private Process process;
 
-        public ProcessRunner(CommandListener listener, List<String> cmds) {
-            this.cmds = cmds;
-            this.listener = listener;
-            start();
-        }
+    public ProcessRunner(CommandListener listener, List<String> cmds) {
+        this.cmds = cmds;
+        this.listener = listener;
+        start();
+    }
 
     @Override
     public void run() {
