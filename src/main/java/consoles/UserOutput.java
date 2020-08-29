@@ -1,5 +1,7 @@
 package consoles;
 
-public interface UserOutput {
-    public int getUserOutputStart();
+import java.awt.event.ActionListener;
+
+public interface UserOutput extends ActionListener {
+    public String getUserOutputStart();
 }

@@ -9,9 +9,8 @@ public class ProtectedDocumentFilter extends DocumentFilter {
     private UserInput userInput;
     private UserOutput userOutput;
 
-    public ProtectedDocumentFilter(UserInput userInput, UserOutput userOutput) {
+    public ProtectedDocumentFilter(UserInput userInput) {
         this.userInput = userInput;
-        this.userOutput = userOutput;
     }
 
     public UserInput getUserInput() {

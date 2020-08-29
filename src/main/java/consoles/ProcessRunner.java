@@ -20,13 +20,13 @@ public class ProcessRunner extends Thread {
     public void run() {
         try {
             System.out.println("cmds = " + cmds);
-            ProcessBuilder pb = new ProcessBuilder(cmds);
-            pb.redirectErrorStream();
-            process = pb.start();
+            //ProcessBuilder pb = new ProcessBuilder(cmds);
+            //pb.redirectErrorStream();
+            //process = pb.start();
             StreamReader reader =
                     new StreamReader(listener, process.getInputStream());
             StreamWriter writer =
-                    new StreamWriter(listener, process.getOutputStream());
+                   new StreamWriter(listener, process.getOutputStream());
             // Need a stream writer...
 
             int result = process.waitFor();
@@ -34,6 +34,7 @@ public class ProcessRunner extends Thread {
             // Terminate the stream writer
             reader.join();
             writer.join();
+
 
             StringJoiner sj = new StringJoiner(" ");
             cmds.stream().forEach((cmd) -> {

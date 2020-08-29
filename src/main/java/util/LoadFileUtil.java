@@ -32,7 +32,7 @@ public class LoadFileUtil extends ConsolePane {
         this.cmd = cmd;
     }
 
-    public void newFile() throws FileNotFoundException {
+    public void newFile() throws IOException {
         listener.commandOutput("Type players' names separated by Enter and \"end\"");
         pw = new PrintWriter("/Users/" +
                 "hannimpeha/" +
@@ -40,13 +40,14 @@ public class LoadFileUtil extends ConsolePane {
                 "FascinatingProject" +
                 "/src/main/java/resource/" +
                 "players.txt");
-        pw.println(this.cmd);
+        pw.println(cmd);
         pw.close();
-        //System.out.println("You have typed " + playerName.size() + " " +
-        //        "players in total. Assigned roles are as follows.");
-        //createRoles(playerName);
-        //setAllPlayers(playerName, playerRole);
+            //System.out.println("You have typed " + playerName.size() + " " +
+            //        "players in total. Assigned roles are as follows.");
+            //createRoles(playerName);
+            //setAllPlayers(playerName, playerRole);
     }
+
 
     public void createRoles(List<String> playerName) {
         int num = playerName.size();

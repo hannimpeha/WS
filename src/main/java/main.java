@@ -1,10 +1,10 @@
 import controllers.Controller;
 
-import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class main{
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws IOException {
 
         Controller c = new Controller();
         c.run();

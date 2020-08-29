@@ -4,6 +4,7 @@ import consoles.*;
 import javax.swing.*;
 import java.awt.*;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class Controller {
 
@@ -26,7 +27,7 @@ public class Controller {
         });
     }
 
-    public void run() throws FileNotFoundException {
+    public void run() throws IOException {
         mc = new MainController(frame, listener);
         suc = new SetUpController(frame, listener);
         gc = new GameController(frame,  listener);

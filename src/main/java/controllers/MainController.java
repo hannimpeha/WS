@@ -1,7 +1,6 @@
 package controllers;
 
 import consoles.CommandListener;
-import consoles.ConsolePane;
 import panels.DayPanel;
 
 import javax.swing.*;

@@ -1,13 +1,11 @@
 package controllers;
 
-import consoles.AppendTask;
 import consoles.CommandListener;
-import consoles.ConsolePane;
-import consoles.Terminal;
 import util.LoadFileUtil;
 
 import javax.swing.*;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class SetUpController {
 
@@ -20,9 +18,9 @@ public class SetUpController {
         this.listener = listener;
     }
 
-    public void start() throws FileNotFoundException {
+    public void start() throws IOException {
         fu = new LoadFileUtil();
-        fu.newFile();
+
     }
 
 }

@@ -12,23 +12,22 @@ import java.util.logging.Logger;
 public class ConsolePane extends JPanel implements CommandListener, Terminal {
 
     private JTextArea textArea;
-    private JTextField textField;
+    private JTextArea textAreaOrder;
     private int userInputStart = 0;
-    private String userOutputStart = "Game or Exit";
     private Command cmd;
 
     public ConsolePane(){
         cmd = new Command(this);
+        textAreaOrder = new JTextArea(this.getUserOutputStart(), 20, 20);
         textArea = new JTextArea(20, 30);
-        textField = new JTextField(userOutputStart, 20);
 
-        ((AbstractDocument) textField.getDocument()).setDocumentFilter(
-                new ProtectedDocumentFilter(this,this));
         ((AbstractDocument) textArea.getDocument()).setDocumentFilter(
-                new ProtectedDocumentFilter(this,this));
+                new ProtectedDocumentFilter(this));
+        ((AbstractDocument) textAreaOrder.getDocument()).setDocumentFilter(
+                new ProtectedDocumentFilter(this));
 
-        add(new JScrollPane(textField), new BorderLayout().NORTH);
-        add(new JScrollPane(textArea), new BorderLayout().CENTER);
+        add(new JScrollPane(textAreaOrder), new BorderLayout());
+        add(new JScrollPane(textArea), new BorderLayout());
 
         InputMap im = textArea.getInputMap(WHEN_FOCUSED);
         ActionMap am = textArea.getActionMap();
@@ -62,7 +61,8 @@ public class ConsolePane extends JPanel implements CommandListener, Terminal {
 
     @Override
     public void commandOutput(String text) {
-        SwingUtilities.invokeLater(new AppendTask(this, text, textField.getText()));
+        SwingUtilities.invokeLater(new AppendTask(
+                this, text, textAreaOrder.getText()));
     }
 
     @Override
@@ -75,12 +75,22 @@ public class ConsolePane extends JPanel implements CommandListener, Terminal {
     public void commandFailed(Exception exp) {
         SwingUtilities.invokeLater(new AppendTask(
                 this, "Command failed - " + exp.getMessage(),
-                textField.getText()));
+                textAreaOrder.getText()));
+    }
+
+    @Override
+    public String wantStart(String text) {
+        return text;
     }
 
     @Override
     public void appendOrder(String order) {
-        textField.getActionListeners();
+        textAreaOrder.append(order);
+    }
+
+    protected void updateUserOutputPos() {
+        textAreaOrder.setCaretPosition(
+                textAreaOrder.getText().length()+1);
     }
 
     @Override
@@ -101,7 +111,13 @@ public class ConsolePane extends JPanel implements CommandListener, Terminal {
     }
 
     @Override
-    public int getUserOutputStart() {
-        return 0;
+    public String getUserOutputStart() {
+        return "Game or Exit";
     }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        textAreaOrder = (JTextArea) e.getSource();
+    }
+
 }

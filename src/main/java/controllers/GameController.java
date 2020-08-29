@@ -1,9 +1,6 @@
 package controllers;
 
-import consoles.AppendTask;
 import consoles.CommandListener;
-import consoles.ConsolePane;
-import consoles.Terminal;
 import logic.Game;
 import panels.DayPanel;
 import panels.NightPanel;

@@ -1,55 +1,10 @@
-package consoleExample;
+package swings;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-class InitComponents {
-
-    public static JFrame setupJFrameAndGet(String title, int width, int height) {
-        JFrame tmpJF = new JFrame(title);
-        tmpJF.setSize(width, height);
-        tmpJF.setLocationRelativeTo(null);
-        tmpJF.setLayout(null);
-        tmpJF.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        return tmpJF;
-    } // end of setupJFrameAndGet
-
-    public static JTextArea setupJTextAreaAndGet(String text, int rows, int columns, boolean setEditableFlag, boolean setLineWrapFlag, boolean setWrapStyleWordFlag, boolean setBoundsFlag, int xpos, int ypos, int width, int height) {
-        JTextArea tmpJTA = new JTextArea(text, rows, columns);
-        tmpJTA.setEditable(setEditableFlag);
-        tmpJTA.setLineWrap(setLineWrapFlag);
-        tmpJTA.setWrapStyleWord(setWrapStyleWordFlag);
-        if (setBoundsFlag == true) {
-            tmpJTA.setBounds(xpos, ypos, width, height);
-        }
-        return tmpJTA;
-    } // end of setupJTextAreaAndGet
-
-    public static JScrollPane setupScrollableJTextAreaAndGet(JTextArea jta, int xpos, int ypos, int width, int height) {
-        JScrollPane tmpJSP = new JScrollPane(jta);
-        tmpJSP.setBounds(xpos, ypos, width, height);
-        return tmpJSP;
-    } // end of setupScrollableJTextAreaAndGet
-
-    public static JMenuBar setupJMenuBarAndGet() {
-        JMenuBar tmpJMB = new JMenuBar();
-        return tmpJMB;
-    } // end of setupJMenuBarAndGet
-
-    public static JMenu setupJMenuAndGet(String text) {
-        JMenu tmpJM = new JMenu(text);
-        return tmpJM;
-    } // end of setupJMenuAndGet
-
-    public static JMenuItem setupJMenuItemAndGet(String text) {
-        JMenuItem tmpJMI = new JMenuItem(text);
-        return tmpJMI;
-    } // end of setupJMenuItemAndGet
-
-}// end of InitComponents
-
-class ConsoleForJARPrograms implements KeyListener, ActionListener {
+public class ConsoleForProgram implements KeyListener, ActionListener {
 
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     int screenWidth = screenSize.width;
@@ -104,24 +59,24 @@ class ConsoleForJARPrograms implements KeyListener, ActionListener {
         if ((keyCode == PG_UP) || (keyCode == PG_DN) || (keyCode == UP_ARROW) || (keyCode == DOWN_ARROW) || ((keyCode == A) && (ke.getModifiersEx() == CTRL))) {
             ke.consume();
         } else if ((keyCode == LEFT_ARROW) || (keyCode == BACKSPACE) || ((keyCode == H) && (ke.getModifiersEx() == CTRL))) {
-            synchronized(this) {
+            synchronized (this) {
                 if (jta.getCaretPosition() <= initialCaretPosition) {
                     ke.consume();
                 }
             } // end of synchronized block
         } else if (keyCode == HOME) {
-            synchronized(this) {
+            synchronized (this) {
                 jta.setCaretPosition(initialCaretPosition);
                 ke.consume();
             } // end of synchronized block
         } else if (keyCode == END) {
-            synchronized(this) {
+            synchronized (this) {
                 jta.setCaretPosition(jta.getDocument().getLength());
                 ke.consume();
             } // end of synchronized block
         } else if (keyCode == ENTER) {
             jta.setCaretPosition(jta.getDocument().getLength());
-            synchronized(this) {
+            synchronized (this) {
                 currentCaretPosition = jta.getCaretPosition();
 
                 // If character at initial caret position is newline then it means that the user has
@@ -167,7 +122,7 @@ class ConsoleForJARPrograms implements KeyListener, ActionListener {
         int len = 0;
         String inputFromUser = "";
         while (true) {
-            synchronized(this) {
+            synchronized (this) {
                 if (inputAvailable == true) {
                     len = currentCaretPosition - initialCaretPosition;
 
@@ -208,7 +163,7 @@ class ConsoleForJARPrograms implements KeyListener, ActionListener {
     void outputToJTextArea(JTextArea jta, String text) {
         jta.append(text);
         jta.setCaretPosition(jta.getDocument().getLength());
-        synchronized(this) {
+        synchronized (this) {
             initialCaretPosition = jta.getCaretPosition();
         }
     } // end of outputToJTextArea
@@ -244,22 +199,23 @@ class ConsoleForJARPrograms implements KeyListener, ActionListener {
     } // end of configureJTextAreaForInputOutput
 
     void createAndShowGUI() {
-        title = "Console";
+        title = "Hannah Lee's Mafia Game";
         jf = InitComponents.setupJFrameAndGet(title, screenWidth - 150, screenHeight - 100);
 
-        jta = InitComponents.setupJTextAreaAndGet("", 1000, 100, true, true, true, false, 0, 0, 0, 0);
+        jta = InitComponents.setupJTextAreaAndGet("", 20, 30, true, true, true, false, 0, 0, 0, 0);
         configureJTextAreaForInputOutput(jta);
 
         jsp = InitComponents.setupScrollableJTextAreaAndGet(jta, 10, 10, screenWidth - 180, screenHeight - 180);
         jsp.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         jsp.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+
         jf.add(jsp);
         //jf.setLocation(screenWidth / 5, screenHeight / 6);
 
         jmb = InitComponents.setupJMenuBarAndGet();
-        jm = InitComponents.setupJMenuAndGet("Copy All to Clipboard");
+        jm = InitComponents.setupJMenuAndGet("Hannah Lee");
         jm.setBorder(BorderFactory.createLineBorder(Color.green, 2));
-        jmi = InitComponents.setupJMenuItemAndGet("Copy All to Clipboard");
+        jmi = InitComponents.setupJMenuItemAndGet("Hannah Lee");
         jm.add(jmi);
         jmb.add(jm);
         jmi.addActionListener(this);
@@ -267,11 +223,4 @@ class ConsoleForJARPrograms implements KeyListener, ActionListener {
 
         jf.setVisible(true);
     } // end of createAndShowGUI
-
-    public static void main(String[] args) {
-        ConsoleForJARPrograms cfjp = new ConsoleForJARPrograms();
-        cfjp.createAndShowGUI();
-        cfjp.begin();
-    } // end of main
-
-} /// end of ConsoleForJARPrograms
+}
