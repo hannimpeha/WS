@@ -3,28 +3,23 @@ package consoles;
 import javax.swing.*;
 import javax.swing.text.AbstractDocument;
 import javax.swing.text.BadLocationException;
-import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-public class ConsolePane extends JPanel implements ActionListener, Runnable{
+public class ConsoleStream extends Thread implements Runnable {
 
+    private static final int WHEN_FOCUSED = 1;
     private JTextArea textArea;
     private JTextArea textAreaOrder;
     private int userInputStart = 0;
-    private ActionListener listener;
-    private Runnable runner;
 
-    public ConsolePane(ActionListener listener) {
-        this.listener = listener;
+    public ConsoleStream() {
         displayOrder();
         displayListener();
     }
 
-    public void displayOrder() {
+    public JTextArea displayOrder() {
         textAreaOrder = new JTextArea(getUserOutputStart(),
                 20, 20);
-        add(new JScrollPane(textAreaOrder), new BorderLayout());
         ((AbstractDocument) textAreaOrder.getDocument()).
                 setDocumentFilter(
                         new UnprotectedDocumentFilter(getUserOutputStart()));
@@ -49,11 +44,12 @@ public class ConsolePane extends JPanel implements ActionListener, Runnable{
                 newAction();
             }
         });
+        return textAreaOrder;
     }
 
-    private void displayListener() {
+    private JTextArea displayListener() {
         textArea = new JTextArea(20, 30);
-        add(new JScrollPane(textArea), new BorderLayout());
+        new JScrollPane(textArea);
         ((AbstractDocument) textArea.getDocument()).setDocumentFilter(
                 new ProtectedDocumentFilter(textArea.getText()));
         InputMap im = textAreaOrder.getInputMap(WHEN_FOCUSED);
@@ -65,17 +61,17 @@ public class ConsolePane extends JPanel implements ActionListener, Runnable{
                 String text = textAreaOrder.getText();
                 appendText(text);
             }
+
             void oldAction() {
                 oldAction();
-                runner.run();
             }
         });
-
+        return textArea;
     }
 
     protected void updateUserOutputPos() {
         textAreaOrder.setCaretPosition(
-                textAreaOrder.getText().length()+1);
+                textAreaOrder.getText().length() + 1);
     }
 
     protected void updateUserInputPos() {
@@ -96,19 +92,15 @@ public class ConsolePane extends JPanel implements ActionListener, Runnable{
         return 0;
     }
 
-    public String getUserInput() {return textArea.getText();}
+    public String getUserInput() {
+        return textArea.getText();
+    }
 
     public String getUserOutputStart() {
         return "Game or Exit";
     }
 
-    public String getUserOuput() { return textAreaOrder.getText();}
-    @Override
-    public void actionPerformed(ActionEvent e) {
+    public String getUserOuput() {
+        return textAreaOrder.getText();
     }
-    @Override
-    public void run() {
-        SwingUtilities.invokeLater(runner);
-    }
-
 }
