@@ -1,14 +1,15 @@
 package consoles;
 
 import javax.swing.*;
-import javax.swing.text.AbstractDocument;
-import javax.swing.text.BadLocationException;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
-public class ConsolePane extends JPanel implements ActionListener, Runnable{
+public class ConsolePane extends JPanel implements KeyListener, ActionListener, Runnable{
 
+    private int ENTER = 10;
+    private int initialCaretPosition = 0;
+    private int currentCaretPosition = 0;
+    private boolean inputAvailable = false;
     private JTextArea textArea;
     private JTextArea textAreaOrder;
     private int userInputStart = 0;
@@ -17,86 +18,84 @@ public class ConsolePane extends JPanel implements ActionListener, Runnable{
 
     public ConsolePane(ActionListener listener) {
         this.listener = listener;
-        displayOrder();
-        displayListener();
+        configureJTextAreaForInputOutput(displayOrder());
+        configureJTextAreaForInputOutput(displayListener());
     }
 
-    public void displayOrder() {
-        textAreaOrder = new JTextArea(getUserOutputStart(),
-                20, 20);
+    public void begin() {
+        while (true) {
+            String input = getInputFromJTextArea();
+            outputToJTextArea("User input was: " + input + "\n\n");
+        }
+    }
+
+    public JTextArea displayOrder() {
+        textAreaOrder = new JTextArea(20, 20);
         add(new JScrollPane(textAreaOrder), new BorderLayout());
-        ((AbstractDocument) textAreaOrder.getDocument()).
-                setDocumentFilter(
-                        new UnprotectedDocumentFilter(getUserOutputStart()));
-
-        InputMap im = textAreaOrder.getInputMap(WHEN_FOCUSED);
-        ActionMap am = textAreaOrder.getActionMap();
-        Action newAction = am.get("start");
-        am.put("start", new AbstractAction() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int range = textArea.getCaretPosition() - userInputStart;
-                String text = null;
-                try {
-                    text = textArea.getText(userInputStart, range).trim();
-                    userInputStart += range;
-                    textArea.append(text);
-                } catch (BadLocationException badLocationException) {
-                    badLocationException.printStackTrace();
-                }
-            }
-            void newAction() {
-                newAction();
-            }
-        });
+        return textAreaOrder;
     }
 
-    private void displayListener() {
+    private JTextArea displayListener() {
         textArea = new JTextArea(20, 30);
         add(new JScrollPane(textArea), new BorderLayout());
-        ((AbstractDocument) textArea.getDocument()).setDocumentFilter(
-                new ProtectedDocumentFilter(textArea.getText()));
-        InputMap im = textAreaOrder.getInputMap(WHEN_FOCUSED);
-        ActionMap am = textAreaOrder.getActionMap();
-        Action oldAction = am.get("start");
-        am.put("start", new AbstractAction() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String text = textAreaOrder.getText();
-                textAreaOrder.append(text);
+        return textArea;
+    }
+
+    public void configureJTextAreaForInputOutput(JTextArea jta) {
+        jta.addKeyListener(this);
+        for (MouseListener listener : jta.getMouseListeners()) {
+            jta.removeMouseListener(listener);
+        }
+        for (MouseMotionListener listener : jta.getMouseMotionListeners()) {
+            jta.removeMouseMotionListener(listener);
+        }
+        for (MouseWheelListener listener : jta.getMouseWheelListeners()) {
+            jta.removeMouseWheelListener(listener);
+        }
+    }
+
+    public String getInputFromJTextArea() {
+        int len = 0;
+        String inputFromUser = "";
+        while (true) {
+            synchronized (this) {
+                if (inputAvailable == true) {
+                    len = currentCaretPosition - initialCaretPosition;
+
+                    try {
+                        inputFromUser = textArea.getText(initialCaretPosition, len);
+                        initialCaretPosition = currentCaretPosition;
+                    } catch (Exception e) {
+                        inputFromUser = "";
+                        return inputFromUser;
+                    }
+                    inputAvailable = false;
+                    return inputFromUser;
+                } else {
+                    try {
+                        wait();
+                        continue;
+                    } catch (Exception e) {
+                    }
+                }
             }
-            void oldAction() {
-                oldAction();
-            }
-        });
-
+        }
     }
 
-    protected void updateUserOutputPos() {
-        textAreaOrder.setCaretPosition(
-                textAreaOrder.getText().length()+1);
+    public void outputToJTextArea(String text) {
+        textAreaOrder.append(text);
+        textAreaOrder.setCaretPosition(textAreaOrder.getDocument().getLength());
+        synchronized (this) {
+            initialCaretPosition = textAreaOrder.getCaretPosition();
+        }
     }
-
-    protected void updateUserInputPos() {
-        int pos = textArea.getCaretPosition();
-        textArea.setCaretPosition(textArea.getText().length());
-        userInputStart = pos;
-    }
-
-    public int getUserInputStart() {
-        return 0;
-    }
-
-    public String getUserInput() {return textArea.getText();}
-
-    public String getUserOutputStart() {
-        return "New Game // Continue Game // Test";
-    }
-
-    public String getUserOuput() { return textAreaOrder.getText();}
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        int cCurrPos = textArea.getCaretPosition();
+        textArea.selectAll();
+        textArea.copy();
+        textArea.select(cCurrPos, cCurrPos);
     }
 
     @Override
@@ -104,4 +103,34 @@ public class ConsolePane extends JPanel implements ActionListener, Runnable{
         SwingUtilities.invokeLater(runner);
     }
 
+    @Override
+    public void keyTyped(KeyEvent e) {
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        synchronized (this) {
+            if(e.getKeyCode()==ENTER) {
+                textArea.setCaretPosition(textArea.getDocument().getLength());
+                synchronized (this) {
+                    currentCaretPosition = textArea.getCaretPosition();
+                    try {
+                        String charAtInitialCaretPosition = textArea.getText(initialCaretPosition, 1);
+                        if ((charAtInitialCaretPosition.equals("\n")) == true) {
+                            initialCaretPosition++;
+                        }
+                    } catch (Exception exception) {
+                    }
+                    if ((currentCaretPosition - initialCaretPosition) > 0) {
+                        inputAvailable = true;
+                        notifyAll();
+                    }
+                }
+            }
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+    }
 }

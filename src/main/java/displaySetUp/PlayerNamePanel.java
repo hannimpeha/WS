@@ -26,7 +26,7 @@ public class PlayerNamePanel extends ConsolePane {
         List<String> names = new ArrayList<>();
         for (int count=0; count<names.size(); count++){
             ConsolePane cp = new ConsolePane(listener);
-            names.add(cp.getUserInput());
+            names.add(cp.getInputFromJTextArea());
         }
         return names;
     }

@@ -16,7 +16,6 @@ public class DayPanel extends ConsolePane {
 
     private void start() {
         System.out.println("Day");
-
     }
 
 
