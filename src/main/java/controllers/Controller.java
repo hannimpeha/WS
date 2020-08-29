@@ -54,15 +54,11 @@ public class Controller implements ActionListener {
         ConsolePane source = (ConsolePane) e.getSource();
         String name = source.getName();
         switch (name) {
-            case "NewGame_MainPanel":
+            case "NewGame":
                 suc.start();
                 break;
-            case "ContinueGame_MainPanel":
+            case "ContinueGame":
                 fu.loadFile();
-                gc.start(fu.getPlayerInfo());
-                break;
-            case "Continue_RoleSelectionPanel":
-                //fu.newFile(suc.getPlayerNames(), suc.getRoles());
                 gc.start(fu.getPlayerInfo());
                 break;
             case "Home":
