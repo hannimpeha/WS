@@ -1,6 +1,5 @@
 package consoles;
 
-import java.io.IOException;
 import java.io.OutputStream;
 
 public class StreamWriter extends Thread {

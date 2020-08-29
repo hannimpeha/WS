@@ -1,8 +1,6 @@
 package consoles;
 
-import java.awt.event.ActionListener;
-
-public interface Terminal extends UserInput, UserOutput, ActionListener {
+public interface Terminal extends UserInput, UserOutput {
     public void appendOrder(String order);
     public void appendText(String text);
 }
