@@ -1,18 +1,8 @@
 package panels;
 
-import consoleExample.ConsoleExample;
-import consoles.Command;
 import consoles.ConsolePane;
-import consoles.ProtectedDocumentFilter;
 
 import javax.swing.*;
-import javax.swing.text.AbstractDocument;
-import javax.swing.text.BadLocationException;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 
 public class DayPanel extends ConsolePane {

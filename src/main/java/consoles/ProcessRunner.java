@@ -1,58 +1,36 @@
 package consoles;
 
-import java.io.IOException;
-import java.util.List;
-import java.util.StringJoiner;
 
 public class ProcessRunner extends Thread {
 
-    private List<String> cmds;
+    //private List<String> cmds;
     private CommandListener listener;
+    private CommandListener orderListener;
+    private String order;
+    private String command;
     private Process process;
 
-    public ProcessRunner(CommandListener listener, List<String> cmds) {
-        this.cmds = cmds;
+
+    public ProcessRunner() {
+        this.orderListener = orderListener;
         this.listener = listener;
         start();
     }
 
     @Override
     public void run() {
-        try {
-            System.out.println("cmds = " + cmds);
-            //ProcessBuilder pb = new ProcessBuilder(cmds);
-            //pb.redirectErrorStream();
-            //process = pb.start();
-            StreamReader reader =
-                    new StreamReader(listener, process.getInputStream());
-            StreamWriter writer =
-                   new StreamWriter(listener, process.getOutputStream());
-            // Need a stream writer...
-
-            int result = process.waitFor();
-
-            // Terminate the stream writer
-            reader.join();
-            writer.join();
-
-
-            StringJoiner sj = new StringJoiner(" ");
-            cmds.stream().forEach((cmd) -> {
-                sj.add(cmd);
-            });
-
-            listener.commandCompleted(sj.toString(), result);
-        } catch (Exception exp) {
-            exp.printStackTrace();
-            listener.commandFailed(exp);
-        }
+        //read(orderListener.commandOutput(process.getOutputStream().toString()));
+        //write(listener.commandOutput(process.getInputStream().toString()));
     }
 
-    public void write(String text) throws IOException {
-        if (process != null && process.isAlive()) {
-            process.getOutputStream().write(text.getBytes());
-            process.getOutputStream().flush();
-        }
+    public void read(String command) {
+        StreamReader reader =
+                new StreamReader(listener, process.getInputStream());
+
+    }
+    public void write(String text) {
+        StreamWriter writer =
+                new StreamWriter(listener, process.getOutputStream());
     }
 
 

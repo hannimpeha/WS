@@ -1,20 +1,17 @@
 package consoles;
 
+import javax.swing.*;
+
 public class AppendTask implements Runnable {
 
-    private Terminal terminal;
-    private String text;
-    private String order;
+    private JTextArea textArea;
+    private JTextArea textAreaOrder;
 
-        public AppendTask(Terminal textArea, String text, String order) {
-            this.terminal = textArea;
-            this.text = text;
-            this.order = order;
+        public AppendTask(JTextArea textAreaOrder, JTextArea textArea) {
+            textAreaOrder = textArea;
     }
 
     @Override
     public void run() {
-            terminal.appendOrder(order);
-            terminal.appendText(text);
     }
 }

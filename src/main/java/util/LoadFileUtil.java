@@ -1,12 +1,9 @@
 package util;
 
-import consoles.Command;
 import consoles.CommandListener;
 import consoles.ConsolePane;
 import playerInfo.Player;
 
-import javax.swing.*;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
@@ -23,13 +20,11 @@ public class LoadFileUtil extends ConsolePane {
     private List<Player> playerInfo;
     private List<String> playerName;
     private List<String> playerRole;
-    private Command cmd;
 
     private InputStream is;
 
     public LoadFileUtil() {
         this.listener = listener;
-        this.cmd = cmd;
     }
 
     public void newFile() throws IOException {
@@ -40,7 +35,7 @@ public class LoadFileUtil extends ConsolePane {
                 "FascinatingProject" +
                 "/src/main/java/resource/" +
                 "players.txt");
-        pw.println(cmd);
+        //pw.println(cmd);
         pw.close();
             //System.out.println("You have typed " + playerName.size() + " " +
             //        "players in total. Assigned roles are as follows.");

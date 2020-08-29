@@ -1,18 +1,17 @@
 package consoles;
 
-import controllers.Controller;
-
 import javax.swing.*;
 import javax.swing.text.AbstractDocument;
+import javax.swing.text.BadLocationException;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 
-public class ConsolePane extends JPanel implements CommandListener, Terminal {
+public class ConsolePane extends JPanel implements CommandListener, Terminal, Command {
 
-    private Command cmd;
     private JTextArea textArea;
     private JTextArea textAreaOrder;
     private int userInputStart = 0;
-
+    private CommandListener listener;
 
     public ConsolePane() {
         displayOrder();
@@ -26,6 +25,24 @@ public class ConsolePane extends JPanel implements CommandListener, Terminal {
         ((AbstractDocument) textAreaOrder.getDocument()).
                 setDocumentFilter(
                 new UnprotectedDocumentFilter(getUserOutputStart()));
+
+        InputMap im = textAreaOrder.getInputMap(WHEN_FOCUSED);
+        ActionMap am = textAreaOrder.getActionMap();
+        Action newAction = am.get("start");
+        am.put("start", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int range = textArea.getCaretPosition() - userInputStart;
+                String text = null;
+                try {
+                    text = textArea.getText(userInputStart, range).trim();
+                    userInputStart += range;
+                    commandOutput(text);
+                } catch (BadLocationException badLocationException) {
+                    badLocationException.printStackTrace();
+                }
+            }
+        });
     }
 
     private void displayListener() {
@@ -33,8 +50,16 @@ public class ConsolePane extends JPanel implements CommandListener, Terminal {
         add(new JScrollPane(textArea), new BorderLayout());
         ((AbstractDocument) textArea.getDocument()).setDocumentFilter(
                 new ProtectedDocumentFilter(textArea.getText()));
-        InputMap im = textArea.getInputMap(WHEN_FOCUSED);
-        ActionMap am = textArea.getActionMap();
+        InputMap im = textAreaOrder.getInputMap(WHEN_FOCUSED);
+        ActionMap am = textAreaOrder.getActionMap();
+        Action oldAction = am.get("start");
+        am.put("start", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String text = textAreaOrder.getText();
+                commandOutput(text);
+            }
+        });
     }
 
     protected void updateUserOutputPos() {
@@ -58,23 +83,20 @@ public class ConsolePane extends JPanel implements CommandListener, Terminal {
         textArea.append(text);
     }
 
+
     @Override
     public void commandOutput(String text) {
-        SwingUtilities.invokeLater(new AppendTask(
-                this, text, textAreaOrder.getText()));
+        SwingUtilities.invokeLater(new AppendTask(textAreaOrder, textArea));
     }
 
     @Override
-    public void commandCompleted(String cmd, int result) {
-        appendText("\n> " + cmd + " exited with " + result + "\n");
-        appendText("\n");
+    public void commandCompleted(String text, int result) {
+        appendText("\n> " + text + " exited with " + result + "\n");
     }
 
     @Override
     public void commandFailed(Exception exp) {
-        SwingUtilities.invokeLater(new AppendTask(
-                this, "Command failed - " + exp.getMessage(),
-                textArea.getText()));
+        appendText(exp.getMessage());
     }
 
     @Override
