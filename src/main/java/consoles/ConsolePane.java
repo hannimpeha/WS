@@ -40,7 +40,7 @@ public class ConsolePane extends JPanel implements ActionListener, Runnable{
                 try {
                     text = textArea.getText(userInputStart, range).trim();
                     userInputStart += range;
-                    appendOrder(text);
+                    textArea.append(text);
                 } catch (BadLocationException badLocationException) {
                     badLocationException.printStackTrace();
                 }
@@ -63,11 +63,10 @@ public class ConsolePane extends JPanel implements ActionListener, Runnable{
             @Override
             public void actionPerformed(ActionEvent e) {
                 String text = textAreaOrder.getText();
-                appendText(text);
+                textAreaOrder.append(text);
             }
             void oldAction() {
                 oldAction();
-                runner.run();
             }
         });
 
@@ -84,14 +83,6 @@ public class ConsolePane extends JPanel implements ActionListener, Runnable{
         userInputStart = pos;
     }
 
-    public void appendOrder(String order) {
-        textAreaOrder.append(order);
-    }
-
-    public void appendText(String text) {
-        textArea.append(text);
-    }
-
     public int getUserInputStart() {
         return 0;
     }
@@ -99,13 +90,15 @@ public class ConsolePane extends JPanel implements ActionListener, Runnable{
     public String getUserInput() {return textArea.getText();}
 
     public String getUserOutputStart() {
-        return "Game or Exit";
+        return "New Game // Continue Game // Test";
     }
 
     public String getUserOuput() { return textAreaOrder.getText();}
+
     @Override
     public void actionPerformed(ActionEvent e) {
     }
+
     @Override
     public void run() {
         SwingUtilities.invokeLater(runner);

@@ -6,9 +6,9 @@ import displaySetUp.PlayerNamePanel;
 import displaySetUp.PlayerRolePanel;
 import util.LoadFileUtil;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
 
 public class SetUpController implements ActionListener {
 
@@ -22,6 +22,16 @@ public class SetUpController implements ActionListener {
     public SetUpController(JFrame frame, ActionListener listener) {
         this.frame = frame;
         this.listener = listener;
+        EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+                } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
+                }
+                start();
+            }
+        });
     }
 
     public void start() {
@@ -49,6 +59,7 @@ public class SetUpController implements ActionListener {
         frame.setContentPane(cp);
         frame.getContentPane().setVisible(true);
     }
+
 
 //    public List<String> getPlayerNames(){
 //        return pnp.getPlayerNames();

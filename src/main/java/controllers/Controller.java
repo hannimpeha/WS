@@ -36,7 +36,6 @@ public class Controller implements ActionListener {
         mc = new MainController(frame, this);
         suc = new SetUpController(frame, this);
         gc = new GameController(frame, this);
-        suc.start();
     }
 
     public void createFrame() {
@@ -54,17 +53,14 @@ public class Controller implements ActionListener {
         ConsolePane source = (ConsolePane) e.getSource();
         String name = source.getName();
         switch (name) {
-            case "NewGame":
+            case "New Game":
                 suc.start();
                 break;
-            case "ContinueGame":
+            case "Continue Game":
                 fu.loadFile();
                 gc.start(fu.getPlayerInfo());
                 break;
-            case "Home":
-                mc.start();
-                break;
-            case "Testing":
+            case "Test":
                 test();
                 break;
         }
