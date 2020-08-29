@@ -5,7 +5,7 @@ import consoles.ConsolePane;
 import javax.swing.*;
 
 
-public class DayPanel extends ConsolePane {
+public class DayPanel {
 
     protected int userInputStart = 0;
     protected JTextArea textArea = new JTextArea(30, 30);

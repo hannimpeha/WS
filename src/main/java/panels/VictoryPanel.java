@@ -1,9 +1,8 @@
 package panels;
 
 import consoles.CommandListener;
-import consoles.ConsolePane;
 
-public class VictoryPanel extends ConsolePane {
+public class VictoryPanel {
 
     private CommandListener commandListener;
 

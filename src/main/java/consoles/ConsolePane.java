@@ -13,7 +13,8 @@ public class ConsolePane extends JPanel implements CommandListener, Terminal, Co
     private int userInputStart = 0;
     private CommandListener listener;
 
-    public ConsolePane() {
+    public ConsolePane(CommandListener listener) {
+        this.listener = listener;
         displayOrder();
         displayListener();
     }
@@ -83,10 +84,19 @@ public class ConsolePane extends JPanel implements CommandListener, Terminal, Co
         textArea.append(text);
     }
 
+    @Override
+    public int getUserInputStart() {
+        return 0;
+    }
+
+    @Override
+    public String getUserOutputStart() {
+        return "Game or Exit";
+    }
 
     @Override
     public void commandOutput(String text) {
-        SwingUtilities.invokeLater(new AppendTask(textAreaOrder, textArea));
+        SwingUtilities.invokeLater(new AppendTask());
     }
 
     @Override
@@ -98,15 +108,4 @@ public class ConsolePane extends JPanel implements CommandListener, Terminal, Co
     public void commandFailed(Exception exp) {
         appendText(exp.getMessage());
     }
-
-    @Override
-    public int getUserInputStart() {
-        return 0;
-    }
-
-    @Override
-    public String getUserOutputStart() {
-        return "Game or Exit";
-    }
-
 }

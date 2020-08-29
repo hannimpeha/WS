@@ -1,9 +1,8 @@
 package panels;
 
 import consoles.CommandListener;
-import consoles.ConsolePane;
 
-public class NightPanel extends ConsolePane {
+public class NightPanel {
 
     private CommandListener commandListener;
 

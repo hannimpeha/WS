@@ -4,14 +4,18 @@ import javax.swing.*;
 
 public class AppendTask implements Runnable {
 
-    private JTextArea textArea;
-    private JTextArea textAreaOrder;
+    private CommandListener commandListener;
+    private CommandListener textAreaOrder;
+    private CommandListener textArea;
 
-        public AppendTask(JTextArea textAreaOrder, JTextArea textArea) {
-            textAreaOrder = textArea;
+    public AppendTask() {
+        this.commandListener = textAreaOrder;
+        this.commandListener = textArea;
     }
 
     @Override
     public void run() {
+        commandListener.commandOutput(textAreaOrder.toString());
+        commandListener.commandOutput(textArea.toString());
     }
 }

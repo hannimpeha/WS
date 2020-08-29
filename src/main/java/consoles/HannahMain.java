@@ -17,7 +17,7 @@ public class HannahMain {
                 JFrame frame = new JFrame("Hannimpeha's");
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.setLayout(new BorderLayout());
-                frame.add(new ConsolePane());
+                //frame.add(new ConsolePane());
                 frame.pack();
                 frame.setLocationRelativeTo(null);
                 frame.setVisible(true);

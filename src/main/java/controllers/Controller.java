@@ -39,12 +39,10 @@ public class Controller {
         JFrame frame = new JFrame("Hannah's Mafia Game");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
-        frame.add(new ConsolePane());
+        frame.add(new ConsolePane(listener));
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
-
-
 }
 
