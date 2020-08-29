@@ -5,15 +5,17 @@ import javax.swing.text.AbstractDocument;
 import javax.swing.text.BadLocationException;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class ConsolePane extends JPanel implements CommandListener, Terminal, Command {
+public class ConsolePane extends JPanel implements ActionListener, Runnable{
 
     private JTextArea textArea;
     private JTextArea textAreaOrder;
     private int userInputStart = 0;
-    private CommandListener listener;
+    private ActionListener listener;
+    private Runnable runner;
 
-    public ConsolePane(CommandListener listener) {
+    public ConsolePane(ActionListener listener) {
         this.listener = listener;
         displayOrder();
         displayListener();
@@ -38,10 +40,13 @@ public class ConsolePane extends JPanel implements CommandListener, Terminal, Co
                 try {
                     text = textArea.getText(userInputStart, range).trim();
                     userInputStart += range;
-                    commandOutput(text);
+                    appendOrder(text);
                 } catch (BadLocationException badLocationException) {
                     badLocationException.printStackTrace();
                 }
+            }
+            void newAction() {
+                newAction();
             }
         });
     }
@@ -58,9 +63,14 @@ public class ConsolePane extends JPanel implements CommandListener, Terminal, Co
             @Override
             public void actionPerformed(ActionEvent e) {
                 String text = textAreaOrder.getText();
-                commandOutput(text);
+                appendText(text);
+            }
+            void oldAction() {
+                oldAction();
+                runner.run();
             }
         });
+
     }
 
     protected void updateUserOutputPos() {
@@ -74,38 +84,29 @@ public class ConsolePane extends JPanel implements CommandListener, Terminal, Co
         userInputStart = pos;
     }
 
-    @Override
     public void appendOrder(String order) {
         textAreaOrder.append(order);
     }
 
-    @Override
     public void appendText(String text) {
         textArea.append(text);
     }
 
-    @Override
     public int getUserInputStart() {
         return 0;
     }
 
-    @Override
     public String getUserOutputStart() {
         return "Game or Exit";
     }
 
     @Override
-    public void commandOutput(String text) {
-        SwingUtilities.invokeLater(new AppendTask());
+    public void actionPerformed(ActionEvent e) {
     }
 
     @Override
-    public void commandCompleted(String text, int result) {
-        appendText("\n> " + text + " exited with " + result + "\n");
+    public void run() {
+        SwingUtilities.invokeLater(runner);
     }
 
-    @Override
-    public void commandFailed(Exception exp) {
-        appendText(exp.getMessage());
-    }
 }

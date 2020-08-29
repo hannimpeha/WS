@@ -1,16 +1,19 @@
 package panels;
 
-import consoles.CommandListener;
+import consoles.ConsolePane;
+import java.awt.event.ActionListener;
 
-public class VictoryPanel {
+public class VictoryPanel extends ConsolePane {
 
-    private CommandListener commandListener;
+    private ActionListener listener;
 
-    public VictoryPanel(CommandListener commandListener) {
-        this.commandListener = commandListener;
+    public VictoryPanel(ActionListener listener) {
+        super(listener);
+        start();
     }
 
-    public void start() {
+    private void start() {
         System.out.println("Victory!");
     }
+
 }

@@ -1,18 +1,21 @@
 package panels;
 
-import consoles.CommandListener;
+import consoles.ConsolePane;
+import java.awt.event.ActionListener;
 
-public class NightPanel {
+public class NightPanel extends ConsolePane {
 
-    private CommandListener commandListener;
+    private ActionListener listener;
 
-    public NightPanel(CommandListener commandListener) {
-        this.commandListener = commandListener;
+    public NightPanel(ActionListener listener) {
+        super(listener);
+        start();
     }
 
-    public void start() {
+    private void start() {
         System.out.println("Press Night to Continue.");
     }
+
 }
 
 

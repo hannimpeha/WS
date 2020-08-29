@@ -1,9 +1,8 @@
 package util;
 
-import consoles.CommandListener;
-import consoles.ConsolePane;
 import playerInfo.Player;
 
+import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
@@ -14,7 +13,7 @@ import java.util.List;
 
 public class LoadFileUtil {
 
-    private CommandListener listener;
+    private ActionListener listener;
     private PrintWriter pw;
     private CreatePlayerUtil cpu;
     private List<Player> playerInfo;
@@ -28,15 +27,15 @@ public class LoadFileUtil {
     }
 
     public void newFile() throws IOException {
-        listener.commandOutput("Type players' names separated by Enter and \"end\"");
-        pw = new PrintWriter("/Users/" +
-                "hannimpeha/" +
-                "HANNIMPEHA/Thesis/" +
-                "FascinatingProject" +
-                "/src/main/java/resource/" +
-                "players.txt");
-        //pw.println(cmd);
-        pw.close();
+//        listener.commandOutput("Type players' names separated by Enter and \"end\"");
+//        pw = new PrintWriter("/Users/" +
+//                "hannimpeha/" +
+//                "HANNIMPEHA/Thesis/" +
+//                "FascinatingProject" +
+//                "/src/main/java/resource/" +
+//                "players.txt");
+//        //pw.println(cmd);
+//        pw.close();
             //System.out.println("You have typed " + playerName.size() + " " +
             //        "players in total. Assigned roles are as follows.");
             //createRoles(playerName);

@@ -1,26 +1,38 @@
 package controllers;
 
-import consoles.CommandListener;
+import consoles.ConsolePane;
 import util.LoadFileUtil;
-
 import javax.swing.*;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class SetUpController {
+public class SetUpController implements ActionListener {
 
     private JFrame frame;
-    private CommandListener listener;
+    private ConsolePane cp;
+    private ActionListener listener;
     private LoadFileUtil fu;
 
-    public SetUpController(JFrame frame, CommandListener listener) {
+    public SetUpController(JFrame frame, ActionListener listener) {
         this.frame = frame;
         this.listener = listener;
     }
 
-    public void start() throws IOException {
-        fu = new LoadFileUtil();
-
+    public void start() {
     }
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        cp = new ConsolePane(listener);
+        JTextArea source = (JTextArea) e.getSource();
+        String name = source.getText();
+        switch(name) {
+            case "game":
+                switchPanel();
+        }
+    }
+
+    private void switchPanel() {
+        frame.setContentPane(cp);
+    }
 }
