@@ -23,23 +23,13 @@ public class LoadFileUtil {
     private InputStream is;
 
     public LoadFileUtil() {
-        this.listener = listener;
     }
 
-    public void newFile() throws IOException {
-//        listener.commandOutput("Type players' names separated by Enter and \"end\"");
-//        pw = new PrintWriter("/Users/" +
-//                "hannimpeha/" +
-//                "HANNIMPEHA/Thesis/" +
-//                "FascinatingProject" +
-//                "/src/main/java/resource/" +
-//                "players.txt");
-//        //pw.println(cmd);
-//        pw.close();
-            //System.out.println("You have typed " + playerName.size() + " " +
-            //        "players in total. Assigned roles are as follows.");
-            //createRoles(playerName);
-            //setAllPlayers(playerName, playerRole);
+    public void newFile(List<String> names, List<String> roles) {
+        playerInfo = new ArrayList<>();
+        Collections.shuffle(roles);
+        setAllPlayers(names,roles);
+        SaveFileUtil.saveGame(playerInfo);
     }
 
 

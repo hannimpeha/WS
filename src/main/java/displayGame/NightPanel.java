@@ -1,4 +1,4 @@
-package panels;
+package displayGame;
 
 import consoles.ConsolePane;
 import java.awt.event.ActionListener;
@@ -7,8 +7,10 @@ public class NightPanel extends ConsolePane {
 
     private ActionListener listener;
 
-    public NightPanel(ActionListener listener) {
-        super(listener);
+    public NightPanel(ActionListener packageListener,
+                      ActionListener listener) {
+        super(packageListener);
+        setName("Night Panel");
         start();
     }
 

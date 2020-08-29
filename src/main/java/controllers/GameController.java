@@ -2,9 +2,9 @@ package controllers;
 
 import consoles.ConsolePane;
 import logic.Game;
-import panels.DayPanel;
-import panels.NightPanel;
-import panels.VictoryPanel;
+import displayGame.DayPanel;
+import displayGame.NightPanel;
+import displayGame.VictoryPanel;
 import playerInfo.Player;
 
 import javax.swing.*;
@@ -22,34 +22,32 @@ public class GameController implements ActionListener {
     private NightPanel np;
     private VictoryPanel vp;
     private List<Player> playerInfo;
-    private ConsolePane cp;
+    private ConsolePane cpName;
 
     public GameController(JFrame frame, ActionListener listener) {
         this.frame = frame;
         this.listener = listener;
     }
 
-    public void start() {
+    public void start(List<Player> playerInfo) {
         g = new Game(playerInfo);
-        dp = new DayPanel(listener);
-        np = new NightPanel(listener);
+        dp = new DayPanel(this, listener);
+        np = new NightPanel(this, listener);
         vp = new VictoryPanel(listener);
-
-        switchPanel();
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        cp = new ConsolePane(listener);
+        cpName = new ConsolePane(listener);
         JTextArea source = (JTextArea) e.getSource();
         String name = source.getText();
         switch(name) {
             case "Game or Exit":
-                switchPanel();
+                switchPanel(cpName);
         }
     }
 
-    private void switchPanel() {
-        frame.setContentPane(cp);
+    private void switchPanel(ConsolePane cpName) {
+        frame.setContentPane(cpName);
     }
 }

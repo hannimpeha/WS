@@ -10,7 +10,7 @@ public class SaveFileUtil {
 
     private static final String saveFile = "src/resources/saveGame.txt";
 
-    public static void saveGame(List<Player> playerInfo) throws FileNotFoundException {
+    public static void saveGame(List<Player> playerInfo) {
         try(PrintWriter pw = new PrintWriter(saveFile)) {
             for (Player p : playerInfo) {
                 pw.print(p.getStatus());

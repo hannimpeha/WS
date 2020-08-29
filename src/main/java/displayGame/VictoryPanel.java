@@ -1,4 +1,4 @@
-package panels;
+package displayGame;
 
 import consoles.ConsolePane;
 import java.awt.event.ActionListener;
@@ -9,6 +9,7 @@ public class VictoryPanel extends ConsolePane {
 
     public VictoryPanel(ActionListener listener) {
         super(listener);
+        setName("Victory Panel");
         start();
     }
 

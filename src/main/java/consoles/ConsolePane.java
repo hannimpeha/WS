@@ -96,14 +96,16 @@ public class ConsolePane extends JPanel implements ActionListener, Runnable{
         return 0;
     }
 
+    public String getUserInput() {return textArea.getText();}
+
     public String getUserOutputStart() {
         return "Game or Exit";
     }
 
+    public String getUserOuput() { return textAreaOrder.getText();}
     @Override
     public void actionPerformed(ActionEvent e) {
     }
-
     @Override
     public void run() {
         SwingUtilities.invokeLater(runner);
