@@ -23,7 +23,7 @@ public class MainController implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        cpName = new ConsolePane(listener);
+        cpName = new ConsolePane();
         JTextArea source = (JTextArea) e.getSource();
         String name = source.getText();
         switch(name) {

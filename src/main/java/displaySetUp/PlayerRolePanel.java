@@ -15,7 +15,7 @@ public class PlayerRolePanel extends ConsolePane {
 
     public PlayerRolePanel(ActionListener packageListener,
                            ActionListener listener) {
-        super(packageListener);
+        super();
         this.listener = listener;
         setName("PlayerRole Panel");
         displayRoles();

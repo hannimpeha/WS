@@ -9,7 +9,7 @@ public class VictoryPanel extends ConsolePane {
     private ActionListener listener;
 
     public VictoryPanel(ActionListener listener) {
-        super(listener);
+        super();
         setName("Victory Panel");
         start();
     }

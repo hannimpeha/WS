@@ -13,13 +13,12 @@ public class PlayerCountPanel extends ConsolePane {
 
     public PlayerCountPanel(ActionListener packageListener,
                             ActionListener listener) {
-        super(packageListener);
+        super();
         this.listener = listener;
         setName("PlayerCount Panel");
         displayPlayer();
     }
 
     private void displayPlayer() {
-        //listener.outputToJTextArea("Game Start");
     }
 }

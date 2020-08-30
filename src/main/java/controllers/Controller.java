@@ -8,6 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -36,10 +37,10 @@ public class Controller implements ActionListener {
     }
 
     public void run() {
-        mc = new MainController(frame, this);
-        suc = new SetUpController(frame, this);
-        gc = new GameController(frame, this);
-        suc.start();
+        //mc = new MainController(frame, this);
+        //suc = new SetUpController(frame, this);
+        //gc = new GameController(frame, this);
+        //suc.start();
     }
 
     @Override
@@ -58,6 +59,17 @@ public class Controller implements ActionListener {
                 test();
                 break;
         }
+    }
+
+    public void createFrame() {
+        JFrame frame = new JFrame("Hannah's Mafia Game");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(new BorderLayout());
+        frame.add(new ConsolePane().display());
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+        frame.setLocationRelativeTo(null);
     }
 
     private void test() {

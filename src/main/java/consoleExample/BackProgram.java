@@ -12,7 +12,7 @@ public class BackProgram extends ConsolePane {
     private ConsolePane cp;
 
     public BackProgram(ActionListener listener) {
-        super(listener);
+        super();
     }
 
     public void getBackendWorker() {

@@ -9,7 +9,7 @@ public class DayPanel extends ConsolePane {
     private ActionListener listener;
 
     public DayPanel(ActionListener packageListener, ActionListener listener) {
-        super(packageListener);
+        super();
         this.listener = listener;
         setName("Day Panel");
         start();
