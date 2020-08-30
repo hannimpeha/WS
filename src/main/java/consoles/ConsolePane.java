@@ -21,6 +21,7 @@ public class ConsolePane extends JPanel implements KeyListener, ActionListener{
     public JSplitPane displayOrder() {
         textAreaOrder = new JTextArea(20, 20);
         textAreaOrder.setEditable(true);
+        outputToJTextArea("Game or Exit");
         textAreaOrder.addKeyListener(this);
         textArea = new JTextArea(20, 30);
         textArea.setEditable(true);

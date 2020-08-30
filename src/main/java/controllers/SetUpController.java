@@ -1,6 +1,7 @@
 package controllers;
 
 import consoles.ConsolePane;
+import consoles.ProcExec;
 import displaySetUp.PlayerCountPanel;
 import displaySetUp.PlayerNamePanel;
 import displaySetUp.PlayerRolePanel;
@@ -44,9 +45,9 @@ public class SetUpController implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        ConsolePane source = (ConsolePane) e.getSource();
-        source.outputToJTextArea("Type Players' names.");
-        String name = source.getInputFromJTextArea();
+        ProcExec source = (ProcExec) e.getSource();
+        //source.outputToJTextArea("Type Players' names.");
+        String name = source.toString();
         switch(name) {
             case "PlayerCount Panel":
                 playerTotal = pnp.getPlayerNames().size();

@@ -22,7 +22,7 @@ public class Controller implements ActionListener {
     private LoadFileUtil fu;
 
     public Controller() {
-        ProcExec instance = new ProcExec();
+        ProcExec instance = new ProcExec(this);
         EventQueue.invokeLater(instance);
 //        EventQueue.invokeLater(new Runnable() {
 //            @Override

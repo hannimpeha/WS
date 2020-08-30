@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
-public class ProcExec implements ActionListener, Runnable {
+public class ProcExec extends ConsolePane implements ActionListener, Runnable {
 
     private static final String CLEAR = "Clear";
     private static final String EXIT = "Exit";
@@ -16,13 +16,16 @@ public class ProcExec implements ActionListener, Runnable {
     private JTextArea textArea;
     private ProcessBuilder procBuilder;
 
-    public ProcExec() {
+
+    public ProcExec(ActionListener listener) {
+        super(listener);
         procBuilder = new ProcessBuilder();
     }
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
-        String actionCommand = actionEvent.getActionCommand();
+        textAreaOrder = (JTextArea) actionEvent.getSource();
+        String actionCommand = textAreaOrder.getText();
         if (CLEAR.equals(actionCommand)) {
             textArea.setText("");
         }
