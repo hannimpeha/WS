@@ -43,7 +43,8 @@ public class SetUpController implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         ConsolePane source = (ConsolePane) e.getSource();
-        String name = source.getName();
+        source.outputToJTextArea("Type Players' names.");
+        String name = source.getInputFromJTextArea();
         switch(name) {
             case "PlayerCount Panel":
                 switchPanel(pcp);

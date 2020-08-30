@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class ConsolePane extends JPanel implements KeyListener, ActionListener, Runnable{
+public class ConsolePane extends JPanel implements KeyListener, ActionListener{
 
     private int ENTER = 10;
     private int initialCaretPosition = 0;
@@ -14,7 +14,6 @@ public class ConsolePane extends JPanel implements KeyListener, ActionListener, 
     private JTextArea textAreaOrder;
     private int userInputStart = 0;
     private ActionListener listener;
-    private Runnable runner;
 
     public ConsolePane(ActionListener listener) {
         this.listener = listener;
@@ -22,36 +21,22 @@ public class ConsolePane extends JPanel implements KeyListener, ActionListener, 
         configureJTextAreaForInputOutput(displayListener());
     }
 
-    public void begin() {
-        while (true) {
-            String input = getInputFromJTextArea();
-            outputToJTextArea("User input was: " + input + "\n\n");
-        }
-    }
-
     public JTextArea displayOrder() {
         textAreaOrder = new JTextArea(20, 20);
-        add(new JScrollPane(textAreaOrder), new BorderLayout());
+        outputToJTextArea("Game or Exit");
+        textAreaOrder.setEditable(true);
         return textAreaOrder;
     }
 
-    private JTextArea displayListener() {
+    public JTextArea displayListener() {
         textArea = new JTextArea(20, 30);
-        add(new JScrollPane(textArea), new BorderLayout());
+        textArea.setEditable(true);
         return textArea;
     }
 
     public void configureJTextAreaForInputOutput(JTextArea jta) {
         jta.addKeyListener(this);
-        for (MouseListener listener : jta.getMouseListeners()) {
-            jta.removeMouseListener(listener);
-        }
-        for (MouseMotionListener listener : jta.getMouseMotionListeners()) {
-            jta.removeMouseMotionListener(listener);
-        }
-        for (MouseWheelListener listener : jta.getMouseWheelListeners()) {
-            jta.removeMouseWheelListener(listener);
-        }
+        add(new JScrollPane(jta), new BorderLayout());
     }
 
     public String getInputFromJTextArea() {
@@ -96,11 +81,6 @@ public class ConsolePane extends JPanel implements KeyListener, ActionListener, 
         textArea.selectAll();
         textArea.copy();
         textArea.select(cCurrPos, cCurrPos);
-    }
-
-    @Override
-    public void run() {
-        SwingUtilities.invokeLater(runner);
     }
 
     @Override

@@ -1,11 +1,15 @@
 package displaySetUp;
 
 import consoles.ConsolePane;
+
+import javax.swing.*;
 import java.awt.event.ActionListener;
 
 public class PlayerCountPanel extends ConsolePane {
 
     private ActionListener listener;
+    private JTextArea textArea;
+    private JTextArea textAreaOrder;
 
     public PlayerCountPanel(ActionListener packageListener,
                             ActionListener listener) {
@@ -16,6 +20,8 @@ public class PlayerCountPanel extends ConsolePane {
     }
 
     private void displayPlayer() {
-        System.out.println("Great");
+        textAreaOrder = new JTextArea(20, 20);
+        configureJTextAreaForInputOutput(textAreaOrder);
+        outputToJTextArea("Game Start");
     }
 }
