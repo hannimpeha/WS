@@ -1,7 +1,12 @@
 package consoles;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintStream;
+import java.util.Date;
 
 public class ConsolePane extends JPanel implements KeyListener, ActionListener{
 
@@ -9,8 +14,8 @@ public class ConsolePane extends JPanel implements KeyListener, ActionListener{
     private int initialCaretPosition = 0;
     private int currentCaretPosition = 0;
     private boolean inputAvailable = false;
-    private JTextArea textArea = new JTextArea(20, 20);
-    private JTextArea textAreaOrder = new JTextArea(20, 30);
+    private final JTextField textField = new JTextField(20);
+    private final JTextArea textAreaOrder = new JTextArea(20, 30);
     private int userInputStart = 0;
     private ActionListener listener;
 
@@ -18,23 +23,34 @@ public class ConsolePane extends JPanel implements KeyListener, ActionListener{
         this.listener = listener;
     }
 
-    public JSplitPane displayOrder() {
-        textAreaOrder = new JTextArea(20, 20);
-        textAreaOrder.setEditable(true);
-        outputToJTextArea("Game or Exit");
+    public JComponent display() {
+        try {
+            OutputStream os = new StreamWriter(textAreaOrder);
+            System.setOut(new PrintStream(os, true, "UTF-8"));
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        Box box = Box.createHorizontalBox();
+        box.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        box.add(Box.createHorizontalGlue());
+        box.add(textField);
+        box.add(Box.createHorizontalStrut(5));
+        box.add(new JButton(new AbstractAction("Enter") {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("\n"+textField.getText());
+            }
+        }));
+        textAreaOrder.setEditable(false);
         textAreaOrder.addKeyListener(this);
-        textArea = new JTextArea(20, 30);
-        textArea.setEditable(true);
-        textArea.addKeyListener(this);
-        JScrollPane orderScrollPane = new JScrollPane(textAreaOrder);
-        JScrollPane textScrollPane = new JScrollPane(textArea);
-        JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,
-                orderScrollPane,
-                textScrollPane);
-        return splitPane;
+
+        JPanel p = new JPanel(new BorderLayout());
+        p.add(new JScrollPane(textAreaOrder));
+        p.add(box, BorderLayout.SOUTH);
+        return p;
     }
 
-    public String getInputFromJTextArea() {
+    public String getInputFromJTextField() {
         int len = 0;
         String inputFromUser = "";
         while (true) {
@@ -43,7 +59,7 @@ public class ConsolePane extends JPanel implements KeyListener, ActionListener{
                     len = currentCaretPosition - initialCaretPosition;
 
                     try {
-                        inputFromUser = textArea.getText(initialCaretPosition, len);
+                        inputFromUser = textField.getText(initialCaretPosition, len);
                         initialCaretPosition = currentCaretPosition;
                     } catch (Exception e) {
                         inputFromUser = "";
@@ -62,20 +78,20 @@ public class ConsolePane extends JPanel implements KeyListener, ActionListener{
         }
     }
 
-    public void outputToJTextArea(String text) {
-        textAreaOrder.append(text);
-        textAreaOrder.setCaretPosition(textAreaOrder.getDocument().getLength());
+    public void outputToJTextField(String text) {
+        textField.getActionListeners();
+        textField.setCaretPosition(textField.getDocument().getLength());
         synchronized (this) {
-            initialCaretPosition = textAreaOrder.getCaretPosition();
+            initialCaretPosition = textField.getCaretPosition();
         }
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        int cCurrPos = textArea.getCaretPosition();
-        textArea.selectAll();
-        textArea.copy();
-        textArea.select(cCurrPos, cCurrPos);
+        int cCurrPos = textField.getCaretPosition();
+        textField.selectAll();
+        textField.copy();
+        textField.select(cCurrPos, cCurrPos);
     }
 
     @Override
@@ -86,11 +102,11 @@ public class ConsolePane extends JPanel implements KeyListener, ActionListener{
     public void keyPressed(KeyEvent e) {
         synchronized (this) {
             if(e.getKeyCode()==ENTER) {
-                textArea.setCaretPosition(textArea.getDocument().getLength());
+                textField.setCaretPosition(textField.getDocument().getLength());
                 synchronized (this) {
-                    currentCaretPosition = textArea.getCaretPosition();
+                    currentCaretPosition = textField.getCaretPosition();
                     try {
-                        String charAtInitialCaretPosition = textArea.getText(initialCaretPosition, 1);
+                        String charAtInitialCaretPosition = textField.getText(initialCaretPosition, 1);
                         if ((charAtInitialCaretPosition.equals("\n")) == true) {
                             initialCaretPosition++;
                         }

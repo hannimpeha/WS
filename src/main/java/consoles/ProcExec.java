@@ -71,10 +71,11 @@ public class ProcExec extends ConsolePane implements ActionListener, Runnable {
         JFrame frame = new JFrame("Hannah's Mafia Game");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
-        frame.add(new ConsolePane(this).displayOrder());
+        frame.add(new ConsolePane(this).display());
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+        frame.setLocationRelativeTo(null);
     }
 
 }

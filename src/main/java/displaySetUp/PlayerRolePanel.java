@@ -22,7 +22,7 @@ public class PlayerRolePanel extends ConsolePane {
     }
 
     private void displayRoles() {
-        outputToJTextArea("Roles are as follows");
+        //outputToJTextArea("Roles are as follows");
     }
 
     public ArrayList<String> getRolesSelected() {

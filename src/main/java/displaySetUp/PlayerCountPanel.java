@@ -20,6 +20,6 @@ public class PlayerCountPanel extends ConsolePane {
     }
 
     private void displayPlayer() {
-        outputToJTextArea("Game Start");
+        //listener.outputToJTextArea("Game Start");
     }
 }

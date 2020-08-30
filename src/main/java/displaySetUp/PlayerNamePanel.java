@@ -21,14 +21,14 @@ public class PlayerNamePanel extends ConsolePane {
     }
 
     private void displayNames() {
-        outputToJTextArea("Names are as follows");
+        //outputToJTextArea("Names are as follows");
     }
 
     public List<String> getPlayerNames(){
         List<String> names = new ArrayList<>();
         for (int count=0; count<names.size(); count++){
             ConsolePane cp = new ConsolePane(listener);
-            names.add(cp.getInputFromJTextArea());
+            //names.add(cp.getInputFromJTextArea());
         }
         return names;
     }

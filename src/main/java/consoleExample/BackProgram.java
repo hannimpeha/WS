@@ -24,7 +24,7 @@ public class BackProgram extends ConsolePane {
                         while(true)
                         {
                             try{
-                                cp.outputToJTextArea("Game or Exit");
+                                //cp.outputToJTextArea("Game or Exit");
 
 //                                System.out.println("(BackProgram Class) Enter two Numbers:");
 //                                Scanner s=new Scanner(System.in);
