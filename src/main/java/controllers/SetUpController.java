@@ -17,6 +17,7 @@ public class SetUpController implements ActionListener {
     private PlayerCountPanel pcp;
     private PlayerNamePanel pnp;
     private PlayerRolePanel prp;
+    private JButton playerCount;
     private ActionListener listener;
     private LoadFileUtil fu;
     private int playerTotal;
@@ -24,42 +25,33 @@ public class SetUpController implements ActionListener {
     public SetUpController(JFrame frame, ActionListener listener) {
         this.frame = frame;
         this.listener = listener;
-        EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-                } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
-                }
-                start();
-            }
-        });
+        ProcExec instance = new ProcExec(this);
+        EventQueue.invokeLater(instance);
     }
 
     public void start() {
         pcp = new PlayerCountPanel(this, listener);
         pnp = new PlayerNamePanel(this, listener);
         prp = new PlayerRolePanel(this, listener);
+        playerCount = pcp.getContentPane();
         playerTotal = 7;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        ProcExec source = (ProcExec) e.getSource();
-        //source.outputToJTextArea("Type Players' names.");
+        JButton source = (JButton) e.getSource();
         String name = source.toString();
         switch(name) {
-            case "PlayerCount Panel":
-                playerTotal = pnp.getPlayerNames().size();
-                switchPanel(pnp);
-            case "PlayerName Panel":
-                switchPanel(prp);
+            case "Game":
+                switchPanel(playerCount);
+//            case "PlayerName":
+//                switchPanel(prp);
         }
     }
 
-    private void switchPanel(JPanel panel) {
+    private void switchPanel(JButton button) {
         frame.getContentPane().setVisible(false);
-        frame.setContentPane(panel);
+        frame.setContentPane(button);
         frame.getContentPane().setVisible(true);
     }
 

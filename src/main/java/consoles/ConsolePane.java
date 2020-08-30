@@ -8,16 +8,18 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
 
-public class ConsolePane extends JPanel {
+public class ConsolePane extends JPanel implements ActionListener{
 
     private final JTextField textField = new JTextField(20);
     private final JTextArea textAreaOrder = new JTextArea(20, 30);
     private ActionListener listener;
+    private ProcExec procExec;
+    private JButton button;
 
     public ConsolePane() {
     }
 
-    public JComponent display() {
+    public JComponent display(JButton button) {
        textAreaOrder.setText("Game or Exit");
         try {
             OutputStream os = new StreamWriter(textAreaOrder);
@@ -36,7 +38,7 @@ public class ConsolePane extends JPanel {
 //                System.out.println("\n"+textField.getText());
 //                }
 //        }));
-        JButton button = new JButton("Enter");
+        button = new JButton("Enter");
         button.addActionListener((ActionListener)
                 EventHandler.create(ActionListener.class,
                                 this,"startGame",
@@ -52,7 +54,20 @@ public class ConsolePane extends JPanel {
 
     public void startGame(ActionEvent e) {
         textAreaOrder.setText("Choose players");
-        //procExec.execute();
     }
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        try {
+            procExec.execute();
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        } catch (InterruptedException interruptedException) {
+            interruptedException.printStackTrace();
+        }
+    }
+
+    public JButton getContentPane() {
+        return this.button;
+    }
 }

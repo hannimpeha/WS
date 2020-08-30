@@ -11,6 +11,7 @@ public class ProcExec implements Runnable {
 
     private JTextArea textAreaOrder;
     private JTextField textField;
+    private JButton button;
     private ProcessBuilder procBuilder;
     private ActionListener listener;
 
@@ -19,7 +20,7 @@ public class ProcExec implements Runnable {
         procBuilder = new ProcessBuilder();
     }
 
-    public int execute() throws IOException, InterruptedException {
+    public void execute() throws IOException, InterruptedException {
         textAreaOrder.setText("");
         String raw = textField.getText();
         String[] words = raw.split(" ");
@@ -36,7 +37,6 @@ public class ProcExec implements Runnable {
         int status = proc.waitFor();
         stderrThread.join();
         stdoutThread.join();
-        return status;
     }
 
     @Override
@@ -48,7 +48,7 @@ public class ProcExec implements Runnable {
         JFrame frame = new JFrame("Hannah's Mafia Game");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
-        frame.add(new ConsolePane().display());
+        frame.add(new ConsolePane().display(button));
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
