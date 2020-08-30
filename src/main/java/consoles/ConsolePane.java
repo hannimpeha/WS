@@ -3,10 +3,10 @@ package consoles;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.beans.EventHandler;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
-import java.util.Date;
 
 public class ConsolePane extends JPanel implements KeyListener, ActionListener{
 
@@ -24,6 +24,7 @@ public class ConsolePane extends JPanel implements KeyListener, ActionListener{
     }
 
     public JComponent display() {
+       textAreaOrder.setText("Game or Exit");
         try {
             OutputStream os = new StreamWriter(textAreaOrder);
             System.setOut(new PrintStream(os, true, "UTF-8"));
@@ -35,12 +36,18 @@ public class ConsolePane extends JPanel implements KeyListener, ActionListener{
         box.add(Box.createHorizontalGlue());
         box.add(textField);
         box.add(Box.createHorizontalStrut(5));
-        box.add(new JButton(new AbstractAction("Enter") {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("\n"+textField.getText());
-            }
-        }));
+//        box.add(new JButton(new AbstractAction("Enter") {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                System.out.println("\n"+textField.getText());
+//                }
+//        }));
+        JButton button = new JButton();
+        button.addActionListener((ActionListener)
+                EventHandler.create(ActionListener.class
+                                ,this,"startGame",
+                                ""));
+        box.add(button);
         textAreaOrder.setEditable(false);
         textAreaOrder.addKeyListener(this);
 
@@ -48,6 +55,10 @@ public class ConsolePane extends JPanel implements KeyListener, ActionListener{
         p.add(new JScrollPane(textAreaOrder));
         p.add(box, BorderLayout.SOUTH);
         return p;
+    }
+
+    public void startGame(ActionEvent e) {
+        textAreaOrder.setText("Type Players' names");
     }
 
     public String getInputFromJTextField() {

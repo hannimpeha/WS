@@ -6,31 +6,17 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-public class StreamReader extends Thread implements Runnable{
+public class StreamReader extends Thread implements Runnable {
 
-    private BufferedReader br;
     private InputStream is;
-    private ActionListener listener;
-    private ConsolePane cp;
+    private BufferedReader br;
+    private JTextField textField;
 
     public StreamReader(InputStream is) {
+        super();
+        this.is = is;
+        //textField.addActionListener((ActionListener) this);
         InputStreamReader isr = new InputStreamReader(is);
         br = new BufferedReader(isr);
     }
-
-    public void run() {
-        try {
-            String line = br.readLine();
-            while (line != null) {
-                SwingUtilities.invokeLater(new StreamLine(line));
-                line = br.readLine();
-            }
-        }
-        catch (Exception x) {
-            throw new RuntimeException("Stream reading failed.", x);
-        }
-    }
-
 }
-
-

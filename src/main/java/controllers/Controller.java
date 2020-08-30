@@ -14,7 +14,6 @@ import java.util.List;
 
 public class Controller implements ActionListener {
 
-    private static final String NEWGAME = "New Game";
     private JFrame frame;
     private MainController mc;
     private SetUpController suc;
@@ -40,11 +39,13 @@ public class Controller implements ActionListener {
         mc = new MainController(frame, this);
         suc = new SetUpController(frame, this);
         gc = new GameController(frame, this);
+        suc.start();
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        String name =  e.getActionCommand();
+        JButton button = (JButton) e.getSource();
+        String name = button.getName();
         switch (name) {
             case "New Game":
                 suc.start();

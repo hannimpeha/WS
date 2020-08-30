@@ -1,50 +1,54 @@
 package consoles;
 
+import consoleExample.StreamReader;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
-public class ProcExec extends ConsolePane implements ActionListener, Runnable {
+public class ProcExec implements ActionListener, Runnable {
 
-    private static final String CLEAR = "Clear";
+    private static final String GAME = "Game";
     private static final String EXIT = "Exit";
     private static final String RUN = "Run";
 
     private JTextArea textAreaOrder;
-    private JTextArea textArea;
+    private JTextField textField;
+    private ConsolePane cp;
     private ProcessBuilder procBuilder;
 
 
     public ProcExec(ActionListener listener) {
-        super(listener);
         procBuilder = new ProcessBuilder();
     }
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
-        textAreaOrder = (JTextArea) actionEvent.getSource();
-        String actionCommand = textAreaOrder.getText();
-        if (CLEAR.equals(actionCommand)) {
-            textArea.setText("");
-        }
-        else if (EXIT.equals(actionCommand)) {
-            System.exit(0);
-        }
-        else if (RUN.equals(actionCommand)) {
-            try {
-                execute();
+        textField.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String actionCommand = textField.getText();
+                if(GAME.equals(actionCommand)) {
+                    textAreaOrder.setText("Type Players's name");
+                    try {
+                        execute();
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
+                    } catch (InterruptedException interruptedException) {
+                        interruptedException.printStackTrace();
+                    }
+                } else if (EXIT.equals(actionCommand)) {
+                    System.exit(0);
+                }
             }
-            catch (Exception x) {
-                x.printStackTrace();
-            }
-        }
+        });
     }
 
     private int execute() throws IOException, InterruptedException {
         textAreaOrder.setText("");
-        String raw = textArea.getText();
+        String raw = textField.getText();
         String[] words = raw.split(" ");
         String[] command = new String[words.length];
         System.arraycopy(words, 0, command, 2, words.length);
