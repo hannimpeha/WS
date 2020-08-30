@@ -1,16 +1,15 @@
 package displayGame;
 
-import consoles.ConsolePane;
+import consoles.MyPanel;
 import java.awt.event.ActionListener;
 
-public class NightPanel extends ConsolePane {
+public class NightPanel extends MyPanel {
 
     private ActionListener listener;
 
     public NightPanel(ActionListener packageListener,
                       ActionListener listener) {
-        super(packageListener);
-        setName("Night Panel");
+        contentPane.setName("Night Panel");
         start();
     }
 

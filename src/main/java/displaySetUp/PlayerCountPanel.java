@@ -20,8 +20,6 @@ public class PlayerCountPanel extends ConsolePane {
     }
 
     private void displayPlayer() {
-        textAreaOrder = new JTextArea(20, 20);
-        configureJTextAreaForInputOutput(textAreaOrder);
         outputToJTextArea("Game Start");
     }
 }

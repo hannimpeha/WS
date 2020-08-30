@@ -13,11 +13,12 @@ import java.awt.event.ActionListener;
 public class SetUpController implements ActionListener {
 
     private JFrame frame;
-    private ConsolePane pcp;
-    private ConsolePane pnp;
-    private ConsolePane prp;
+    private PlayerCountPanel pcp;
+    private PlayerNamePanel pnp;
+    private PlayerRolePanel prp;
     private ActionListener listener;
     private LoadFileUtil fu;
+    private int playerTotal;
 
     public SetUpController(JFrame frame, ActionListener listener) {
         this.frame = frame;
@@ -38,6 +39,7 @@ public class SetUpController implements ActionListener {
         pcp = new PlayerCountPanel(this, listener);
         pnp = new PlayerNamePanel(this, listener);
         prp = new PlayerRolePanel(this, listener);
+        playerTotal = 7;
     }
 
     @Override
@@ -47,20 +49,18 @@ public class SetUpController implements ActionListener {
         String name = source.getInputFromJTextArea();
         switch(name) {
             case "PlayerCount Panel":
-                switchPanel(pcp);
-            case "PlayerName Panel":
+                playerTotal = pnp.getPlayerNames().size();
                 switchPanel(pnp);
-            case "PlayerRole Panel":
+            case "PlayerName Panel":
                 switchPanel(prp);
         }
     }
 
-    private void switchPanel(ConsolePane cp) {
+    private void switchPanel(JPanel panel) {
         frame.getContentPane().setVisible(false);
-        frame.setContentPane(cp);
+        frame.setContentPane(panel);
         frame.getContentPane().setVisible(true);
     }
-
 
 //    public List<String> getPlayerNames(){
 //        return pnp.getPlayerNames();

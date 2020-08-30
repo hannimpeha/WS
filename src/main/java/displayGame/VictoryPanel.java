@@ -1,15 +1,16 @@
 package displayGame;
 
-import consoles.ConsolePane;
+import consoles.MyPanel;
+
 import java.awt.event.ActionListener;
 
-public class VictoryPanel extends ConsolePane {
+public class VictoryPanel extends MyPanel {
 
     private ActionListener listener;
 
     public VictoryPanel(ActionListener listener) {
-        super(listener);
-        setName("Victory Panel");
+        this.listener = listener;
+        contentPane.setName("Victory Panel");
         start();
     }
 

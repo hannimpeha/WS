@@ -1,16 +1,15 @@
 package displayGame;
 
-import consoles.ConsolePane;
+import consoles.MyPanel;
 import java.awt.event.ActionListener;
 
-public class DayPanel extends ConsolePane {
+public class DayPanel extends MyPanel {
 
     private ActionListener listener;
 
     public DayPanel(ActionListener packageListener, ActionListener listener) {
-        super(packageListener);
         this.listener = listener;
-        setName("Day Panel");
+        contentPane.setName("Day Panel");
         start();
     }
 

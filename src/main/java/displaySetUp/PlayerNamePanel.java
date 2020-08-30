@@ -1,7 +1,9 @@
 package displaySetUp;
 
 import consoles.ConsolePane;
+import consoles.MyPanel;
 
+import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,17 +11,18 @@ import java.util.List;
 public class PlayerNamePanel extends ConsolePane {
 
     private ActionListener listener;
+    private ArrayList<JTextArea> textAreas = new ArrayList<>();
+    private ArrayList<String> playerNameInput;
 
     public PlayerNamePanel(ActionListener packageListener,
                             ActionListener listener) {
         super(packageListener);
         this.listener = listener;
         setName("PlayerName Panel");
-        displayPlayer();
     }
 
-    private void displayPlayer() {
-        System.out.println("Great");
+    private void displayNames() {
+        outputToJTextArea("Names are as follows");
     }
 
     public List<String> getPlayerNames(){

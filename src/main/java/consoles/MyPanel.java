@@ -5,17 +5,16 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 public abstract class MyPanel {
-    private ActionListener packageListener;
-    private JPanel contentPane = new JPanel();
-    private JPanel north;
-    private JPanel south;
+    protected ActionListener packageListener;
+    protected JPanel contentPane = new JPanel();
+    protected MyTextArea north;
+    protected MyTextArea south;
 
     public MyPanel() {
-        contentPane.setLayout(new BorderLayout(0,0));
-        north = new JPanel();
-        contentPane.add(north, BorderLayout.NORTH);
-        south = new JPanel();
-        contentPane.add(south, BorderLayout.SOUTH);
+        north = new MyTextArea("");
+        contentPane.add(north.displayOrder(), BorderLayout.NORTH);
+        south = new MyTextArea("");
+        contentPane.add(south.displayListener(), BorderLayout.SOUTH);
     }
 
     public JPanel getContentPane() {
