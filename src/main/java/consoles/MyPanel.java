@@ -11,7 +11,7 @@ public abstract class MyPanel {
     protected MyTextArea south;
 
     public MyPanel() {
-        north = new MyTextArea("");
+        north = new MyTextArea("Hello");
         contentPane.add(north.displayOrder(), BorderLayout.NORTH);
         south = new MyTextArea("");
         contentPane.add(south.displayListener(), BorderLayout.SOUTH);

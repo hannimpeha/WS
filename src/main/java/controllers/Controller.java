@@ -1,5 +1,6 @@
 package controllers;
 
+import consoleExample.BackProgram;
 import consoles.*;
 import util.LoadFileUtil;
 
@@ -48,11 +49,13 @@ public class Controller implements ActionListener {
         frame.setVisible(true);
     }
 
+    public void createTextOrder() {
+
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        ConsolePane source = (ConsolePane) e.getSource();
-        source.outputToJTextArea("New Game or Continue Game");
-        String name = source.getInputFromJTextArea();
+        String name =  e.getActionCommand();
         switch (name) {
             case "New Game":
                 suc.start();
