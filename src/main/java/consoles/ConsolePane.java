@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
 
-public class ConsolePane extends JPanel implements ActionListener{
+public class ConsolePane extends JPanel implements ActionListener {
 
     private final JTextField textField = new JTextField(20);
     private final JTextArea textAreaOrder = new JTextArea(20, 30);
@@ -20,7 +20,7 @@ public class ConsolePane extends JPanel implements ActionListener{
     }
 
     public JComponent display(JButton button) {
-       textAreaOrder.setText("Game or Exit");
+        textAreaOrder.setText("Game or Exit");
         try {
             OutputStream os = new StreamWriter(textAreaOrder);
             System.setOut(new PrintStream(os, true, "UTF-8"));
@@ -39,10 +39,17 @@ public class ConsolePane extends JPanel implements ActionListener{
 //                }
 //        }));
         button = new JButton("Enter");
-        button.addActionListener((ActionListener)
-                EventHandler.create(ActionListener.class,
-                                this,"startGame",
-                                ""));
+        button.setActionCommand("Enter");
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                textAreaOrder.setText("Choose players");
+            }
+        });
+//        button.addActionListener((ActionListener)
+//                EventHandler.create(ActionListener.class,
+//                        this,"startGame",
+//                        ""));
         box.add(button);
         textAreaOrder.setEditable(false);
 

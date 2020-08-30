@@ -7,52 +7,56 @@ import displaySetUp.PlayerNamePanel;
 import displaySetUp.PlayerRolePanel;
 import util.LoadFileUtil;
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class SetUpController implements ActionListener {
+public class SetUpController implements DocumentListener {
 
     private JFrame frame;
     private PlayerCountPanel pcp;
     private PlayerNamePanel pnp;
     private PlayerRolePanel prp;
     private JButton playerCount;
-    private ActionListener listener;
+    private DocumentListener listener;
     private LoadFileUtil fu;
     private int playerTotal;
 
-    public SetUpController(JFrame frame, ActionListener listener) {
+    public SetUpController(JFrame frame, DocumentListener listener) {
         this.frame = frame;
         this.listener = listener;
-        ProcExec instance = new ProcExec(this);
-        EventQueue.invokeLater(instance);
+        //ProcExec instance = new ProcExec(this);
+        //sEventQueue.invokeLater(instance);
     }
 
     public void start() {
         pcp = new PlayerCountPanel(this, listener);
         pnp = new PlayerNamePanel(this, listener);
         prp = new PlayerRolePanel(this, listener);
-        playerCount = pcp.getContentPane();
+        //playerCount = pcp.getContentPane();
         playerTotal = 7;
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        JButton source = (JButton) e.getSource();
-        String name = source.toString();
-        switch(name) {
-            case "Game":
-                switchPanel(playerCount);
-//            case "PlayerName":
-//                switchPanel(prp);
-        }
-    }
 
     private void switchPanel(JButton button) {
-        frame.getContentPane().setVisible(false);
-        frame.setContentPane(button);
-        frame.getContentPane().setVisible(true);
+        frame.add(new ConsolePane().display(button));
+    }
+
+    @Override
+    public void insertUpdate(DocumentEvent e) {
+
+    }
+
+    @Override
+    public void removeUpdate(DocumentEvent e) {
+
+    }
+
+    @Override
+    public void changedUpdate(DocumentEvent e) {
+
     }
 
 //    public List<String> getPlayerNames(){

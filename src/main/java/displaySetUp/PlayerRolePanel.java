@@ -3,20 +3,20 @@ package displaySetUp;
 import consoles.ConsolePane;
 
 import javax.swing.*;
-import java.awt.event.ActionListener;
+import javax.swing.event.DocumentListener;
 import java.util.ArrayList;
 
 public class PlayerRolePanel extends ConsolePane {
 
-    private ActionListener listener;
+    private DocumentListener listener;
     private ArrayList<String> rolesSelected;
     private JTextArea textArea;
     private JTextArea textAreaOrder;
 
-    public PlayerRolePanel(ActionListener packageListener,
-                           ActionListener listener) {
+    public PlayerRolePanel(DocumentListener packageListener,
+                           DocumentListener listener) {
         super();
-        this.listener = listener;
+        //this.listener = listener;
         setName("PlayerRole Panel");
         displayRoles();
     }

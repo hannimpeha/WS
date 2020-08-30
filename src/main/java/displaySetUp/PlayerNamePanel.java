@@ -3,18 +3,19 @@ package displaySetUp;
 import consoles.ConsolePane;
 
 import javax.swing.*;
+import javax.swing.event.DocumentListener;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
 public class PlayerNamePanel extends ConsolePane {
 
-    private ActionListener listener;
+    private DocumentListener listener;
     private ArrayList<JTextArea> textAreas = new ArrayList<>();
     private ArrayList<String> playerNameInput;
 
-    public PlayerNamePanel(ActionListener packageListener,
-                            ActionListener listener) {
+    public PlayerNamePanel(DocumentListener packageListener,
+                           DocumentListener listener) {
         super();
         this.listener = listener;
         setName("PlayerName Panel");

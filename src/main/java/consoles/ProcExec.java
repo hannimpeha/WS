@@ -34,9 +34,9 @@ public class ProcExec implements Runnable {
         stdoutThread.start();
         Thread stderrThread = new Thread(stderr);
         stderrThread.start();
-        int status = proc.waitFor();
         stderrThread.join();
         stdoutThread.join();
+        System.out.println(stderrThread.toString());
     }
 
     @Override
