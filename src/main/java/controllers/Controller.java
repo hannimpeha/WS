@@ -14,6 +14,7 @@ import java.util.List;
 
 public class Controller implements ActionListener {
 
+    private static final String NEWGAME = "New Game";
     private JFrame frame;
     private MainController mc;
     private SetUpController suc;
@@ -21,36 +22,24 @@ public class Controller implements ActionListener {
     private LoadFileUtil fu;
 
     public Controller() {
-        EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-                } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
-                }
-                createFrame();
-            }
-        });
+        ProcExec instance = new ProcExec();
+        EventQueue.invokeLater(instance);
+//        EventQueue.invokeLater(new Runnable() {
+//            @Override
+//            public void run() {
+//                try {
+//                    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+//                } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
+//                }
+//                createFrame();
+//            }
+//        });
     }
 
     public void run() {
         mc = new MainController(frame, this);
         suc = new SetUpController(frame, this);
         gc = new GameController(frame, this);
-    }
-
-    public void createFrame() {
-        JFrame frame = new JFrame("Hannah's Mafia Game");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLayout(new BorderLayout());
-        frame.add(new ConsolePane(this));
-        frame.pack();
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-    }
-
-    public void createTextOrder() {
-
     }
 
     @Override

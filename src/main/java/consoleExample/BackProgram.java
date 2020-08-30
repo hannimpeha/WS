@@ -1,15 +1,19 @@
 package consoleExample;
 
 import consoles.ConsolePane;
-import consoles.MyPanel;
 
+import java.awt.event.ActionListener;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class BackProgram extends MyPanel {
+public class BackProgram extends ConsolePane {
 
     private ExecutorService execService = Executors.newFixedThreadPool(1);
     private ConsolePane cp;
+
+    public BackProgram(ActionListener listener) {
+        super(listener);
+    }
 
     public void getBackendWorker() {
         try {
@@ -20,7 +24,6 @@ public class BackProgram extends MyPanel {
                         while(true)
                         {
                             try{
-                                cp = new ConsolePane(packageListener);
                                 cp.outputToJTextArea("Game or Exit");
 
 //                                System.out.println("(BackProgram Class) Enter two Numbers:");

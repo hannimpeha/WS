@@ -1,38 +1,36 @@
 package consoles;
 
-import consoleExample.ConsoleExample;
-
-import java.awt.event.ActionEvent;
+import javax.swing.*;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.io.IOException;
+import java.io.BufferedReader;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 
-public class StreamReader extends Thread implements ActionListener{
+public class StreamReader extends Thread implements Runnable{
 
+    private BufferedReader br;
     private InputStream is;
     private ActionListener listener;
     private ConsolePane cp;
 
-    public StreamReader(ActionListener listener, InputStream is) {
-        this.is = is;
-        this.listener = listener;
-        run();
+    public StreamReader(InputStream is) {
+        InputStreamReader isr = new InputStreamReader(is);
+        br = new BufferedReader(isr);
     }
 
     public void run() {
         try {
-            int value = -1;
-            while ((value = is.read()) != -1) {
-                //listener(actionPerformed());
+            String line = br.readLine();
+            while (line != null) {
+                SwingUtilities.invokeLater(new StreamLine(line));
+                line = br.readLine();
             }
-        } catch (IOException exp) {
-            exp.printStackTrace();
+        }
+        catch (Exception x) {
+            throw new RuntimeException("Stream reading failed.", x);
         }
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-
-    }
 }
+
+

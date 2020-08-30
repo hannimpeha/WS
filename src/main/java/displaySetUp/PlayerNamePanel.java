@@ -1,7 +1,6 @@
 package displaySetUp;
 
 import consoles.ConsolePane;
-import consoles.MyPanel;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;

@@ -1,7 +1,6 @@
 package consoles;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.*;
 
 public class ConsolePane extends JPanel implements KeyListener, ActionListener{
@@ -10,33 +9,28 @@ public class ConsolePane extends JPanel implements KeyListener, ActionListener{
     private int initialCaretPosition = 0;
     private int currentCaretPosition = 0;
     private boolean inputAvailable = false;
-    private JTextArea textArea;
-    private JTextArea textAreaOrder;
+    private JTextArea textArea = new JTextArea(20, 20);
+    private JTextArea textAreaOrder = new JTextArea(20, 30);
     private int userInputStart = 0;
     private ActionListener listener;
 
     public ConsolePane(ActionListener listener) {
         this.listener = listener;
-        configureJTextAreaForInputOutput(displayOrder());
-        configureJTextAreaForInputOutput(displayListener());
     }
 
-    public JTextArea displayOrder() {
+    public JSplitPane displayOrder() {
         textAreaOrder = new JTextArea(20, 20);
-        outputToJTextArea("Game or Exit");
         textAreaOrder.setEditable(true);
-        return textAreaOrder;
-    }
-
-    public JTextArea displayListener() {
+        textAreaOrder.addKeyListener(this);
         textArea = new JTextArea(20, 30);
         textArea.setEditable(true);
-        return textArea;
-    }
-
-    public void configureJTextAreaForInputOutput(JTextArea jta) {
-        jta.addKeyListener(this);
-        add(new JScrollPane(jta), new BorderLayout());
+        textArea.addKeyListener(this);
+        JScrollPane orderScrollPane = new JScrollPane(textAreaOrder);
+        JScrollPane textScrollPane = new JScrollPane(textArea);
+        JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,
+                orderScrollPane,
+                textScrollPane);
+        return splitPane;
     }
 
     public String getInputFromJTextArea() {
