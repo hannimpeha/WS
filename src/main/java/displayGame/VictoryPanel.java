@@ -4,13 +4,13 @@ import consoles.ConsolePane;
 
 import java.awt.event.ActionListener;
 
-public class VictoryPanel extends ConsolePane {
+public class VictoryPanel  {
 
     private ActionListener listener;
 
     public VictoryPanel(ActionListener listener) {
-        super();
-        setName("Victory Panel");
+        //super(listener);
+        //setName("Victory Panel");
         start();
     }
 

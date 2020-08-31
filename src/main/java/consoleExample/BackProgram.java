@@ -6,13 +6,13 @@ import java.awt.event.ActionListener;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class BackProgram extends ConsolePane {
+public class BackProgram {
 
     private ExecutorService execService = Executors.newFixedThreadPool(1);
     private ConsolePane cp;
 
     public BackProgram(ActionListener listener) {
-        super();
+        //super(listener);
     }
 
     public void getBackendWorker() {

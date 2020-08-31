@@ -10,7 +10,7 @@ public class NightPanel extends ConsolePane {
 
     public NightPanel(ActionListener packageListener,
                       ActionListener listener) {
-        super();
+        super(packageListener);
         setName("Night Panel");
         start();
     }
@@ -20,5 +20,3 @@ public class NightPanel extends ConsolePane {
     }
 
 }
-
-

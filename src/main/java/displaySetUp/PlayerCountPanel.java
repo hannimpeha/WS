@@ -10,12 +10,12 @@ import java.beans.EventHandler;
 
 public class PlayerCountPanel extends ConsolePane {
 
-    private DocumentListener listener;
+    private ActionListener listener;
     private JButton button;
 
-    public PlayerCountPanel(DocumentListener packageListener,
-                            DocumentListener listener) {
-        super();
+    public PlayerCountPanel(ActionListener packageListener,
+                            ActionListener listener) {
+        super(packageListener);
         this.listener = listener;
 
     }

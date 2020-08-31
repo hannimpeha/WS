@@ -8,18 +8,28 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
 
-public class ConsolePane extends JPanel implements ActionListener {
+public class ConsolePane extends JPanel {
 
-    private final JTextField textField = new JTextField(20);
-    private final JTextArea textAreaOrder = new JTextArea(20, 30);
-    private ActionListener listener;
-    private ProcExec procExec;
-    private JButton button;
+    public final JTextField textField = new JTextField(20);
+    public final JTextArea textAreaOrder = new JTextArea(20, 30);
+    public ActionListener listener;
+    public ProcExec procExec;
+    public JButton button;
+    public ActionListener textAction;
+    public ActionListener buttonAction = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if(textField.getText()=="game") {
+                textAreaOrder.setText("Choose players");
+            }
+        }
+    };
 
-    public ConsolePane() {
+    public ConsolePane(ActionListener textAction) {
+        this.textAction = textAction;
     }
 
-    public JComponent display(JButton button) {
+    public JComponent display() {
         textAreaOrder.setText("Game or Exit");
         try {
             OutputStream os = new StreamWriter(textAreaOrder);
@@ -40,12 +50,13 @@ public class ConsolePane extends JPanel implements ActionListener {
 //        }));
         button = new JButton("Enter");
         button.setActionCommand("Enter");
-        button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                textAreaOrder.setText("Choose players");
-            }
-        });
+        button.addActionListener(buttonAction);
+//        button.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                textAreaOrder.setText("Choose players");
+//            }
+//        });
 //        button.addActionListener((ActionListener)
 //                EventHandler.create(ActionListener.class,
 //                        this,"startGame",
@@ -63,18 +74,4 @@ public class ConsolePane extends JPanel implements ActionListener {
         textAreaOrder.setText("Choose players");
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        try {
-            procExec.execute();
-        } catch (IOException ioException) {
-            ioException.printStackTrace();
-        } catch (InterruptedException interruptedException) {
-            interruptedException.printStackTrace();
-        }
-    }
-
-    public JButton getContentPane() {
-        return this.button;
-    }
 }

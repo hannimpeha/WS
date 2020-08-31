@@ -10,13 +10,13 @@ import java.util.List;
 
 public class PlayerNamePanel extends ConsolePane {
 
-    private DocumentListener listener;
+    private ActionListener listener;
     private ArrayList<JTextArea> textAreas = new ArrayList<>();
     private ArrayList<String> playerNameInput;
 
-    public PlayerNamePanel(DocumentListener packageListener,
-                           DocumentListener listener) {
-        super();
+    public PlayerNamePanel(ActionListener packageListener,
+                           ActionListener listener) {
+        super(packageListener);
         this.listener = listener;
         setName("PlayerName Panel");
     }
@@ -28,7 +28,7 @@ public class PlayerNamePanel extends ConsolePane {
     public List<String> getPlayerNames(){
         List<String> names = new ArrayList<>();
         for (int count=0; count<names.size(); count++){
-            ConsolePane cp = new ConsolePane();
+            ConsolePane cp = new ConsolePane(listener);
             //names.add(cp.getInputFromJTextArea());
         }
         return names;

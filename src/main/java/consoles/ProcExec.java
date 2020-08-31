@@ -5,15 +5,18 @@ import consoleExample.StreamReader;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyListener;
 import java.io.IOException;
 
 public class ProcExec implements Runnable {
 
-    private JTextArea textAreaOrder;
-    private JTextField textField;
-    private JButton button;
-    private ProcessBuilder procBuilder;
-    private ActionListener listener;
+    public JTextArea textAreaOrder;
+    public JTextField textField;
+    public JButton button;
+    public ProcessBuilder procBuilder;
+    public ActionListener listener;
+    public KeyListener keyListener;
+    public ActionListener textAction;
 
     public ProcExec(ActionListener listener) {
         this.listener = listener;
@@ -48,7 +51,7 @@ public class ProcExec implements Runnable {
         JFrame frame = new JFrame("Hannah's Mafia Game");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
-        frame.add(new ConsolePane().display(button));
+        frame.add(new ConsolePane(textAction).display());
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);

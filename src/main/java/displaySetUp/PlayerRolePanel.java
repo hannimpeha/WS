@@ -4,6 +4,7 @@ import consoles.ConsolePane;
 
 import javax.swing.*;
 import javax.swing.event.DocumentListener;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class PlayerRolePanel extends ConsolePane {
@@ -13,9 +14,9 @@ public class PlayerRolePanel extends ConsolePane {
     private JTextArea textArea;
     private JTextArea textAreaOrder;
 
-    public PlayerRolePanel(DocumentListener packageListener,
-                           DocumentListener listener) {
-        super();
+    public PlayerRolePanel(ActionListener packageListener,
+                           ActionListener listener) {
+        super(packageListener);
         //this.listener = listener;
         setName("PlayerRole Panel");
         displayRoles();
