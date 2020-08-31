@@ -3,7 +3,6 @@ package consoles;
 import consoleExample.StreamReader;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
 import java.io.IOException;
@@ -44,17 +43,6 @@ public class ProcExec implements Runnable {
 
     @Override
     public void run() {
-        createFrame();
     }
 
-    public void createFrame() {
-        JFrame frame = new JFrame("Hannah's Mafia Game");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLayout(new BorderLayout());
-        frame.add(new ConsolePane(textAction).display());
-        frame.pack();
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-        frame.setLocationRelativeTo(null);
-    }
 }
