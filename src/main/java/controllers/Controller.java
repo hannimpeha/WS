@@ -6,30 +6,20 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Controller {
+public class Controller implements ActionListener{
 
     public JFrame frame;
     public ActionListener buttonAction;
-    public ProcExec procExec;
     public JTextField textField;
+    public JTextArea textAreaOrder;
     public MainController mc;
     public SetUpController suc;
     public GameController gc;
     public LoadFileUtil fu;
-
-    public ActionListener textAction = new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            if (textField.getText()=="game"){
-                System.out.println("Great");
-            }
-        }
-    };
 
     public Controller() {
 //        ProcExec instance = new ProcExec(this);
@@ -47,9 +37,9 @@ public class Controller {
     }
 
     public void run() {
-        mc = new MainController(frame, buttonAction);
-        suc = new SetUpController(frame, buttonAction);
-        gc = new GameController(frame, buttonAction);
+        mc = new MainController(frame, this);
+        suc = new SetUpController(frame, this);
+        gc = new GameController(frame, this);
         suc.start();
     }
 
@@ -57,7 +47,7 @@ public class Controller {
         JFrame frame = new JFrame("Hannah's Mafia Game");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
-        frame.add(new ConsolePane(textAction).display());
+        frame.add(new ConsolePane(buttonAction).display());
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
@@ -76,4 +66,30 @@ public class Controller {
         gc.start(fu.getPlayerInfo());
     }
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        JButton source = (JButton)e.getSource();
+        String name = source.getName();
+        switch(name){
+            case"NewGame_MainPanel":
+                suc.start();
+                break;
+            case"ContinueGame_MainPanel":
+                fu.loadFile();
+                gc.start(fu.getPlayerInfo());
+                break;
+            case"Home":
+                mc.start();
+                break;
+            case"Continue_RoleSelectionPanel":
+                //fu.newFile(suc.getPlayerNames(),suc.getRoles());
+                gc.start(fu.getPlayerInfo());
+                break;
+            /** initializes a test game, skipping the set up phase */
+            case"Testing_MainPanel":
+                test();
+                break;
+            default:break;
+        }
+    }
 }
