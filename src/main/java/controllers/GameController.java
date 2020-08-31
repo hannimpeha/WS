@@ -70,15 +70,15 @@ public class GameController implements ActionListener {
     }
 
     private void switchNight(){
-        np.setDisplay(g.getPlayer(position));
+        //np.setDisplay(g.getPlayer(position));
         switchPanel(panelNight);
     }
 
     private void switchVictory(String victor){
         for(Player p: g.getPlayerInfo()){
-            vp.setPlayerInfo(p.copy());
+           //vp.setPlayerInfo(p.copy());
         }
-        vp.setWinner(victor);
+        //vp.setWinner(victor);
         switchPanel(panelVictory);
     }
 

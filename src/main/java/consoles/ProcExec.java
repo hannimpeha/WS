@@ -1,7 +1,5 @@
 package consoles;
 
-import consoleExample.StreamReader;
-
 import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;

@@ -1,6 +1,6 @@
 package displayGame;
 
-import consoles.ConsolePane;
+import controllers.ConsolePane;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;

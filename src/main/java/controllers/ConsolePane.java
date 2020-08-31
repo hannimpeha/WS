@@ -1,4 +1,7 @@
-package consoles;
+package controllers;
+
+import consoles.ProcExec;
+import consoles.StreamWriter;
 
 import javax.swing.*;
 import java.awt.*;

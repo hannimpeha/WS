@@ -1,6 +1,6 @@
 package displayGame;
 
-import consoles.ConsolePane;
+import controllers.ConsolePane;
 
 import java.awt.event.ActionListener;
 

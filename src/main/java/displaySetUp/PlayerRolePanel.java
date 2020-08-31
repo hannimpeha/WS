@@ -1,6 +1,6 @@
 package displaySetUp;
 
-import consoles.ConsolePane;
+import controllers.ConsolePane;
 
 import javax.swing.*;
 import java.awt.*;

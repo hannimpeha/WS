@@ -1,5 +1,6 @@
 package controllers;
 
+import displaySetUp.PlayerNamePanel;
 import util.LoadFileUtil;
 
 import javax.swing.*;
