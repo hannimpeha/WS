@@ -1,5 +1,7 @@
 package controllers;
 
+import displayGame.VictoryPanel;
+import displaySetUp.PlayerCountPanel;
 import displaySetUp.PlayerNamePanel;
 import util.LoadFileUtil;
 
@@ -11,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Controller implements ActionListener{
+public class Controller extends ConsolePane implements ActionListener{
 
     public JFrame frame;
     public SetUpController suc;
@@ -26,7 +28,6 @@ public class Controller implements ActionListener{
                     UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
                 } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
                 }
-                createFrame();
             }
         });
     }
@@ -36,15 +37,6 @@ public class Controller implements ActionListener{
         gc = new GameController(frame, this);
         fu = new LoadFileUtil();
         suc.start();
-    }
-
-    public void createFrame() {
-        JFrame frame = new JFrame("Hannah's Mafia Game");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLayout(new BorderLayout());
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-        frame.pack();
     }
 
     private void test() {
