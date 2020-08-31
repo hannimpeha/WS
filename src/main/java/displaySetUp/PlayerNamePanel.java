@@ -4,6 +4,7 @@ import consoles.ConsolePane;
 
 import javax.swing.*;
 import javax.swing.event.DocumentListener;
+import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,25 +12,36 @@ import java.util.List;
 public class PlayerNamePanel extends ConsolePane {
 
     private ActionListener listener;
-    private ArrayList<JTextArea> textAreas = new ArrayList<>();
-    private ArrayList<String> playerNameInput;
+    private ArrayList<JTextField> textFields = new ArrayList<JTextField>();
 
-    public PlayerNamePanel(ActionListener packageListener,
+    public PlayerNamePanel(ActionListener buttonListener,
                            ActionListener listener) {
-        super(packageListener);
+        this.buttonAction = buttonAction;;
         this.listener = listener;
-        setName("PlayerName Panel");
+        box.add(textField);
+        box.add(button);
+        button.addActionListener(buttonAction);
+        contentPane.add(new JScrollPane(textAreaOrder));
+        contentPane.add(box, BorderLayout.SOUTH);
     }
 
-    private void displayNames() {
-        //outputToJTextArea("Names are as follows");
+    public void displayCenter(int playerTotal){
+        for (int count = 0; count < playerTotal; count++) {
+            JTextField playerNameInput = new JTextField("", 30);
+            contentPane.add(playerNameInput, "cell 0 " + count + " ,growx");
+            playerNameInput.setName(Integer.toString(count+1));
+            textFields.add(playerNameInput);
+        }
     }
 
     public List<String> getPlayerNames(){
         List<String> names = new ArrayList<>();
-        for (int count=0; count<names.size(); count++){
-            ConsolePane cp = new ConsolePane(listener);
-            //names.add(cp.getInputFromJTextArea());
+        for(JTextField f: textFields){
+            if(f.getText().equals("")||f.getText()==null){
+                names.add("Player "+f.getName());
+            }else{
+                names.add(f.getText());
+            }
         }
         return names;
     }

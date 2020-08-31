@@ -1,5 +1,5 @@
 package controllers;
-import consoles.*;
+
 import util.LoadFileUtil;
 
 import javax.swing.*;
@@ -13,17 +13,11 @@ import java.util.List;
 public class Controller implements ActionListener{
 
     public JFrame frame;
-    public ActionListener buttonAction;
-    public JTextField textField;
-    public JTextArea textAreaOrder;
-    public MainController mc;
     public SetUpController suc;
     public GameController gc;
     public LoadFileUtil fu;
 
     public Controller() {
-//        ProcExec instance = new ProcExec(this);
-//        EventQueue.invokeLater(instance);
         EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
@@ -37,9 +31,9 @@ public class Controller implements ActionListener{
     }
 
     public void run() {
-        mc = new MainController(frame, this);
         suc = new SetUpController(frame, this);
         gc = new GameController(frame, this);
+        fu = new LoadFileUtil();
         suc.start();
     }
 
@@ -47,11 +41,9 @@ public class Controller implements ActionListener{
         JFrame frame = new JFrame("Hannah's Mafia Game");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
-        frame.add(new ConsolePane(buttonAction).display());
-        frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-        frame.setLocationRelativeTo(null);
+        frame.pack();
     }
 
     private void test() {
@@ -79,7 +71,7 @@ public class Controller implements ActionListener{
                 gc.start(fu.getPlayerInfo());
                 break;
             case"Home":
-                mc.start();
+                //mc.start();
                 break;
             case"Continue_RoleSelectionPanel":
                 //fu.newFile(suc.getPlayerNames(),suc.getRoles());
