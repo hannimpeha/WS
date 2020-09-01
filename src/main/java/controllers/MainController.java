@@ -41,7 +41,7 @@ public class MainController implements ActionListener {
             "/src/main/java/resource/players.txt";
 
     public MainController(JFrame frame, ActionListener listener) {
-        this.frame = frame;
+        this.frame = new JFrame("Hannah's Mafia Game");
         this.listener = listener;
     }
 
@@ -62,7 +62,6 @@ public class MainController implements ActionListener {
     }
 
     private void switchPanel(JPanel panel) {
-        JFrame frame = new JFrame("Hannah's Mafia Game");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
         frame.setLocationRelativeTo(null);
@@ -96,7 +95,7 @@ public class MainController implements ActionListener {
             case "Night_Start":
                 switchPanel(panelNight);
                 break;
-            case "Victory":
+            case "Check_Victory":
                 switchPanel(panelVictory);
                 break;
             default:

@@ -26,7 +26,7 @@ public class NightPanel extends ConsolePane {
 
     private void displayNorth() {
         textAreaOrder = new JTextArea(20, 30);
-        textAreaOrder.setText("This is Day");
+        textAreaOrder.setText("This is Night");
         textAreaOrder.setEditable(false);
         try {
             OutputStream os = new StreamWriter(textAreaOrder);
@@ -52,7 +52,6 @@ public class NightPanel extends ConsolePane {
     }
 
     public void displayPlayerButton(String name, int position) {
-
         JButton btnPlayer = new JButton(name);
         btnPlayer.setName("Day_" + Integer.toString(position));
         contentPane.add(btnPlayer, "cell 0 " + position + ",growx");
