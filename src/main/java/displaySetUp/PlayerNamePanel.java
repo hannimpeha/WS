@@ -4,7 +4,6 @@ import consoles.StreamWriter;
 import controllers.ConsolePane;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -46,6 +45,7 @@ public class PlayerNamePanel extends ConsolePane {
         box.add(textField);
         btnNames = new JButton("Enter");
         btnNames.addActionListener(listener);
+        btnNames.setName("Player_Roles");
         box.add(btnNames);
         south.add(box);
     }

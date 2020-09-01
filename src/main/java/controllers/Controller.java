@@ -13,8 +13,8 @@ import java.util.List;
 public class Controller extends ConsolePane implements ActionListener {
 
     public JFrame frame;
-    public SetUpController suc;
     public MainController mc;
+    public SetUpController suc;
     public GameController gc;
     public LoadFileUtil fu;
 
@@ -34,17 +34,16 @@ public class Controller extends ConsolePane implements ActionListener {
         suc = new SetUpController(frame, this);
         mc = new MainController(frame, this);
         gc = new GameController(frame, this);
-        fu = new LoadFileUtil();
         mc.start();
     }
 
     private void test() {
         List<String> names = new ArrayList<String>(Arrays.asList(
-                "Pierce","Mahsa","Christilyn","Elvin","Ronelle","Harry",
-                "Ron","Hermione","Tom Riddle","Albus D","Captain Jack","Sparkey Sparkey Boom Man"));
+                "Pierce", "Mahsa", "Christilyn", "Elvin", "Ronelle", "Harry",
+                "Ron", "Hermione", "Tom Riddle", "Albus D", "Captain Jack", "Sparkey Sparkey Boom Man"));
         List<String> roles = new ArrayList<>(Arrays.asList(
-                "Doctor","Detective","Mafia: Hitman","Town","Bodyguard","Survivor",
-                "Mafia: Barman","Lyncher","Mafia- GodFather","Vigilante","Prostitute","Mafia: Goon"));
+                "Doctor", "Detective", "Mafia: Hitman", "Town", "Bodyguard", "Survivor",
+                "Mafia: Barman", "Lyncher", "Mafia- GodFather", "Vigilante", "Prostitute", "Mafia: Goon"));
 
         fu.newFile(names, roles);
         gc.start(fu.getPlayerInfo());
@@ -52,13 +51,5 @@ public class Controller extends ConsolePane implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        JButton source = (JButton)e.getSource();
-        String name = source.getName();
-        switch(name){
-            case "Player_Names":
-                suc.start();
-            default:
-                break;
-        }
     }
 }

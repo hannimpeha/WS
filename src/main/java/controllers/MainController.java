@@ -1,7 +1,6 @@
 package controllers;
 
 import displayMain.MainPanel;
-import displaySetUp.PlayerNamePanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,8 +9,9 @@ import java.awt.event.ActionListener;
 
 public class MainController implements ActionListener {
 
-    private JFrame frame;
+    private SetUpController suc;
     private ActionListener listener;
+    private JFrame frame;
     private MainPanel mp;
     private JPanel panelMain;
 
@@ -45,6 +45,8 @@ public class MainController implements ActionListener {
         String name = source.getName();
         switch(name){
             case "Player_Names":
+                suc = new SetUpController(frame, this);
+                suc.start();
             default:
                 break;
         }

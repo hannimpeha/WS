@@ -1,6 +1,5 @@
 package controllers;
 
-import displaySetUp.PlayerCountPanel;
 import displaySetUp.PlayerNamePanel;
 import displaySetUp.PlayerRolePanel;
 import javax.swing.*;
@@ -11,7 +10,6 @@ import java.awt.event.ActionListener;
 public class SetUpController implements ActionListener {
 
     private JFrame frame;
-    private PlayerCountPanel pcp;
     private PlayerNamePanel pnp;
     private PlayerRolePanel prp;
     private JPanel playerCount;
@@ -23,19 +21,15 @@ public class SetUpController implements ActionListener {
     public SetUpController(JFrame frame, ActionListener listener) {
         this.frame = frame;
         this.listener = listener;
-        //ProcExec instance = new ProcExec(this);
-        //EventQueue.invokeLater(instance);
     }
 
     public void start() {
-        pcp = new PlayerCountPanel(this);
         pnp = new PlayerNamePanel(this);
         prp = new PlayerRolePanel(this);
-        playerCount = pcp.getContentPane();
         playerName = pnp.getContentPane();
         playerRole = prp.getContentPane();
         playerTotal = 7;
-        switchPanel(playerCount);
+        switchPanel(playerName);
     }
 
     private void switchPanel(JPanel panel) {
@@ -55,15 +49,9 @@ public class SetUpController implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         JButton source = (JButton) e.getSource();
         String name = source.getName();
-
-        if (name.contains("RoleButton")) {
-            onRoleButtonClick(source);
-        } else {
             switch (name) {
-                case "Continue_PlayerCount":
-                    //Creates a list of player input fields for the amount of players selected
-                    pnp.displayCenter(playerTotal);
-                    switchPanel(playerName);
+                case "Player_Roles":
+                    switchPanel(playerRole);
                     break;
                 case "Continue_PlayerName":
                     switchPanel(playerRole);
@@ -93,7 +81,6 @@ public class SetUpController implements ActionListener {
                     }
                     break;
             }
-        }
     }
 
     private void onRoleButtonClick(JButton source) {
