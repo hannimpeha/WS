@@ -52,5 +52,13 @@ public class Controller extends ConsolePane implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        JButton source = (JButton)e.getSource();
+        String name = source.getName();
+        switch(name){
+            case "Player_Names":
+                suc.start();
+            default:
+                break;
+        }
     }
 }

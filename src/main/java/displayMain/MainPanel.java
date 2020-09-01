@@ -14,7 +14,6 @@ public class MainPanel extends ConsolePane {
 
     private ActionListener listener;
     private JButton btnNewGame;
-    private JButton btnContinueGame;
 
     public MainPanel(ActionListener listener) {
         this.listener = listener;
@@ -44,6 +43,7 @@ public class MainPanel extends ConsolePane {
         box.add(textField);
         btnNewGame = new JButton("Enter");
         btnNewGame.addActionListener(listener);
+        btnNewGame.setName("Player_Names");
         box.add(btnNewGame);
         south.add(box);
     }

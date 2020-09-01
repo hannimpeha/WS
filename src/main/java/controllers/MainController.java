@@ -1,6 +1,7 @@
 package controllers;
 
 import displayMain.MainPanel;
+import displaySetUp.PlayerNamePanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -43,14 +44,7 @@ public class MainController implements ActionListener {
         JButton source = (JButton)e.getSource();
         String name = source.getName();
         switch(name){
-            case "Enter":
-                switchPanel(panelMain);
-                break;
-            case "Back_AboutPanel":
-                switchPanel(panelMain);
-                break;
-            case "Test_MainPanel":
-                //switchTest();
+            case "Player_Names":
             default:
                 break;
         }
