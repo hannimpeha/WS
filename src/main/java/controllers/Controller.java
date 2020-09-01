@@ -52,28 +52,5 @@ public class Controller extends ConsolePane implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        JButton source = (JButton)e.getSource();
-        String name = source.getName();
-        switch(name){
-            case"NewGame_MainPanel":
-                suc.start();
-                break;
-            case"ContinueGame_MainPanel":
-                fu.loadFile();
-                gc.start(fu.getPlayerInfo());
-                break;
-            case"Home":
-                //mc.start();
-                break;
-            case"Continue_RoleSelectionPanel":
-                //fu.newFile(suc.getPlayerNames(),suc.getRoles());
-                gc.start(fu.getPlayerInfo());
-                break;
-            /** initializes a test game, skipping the set up phase */
-            case"Testing_MainPanel":
-                test();
-                break;
-            default:break;
-        }
     }
 }

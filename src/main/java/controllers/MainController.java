@@ -32,7 +32,7 @@ public class MainController implements ActionListener {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         frame.pack();
-        frame.setBounds(500, 20, 400, 400);
+        frame.setBounds(500, 20, 400, 430);
         frame.getContentPane().setVisible(false);
         frame.setContentPane(panel);
         frame.getContentPane().setVisible(true);
@@ -43,7 +43,7 @@ public class MainController implements ActionListener {
         JButton source = (JButton)e.getSource();
         String name = source.getName();
         switch(name){
-            case "Back_RulePanel":
+            case "Enter":
                 switchPanel(panelMain);
                 break;
             case "Back_AboutPanel":

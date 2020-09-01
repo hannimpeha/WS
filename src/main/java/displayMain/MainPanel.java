@@ -18,11 +18,11 @@ public class MainPanel extends ConsolePane {
 
     public MainPanel(ActionListener listener) {
         this.listener = listener;
-        displayCenter();
+        displayNorth();
+        displaySouth();
     }
 
-    private void displayCenter() {
-        textField = new JTextField(24);
+    private void displayNorth() {
         textAreaOrder = new JTextArea(20, 30);
         textAreaOrder.setText("Press Button to Continue");
         textAreaOrder.setEditable(false);
@@ -32,16 +32,19 @@ public class MainPanel extends ConsolePane {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+        north.add(new JScrollPane(textAreaOrder));
+    }
+
+    private void displaySouth() {
         box = Box.createHorizontalBox();
         box.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
         box.add(Box.createHorizontalStrut(5));
         box.add(Box.createHorizontalGlue());
-        btnNewGame = new JButton("New Game");
-        btnNewGame.addActionListener(listener);
+        textField = new JTextField(24);
         box.add(textField);
+        btnNewGame = new JButton("Enter");
+        btnNewGame.addActionListener(listener);
         box.add(btnNewGame);
-        contentPane.add(btnNewGame);
-        contentPane.add(new JScrollPane(textAreaOrder));
-        contentPane.add(box, BorderLayout.SOUTH);
+        south.add(box);
     }
 }

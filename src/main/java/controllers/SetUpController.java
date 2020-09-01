@@ -45,7 +45,7 @@ public class SetUpController implements ActionListener {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         frame.pack();
-        frame.setBounds(500, 20, 400, 400);
+        frame.setBounds(500, 20, 400, 430);
         frame.getContentPane().setVisible(false);
         frame.setContentPane(panel);
         frame.getContentPane().setVisible(true);
