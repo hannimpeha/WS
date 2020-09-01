@@ -1,8 +1,5 @@
 package controllers;
 
-import displayGame.VictoryPanel;
-import displaySetUp.PlayerCountPanel;
-import displaySetUp.PlayerNamePanel;
 import util.LoadFileUtil;
 
 import javax.swing.*;
@@ -13,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Controller extends ConsolePane implements ActionListener{
+public class Controller extends ConsolePane implements ActionListener {
 
     public JFrame frame;
     public SetUpController suc;

@@ -1,6 +1,5 @@
 package controllers;
 
-import consoles.ProcExec;
 import consoles.StreamWriter;
 
 import javax.swing.*;
