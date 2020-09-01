@@ -34,6 +34,7 @@ public class Controller extends ConsolePane implements ActionListener {
         suc = new SetUpController(frame, this);
         mc = new MainController(frame, this);
         gc = new GameController(frame, this);
+        fu = new LoadFileUtil();
         mc.start();
     }
 
@@ -45,7 +46,7 @@ public class Controller extends ConsolePane implements ActionListener {
                 "Doctor", "Detective", "Mafia: Hitman", "Town", "Bodyguard", "Survivor",
                 "Mafia: Barman", "Lyncher", "Mafia- GodFather", "Vigilante", "Prostitute", "Mafia: Goon"));
 
-        fu.newFile(names, roles);
+        fu.newFile(names);
         gc.start(fu.getPlayerInfo());
     }
 

@@ -20,14 +20,15 @@ public class LoadFileUtil {
     public LoadFileUtil() {
     }
 
-    public void newFile(List<String> names, List<String> roles) {
+    public void newFile(List<String> playerName) {
         playerInfo = new ArrayList<>();
-        setAllPlayers(names,roles);
+        createRoles(playerName);
+        setAllPlayers(playerName, playerRole);
         SaveFileUtil.saveGame(playerInfo);
     }
 
 
-    public List<String> createRoles(List<String> playerName) {
+    public void createRoles(List<String> playerName) {
         int num = playerName.size();
         switch(num) {
             case 3:
@@ -42,12 +43,11 @@ public class LoadFileUtil {
                 playerRole = Arrays.asList("Mafia", "Mafia", "Doctor", "Townie", "Townie", "Townie", "Townie");
         }
         Collections.shuffle(playerRole);
-        return playerRole;
     }
 
     private void setAllPlayers(List<String> names, List<String> roles) {
         for(int i=0; i<names.size(); i++) {
-            //System.out.println("\n"+names.get(i)+" is "+roles.get(i)+".");
+            System.out.println("\n"+names.get(i)+" is "+roles.get(i)+".");
             playerInfo.add(CreatePlayerUtil.createPlayer(names.get(i), roles.get(i), i));
         }
     }
