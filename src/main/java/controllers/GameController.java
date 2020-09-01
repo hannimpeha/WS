@@ -65,7 +65,7 @@ public class GameController implements ActionListener {
 
     private void switchVictory(String victor){
         for(Player p: g.getPlayerInfo()){
-           //vp.setPlayerInfo(p.copy());
+            //vp.setPlayerInfo(p.copy());
         }
         //vp.setWinner(victor);
         switchPanel(panelVictory);

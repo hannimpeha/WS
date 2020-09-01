@@ -63,21 +63,21 @@ public class SetUpController implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         JButton source = (JButton) e.getSource();
         String name = source.getName();
-            switch (name) {
-                case "Player_Roles":
-                    try {
-                        Files.write(Paths.get(path), pnp.getPlayerNames());
-                    } catch (IOException ioException) {
-                        ioException.printStackTrace();
-                    }
-                    switchPanel(playerRole);
-                    break;
-                case "Game_Start":
-                    gc = new GameController(frame, this);
-                    gc.start(playerInfo);
-                default:
-                    break;
-            }
+        switch (name) {
+            case "Player_Roles":
+                try {
+                    Files.write(Paths.get(path), pnp.getPlayerNames());
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+                switchPanel(playerRole);
+                break;
+            case "Game_Start":
+                gc = new GameController(frame, this);
+                gc.start(playerInfo);
+            default:
+                break;
+        }
     }
 
 }
