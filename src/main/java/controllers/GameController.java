@@ -38,8 +38,8 @@ public class GameController implements ActionListener {
     public void start(List<Player> playerInfo){
 
         g = new Game(playerInfo);
-        dp = new DayPanel(this,listener);
-        np = new NightPanel(this,listener);
+        dp = new DayPanel(this);
+        np = new NightPanel(this);
         vp = new VictoryPanel(listener);
 
         fillPanels();

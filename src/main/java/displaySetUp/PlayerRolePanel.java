@@ -18,13 +18,11 @@ public class PlayerRolePanel extends ConsolePane {
     private JButton continueButton;
     private JButton assignTownies;
 
-    public PlayerRolePanel(ActionListener buttonListener,
-                           ActionListener listener) {
-        this.buttonAction = buttonAction;;
+    public PlayerRolePanel(ActionListener listener) {
         this.listener = listener;
         box.add(textField);
         box.add(button);
-        button.addActionListener(buttonAction);
+        button.addActionListener(listener);
         contentPane.add(new JScrollPane(textAreaOrder));
         contentPane.add(box, BorderLayout.SOUTH);
     }
@@ -35,7 +33,7 @@ public class PlayerRolePanel extends ConsolePane {
             if (!availableRoles.get(count).equals("Townie")) {
                 JButton roleBtn = new JButton(availableRoles.get(count));
                 roleBtn.setName("RoleButton " + (count+1));
-                roleBtn.addActionListener(buttonAction);
+                roleBtn.addActionListener(listener);
                 if (availableRoles.get(count).contains("Mafia")) {
                     roleButtons.add(roleBtn);
                 } else {

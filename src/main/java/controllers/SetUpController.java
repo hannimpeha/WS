@@ -28,9 +28,9 @@ public class SetUpController implements ActionListener {
     }
 
     public void start() {
-        pcp = new PlayerCountPanel(this, listener);
-        pnp = new PlayerNamePanel(this, listener);
-        prp = new PlayerRolePanel(this, listener);
+        pcp = new PlayerCountPanel(this);
+        pnp = new PlayerNamePanel(this);
+        prp = new PlayerRolePanel(this);
         playerCount = pcp.getContentPane();
         playerName = pnp.getContentPane();
         playerRole = prp.getContentPane();

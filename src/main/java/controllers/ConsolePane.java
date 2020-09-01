@@ -16,7 +16,7 @@ public abstract class ConsolePane extends JPanel {
     protected JPanel contentPane = new JPanel();
     protected Box box;
     protected JButton button;
-    protected ActionListener buttonAction;
+    protected ActionListener listener;
 
     public ConsolePane() {
         textField = new JTextField(24);
@@ -34,7 +34,7 @@ public abstract class ConsolePane extends JPanel {
         box.add(Box.createHorizontalGlue());
         button = new JButton("Enter");
         button.setActionCommand("Enter");
-        button.addActionListener(buttonAction);
+        button.addActionListener(listener);
         box.add(textField);
         box.add(button);
         contentPane.add(new JScrollPane(textAreaOrder));
@@ -52,7 +52,7 @@ public abstract class ConsolePane extends JPanel {
 
     public JButton Button() {
         button.setActionCommand("Enter");
-        button.addActionListener(buttonAction);
+        button.addActionListener(listener);
         return button;
     }
 

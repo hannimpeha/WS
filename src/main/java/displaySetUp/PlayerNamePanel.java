@@ -13,13 +13,11 @@ public class PlayerNamePanel extends ConsolePane {
     private ActionListener listener;
     private ArrayList<JTextField> textFields = new ArrayList<JTextField>();
 
-    public PlayerNamePanel(ActionListener buttonListener,
-                           ActionListener listener) {
-        this.buttonAction = buttonAction;;
+    public PlayerNamePanel(ActionListener listener) {
         this.listener = listener;
         box.add(textField);
         box.add(button);
-        button.addActionListener(buttonAction);
+        button.addActionListener(listener);
         contentPane.add(new JScrollPane(textAreaOrder));
         contentPane.add(box, BorderLayout.SOUTH);
     }

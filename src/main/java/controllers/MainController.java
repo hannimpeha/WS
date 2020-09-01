@@ -20,7 +20,7 @@ public class MainController implements ActionListener {
     }
 
     public void start() {
-        mp = new MainPanel(this, listener);
+        mp = new MainPanel(this);
         panelMain = mp.getContentPane();
         switchPanel(panelMain);
     }

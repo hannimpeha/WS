@@ -14,7 +14,7 @@ public class VictoryPanel extends ConsolePane {
         this.listener = listener;
         box.add(textField);
         box.add(button);
-        button.addActionListener(buttonAction);
+        button.addActionListener(listener);
         contentPane.add(new JScrollPane(textAreaOrder));
         contentPane.add(box, BorderLayout.SOUTH);
         start();

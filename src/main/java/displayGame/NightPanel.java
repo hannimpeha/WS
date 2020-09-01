@@ -13,13 +13,11 @@ public class NightPanel extends ConsolePane {
     private ActionListener listener;
     private ArrayList<JButton> playerButtonList = new ArrayList<JButton>();
 
-    public NightPanel(ActionListener buttonListener,
-                      ActionListener listener) {
-        this.buttonAction = buttonAction;;
+    public NightPanel(ActionListener listener) {
         this.listener = listener;
         box.add(textField);
         box.add(button);
-        button.addActionListener(buttonAction);
+        button.addActionListener(listener);
         contentPane.add(new JScrollPane(textAreaOrder));
         contentPane.add(box, BorderLayout.SOUTH);
     }
@@ -33,7 +31,7 @@ public class NightPanel extends ConsolePane {
         JButton btnPlayer = new JButton(name);
         btnPlayer.setName("Day_" + Integer.toString(position));
         contentPane.add(btnPlayer, "cell 0 " + position + ",growx");
-        btnPlayer.addActionListener(buttonAction);
+        btnPlayer.addActionListener(listener);
         if (btnPlayer.getFont().getSize() < 25) btnPlayer.setBorder(new EmptyBorder(10, 5, 10, 5));
         playerButtonList.add(btnPlayer);
     }
