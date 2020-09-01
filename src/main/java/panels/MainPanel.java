@@ -1,4 +1,4 @@
-package displayMain;
+package panels;
 
 import consoles.StreamWriter;
 import controllers.ConsolePane;
