@@ -2,17 +2,24 @@ package displaySetUp;
 
 import consoles.StreamWriter;
 import controllers.ConsolePane;
-import util.LoadFileUtil;
-
 import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.List;
 
 public class PlayerRolePanel extends ConsolePane {
 
     private ActionListener listener;
-    private LoadFileUtil fu;
+    private List<String> playerNames = Arrays.asList("HyoJung", "JiHyo", "YooA",
+            "MiMi", "Vinie", "SeungHee", "Arin");
+    private List<String> playerRoles = Arrays.asList("Mafia", "Mafia", "Doctor",
+            "Townie", "Townie", "Townie", "Townie");
     private JButton btnRoles;
+    private String path = "/Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject" +
+            "/src/main/java/resource/players.txt";
 
     public PlayerRolePanel(ActionListener listener) {
         this.listener = listener;
@@ -22,8 +29,14 @@ public class PlayerRolePanel extends ConsolePane {
 
 
     private void displayNorth() {
+        try {
+            playerNames = Files.readAllLines(Paths.get(path));
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
+        playerRoles = createRoles(playerNames);
         textAreaOrder = new JTextArea(20, 30);
-        textAreaOrder.setText("Assigned Roles are as follows");
+        textAreaOrder.setText("Roles were assigned");
         textAreaOrder.setEditable(false);
         try {
             OutputStream os = new StreamWriter(textAreaOrder);
@@ -46,6 +59,24 @@ public class PlayerRolePanel extends ConsolePane {
         btnRoles.setName("Game_Start");
         box.add(btnRoles);
         south.add(box);
+    }
+
+    public List<String> createRoles(List<String> playerName) {
+        int num = playerName.size();
+        switch(num) {
+            case 3:
+                playerRoles = Arrays.asList("Mafia", "Doctor", "Townie");
+            case 4:
+                playerRoles = Arrays.asList("Mafia", "Doctor", "Townie", "Townie");
+            case 5:
+                playerRoles = Arrays.asList("Mafia", "Doctor", "Townie", "Townie", "Townie");
+            case 6:
+                playerRoles = Arrays.asList("Mafia", "Mafia", "Doctor", "Townie", "Townie", "Townie");
+            case 7:
+                playerRoles = Arrays.asList("Mafia", "Mafia", "Doctor", "Townie", "Townie", "Townie", "Townie");
+        }
+        //Collections.shuffle(playerRoles);
+        return playerRoles;
     }
 
 }

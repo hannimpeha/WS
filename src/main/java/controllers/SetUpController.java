@@ -25,7 +25,8 @@ public class SetUpController implements ActionListener {
     private ArrayList<String> names;
     private ActionListener listener;
     private int playerTotal;
-    private String path = "/Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject" +
+    private String path = "/Users/hannimpeha/HANNIMPEHA/" +
+            "Thesis/FascinatingProject" +
             "/src/main/java/resource/players.txt";
 
     public SetUpController(JFrame frame, ActionListener listener) {
@@ -62,13 +63,12 @@ public class SetUpController implements ActionListener {
         String name = source.getName();
             switch (name) {
                 case "Player_Roles":
-                    switchPanel(playerRole);
                     try {
                         Files.write(Paths.get(path), pnp.getPlayerNames());
                     } catch (IOException ioException) {
                         ioException.printStackTrace();
                     }
-                    fu.newFile(pnp.getPlayerNames());
+                    switchPanel(playerRole);
                     break;
                 case "Game_Start":
                     System.out.println("Great");

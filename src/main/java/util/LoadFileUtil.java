@@ -14,7 +14,8 @@ public class LoadFileUtil {
     private List<Player> playerInfo;
     private List<String> playerName;
     private List<String> playerRole;
-    private String path = "/Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject" +
+    private String path = "/Users/hannimpeha/HANNIMPEHA/" +
+            "Thesis/FascinatingProject" +
             "/src/main/java/resource/players.txt";
 
     public LoadFileUtil() {
@@ -22,33 +23,16 @@ public class LoadFileUtil {
 
     public void newFile(List<String> playerName) {
         playerInfo = new ArrayList<>();
-        createRoles(playerName);
-        setAllPlayers(playerName, playerRole);
+        setAllPlayers();
         SaveFileUtil.saveGame(playerInfo);
     }
 
 
-    public void createRoles(List<String> playerName) {
-        int num = playerName.size();
-        switch(num) {
-            case 3:
-                playerRole = Arrays.asList("Mafia", "Doctor", "Townie");
-            case 4:
-                playerRole = Arrays.asList("Mafia", "Doctor", "Townie", "Townie");
-            case 5:
-                playerRole = Arrays.asList("Mafia", "Doctor", "Townie", "Townie", "Townie");
-            case 6:
-                playerRole = Arrays.asList("Mafia", "Mafia", "Doctor", "Townie", "Townie", "Townie");
-            case 7:
-                playerRole = Arrays.asList("Mafia", "Mafia", "Doctor", "Townie", "Townie", "Townie", "Townie");
-        }
-        Collections.shuffle(playerRole);
-    }
-
-    private void setAllPlayers(List<String> names, List<String> roles) {
-        for(int i=0; i<names.size(); i++) {
-            System.out.println("\n"+names.get(i)+" is "+roles.get(i)+".");
-            playerInfo.add(CreatePlayerUtil.createPlayer(names.get(i), roles.get(i), i));
+    private void setAllPlayers() {
+        for(int i=0; i<playerName.size(); i++) {
+            System.out.println("\n"+playerName.get(i)+" is "+playerRole.get(i)+".");
+            playerInfo.add(CreatePlayerUtil.createPlayer(
+                    playerName.get(i), playerRole.get(i), i));
         }
     }
 
