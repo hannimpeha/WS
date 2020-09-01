@@ -42,8 +42,6 @@ public class GameController implements ActionListener {
         np = new NightPanel(this);
         vp = new VictoryPanel(listener);
 
-        fillPanels();
-
         panelNight = np.getContentPane();
         panelDay = dp.getContentPane();
         panelVictory = vp.getContentPane();
@@ -52,16 +50,6 @@ public class GameController implements ActionListener {
         position = -1;
 
         switchPanel(panelDay);
-    }
-
-    private void fillPanels(){
-        int y = 0;
-        for(String name: g.getPlayerNames()){
-            if(!name.contains("Dead")){
-                dp.displayPlayerButton(name, y);
-                np.displayPlayerButton(name, y);
-            }
-        }
     }
 
     private void switchDay(){

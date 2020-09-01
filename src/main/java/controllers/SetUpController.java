@@ -2,6 +2,7 @@ package controllers;
 
 import displaySetUp.PlayerNamePanel;
 import displaySetUp.PlayerRolePanel;
+import playerInfo.Player;
 import util.LoadFileUtil;
 
 import javax.swing.*;
@@ -17,12 +18,13 @@ public class SetUpController implements ActionListener {
 
     private JFrame frame;
     private LoadFileUtil fu;
+    private GameController gc;
     private PlayerNamePanel pnp;
     private PlayerRolePanel prp;
     private JPanel playerCount;
     private JPanel playerName;
     private JPanel playerRole;
-    private ArrayList<String> names;
+    private ArrayList<Player> playerInfo;
     private ActionListener listener;
     private int playerTotal;
     private String path = "/Users/hannimpeha/HANNIMPEHA/" +
@@ -71,7 +73,8 @@ public class SetUpController implements ActionListener {
                     switchPanel(playerRole);
                     break;
                 case "Game_Start":
-                    System.out.println("Great");
+                    gc = new GameController(frame, this);
+                    gc.start(playerInfo);
                 default:
                     break;
             }
