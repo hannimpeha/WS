@@ -14,6 +14,7 @@ public class Controller extends ConsolePane implements ActionListener {
 
     public JFrame frame;
     public SetUpController suc;
+    public MainController mc;
     public GameController gc;
     public LoadFileUtil fu;
 
@@ -31,9 +32,10 @@ public class Controller extends ConsolePane implements ActionListener {
 
     public void run() {
         suc = new SetUpController(frame, this);
+        mc = new MainController(frame, this);
         gc = new GameController(frame, this);
         fu = new LoadFileUtil();
-        suc.start();
+        mc.start();
     }
 
     private void test() {
