@@ -2,14 +2,20 @@ package controllers;
 
 import displaySetUp.PlayerNamePanel;
 import displaySetUp.PlayerRolePanel;
+import util.LoadFileUtil;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class SetUpController implements ActionListener {
 
     private JFrame frame;
+    private LoadFileUtil fu;
     private PlayerNamePanel pnp;
     private PlayerRolePanel prp;
     private JPanel playerCount;
@@ -17,6 +23,8 @@ public class SetUpController implements ActionListener {
     private JPanel playerRole;
     private ActionListener listener;
     private int playerTotal;
+    private String path = "/Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject" +
+            "/src/main/java/resource/players.txt";
 
     public SetUpController(JFrame frame, ActionListener listener) {
         this.frame = frame;
@@ -51,50 +59,18 @@ public class SetUpController implements ActionListener {
         String name = source.getName();
             switch (name) {
                 case "Player_Roles":
-                    switchPanel(playerRole);
-                    break;
-                case "Continue_PlayerName":
-                    switchPanel(playerRole);
-                    //prp.getPlayersLeft().setText(String.valueOf(pnp.getPlayerNames().size()));
-                    int total = pnp.getPlayerNames().size();
-                    if (total < 6) {
-                    //    prp.getRecomdedMafia().setText("1 Mafia Player Recomeded");
-                    } else if (total < 9) {
-                    //    prp.getRecomdedMafia().setText("2 Mafia Player Recomeded");
-                    } else if (total < 12) {
-                    //    prp.getRecomdedMafia().setText("3 Mafia Player Recomeded");
-                    } else if (total == 12) {
-                    //    prp.getRecomdedMafia().setText("4 Mafia Player Recomeded");
+                    try {
+                        Files.write(Paths.get(path), pnp.getPlayerNames());
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
                     }
+                    switchPanel(playerRole);
                     break;
-                case "Reset_RoleSelection":
-                    //resetSelections();
-                    break;
-                case "AssignTownies_RoleSelection":
-                    //assignRestAsTownies(source);
-                    break;
+                case "Game_Start":
+                    System.out.println("Great");
                 default:
-                    //If the button that was pressed was in the PlayerCountPanel
-                    if (name.contains("PlayerCount ")) {
-                        playerTotal = Integer.parseInt(name.substring(12, name.length()));//Receive the int value of the button that was pressed
-                    //    pcp.changeButtonSelected(playerTotal);//Sets the pressed button to the selected color and all the other buttons to default colors
-                    }
                     break;
             }
     }
 
-    private void onRoleButtonClick(JButton source) {
-        prp.addRole(source.getText());
-        final int rolesSelectedSize = prp.getRolesSelected().size();
-        final int playerNamesSize = pnp.getPlayerNames().size();
-        source.setEnabled(false);
-    }
 }
-
-//    public List<String> getPlayerNames(){
-//        return pnp.getPlayerNames();
-//    }
-//
-//    public List<String> getRoles(){
-//        return prp.getRolesSelected();
-//    }

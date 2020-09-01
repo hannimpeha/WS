@@ -5,16 +5,14 @@ import controllers.ConsolePane;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.PrintStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class PlayerNamePanel extends ConsolePane {
 
     private ActionListener listener;
-    private ArrayList<JTextField> textFields = new ArrayList<JTextField>();
+    private ArrayList<String> playerNames = new ArrayList<String>();
     private JButton btnNames;
 
     public PlayerNamePanel(ActionListener listener) {
@@ -50,24 +48,8 @@ public class PlayerNamePanel extends ConsolePane {
         south.add(box);
     }
 
-    public void displayCenter(int playerTotal){
-        for (int count = 0; count < playerTotal; count++) {
-            JTextField playerNameInput = new JTextField("", 30);
-            contentPane.add(playerNameInput, "cell 0 " + count + " ,growx");
-            playerNameInput.setName(Integer.toString(count+1));
-            textFields.add(playerNameInput);
-        }
-    }
-
     public List<String> getPlayerNames(){
-        List<String> names = new ArrayList<>();
-        for(JTextField f: textFields){
-            if(f.getText().equals("")||f.getText()==null){
-                names.add("Player "+f.getName());
-            }else{
-                names.add(f.getText());
-            }
-        }
-        return names;
+        playerNames.add(textField.getText());
+        return playerNames;
     }
 }
