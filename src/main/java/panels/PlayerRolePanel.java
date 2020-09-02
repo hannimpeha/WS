@@ -23,10 +23,14 @@ public class PlayerRolePanel extends ConsolePane {
 
     public PlayerRolePanel(ActionListener listener) {
         this.listener = listener;
+        initialize();
+    }
+
+    private void initialize() {
+        btnRoles = new JButton("Enter");
         displayNorth();
         displaySouth();
     }
-
 
     private void displayNorth() {
         try {
@@ -54,7 +58,6 @@ public class PlayerRolePanel extends ConsolePane {
         box.add(Box.createHorizontalGlue());
         textField = new JTextField(24);
         box.add(textField);
-        btnRoles = new JButton("Enter");
         btnRoles.addActionListener(listener);
         btnRoles.setName("Game_Start");
         box.add(btnRoles);

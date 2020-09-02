@@ -23,10 +23,27 @@ public class LoadFileUtil {
 
     public void newFile(List<String> playerName) {
         playerInfo = new ArrayList<>();
+        createRoles(playerName);
         setAllPlayers();
         SaveFileUtil.saveGame(playerInfo);
     }
 
+    public void createRoles(List<String> playerName) {
+        int num = playerName.size();
+        switch(num) {
+            case 3:
+                playerRole = Arrays.asList("Mafia", "Doctor", "Townie");
+            case 4:
+                playerRole = Arrays.asList("Mafia", "Doctor", "Townie", "Townie");
+            case 5:
+                playerRole = Arrays.asList("Mafia", "Doctor", "Townie", "Townie", "Townie");
+            case 6:
+                playerRole = Arrays.asList("Mafia", "Mafia", "Doctor", "Townie", "Townie", "Townie");
+            case 7:
+                playerRole = Arrays.asList("Mafia", "Mafia", "Doctor", "Townie", "Townie", "Townie", "Townie");
+        }
+        Collections.shuffle(playerRole);
+    }
 
     private void setAllPlayers() {
         for(int i=0; i<playerName.size(); i++) {
@@ -66,8 +83,8 @@ public class LoadFileUtil {
         }
     }
 
-    public List<Player> getPlayerInfo() {
-        List<Player> clone = new ArrayList<>(playerInfo);
+    public ArrayList<Player> getPlayerInfo() {
+        ArrayList<Player> clone = new ArrayList<>(playerInfo);
         playerInfo = new ArrayList<>();
         return clone;
     }

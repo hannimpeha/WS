@@ -22,19 +22,13 @@ public class MainController implements ActionListener {
 
     private JFrame frame;
     private ActionListener listener;
+    private GameController gc;
     private MainPanel mp;
     private PlayerNamePanel pnp;
     private PlayerRolePanel prp;
-    private Game g;
-    private DayPanel dp;
-    private NightPanel np;
-    private VictoryPanel vp;
     private JPanel panelMain;
     private JPanel playerName;
     private JPanel playerRole;
-    private JPanel panelDay;
-    private JPanel panelNight;
-    private JPanel panelVictory;
     private ArrayList<Player> playerInfo;
     private String path = "/Users/hannimpeha/HANNIMPEHA/" +
             "Thesis/FascinatingProject" +
@@ -49,15 +43,9 @@ public class MainController implements ActionListener {
         mp = new MainPanel(this);
         pnp = new PlayerNamePanel(this);
         prp = new PlayerRolePanel(this);
-        dp = new DayPanel(this);
-        np = new NightPanel(this);
-        vp = new VictoryPanel(this);
         panelMain = mp.getContentPane();
         playerName = pnp.getContentPane();
         playerRole = prp.getContentPane();
-        panelDay = dp.getContentPane();
-        panelNight = dp.getContentPane();
-        panelVictory = vp.getContentPane();
         switchPanel(panelMain);
     }
 
@@ -88,15 +76,6 @@ public class MainController implements ActionListener {
                     ioException.printStackTrace();
                 }
                 switchPanel(playerRole);
-                break;
-            case "Game_Start":
-                switchPanel(panelDay);
-                break;
-            case "Night_Start":
-                switchPanel(panelNight);
-                break;
-            case "Check_Victory":
-                switchPanel(panelVictory);
                 break;
             default:
                 break;

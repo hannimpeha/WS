@@ -4,15 +4,18 @@ import consoles.StreamWriter;
 import controllers.ConsolePane;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
 
 public class DayPanel extends ConsolePane {
 
     private ActionListener listener;
     private JButton btnDays;
+    private ArrayList<JButton> playerButtonList = new ArrayList<JButton>();
 
     public DayPanel(ActionListener listener) {
         this.listener = listener;
@@ -20,7 +23,7 @@ public class DayPanel extends ConsolePane {
         displaySouth();
     }
 
-    private void displayNorth() {
+    public void displayNorth() {
         textAreaOrder = new JTextArea(20, 30);
         textAreaOrder.setText("This is Day");
         textAreaOrder.setEditable(false);
@@ -33,7 +36,7 @@ public class DayPanel extends ConsolePane {
         north.add(new JScrollPane(textAreaOrder));
     }
 
-    private void displaySouth() {
+    public void displaySouth() {
         box = Box.createHorizontalBox();
         box.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
         box.add(Box.createHorizontalStrut(5));
@@ -47,4 +50,12 @@ public class DayPanel extends ConsolePane {
         south.add(box);
     }
 
+    public void displayPlayerButton(String name, int position) {
+        JButton btnPlayer = new JButton(name);
+        btnPlayer.setName("Day_" + Integer.toString(position));
+        contentPane.add(btnPlayer, "cell 0 " + position + ",growx");
+        btnPlayer.addActionListener(listener);
+        if (btnPlayer.getFont().getSize() < 25) btnPlayer.setBorder(new EmptyBorder(10, 5, 10, 5));
+        playerButtonList.add(btnPlayer);
+    }
 }

@@ -14,6 +14,7 @@ public class Controller extends ConsolePane implements ActionListener {
 
     public JFrame frame;
     public MainController mc;
+    public GameController gc;
     public LoadFileUtil fu;
 
     public Controller() {
@@ -30,6 +31,7 @@ public class Controller extends ConsolePane implements ActionListener {
 
     public void run() {
         mc = new MainController(frame, this);
+        gc = new GameController(frame, this);
         fu = new LoadFileUtil();
         mc.start();
     }
@@ -41,9 +43,18 @@ public class Controller extends ConsolePane implements ActionListener {
         List<String> roles = new ArrayList<>(Arrays.asList(
                 "Doctor", "Detective", "Mafia: Hitman", "Town", "Bodyguard", "Survivor",
                 "Mafia: Barman", "Lyncher", "Mafia- GodFather", "Vigilante", "Prostitute", "Mafia: Goon"));
+        fu.newFile(names);
+        gc.start(fu.getPlayerInfo());
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        JButton source = (JButton)e.getSource();
+        String name = source.getName();
+        switch(name) {
+            case "Game_Start":
+                test();
+                break;
+        }
     }
 }
