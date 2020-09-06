@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public class main{
 
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static void main(String[] args)  {
 
         Controller c = new Controller();
         c.run();

@@ -8,7 +8,10 @@ import java.util.List;
 
 public class SaveFileUtil {
 
-    private static final String saveFile = "src/resources/saveGame.txt";
+    private static final String saveFile =
+            "/Users/hannimpeha/HANNIMPEHA/" +
+            "Thesis/FascinatingProject" +
+            "/src/main/java/resource/saveGame.txt";;
 
     public static void saveGame(List<Player> playerInfo) {
         try(PrintWriter pw = new PrintWriter(saveFile)) {
