@@ -1,6 +1,9 @@
 package controllers;
 
-import ballot.Voting;
+import panels.DayPanel;
+import panels.NightPanel;
+import panels.PlayerNames;
+import panels.PlayerRoles;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,12 +16,16 @@ import java.util.List;
 
 public abstract class ConsolePane extends JPanel {
 
+    public panels.PlayerNames pnp = new PlayerNames();
+    public PlayerRoles prp = new PlayerRoles();
+    public DayPanel dp = new DayPanel();
+    public NightPanel np = new NightPanel();
     private List<String> playerName;
-    private List<String> playerRole;
-    protected JTextArea textAreaOrder;
-    protected static JPanel contentPane = new JPanel();
-    protected static JPanel north = new JPanel();
-    protected static JPanel south = new JPanel();
+    private JTextArea textAreaOrder;
+    private static JPanel contentPane = new JPanel();
+    private static JPanel north = new JPanel();
+    private static JPanel south = new JPanel();
+    private JPanel PlayerNames = new JPanel();
     private static  String path = "/Users/hannimpeha/HANNIMPEHA/" +
             "Thesis/FascinatingProject" +
             "/src/main/java/resource/players.txt";
@@ -39,84 +46,13 @@ public abstract class ConsolePane extends JPanel {
         frame.setVisible(true);
     }
 
-    public void createFrame(){
-        JFrame frame = new JFrame("Hannah's Mafia Game");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLayout(new BorderLayout());
-        frame.setVisible(true);
-        frame.pack();
-        frame.setBounds(500, 20, 400, 430);
-        frame.add(contentPane);
-    }
     private void displayNorth(){
         north.setLayout(new CardLayout(20, 20));
-        playerNames();
-        playerRoles();
-        dayStart();
-        nightStart();
-        victory();
+        north.add(new JScrollPane(pnp.createPanel()));
+        north.add(new JScrollPane(prp.createPanel()));
+        north.add(new JScrollPane(dp.createPanel()));
+        north.add(new JScrollPane(np.createPanel()));
         contentPane.add(north);
-    }
-
-    private void playerNames() {
-        textAreaOrder = new JTextArea(20, 30);
-        textAreaOrder.setText("Type Players's Names\n");
-        textAreaOrder.setEditable(false);
-        north.add(new JScrollPane(textAreaOrder));
-    }
-
-    private void playerRoles() {
-        playerName = Arrays.asList("hyo", "ji", "yoo",
-                "mi", "vi", "se", "ari");
-        textAreaOrder = new JTextArea(20, 30);
-        createRoles(playerName);
-        textAreaOrder.setText("Assigned Roles are as follows\n");
-        for(int i=0; i<playerName.size(); i++) {
-            textAreaOrder.append(playerName.get(i)+" is "+playerRole.get(i)+".\n");
-        }
-        textAreaOrder.setEditable(false);
-        north.add(new JScrollPane(textAreaOrder));
-    }
-
-    public void createRoles(List<String> playerName) {
-        playerRole = Arrays.asList("Mafia", "Mafia", "Doctor",
-                "Townie", "Townie", "Townie", "Townie");
-        int num = playerName.size();
-        switch(num) {
-            case 3:
-                playerRole = Arrays.asList("Mafia", "Doctor", "Townie");
-            case 4:
-                playerRole = Arrays.asList("Mafia", "Doctor", "Townie", "Townie");
-            case 5:
-                playerRole = Arrays.asList("Mafia", "Doctor", "Townie", "Townie", "Townie");
-            case 6:
-                playerRole = Arrays.asList("Mafia", "Mafia", "Doctor", "Townie", "Townie", "Townie");
-            case 7:
-                playerRole = Arrays.asList("Mafia", "Mafia", "Doctor", "Townie", "Townie", "Townie", "Townie");
-        }
-        Collections.shuffle(playerRole);
-    }
-
-    private void dayStart() {
-        Voting vote = new Voting();
-        textAreaOrder = new JTextArea(20, 30);
-        textAreaOrder.setText("Player "+vote.run()+" has been lynched");
-        textAreaOrder.setEditable(false);
-        north.add(new JScrollPane(textAreaOrder));
-    }
-
-    private void nightStart() {
-        textAreaOrder = new JTextArea(20, 30);
-        textAreaOrder.setText("Night Start");
-        textAreaOrder.setEditable(false);
-        north.add(new JScrollPane(textAreaOrder));
-    }
-
-    private void victory() {
-        textAreaOrder = new JTextArea(20, 30);
-        textAreaOrder.setText("Victory");
-        textAreaOrder.setEditable(false);
-        north.add(new JScrollPane(textAreaOrder));
     }
 
     private void displaySouth() {
