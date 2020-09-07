@@ -1,6 +1,5 @@
 package panels;
 
-
 import javax.swing.*;
 
 public class PlayerNames {
@@ -16,4 +15,5 @@ public class PlayerNames {
         textAreaOrder.setEditable(false);
         return textAreaOrder;
     }
+
 }

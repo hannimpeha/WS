@@ -1,7 +1,7 @@
-hyo,Doctor,1,false
-ji,Townie,1,false
-yoo,Mafia,1,false
-mi,Townie,1,false
-vi,Mafia,1,false
-se,Townie,1,false
-ari,Townie,1,false
+1hyo
+1ji
+1yoo
+1mi
+1vi
+1se
+1ari

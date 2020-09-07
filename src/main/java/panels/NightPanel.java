@@ -1,7 +1,5 @@
 package panels;
 
-import ballot.Voting;
-
 import javax.swing.*;
 
 public class NightPanel {

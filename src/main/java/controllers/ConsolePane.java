@@ -16,12 +16,11 @@ import java.util.List;
 
 public abstract class ConsolePane extends JPanel {
 
-    public panels.PlayerNames pnp = new PlayerNames();
+    public PlayerNames pnp = new PlayerNames();
     public PlayerRoles prp = new PlayerRoles();
     public DayPanel dp = new DayPanel();
     public NightPanel np = new NightPanel();
     private List<String> playerName;
-    private JTextArea textAreaOrder;
     private static JPanel contentPane = new JPanel();
     private static JPanel north = new JPanel();
     private static JPanel south = new JPanel();

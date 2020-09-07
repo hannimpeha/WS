@@ -50,7 +50,9 @@ public abstract class Player {
     public abstract Player copy();
 
     protected List<String> scan(String roleName) throws IOException {
-        String location = "src/resources/roles.txt";
+        String location = "/Users/hannimpeha/HANNIMPEHA/" +
+                "Thesis/FascinatingProject" +
+                "/src/main/java/resource/roles.txt";;;
         List<String> role = new ArrayList<>();
         BufferedReader br = new BufferedReader(new FileReader(location));
         String line = br.readLine();
@@ -73,36 +75,34 @@ public abstract class Player {
 
     public abstract int doAction(Player p);
 
+    protected void setPosition() {
+        if(getRole().contains("Mafia")) {
+            position = 0;
+        } else if(getRole().contains("Townie")) {
+            position = 1;
+        } else if(getRole().contains("Doctor")){
+            position = 2;
+        } else {
+            position = 1;
+        }
+    }
+
     protected void setPosition(int position) {
         this.position = position;
+        setRole(position);
     }
-//    protected void setPosition() {
-//        if(getRole().contains("Mafia")) {
-//            position = 0;
-//        } else if(getRole().contains("Townie")) {
-//            position = 1;
-//        } else if(getRole().contains("Doctor")){
-//            position = 2;
-//        } else {
-//            position = 1;
-//        }
-//    }
-//    protected void setPosition(int position) {
-//        this.position = position;
-//        setRole(position);
-//    }
 
-//    protected void setRole(int position)  {
-//        if (position==0) {
-//            role = "Kill a Townie each night. Make the majority of the Mafia by any means";
-//        } else if (position == 1) {
-//            role = "You have nothing to do at night. Lynch all members of Mafia.";
-//        } else if (position == 2){
-//            role = "Heal another player each night. Lynch all members of Mafia.";
-//        } else {
-//            role = "";
-//        }
-//    }
+    protected void setRole(int position)  {
+        if (position==0) {
+            role = "Kill a Townie each night. Make the majority of the Mafia by any means";
+        } else if (position == 1) {
+            role = "You have nothing to do at night. Lynch all members of Mafia.";
+        } else if (position == 2){
+            role = "Heal another player each night. Lynch all members of Mafia.";
+        } else {
+            role = "";
+        }
+    }
 
     public void setStatus(int status) {
         this.status = status;
