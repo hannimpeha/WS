@@ -38,27 +38,28 @@ public class Combination {
     }
 
     public void writeDot() {
-        try (BufferedWriter out = new BufferedWriter(
-                new OutputStreamWriter(new FileOutputStream(
-                        "/Users/hannimpeha/HANNIMPEHA/Thesis/" +
-                                "FascinatingProject/example/" +
-                                "awesome.dot")))) {
-            out.write("digraph {");
-            out.newLine();
+          try(PrintStream out = new PrintStream(path, "UTF-8")) {
+//        try (BufferedWriter out = new BufferedWriter(
+//                new OutputStreamWriter(new FileOutputStream(
+//                        "/Users/hannimpeha/HANNIMPEHA/Thesis/" +
+//                                "FascinatingProject/example/" +
+//                                "awesome.dot")))) {
+            out.print("digraph {\n");
             String[] arr = {"hyo", "ji", "yoo", "mi", "vi","se", "ari"};
             combination(arr, 2, 0, new String[2])
                     .stream()
-                    .map(a->Arrays.toString(a).join("->"))
-                    .forEach(a->{
-                        try{ out.write(a); }
-                        catch(IOException e){
-                            e.printStackTrace();
-                        }});
+                    .map(a->Arrays.toString(a).join(" -> "))
+                    .forEach(out::print);
+//                    .forEach(a->{
+//                        try{ out.write(a); }
+//                        catch(IOException e){
+//                            e.printStackTrace();
+//                        }});
 
             //out.write(Arrays.stream(result).
             //                collect(Collectors.joining("->")));
-            out.write(";\n");
-            out.write("}");
+            out.println(";\n");
+            out.println("}");
             }catch (IOException ioException) {
             ioException.printStackTrace();
         }
