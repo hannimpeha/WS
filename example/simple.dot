@@ -1,0 +1,8 @@
+digraph G {
+hyo -> ji;
+ji -> yoo;
+yoo -> mi;
+mi -> vi;
+vi -> se;
+se -> ari;
+}

@@ -13,7 +13,7 @@
     <scm>
         <connection>scm:git:git://github.com/gephi/gephi-plugins.git</connection>
         <developerConnection>scm:git:git@github.com:gephi/gephi-plugins.git</developerConnection>
-        <url>https://github.com/gephi/gephi-plugins</url>
+        <url>https://github.com/jabbalaci/graphviz-java-api.git</url>
     </scm>
 
     <properties>
@@ -48,6 +48,21 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>3.8.1</version>
+        </dependency>
+        <dependency>
+            <groupId>guru.nidi</groupId>
+            <artifactId>graphviz-java</artifactId>
+            <version>0.17.0</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.2.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.xmlgraphics</groupId>
+            <artifactId>batik-codec</artifactId>
+            <version>1.9</version>
         </dependency>
     </dependencies>
     
