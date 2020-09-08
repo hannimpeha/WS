@@ -14,7 +14,7 @@ public class Proba
 	{
 		String dir = "/Users/hannimpeha/HANNIMPEHA/Thesis/" +
 				"FascinatingProject/example";
-		String input = dir + "/simple.dot";
+		String input = dir + "/awesome.dot";
 
 		GraphVizExe gv = new GraphVizExe();
 		gv.readSource(input);
