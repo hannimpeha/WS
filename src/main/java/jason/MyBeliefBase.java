@@ -5,12 +5,14 @@ import jason.asSyntax.Literal;
 import jason.asSyntax.LiteralImpl;
 import jason.bb.DefaultBeliefBase;
 
-public class BeliefBase extends DefaultBeliefBase {
+public class MyBeliefBase extends DefaultBeliefBase {
 
-    protected Literal percepts = Literal.parseLiteral("I believe");
+    private Literal percepts = Literal.parseLiteral("I believe");
     private TransitionSystem ts;
 
-    public BeliefBase(){
+    public MyBeliefBase(){
+    }
+    void run(){
         percepts.addTerms(Literal.parseLiteral("I also love myself"));
     }
 
