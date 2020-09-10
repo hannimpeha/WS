@@ -1,5 +1,7 @@
 package jason;
 
+import jason.agents.MyAgent;
+import jason.agents.MyMafiaAgent;
 import jason.infra.centralised.RunCentralisedMAS;
 
 public class main {

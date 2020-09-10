@@ -11,7 +11,7 @@ public class MyCircumstance extends Circumstance {
     private Trigger trigger = new Trigger(
             Trigger.TEOperator.add,
             Trigger.TEType.belief,
-            Literal.parseLiteral("I also love myself"));
+            Literal.parseLiteral("Hyo is Mafia"));
     private Event event;
     private Intention intention = new Intention();
 

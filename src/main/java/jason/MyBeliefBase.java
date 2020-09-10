@@ -1,19 +1,24 @@
 package jason;
 
-import jason.asSemantics.TransitionSystem;
 import jason.asSyntax.Literal;
-import jason.asSyntax.LiteralImpl;
 import jason.bb.DefaultBeliefBase;
 
 public class MyBeliefBase extends DefaultBeliefBase {
 
-    private Literal percepts = Literal.parseLiteral("I believe");
-    private TransitionSystem ts;
+    private Literal perTown;
+    private Literal perMafia;
 
     public MyBeliefBase(){
     }
-    void run(){
-        percepts.addTerms(Literal.parseLiteral("I also love myself"));
+
+    void runTown(){
+        perTown = Literal.parseLiteral("I am Townies");
+        perTown.addTerms(Literal.parseLiteral("There are 2 Mafia other than me"));
+    }
+
+    void runMafia(){
+        perMafia = Literal.parseLiteral("We are Mafia");
+        perMafia.addTerms(Literal.parseLiteral("Remainders are Townies"));
     }
 
 }
