@@ -16,6 +16,7 @@ public class InternalAction extends DefaultInternalAction {
     }
 
     void think(String agName) {
-        System.out.println("I am thinking");
+        BeliefBase bb = new BeliefBase();
+        System.out.println(bb.getPercepts());
     }
 }
