@@ -1,6 +1,5 @@
 import controllers.Controller;
-
-import java.io.IOException;
+import jason.infra.centralised.RunCentralisedMAS;
 
 public class main{
 
@@ -8,6 +7,7 @@ public class main{
 
         Controller c = new Controller();
         c.run();
+        new RunCentralisedMAS();
 
     }
 

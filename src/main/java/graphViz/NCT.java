@@ -30,7 +30,6 @@ public class NCT extends DefaultInternalAction {
     private List<Agent> agentList;
 
     public NCT() {
-        new RunCentralisedMAS();
         temp = createFriendships(makePairsFromArray(createNode()));
         createAgent(playerInfo);
     }
