@@ -1,15 +1,22 @@
 package graphViz;
 
+import jason.asSemantics.DefaultInternalAction;
+import jason.asSemantics.TransitionSystem;
+import jason.asSemantics.Unifier;
+import jason.asSyntax.Term;
+import jason.infra.centralised.RunCentralisedMAS;
 import org.neo4j.graphdb.*;
 import org.neo4j.graphdb.Relationship;
 import playerInfo.Doctor;
 import playerInfo.Mafia;
+import playerInfo.Player;
 import playerInfo.Townie;
 
 import java.util.*;
 
-public class NCT {
+public class NCT extends DefaultInternalAction {
 
+    private List<Player> playerInfo;
     private RelationshipType KNOWS;
     private RelationshipType SEND;
     private RelationshipType RECEIVE;
@@ -19,10 +26,30 @@ public class NCT {
     private Random random = new Random();
     private List<RelationshipType> ordinary =
             Collections.unmodifiableList(Arrays.asList(SEND, RECEIVE));
-
+    private List<Node[]> temp = new ArrayList<Node[]>();
+    private List<Agent> agentList;
 
     public NCT() {
-        createFriendships(makePairsFromArray(createNode()));
+        new RunCentralisedMAS();
+        temp = createFriendships(makePairsFromArray(createNode()));
+        createAgent(playerInfo);
+    }
+
+    private List<Agent> createAgent(List<Player> playerInfo){
+        for(Player p: playerInfo) {
+            Agent ag = new Agent(p.getName(), p.getRole(), p.getStatus());
+            agentList.add(ag);
+        }
+        return agentList;
+    }
+
+
+    @Override
+    public Object execute(TransitionSystem ts,
+                          Unifier un,
+                          Term[] args) {
+        System.out.println("I Love You");
+        return true;
     }
 
     private Node[] createNode(){
@@ -36,7 +63,7 @@ public class NCT {
         return new Node[]{hyo, ji, yoo, mi, vi, se, ari};
     }
 
-    private void createFriendships(List<Node[]> pairs){
+    private List<Node[]> createFriendships(List<Node[]> pairs){
         for(Node[] node:pairs) {
             if(node[0].hasLabel(mafia) && node[1].hasLabel(mafia)) {
                 node[0].createRelationshipTo(node[1], RelationshipType.withName("KNOWS"));
@@ -46,6 +73,7 @@ public class NCT {
             }
 
         }
+        return pairs;
     }
 
 
@@ -67,7 +95,4 @@ public class NCT {
         return list;
     }
 
-    public static void main(String[] args) {
-        new NCT();
-    }
 }

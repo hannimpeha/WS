@@ -1,6 +1,5 @@
 package util;
 
-import jason.agents.MyAgent;
 import playerInfo.*;
 
 public class CreatePlayerUtil {
@@ -20,10 +19,5 @@ public class CreatePlayerUtil {
             default : return new Townie(name, position, status, target);
         }
     }
-
-    public  MyAgent createAgent(String name, String role) {
-        return new MyAgent(name, role);
-    }
-
 
 }

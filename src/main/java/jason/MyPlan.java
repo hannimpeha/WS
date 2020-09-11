@@ -6,7 +6,7 @@ public class MyPlan extends Plan {
 
     protected Trigger.TEOperator op;
     protected Trigger.TEType ty;
-    private MyTrigger trigger = new MyTrigger(
+    private Trigger trigger = new Trigger(
             op.goalState, ty.achieve, Literal.parseLiteral("Hyo is Mafia"));
 
     public MyPlan(){
