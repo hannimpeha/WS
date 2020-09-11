@@ -1,24 +1,24 @@
 package jason;
 
+import jason.asSemantics.Agent;
 import jason.asSyntax.Literal;
+import jason.asSyntax.Term;
 import jason.bb.DefaultBeliefBase;
+
 
 public class MyBeliefBase extends DefaultBeliefBase {
 
-    private Literal perTown;
-    private Literal perMafia;
+    static Term APercept;
+    static Term ASelf;
+
+    private Agent ag;
 
     public MyBeliefBase(){
+        init(ag, new String[]{"I have to survive"});
+        reliablePerson(ASelf);
     }
 
-    void runTown(){
-        perTown = Literal.parseLiteral("I am Townies");
-        perTown.addTerms(Literal.parseLiteral("There are 2 Mafia other than me"));
+    public void reliablePerson(Term term){
+        System.out.println("This is reliable");
     }
-
-    void runMafia(){
-        perMafia = Literal.parseLiteral("We are Mafia");
-        perMafia.addTerms(Literal.parseLiteral("Remainders are Townies"));
-    }
-
 }

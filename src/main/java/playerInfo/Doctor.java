@@ -1,5 +1,8 @@
 package playerInfo;
 
+import org.neo4j.ogm.annotation.NodeEntity;
+
+@NodeEntity(label="doctor")
 public class Doctor extends Townie {
 
     public Doctor(String name, int position) {

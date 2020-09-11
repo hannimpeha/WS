@@ -6,7 +6,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Player {
+import org.neo4j.graphdb.Node;
+
+public abstract class Player implements Node{
+
 
     private String name="";
     private String role="";

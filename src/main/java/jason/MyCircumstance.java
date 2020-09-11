@@ -2,22 +2,36 @@ package jason;
 
 import jason.asSemantics.Circumstance;
 import jason.asSemantics.Event;
-import jason.asSemantics.Intention;
-import jason.asSyntax.Literal;
+import jason.asSemantics.GoalListener;
 import jason.asSyntax.Trigger;
 
-public class MyCircumstance extends Circumstance {
+public class MyCircumstance extends Circumstance implements GoalListener {
 
-    private Trigger trigger = new Trigger(
-            Trigger.TEOperator.add,
-            Trigger.TEType.belief,
-            Literal.parseLiteral("Hyo is Mafia"));
-    private Event event;
-    private Intention intention = new Intention();
+    private MyIntention intention = new MyIntention();
 
     public MyCircumstance(){
-        event = new Event(trigger, intention);
+
     }
 
 
+    @Override
+    public void goalStarted(Event event) {
+       event.setIntention(intention);
+    }
+
+    @Override
+    public void goalFinished(Trigger trigger, FinishStates finishStates) {
+    }
+
+    @Override
+    public void goalFailed(Trigger trigger) {
+    }
+
+    @Override
+    public void goalSuspended(Trigger trigger, String s) {
+    }
+
+    @Override
+    public void goalResumed(Trigger trigger) {
+    }
 }

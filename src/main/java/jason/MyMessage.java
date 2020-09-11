@@ -13,6 +13,8 @@ public class MyMessage extends Message {
         setSender("hannah");
         setReceiver("mafia");
         setMsgId("Hello");
+        Message r = new Message("tell", "hannah",
+                "mafia", "msg(\"You are robot\")");
     }
 
     void misinformation(){

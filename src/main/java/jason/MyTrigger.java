@@ -7,5 +7,8 @@ public class MyTrigger extends Trigger {
 
     public MyTrigger(TEOperator op, TEType t, Literal l) {
         super(op, t, l);
+
     }
+
+
 }
