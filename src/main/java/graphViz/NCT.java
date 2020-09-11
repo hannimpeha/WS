@@ -4,7 +4,6 @@ import jason.asSemantics.DefaultInternalAction;
 import jason.asSemantics.TransitionSystem;
 import jason.asSemantics.Unifier;
 import jason.asSyntax.Term;
-import jason.infra.centralised.RunCentralisedMAS;
 import org.neo4j.graphdb.*;
 import org.neo4j.graphdb.Relationship;
 import playerInfo.Doctor;
@@ -30,7 +29,7 @@ public class NCT extends DefaultInternalAction {
     private List<Agent> agentList;
 
     public NCT() {
-        temp = createFriendships(makePairsFromArray(createNode()));
+        createFriendships(makePairsFromArray(createNode()));
         createAgent(playerInfo);
     }
 
@@ -62,7 +61,7 @@ public class NCT extends DefaultInternalAction {
         return new Node[]{hyo, ji, yoo, mi, vi, se, ari};
     }
 
-    private List<Node[]> createFriendships(List<Node[]> pairs){
+    private void createFriendships(List<Node[]> pairs){
         for(Node[] node:pairs) {
             if(node[0].hasLabel(mafia) && node[1].hasLabel(mafia)) {
                 node[0].createRelationshipTo(node[1], RelationshipType.withName("KNOWS"));
@@ -72,7 +71,6 @@ public class NCT extends DefaultInternalAction {
             }
 
         }
-        return pairs;
     }
 
 
