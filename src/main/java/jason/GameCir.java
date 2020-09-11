@@ -3,20 +3,20 @@ package jason;
 import jason.asSemantics.Circumstance;
 import jason.asSemantics.Event;
 import jason.asSemantics.GoalListener;
+import jason.asSemantics.Intention;
 import jason.asSyntax.Trigger;
 
-public class MyCircumstance extends Circumstance implements GoalListener {
+public class GameCir extends Circumstance implements GoalListener {
 
-    private MyIntention intention = new MyIntention();
+    private Intention in;
 
-    public MyCircumstance(){
+    public GameCir(){
 
     }
 
-
     @Override
     public void goalStarted(Event event) {
-       event.setIntention(intention);
+       event.setIntention(in);
     }
 
     @Override

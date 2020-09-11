@@ -1,34 +1,40 @@
-package playerInfo;
+package jason.agents;
+
+import jason.GameCir;
+import jason.InternalAction;
+import jason.architecture.AgArch;
+import jason.asSemantics.TransitionSystem;
+import jason.asSemantics.Unifier;
+import jason.asSyntax.DefaultTerm;
+import jason.asSyntax.Term;
 import org.neo4j.graphdb.*;
-import org.neo4j.graphdb.Relationship;
-import org.neo4j.ogm.annotation.*;
 
 import java.util.Map;
 
-@NodeEntity(label="mafia")
-public class Mafia extends Player {
+public class MyAgent extends AgArch implements Node {
 
-    public Mafia(String name, int position) {
-        super(name, position);
+    private TransitionSystem ts;
+    private Unifier un;
+    private Term[] term = new Term[]{townie, mafia};
+    private GameCir cir;
+    private static Term townie = DefaultTerm.parse("townie");
+    private static Term mafia = DefaultTerm.parse("mafia");
+
+    public MyAgent(String name, String role){
+
     }
 
-    public Mafia(String name, int position, int status, boolean target) {
-        super(name, position, status, target);
+    private AgArch production(String name, String role){
+        switch(role) {
+            case "Mafia": return new Mafia(name, role);
+            case "Doctor": return new Doctor(name, role);
+            default : return new Townie(name, role);
+        }
     }
 
-    public Mafia(Mafia mafia) {
-        super(mafia);
-    }
-
-
-    @Override
-    public Player copy() {
-        return new Mafia(this);
-    }
-
-    @Override
-    public int doAction(Player p) {
-        return p.getStatus();
+    public void run() {
+        InternalAction action = new InternalAction();
+        action.execute(ts, un, term);
     }
 
     @Override
@@ -152,6 +158,7 @@ public class Mafia extends Player {
 
     @Override
     public void setProperty(String s, Object o) {
+
     }
 
     @Override

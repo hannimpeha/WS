@@ -1,5 +1,6 @@
 package util;
 
+import jason.agents.MyAgent;
 import playerInfo.*;
 
 public class CreatePlayerUtil {
@@ -12,7 +13,6 @@ public class CreatePlayerUtil {
 
         }
     }
-
     public static Player createPlayer(String name, String role, int position, int status, boolean target) {
         switch(role) {
             case "Mafia" : return new Mafia(name, position, status, target);
@@ -20,5 +20,10 @@ public class CreatePlayerUtil {
             default : return new Townie(name, position, status, target);
         }
     }
+
+    public  MyAgent createAgent(String name, String role) {
+        return new MyAgent(name, role);
+    }
+
 
 }

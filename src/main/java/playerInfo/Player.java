@@ -6,9 +6,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import jason.asSemantics.Agent;
 import org.neo4j.graphdb.Node;
 
-public abstract class Player implements Node{
+public abstract class Player extends Agent implements Node {
 
 
     private String name="";
