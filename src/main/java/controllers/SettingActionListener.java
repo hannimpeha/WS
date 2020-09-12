@@ -3,10 +3,10 @@ package controllers;
 import org.neo4j.graphdb.Node;
 import playerInfo.Player;
 
+import java.awt.event.ActionListener;
 import java.util.List;
 
-public interface ActionListener extends java.awt.event.ActionListener {
+public interface SettingActionListener extends ActionListener {
     List<Player> setAllPlayers();
-    List<Node> setAllNodes();
     void saveGame();
 }

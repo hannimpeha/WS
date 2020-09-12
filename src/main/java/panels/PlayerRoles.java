@@ -1,6 +1,5 @@
 package panels;
 
-import controllers.ActionListener;
 import org.neo4j.graphdb.Node;
 import playerInfo.Player;
 import util.CreatePlayerUtil;

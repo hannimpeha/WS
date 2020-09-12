@@ -7,17 +7,11 @@ import jason.asSyntax.Term;
 
 public class InternalAction extends DefaultInternalAction {
 
-    private BaseBelief bb;
+    private MCT mct;
 
     public InternalAction(Agent agent) {
-        bb = new BaseBelief(agent);
-        agent.setBB(bb);
-        switch(agent.getRole()){
-            case "Mafia":
-                bb.createEnemy();
-            case "Townie":
-                bb.createTownie();
-        }
+        mct = new MCT(agent);
+        agent.setBB(mct);
     }
 
     @Override

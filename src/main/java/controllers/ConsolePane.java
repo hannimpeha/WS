@@ -1,5 +1,6 @@
 package controllers;
 
+import jason.MCT;
 import jason.NCT;
 import jason.infra.centralised.RunCentralisedMAS;
 import org.neo4j.graphdb.Node;
@@ -68,7 +69,7 @@ public abstract class ConsolePane extends JPanel {
         final JTextField textField = new JTextField(24);
         box.add(textField);
         JButton button = new JButton("Enter");
-        button.addActionListener(new java.awt.event.ActionListener() {
+        button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 CardLayout cardLayout = (CardLayout) north.getLayout();
@@ -83,12 +84,11 @@ public abstract class ConsolePane extends JPanel {
         });
 
         final JButton sendButton = new JButton("Send");
-        sendButton.addActionListener(new ActionListener() {
+        sendButton.addActionListener(new SettingActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new RunCentralisedMAS();
-                new NCT(playerInfo = setAllPlayers(),
-                        playerNode = setAllNodes());
+                new NCT(playerInfo = setAllPlayers());
                 saveGame();
             }
 
@@ -98,18 +98,24 @@ public abstract class ConsolePane extends JPanel {
             }
 
             @Override
-            public List<Node> setAllNodes() {
-                return prp.setAllNodes();
-            }
-
-            @Override
             public void saveGame() {
                 prp.saveGame(playerInfo);
             }
         });
 
+        final JButton reasonButton = new JButton("Reasoning");
+        reasonButton.addActionListener(new ReasoningActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new MCT(playerNode = setAllNodes());
+            }
+            @Override
+            public List<Node> setAllNodes() { return prp.setAllNodes(); }
+        });
+
         box.add(button);
         box.add(sendButton);
+        box.add(reasonButton);
         south.add(box);
         contentPane.add(south);
     }

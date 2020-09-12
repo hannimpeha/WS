@@ -4,7 +4,9 @@ import jason.architecture.AgArch;
 import jason.asSemantics.TransitionSystem;
 import jason.asSemantics.Unifier;
 import jason.asSyntax.Term;
+import org.neo4j.ogm.annotation.NodeEntity;
 
+@NodeEntity
 public class Agent extends jason.asSemantics.Agent {
 
     private final String name;
