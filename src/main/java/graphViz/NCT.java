@@ -1,7 +1,6 @@
 package graphViz;
 
 import controllers.ActionListener;
-import jason.asSemantics.DefaultInternalAction;
 import jason.asSemantics.TransitionSystem;
 import jason.asSemantics.Unifier;
 import jason.asSyntax.Term;
