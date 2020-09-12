@@ -11,7 +11,7 @@ import playerInfo.Player;
 
 import java.util.*;
 
-public class NCT extends DefaultInternalAction {
+public class NCT {
 
     private ActionListener listener;
     private List<Player> playerInfo;
@@ -26,12 +26,14 @@ public class NCT extends DefaultInternalAction {
     private List<RelationshipType> ordinary =
             Collections.unmodifiableList(Arrays.asList(SEND, RECEIVE));
     private Node[] foo;
-    private List<Agent> agentList;
+    private List<Agent> agentList = new ArrayList<Agent>();
+    private TransitionSystem ts;
+    private Unifier un;
+    private Term[] args;
 
-    public NCT(ActionListener listener) {
-        this.listener = listener;
+    public NCT(List<Player> playerInfo, List<Node> playerNode) {
         createFriendships(makePairsFromArray(createNode(playerNode)));
-        createAgent(playerInfo);
+        createAgent(playerInfo).stream().forEach(Agent::run);
     }
 
     private List<Agent> createAgent(List<Player> playerInfo){
@@ -43,22 +45,7 @@ public class NCT extends DefaultInternalAction {
     }
 
 
-    @Override
-    public Object execute(TransitionSystem ts,
-                          Unifier un,
-                          Term[] args) {
-        System.out.println("I Love You");
-        return true;
-    }
-
     private Node[] createNode(List<Node> playerInfo){
-//        hyo = new Mafia("hyojung", 0, 1, false);
-//        ji = new Townie("jiho",1, 1, false);
-//        yoo = new Doctor("yooa", 2, 1, false);
-//        mi = new Mafia("mimi", 0, 1, false);
-//        vi = new Townie("vinie", 1, 1, false);
-//        se = new Townie("seunghee", 1, 1, false);
-//        ari = new Townie("arin", 1, 1, false);
         foo = new Node[playerInfo.size()];
         return playerInfo.toArray(foo);
     }

@@ -1,5 +1,7 @@
 package controllers;
 
+import graphViz.NCT;
+import jason.infra.centralised.RunCentralisedMAS;
 import org.neo4j.graphdb.Node;
 import panels.DayPanel;
 import panels.NightPanel;
@@ -81,11 +83,11 @@ public abstract class ConsolePane extends JPanel {
         });
 
         final JButton sendButton = new JButton("Send");
-        sendButton.addActionListener(new ActionListener(){
+        sendButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                playerInfo = prp.setAllPlayers();
-                playerNode = prp.setAllNodes();
+                new RunCentralisedMAS();
+                new NCT(setAllPlayers(), setAllNodes());
             }
 
             @Override
