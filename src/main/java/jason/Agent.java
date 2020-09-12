@@ -11,7 +11,8 @@ public class Agent extends jason.asSemantics.Agent {
     private final String role;
     private final int status;
     private InternalAction ia;
-    private  TransitionSystem ts = new TransitionSystem(this, null, null, new AgArch());
+    private  TransitionSystem ts =
+            new TransitionSystem(this, null, null, new AgArch());
     private Unifier un = new Unifier();
     private Term[] args = new Term[]{};
 
@@ -24,12 +25,12 @@ public class Agent extends jason.asSemantics.Agent {
     public void run() {
         ia = new InternalAction(this);
         ia.execute(ts, un, args);
+        System.out.println(this.getBB());
     }
 
     public String getName() {
         return name;
     }
-
 
     public String getRole() {
         return role;
