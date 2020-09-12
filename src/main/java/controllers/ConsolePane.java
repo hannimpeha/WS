@@ -103,19 +103,8 @@ public abstract class ConsolePane extends JPanel {
             }
         });
 
-        final JButton reasonButton = new JButton("Reasoning");
-        reasonButton.addActionListener(new ReasoningActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new MCT(playerNode = setAllNodes());
-            }
-            @Override
-            public List<Node> setAllNodes() { return prp.setAllNodes(); }
-        });
-
         box.add(button);
         box.add(sendButton);
-        box.add(reasonButton);
         south.add(box);
         contentPane.add(south);
     }

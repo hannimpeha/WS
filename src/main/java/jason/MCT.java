@@ -9,6 +9,7 @@ import jason.asSyntax.PredicateIndicator;
 import jason.asSyntax.Term;
 import jason.bb.BeliefBase;
 import org.neo4j.graphdb.*;
+import org.neo4j.graphdb.GraphDatabaseService;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import playerInfo.Player;
@@ -34,6 +35,8 @@ public class MCT implements BeliefBase {
     private Unifier un;
     private Term[] args;
     private GraphDatabaseService gd;
+    private Agent agent;
+    private Node node;
 
     public MCT(Agent agent) {
         createEachNetwork(
@@ -43,13 +46,11 @@ public class MCT implements BeliefBase {
     }
 
     private List<Node> createNode(Agent agent){
-        try(Transaction tx = gd.beginTx()) {
-            Node node = tx.createNode();
+            Node node =(Node) agent;
             node.setProperty("name", agent.getName());
             node.setProperty("role", agent.getRole());
             node.setProperty("dead", agent.getStatus());
             foo.add(node);
-        }
         return foo;
     }
 

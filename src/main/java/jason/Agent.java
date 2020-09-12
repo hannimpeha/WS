@@ -5,13 +5,22 @@ import jason.asSemantics.TransitionSystem;
 import jason.asSemantics.Unifier;
 import jason.asSyntax.Term;
 import org.neo4j.ogm.annotation.NodeEntity;
+import org.neo4j.ogm.annotation.Properties;
+import org.neo4j.ogm.annotation.typeconversion.Convert;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @NodeEntity
 public class Agent extends jason.asSemantics.Agent {
 
+
     private final String name;
+
     private final String role;
+
     private final int status;
+
     private InternalAction ia;
     private  TransitionSystem ts =
             new TransitionSystem(this, null, null, new AgArch());
