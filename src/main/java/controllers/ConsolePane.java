@@ -1,9 +1,11 @@
 package controllers;
 
+import org.neo4j.graphdb.Node;
 import panels.DayPanel;
 import panels.NightPanel;
 import panels.PlayerNames;
 import panels.PlayerRoles;
+import playerInfo.Player;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,11 +16,12 @@ import java.nio.file.Paths;
 import java.util.*;
 import java.util.List;
 
-public abstract class ConsolePane extends JPanel implements ActionListener {
+public abstract class ConsolePane extends JPanel {
 
-    private ActionListener listener;
+    public List<Player> playerInfo;
+    public List<Node> playerNode;
     public PlayerNames pnp = new PlayerNames();
-    public PlayerRoles prp = new PlayerRoles(listener);
+    public PlayerRoles prp = new PlayerRoles();
     public DayPanel dp = new DayPanel();
     public NightPanel np = new NightPanel();
     private List<String> playerName;
@@ -77,17 +80,27 @@ public abstract class ConsolePane extends JPanel implements ActionListener {
             }
         });
 
-        final JButton dayButton = new JButton("Day");
-        dayButton.addActionListener(new java.awt.event.ActionListener() {
+        final JButton sendButton = new JButton("Send");
+        sendButton.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                CardLayout cardLayout = (CardLayout) north.getLayout();
-                cardLayout.previous(north);
+                playerInfo = prp.setAllPlayers();
+                playerNode = prp.setAllNodes();
+            }
+
+            @Override
+            public List<Player> setAllPlayers() {
+                return prp.setAllPlayers();
+            }
+
+            @Override
+            public List<Node> setAllNodes() {
+                return prp.setAllNodes();
             }
         });
 
         box.add(button);
-        box.add(dayButton);
+        box.add(sendButton);
         south.add(box);
         contentPane.add(south);
     }

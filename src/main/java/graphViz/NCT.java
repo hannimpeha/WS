@@ -13,6 +13,7 @@ import java.util.*;
 
 public class NCT extends DefaultInternalAction {
 
+    private ActionListener listener;
     private List<Player> playerInfo;
     private List<Node> playerNode;
     private RelationshipType KNOWS;
@@ -28,8 +29,7 @@ public class NCT extends DefaultInternalAction {
     private List<Agent> agentList;
 
     public NCT(ActionListener listener) {
-        playerInfo = listener.setAllPlayers();
-        playerNode = listener.setAllNodes();
+        this.listener = listener;
         createFriendships(makePairsFromArray(createNode(playerNode)));
         createAgent(playerInfo);
     }

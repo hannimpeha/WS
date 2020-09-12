@@ -13,7 +13,6 @@ import java.util.List;
 
 public class PlayerRoles  {
 
-    private ActionListener listener;
     private List<String> playerName;
     private List<String> playerRole;
     private List<Player> playerInfo = new ArrayList<>();
@@ -23,8 +22,7 @@ public class PlayerRoles  {
                     "Thesis/FascinatingProject" +
                     "/src/main/java/resource/saveGame.txt";
 
-    public PlayerRoles(ActionListener listener) {
-        this.listener = listener;
+    public PlayerRoles() {
         createPanel();
         setAllPlayers();
         setAllNodes();
