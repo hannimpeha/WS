@@ -1,6 +1,6 @@
 package controllers;
 
-import graphViz.NCT;
+import jason.NCT;
 import jason.infra.centralised.RunCentralisedMAS;
 import org.neo4j.graphdb.Node;
 import panels.DayPanel;

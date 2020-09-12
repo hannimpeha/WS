@@ -1,4 +1,4 @@
-package graphViz;
+package jason;
 
 import controllers.ActionListener;
 import jason.asSemantics.TransitionSystem;
