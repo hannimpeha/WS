@@ -37,16 +37,16 @@ public class Game {
         }
     }
 
-    public void nightAction() {
-        for(Player p: playerInfo) {
-            if(p.getRole().contains("Mafia")) {
-                if(p.getTarget()) {
-                    int status = p.doAction(getPlayer(p.getPosition()));
-                    setPlayerStatus(p.getPosition(),status);
-                }
-            }
-        }
-    }
+//    public void nightAction() {
+//        for(Player p: playerInfo) {
+//            if(p.getRole().contains("Mafia")) {
+//                if(p.getTarget()) {
+//                    int status = p.doAction(getPlayer(p.getPosition()));
+//                    setPlayerStatus(p.getPosition(),status);
+//                }
+//            }
+//        }
+//    }
 
     public String checkWinner() {
         int mafiaTotal = 0;
@@ -84,13 +84,13 @@ public class Game {
         return clone;
     }
 
-    public Player getPlayer(int i) {
-        if(i>=0 && i< playerInfo.size()) {
-            return playerInfo.get(i).copy();
-        } else {
-            return new Townie("No player"+i, -1);
-        }
-    }
+//    public Player getPlayer(int i) {
+//        if(i>=0 && i< playerInfo.size()) {
+//            return playerInfo.get(i).copy();
+//        } else {
+//            return new Townie("No player"+i, -1);
+//        }
+//    }
 
     public List<String> getPlayerNames() {
         return playerNames;

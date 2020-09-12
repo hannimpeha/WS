@@ -8,12 +8,12 @@ import java.util.Map;
 @NodeEntity(label="mafia")
 public class Mafia extends Player {
 
-    public Mafia(String name, int position) {
-        super(name, position);
+    public Mafia(String name, String role, int position) {
+        super(name, role, position);
     }
 
-    public Mafia(String name, int position, int status, boolean target) {
-        super(name, position, status, target);
+    public Mafia(String name, String role, int position, int status, boolean target) {
+        super(name, role, position, status, target);
     }
 
     public Mafia(Mafia mafia) {

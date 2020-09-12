@@ -24,21 +24,24 @@ public abstract class Player extends Agent implements Node {
     protected final int HEALED = 3;
 
 
-    public Player(String name, int position) {
+    public Player(String name, String role, int position) {
         this.name = name;
+        this.role = role;
         this.position = position;
         this.status = 1;
         this.target = false;
     }
 
-    public Player(String name, int status, boolean target) {
+    public Player(String name, String role, int status, boolean target) {
         this.name = name;
+        this.role = role;
         this.status = status;
         this.target = target;
     }
 
-    public Player(String name, int position, int status, boolean target) {
+    public Player(String name, String role, int position, int status, boolean target) {
         this.name = name;
+        this.role = role;
         this.position = position;
         this.status = status;
         this.target = target;
@@ -46,6 +49,7 @@ public abstract class Player extends Agent implements Node {
 
     public Player(Player p) {
         this.name = p.name;
+        this.role = p.role;
         this.position = p.position;
         this.status = p.status;
         this.target = p.target;

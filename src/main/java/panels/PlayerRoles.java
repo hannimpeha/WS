@@ -7,6 +7,7 @@ import util.CreatePlayerUtil;
 
 import javax.swing.*;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.PrintWriter;
 import java.util.*;
 import java.util.List;
@@ -77,7 +78,8 @@ public class PlayerRoles  {
     }
 
     public static void saveGame(List<Player> playerInfo) {
-        try(PrintWriter pw = new PrintWriter(saveFile)) {
+        try(PrintWriter pw = new PrintWriter(
+                new FileOutputStream(saveFile, false))) {
             for (Player p : playerInfo) {
                 pw.print(p.getStatus());
                 pw.print(p.getRole());

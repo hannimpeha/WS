@@ -8,12 +8,12 @@ import java.util.Map;
 @NodeEntity(label="townie")
 public class Townie extends Player {
 
-    public Townie(String name, int position) {
-        super(name, position);
+    public Townie(String name, String role, int position) {
+        super(name, role, position);
     }
 
-    public Townie(String name, int position, int status, boolean target) {
-        super(name, position, status, target);
+    public Townie(String name, String role, int position, int status, boolean target) {
+        super(name, role, position, status, target);
     }
 
     public Townie(Townie townie) {
