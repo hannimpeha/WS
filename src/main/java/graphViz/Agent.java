@@ -1,6 +1,5 @@
 package graphViz;
 
-
 public class Agent extends jason.asSemantics.Agent {
 
     private final String name;

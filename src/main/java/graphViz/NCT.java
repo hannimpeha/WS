@@ -19,7 +19,6 @@ public class NCT {
     private RelationshipType SEND;
     private RelationshipType RECEIVE;
     private Label mafia, townies, doctor;
-    private Node hyo, ji, yoo, mi, vi, se, ari;
     private Relationship relationship;
     private Random random = new Random();
     private List<RelationshipType> ordinary =
