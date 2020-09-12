@@ -24,9 +24,6 @@ public class PlayerRoles  {
 
     public PlayerRoles() {
         createPanel();
-        setAllPlayers();
-        setAllNodes();
-        saveGame(playerInfo);
     }
 
 

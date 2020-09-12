@@ -88,6 +88,7 @@ public abstract class ConsolePane extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 new RunCentralisedMAS();
                 new NCT(setAllPlayers(), setAllNodes());
+                saveGame();
             }
 
             @Override
@@ -98,6 +99,11 @@ public abstract class ConsolePane extends JPanel {
             @Override
             public List<Node> setAllNodes() {
                 return prp.setAllNodes();
+            }
+
+            @Override
+            public void saveGame() {
+                prp.saveGame(prp.setAllPlayers());
             }
         });
 

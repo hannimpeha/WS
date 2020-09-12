@@ -8,4 +8,5 @@ import java.util.List;
 public interface ActionListener extends java.awt.event.ActionListener {
     List<Player> setAllPlayers();
     List<Node> setAllNodes();
+    void saveGame();
 }

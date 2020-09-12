@@ -9,6 +9,7 @@ import org.neo4j.graphdb.Relationship;
 import playerInfo.Player;
 
 import java.util.*;
+import java.util.stream.Stream;
 
 public class NCT {
 
@@ -31,15 +32,12 @@ public class NCT {
 
     public NCT(List<Player> playerInfo, List<Node> playerNode) {
         createFriendships(makePairsFromArray(createNode(playerNode)));
-        createAgent(playerInfo).stream().forEach(Agent::run);
+        createAgent(playerInfo).forEach(Agent::run);
     }
 
-    private List<Agent> createAgent(List<Player> playerInfo){
-        for(Player p: playerInfo) {
-            Agent ag = new Agent(p.getName(), p.getRole(), p.getStatus());
-            agentList.add(ag);
-        }
-        return agentList;
+    private Stream<Agent> createAgent(List<Player> playerInfo){
+        return playerInfo.stream()
+                .map(a->new Agent(a.getName(), a.getRole(), a.getStatus()));
     }
 
 
