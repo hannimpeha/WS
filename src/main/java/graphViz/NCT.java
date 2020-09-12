@@ -1,21 +1,20 @@
 package graphViz;
 
+import controllers.ActionListener;
 import jason.asSemantics.DefaultInternalAction;
 import jason.asSemantics.TransitionSystem;
 import jason.asSemantics.Unifier;
 import jason.asSyntax.Term;
 import org.neo4j.graphdb.*;
 import org.neo4j.graphdb.Relationship;
-import playerInfo.Doctor;
-import playerInfo.Mafia;
 import playerInfo.Player;
-import playerInfo.Townie;
 
 import java.util.*;
 
 public class NCT extends DefaultInternalAction {
 
     private List<Player> playerInfo;
+    private List<Node> playerNode;
     private RelationshipType KNOWS;
     private RelationshipType SEND;
     private RelationshipType RECEIVE;
@@ -25,11 +24,13 @@ public class NCT extends DefaultInternalAction {
     private Random random = new Random();
     private List<RelationshipType> ordinary =
             Collections.unmodifiableList(Arrays.asList(SEND, RECEIVE));
-    private List<Node[]> temp = new ArrayList<Node[]>();
+    private Node[] foo;
     private List<Agent> agentList;
 
-    public NCT() {
-        createFriendships(makePairsFromArray(createNode()));
+    public NCT(ActionListener listener) {
+        playerInfo = listener.setAllPlayers();
+        playerNode = listener.setAllNodes();
+        createFriendships(makePairsFromArray(createNode(playerNode)));
         createAgent(playerInfo);
     }
 
@@ -50,15 +51,16 @@ public class NCT extends DefaultInternalAction {
         return true;
     }
 
-    private Node[] createNode(){
-        hyo = new Mafia("hyojung", 0, 1, false);
-        ji = new Townie("jiho",1, 1, false);
-        yoo = new Doctor("yooa", 2, 1, false);
-        mi = new Mafia("mimi", 0, 1, false);
-        vi = new Townie("vinie", 1, 1, false);
-        se = new Townie("seunghee", 1, 1, false);
-        ari = new Townie("arin", 1, 1, false);
-        return new Node[]{hyo, ji, yoo, mi, vi, se, ari};
+    private Node[] createNode(List<Node> playerInfo){
+//        hyo = new Mafia("hyojung", 0, 1, false);
+//        ji = new Townie("jiho",1, 1, false);
+//        yoo = new Doctor("yooa", 2, 1, false);
+//        mi = new Mafia("mimi", 0, 1, false);
+//        vi = new Townie("vinie", 1, 1, false);
+//        se = new Townie("seunghee", 1, 1, false);
+//        ari = new Townie("arin", 1, 1, false);
+        foo = new Node[playerInfo.size()];
+        return playerInfo.toArray(foo);
     }
 
     private void createFriendships(List<Node[]> pairs){

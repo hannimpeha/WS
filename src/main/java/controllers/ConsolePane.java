@@ -14,10 +14,11 @@ import java.nio.file.Paths;
 import java.util.*;
 import java.util.List;
 
-public abstract class ConsolePane extends JPanel {
+public abstract class ConsolePane extends JPanel implements ActionListener {
 
+    private ActionListener listener;
     public PlayerNames pnp = new PlayerNames();
-    public PlayerRoles prp = new PlayerRoles();
+    public PlayerRoles prp = new PlayerRoles(listener);
     public DayPanel dp = new DayPanel();
     public NightPanel np = new NightPanel();
     private List<String> playerName;
@@ -62,7 +63,7 @@ public abstract class ConsolePane extends JPanel {
         final JTextField textField = new JTextField(24);
         box.add(textField);
         JButton button = new JButton("Enter");
-        button.addActionListener(new ActionListener() {
+        button.addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 CardLayout cardLayout = (CardLayout) north.getLayout();
@@ -77,7 +78,7 @@ public abstract class ConsolePane extends JPanel {
         });
 
         final JButton dayButton = new JButton("Day");
-        dayButton.addActionListener(new ActionListener() {
+        dayButton.addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 CardLayout cardLayout = (CardLayout) north.getLayout();

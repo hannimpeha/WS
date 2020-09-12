@@ -1,10 +1,17 @@
 package controllers;
-import javax.swing.*;
 
-public class Controller extends ConsolePane{
+import graphViz.MyRunnable;
+import org.neo4j.graphdb.Node;
+import playerInfo.Player;
+
+import javax.swing.*;
+import java.util.List;
+
+public class Controller extends ConsolePane {
 
     public JFrame frame;
     public GameController gc;
+    private ActionListener listener;
 
     public Controller() {
         SwingUtilities.invokeLater(new Runnable(){
@@ -16,6 +23,16 @@ public class Controller extends ConsolePane{
     }
 
     public void run() {
-        gc = new GameController(frame);
+        SwingUtilities.invokeLater(new MyRunnable(listener));
+    }
+
+    @Override
+    public List<Player> setAllPlayers() {
+        return setAllPlayers();
+    }
+
+    @Override
+    public List<Node> setAllNodes() {
+        return setAllNodes();
     }
 }

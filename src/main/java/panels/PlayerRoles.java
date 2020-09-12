@@ -1,32 +1,36 @@
 package panels;
 
-
+import controllers.ActionListener;
+import org.neo4j.graphdb.Node;
 import playerInfo.Player;
 import util.CreatePlayerUtil;
 
 import javax.swing.*;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
+import java.util.*;
 import java.util.List;
 
 public class PlayerRoles  {
 
+    private ActionListener listener;
     private List<String> playerName;
     private List<String> playerRole;
     private List<Player> playerInfo = new ArrayList<>();
+    private List<Node> playerNode = new ArrayList<>();
     private static final String saveFile =
             "/Users/hannimpeha/HANNIMPEHA/" +
                     "Thesis/FascinatingProject" +
                     "/src/main/java/resource/saveGame.txt";
 
-    public PlayerRoles() {
+    public PlayerRoles(ActionListener listener) {
+        this.listener = listener;
         createPanel();
         setAllPlayers();
+        setAllNodes();
         saveGame(playerInfo);
     }
+
 
     public JTextArea createPanel() {
         final JTextArea textAreaOrder =
@@ -61,11 +65,20 @@ public class PlayerRoles  {
         Collections.shuffle(playerRole);
     }
 
-    public void setAllPlayers() {
+    public List<Player> setAllPlayers() {
         for (int i = 0; i < playerName.size(); i++) {
             playerInfo.add(CreatePlayerUtil.createPlayer(
                     playerName.get(i), playerRole.get(i), i));
         }
+        return playerInfo;
+    }
+
+    public List<Node> setAllNodes(){
+        for (int i = 0; i < playerName.size(); i++) {
+            playerNode.add(CreatePlayerUtil.createPlayer(
+                    playerName.get(i), playerRole.get(i), i));
+        }
+        return playerNode;
     }
 
     public static void saveGame(List<Player> playerInfo) {

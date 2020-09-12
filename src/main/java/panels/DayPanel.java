@@ -1,6 +1,7 @@
 package panels;
 
 import ballot.Voting;
+import org.neo4j.graphdb.Node;
 import playerInfo.Player;
 
 import javax.swing.*;
@@ -13,6 +14,7 @@ public class DayPanel {
 
     private Voting vote = new Voting();
     private List<Player> playerInfo = new ArrayList<>();
+    private List<Node> playerNode = new ArrayList<>();
     private static final String saveFile =
             "/Users/hannimpeha/HANNIMPEHA/" +
                     "Thesis/FascinatingProject" +

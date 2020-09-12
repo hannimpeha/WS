@@ -1,12 +1,10 @@
 import controllers.Controller;
-import jason.infra.centralised.RunCentralisedMAS;
-
+import graphViz.MyRunnable;
 public class main{
 
     public static void main(String[] args)  {
 
         Controller c = new Controller();
-        new RunCentralisedMAS();
         c.run();
     }
 
