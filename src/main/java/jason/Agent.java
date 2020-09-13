@@ -41,10 +41,13 @@ public class Agent extends jason.asSemantics.Agent implements Node {
 
     public String getRole(){ return role; }
 
-    public int getStatus(){
-        return status;
-    }
+    public int getStatus(){ return status; }
 
+    public Set<Agent> getWeAreMafia() { return weAreMafia; }
+
+    public Set<Agent> getiAmReceiving() { return iAmReceiving; }
+
+    public Set<Agent> getiAmSending() { return iAmSending; }
     @Override
     public long getId() {
         return 0;

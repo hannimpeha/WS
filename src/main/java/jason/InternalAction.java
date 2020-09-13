@@ -23,10 +23,15 @@ public class InternalAction extends DefaultInternalAction {
             agent.setBB(mct);
             writeNetwork(agent);
         }
+        gossiping(agents);
     }
 
     public void writeNetwork(Agent agent) {
         System.out.println(agent.getBB());
+    }
+
+    public void gossiping(List<Agent> agents) {
+        new MyMessage(agents);
     }
 
     @Override
@@ -34,6 +39,5 @@ public class InternalAction extends DefaultInternalAction {
                           Unifier un, Term[] args) {
         return true;
     }
-
 
 }
