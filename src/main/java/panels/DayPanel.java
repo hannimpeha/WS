@@ -47,9 +47,9 @@ public class DayPanel {
         try(PrintWriter pw = new PrintWriter(
                 new FileOutputStream(saveFile, false))) {
             for (Player p : playerInfo) {
-                pw.print(p.getStatus());
-                pw.print(p.getRole());
-                pw.print(p.getName());
+                pw.print(p.getStatus()+",");
+                pw.print(p.getRole()+",");
+                pw.print(p.getName()+",");
                 pw.println();
             }
         } catch (FileNotFoundException e) {

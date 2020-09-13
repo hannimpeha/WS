@@ -1,63 +1,45 @@
 package jason;
 
-import controllers.SettingActionListener;
-import jason.asSemantics.TransitionSystem;
 import jason.asSemantics.Unifier;
 import jason.asSyntax.Atom;
 import jason.asSyntax.Literal;
 import jason.asSyntax.PredicateIndicator;
-import jason.asSyntax.Term;
 import jason.bb.BeliefBase;
 import org.neo4j.graphdb.*;
-import org.neo4j.graphdb.GraphDatabaseService;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import playerInfo.Player;
-
 import java.util.*;
 
 public class MCT implements BeliefBase {
 
-    private SettingActionListener listener;
-    private List<Player> playerInfo;
-    private List<Node> playerNode;
-    private RelationshipType KNOWS;
     private RelationshipType SEND;
     private RelationshipType RECEIVE;
-    private Label mafia, townies, doctor;
-    private Relationship relationship;
+    private RelationshipType KNOWS;
+    private static Label mafia, townies, doctor;
     private Random random = new Random();
     private List<RelationshipType> ordinary =
             Collections.unmodifiableList(Arrays.asList(SEND, RECEIVE));
     private List<Node> foo;
-    private List<Agent> agentList = new ArrayList<Agent>();
-    private TransitionSystem ts;
-    private Unifier un;
-    private Term[] args;
-    private GraphDatabaseService gd;
     private Agent agent;
-    private Node node;
 
-    public MCT(Agent agent) {
+    public MCT(List<Agent> agents) {
         createEachNetwork(
                 createFriendships(
-                        makePairsFromList(
-                                createNode(agent))));
+                        makePairsFromList(agents)));
     }
 
-    private List<Node> createNode(Agent agent){
-            Node node =(Node) agent;
-            node.setProperty("name", agent.getName());
-            node.setProperty("role", agent.getRole());
-            node.setProperty("dead", agent.getStatus());
-            foo.add(node);
-        return foo;
+
+    public Relationship getRelationshipBetween(Node n1, Node n2) {
+        for (Relationship rel : n1.getRelationships()) {
+            if (rel.getOtherNode(n1).equals(n2)) return rel;
+        }
+        return null;
     }
 
-    private List<Node[]> createFriendships(List<Node[]> pairs){
+    public List<Node[]> createFriendships(List<Node[]> pairs){
         for(Node[] node:pairs) {
             if(node[0].hasLabel(mafia) && node[1].hasLabel(mafia)) {
-                node[0].createRelationshipTo(node[1], RelationshipType.withName("KNOWS"));
+                node[0].createRelationshipTo(node[1], KNOWS);
             } else {
                 node[0].createRelationshipTo(node[1],
                         ordinary.get(random.nextInt(ordinary.size())));
@@ -66,25 +48,23 @@ public class MCT implements BeliefBase {
         return pairs;
     }
 
-    private void createEachNetwork(List<Node[]> pairs) {
+    public List<Node[]> createEachNetwork(List<Node[]> pairs) {
         for(Node[] node:pairs) {
-            boolean weAreMafia = (node[0].getRelationshipTypes()==RelationshipType.withName("KNOWS"));
-            boolean iAmReceiving = (node[0].getRelationshipTypes()==RelationshipType.withName("RECEIVE"));
-            boolean iAmSending = (node[0].getRelationshipTypes()==RelationshipType.withName("SEND"));
+            boolean weAreMafia = (node[0].getRelationshipTypes()==SEND);
+            boolean iAmReceiving = (node[0].getRelationshipTypes()==RECEIVE);
+            boolean iAmSending = (node[0].getRelationshipTypes()==SEND);
             if(weAreMafia) {
-                node[0].createRelationshipTo(node[1],
-                        RelationshipType.withName("KNOWS"));
+                node[0].createRelationshipTo(node[1], KNOWS);
             } else if (iAmReceiving) {
-                node[0].createRelationshipTo(node[1],
-                        RelationshipType.withName("RECEIVE"));
+                node[0].createRelationshipTo(node[1], RECEIVE);
             } else if (iAmSending) {
-                node[0].createRelationshipTo(node[1],
-                        RelationshipType.withName("SEND"));
+                node[0].createRelationshipTo(node[1], SEND);
             } else {
                 node[0].createRelationshipTo(node[1],
                         ordinary.get(random.nextInt(ordinary.size())));
             }
         }
+        return pairs;
     }
 
     public static List<Node[]> makePairsFromArray(Node[] arr) {
@@ -106,7 +86,7 @@ public class MCT implements BeliefBase {
     }
 
 
-    public static List<Node[]> makePairsFromList(List<Node> arr) {
+    public static List<Node[]> makePairsFromList(List<Agent> arr) {
         List<Node[]> list = new ArrayList<>();
 
         for(int i = 0; i < arr.size() - 1; i++) {
@@ -213,4 +193,5 @@ public class MCT implements BeliefBase {
     public BeliefBase clone() {
         return null;
     }
+
 }

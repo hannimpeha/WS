@@ -1,5 +1,6 @@
 package controllers;
 
+import jason.Agent;
 import jason.MCT;
 import jason.NCT;
 import jason.infra.centralised.RunCentralisedMAS;
@@ -23,6 +24,7 @@ public abstract class ConsolePane extends JPanel {
 
     public List<Player> playerInfo;
     public List<Node> playerNode;
+    public List<Agent> playerAgent;
     public PlayerNames pnp = new PlayerNames();
     public PlayerRoles prp = new PlayerRoles();
     public DayPanel dp = new DayPanel();
@@ -89,6 +91,7 @@ public abstract class ConsolePane extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 new RunCentralisedMAS();
                 new NCT(playerInfo = setAllPlayers());
+                new MCT(playerAgent = setAllAgents());
                 saveGame();
             }
 
@@ -96,6 +99,12 @@ public abstract class ConsolePane extends JPanel {
             public List<Player> setAllPlayers() {
                 return prp.setAllPlayers();
             }
+
+            @Override
+            public List<Node> setAllNodes() { return prp.setAllNodes(); }
+
+            @Override
+            public List<Agent> setAllAgents() { return prp.setAllAgents(); }
 
             @Override
             public void saveGame() {

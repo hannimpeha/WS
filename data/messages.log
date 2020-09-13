@@ -1,0 +1,1267 @@
+2020-09-13 04:58:15.809+0000 WARN  [o.n.k.EmbeddedGraphDatabase]: You are using an unsupported version of the Java runtime. Please use Oracle(R) Java(TM) Runtime Environment 7 or OpenJDK(TM) 7.
+2020-09-13 04:58:15.904+0000 INFO  [o.n.k.InternalAbstractGraphDatabase]: No locking implementation specified, defaulting to 'community'
+2020-09-13 04:58:15.975+0000 INFO  [o.n.k.i.DiagnosticsManager]: --- INITIALIZED diagnostics START ---
+2020-09-13 04:58:15.976+0000 INFO  [o.n.k.i.DiagnosticsManager]: Neo4j Kernel properties:
+2020-09-13 04:58:15.979+0000 INFO  [o.n.k.i.DiagnosticsManager]: store_dir=data
+2020-09-13 04:58:15.980+0000 INFO  [o.n.k.i.DiagnosticsManager]: ephemeral=false
+2020-09-13 04:58:15.981+0000 INFO  [o.n.k.i.DiagnosticsManager]: Diagnostics providers:
+2020-09-13 04:58:15.981+0000 INFO  [o.n.k.i.DiagnosticsManager]: org.neo4j.kernel.configuration.Config
+2020-09-13 04:58:15.981+0000 INFO  [o.n.k.i.DiagnosticsManager]: org.neo4j.kernel.info.DiagnosticsManager
+2020-09-13 04:58:15.981+0000 INFO  [o.n.k.i.DiagnosticsManager]: SYSTEM_MEMORY
+2020-09-13 04:58:15.981+0000 INFO  [o.n.k.i.DiagnosticsManager]: JAVA_MEMORY
+2020-09-13 04:58:15.981+0000 INFO  [o.n.k.i.DiagnosticsManager]: OPERATING_SYSTEM
+2020-09-13 04:58:15.981+0000 INFO  [o.n.k.i.DiagnosticsManager]: JAVA_VIRTUAL_MACHINE
+2020-09-13 04:58:15.981+0000 INFO  [o.n.k.i.DiagnosticsManager]: CLASSPATH
+2020-09-13 04:58:15.981+0000 INFO  [o.n.k.i.DiagnosticsManager]: LIBRARY_PATH
+2020-09-13 04:58:15.981+0000 INFO  [o.n.k.i.DiagnosticsManager]: SYSTEM_PROPERTIES
+2020-09-13 04:58:15.981+0000 INFO  [o.n.k.i.DiagnosticsManager]: NETWORK
+2020-09-13 04:58:15.982+0000 INFO  [o.n.k.i.DiagnosticsManager]: System memory information:
+2020-09-13 04:58:15.984+0000 INFO  [o.n.k.i.DiagnosticsManager]: Total Physical memory: 8.00 GB
+2020-09-13 04:58:15.986+0000 INFO  [o.n.k.i.DiagnosticsManager]: Free Physical memory: 21.57 MB
+2020-09-13 04:58:15.988+0000 INFO  [o.n.k.i.DiagnosticsManager]: Committed virtual memory: 8.62 GB
+2020-09-13 04:58:15.990+0000 INFO  [o.n.k.i.DiagnosticsManager]: Total swap space: 2.00 GB
+2020-09-13 04:58:15.992+0000 INFO  [o.n.k.i.DiagnosticsManager]: Free swap space: 1013.50 MB
+2020-09-13 04:58:15.992+0000 INFO  [o.n.k.i.DiagnosticsManager]: JVM memory information:
+2020-09-13 04:58:15.992+0000 INFO  [o.n.k.i.DiagnosticsManager]: Free  memory: 70.32 MB
+2020-09-13 04:58:15.992+0000 INFO  [o.n.k.i.DiagnosticsManager]: Total memory: 130.00 MB
+2020-09-13 04:58:15.992+0000 INFO  [o.n.k.i.DiagnosticsManager]: Max   memory: 2.00 GB
+2020-09-13 04:58:15.997+0000 INFO  [o.n.k.i.DiagnosticsManager]: Garbage Collector: G1 Young Generation: [G1 Eden Space, G1 Survivor Space, G1 Old Gen]
+2020-09-13 04:58:15.997+0000 INFO  [o.n.k.i.DiagnosticsManager]: Garbage Collector: G1 Old Generation: [G1 Eden Space, G1 Survivor Space, G1 Old Gen]
+2020-09-13 04:58:16.000+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: CodeHeap 'non-nmethods' (Non-heap memory): committed=2.44 MB, used=1.32 MB, max=5.57 MB, threshold=0.00 B
+2020-09-13 04:58:16.000+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: Metaspace (Non-heap memory): committed=17.00 MB, used=16.24 MB, max=-1.00 B, threshold=0.00 B
+2020-09-13 04:58:16.000+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: CodeHeap 'profiled nmethods' (Non-heap memory): committed=4.00 MB, used=3.94 MB, max=117.21 MB, threshold=0.00 B
+2020-09-13 04:58:16.001+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: Compressed Class Space (Non-heap memory): committed=2.25 MB, used=2.06 MB, max=1.00 GB, threshold=0.00 B
+2020-09-13 04:58:16.001+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: G1 Eden Space (Heap memory): committed=48.00 MB, used=28.00 MB, max=-1.00 B, threshold=?
+2020-09-13 04:58:16.002+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: G1 Old Gen (Heap memory): committed=78.00 MB, used=27.18 MB, max=2.00 GB, threshold=0.00 B
+2020-09-13 04:58:16.002+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: G1 Survivor Space (Heap memory): committed=4.00 MB, used=4.00 MB, max=-1.00 B, threshold=?
+2020-09-13 04:58:16.003+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: CodeHeap 'non-profiled nmethods' (Non-heap memory): committed=2.44 MB, used=643.25 kB, max=117.21 MB, threshold=0.00 B
+2020-09-13 04:58:16.003+0000 INFO  [o.n.k.i.DiagnosticsManager]: Operating system information:
+2020-09-13 04:58:16.005+0000 INFO  [o.n.k.i.DiagnosticsManager]: Operating System: Mac OS X; version: 10.15.6; arch: x86_64; cpus: 8
+2020-09-13 04:58:16.007+0000 INFO  [o.n.k.i.DiagnosticsManager]: Max number of file descriptors: 10240
+2020-09-13 04:58:16.009+0000 INFO  [o.n.k.i.DiagnosticsManager]: Number of open file descriptors: 119
+2020-09-13 04:58:16.237+0000 INFO  [o.n.k.i.DiagnosticsManager]: Process id: 17485@AmateurLife.local
+2020-09-13 04:58:16.237+0000 INFO  [o.n.k.i.DiagnosticsManager]: Byte order: LITTLE_ENDIAN
+2020-09-13 04:58:16.237+0000 INFO  [o.n.k.i.DiagnosticsManager]: Local timezone: Asia/Seoul
+2020-09-13 04:58:16.237+0000 INFO  [o.n.k.i.DiagnosticsManager]: JVM information:
+2020-09-13 04:58:16.237+0000 INFO  [o.n.k.i.DiagnosticsManager]: VM Name: Java HotSpot(TM) 64-Bit Server VM
+2020-09-13 04:58:16.237+0000 INFO  [o.n.k.i.DiagnosticsManager]: VM Vendor: Oracle Corporation
+2020-09-13 04:58:16.237+0000 INFO  [o.n.k.i.DiagnosticsManager]: VM Version: 14.0.1+7
+2020-09-13 04:58:16.238+0000 INFO  [o.n.k.i.DiagnosticsManager]: JIT compiler: HotSpot 64-Bit Tiered Compilers
+2020-09-13 04:58:16.240+0000 INFO  [o.n.k.i.DiagnosticsManager]: VM Arguments: [-javaagent:/Users/hannimpeha/Library/Application Support/JetBrains/Toolbox/apps/IDEA-U/ch-0/201.7223.91/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=51679:/Users/hannimpeha/Library/Application Support/JetBrains/Toolbox/apps/IDEA-U/ch-0/201.7223.91/IntelliJ IDEA.app/Contents/bin, -Dfile.encoding=UTF-8]
+2020-09-13 04:58:16.240+0000 INFO  [o.n.k.i.DiagnosticsManager]: Java classpath:
+2020-09-13 04:58:16.251+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-resource/3.0.1/neo4j-resource-3.0.1.jar
+2020-09-13 04:58:16.251+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/driver/neo4j-java-driver/4.0.1/neo4j-java-driver-4.0.1.jar
+2020-09-13 04:58:16.251+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/webjars/npm/viz.js-for-graphviz-java/2.1.3/viz.js-for-graphviz-java-2.1.3.jar
+2020-09-13 04:58:16.251+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.9.9/jackson-databind-2.9.9.jar
+2020-09-13 04:58:16.251+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.9.9/jackson-datatype-jsr310-2.9.9.jar
+2020-09-13 04:58:16.251+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/guru/nidi/graphviz-java/0.17.0/graphviz-java-0.17.0.jar
+2020-09-13 04:58:16.251+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/commons-io/commons-io/1.3.1/commons-io-1.3.1.jar
+2020-09-13 04:58:16.251+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-context-5.2.3.RELEASE.jar
+2020-09-13 04:58:16.251+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.9.9/jackson-core-2.9.9.jar
+2020-09-13 04:58:16.251+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/net/sf/jason/jason/1.4.2/jason-1.4.2.jar
+2020-09-13 04:58:16.251+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-anim/1.9/batik-anim-1.9.jar
+2020-09-13 04:58:16.251+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-dom/1.9/batik-dom-1.9.jar
+2020-09-13 04:58:16.251+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-unsafe/2.2.2/neo4j-unsafe-2.2.2.jar
+2020-09-13 04:58:16.251+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ogm-embedded-driver/3.2.1/neo4j-ogm-embedded-driver-3.2.1.jar
+2020-09-13 04:58:16.251+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar
+2020-09-13 04:58:16.251+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-constants/1.9/batik-constants-1.9.jar
+2020-09-13 04:58:16.251+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-css/1.9/batik-css-1.9.jar
+2020-09-13 04:58:16.251+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-configuration/4.1.1/neo4j-configuration-4.1.1.jar
+2020-09-13 04:58:16.251+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-values/4.1.1/neo4j-values-4.1.1.jar
+2020-09-13 04:58:16.251+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-logging/4.1.1/neo4j-logging-4.1.1.jar
+2020-09-13 04:58:16.251+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-kernel/2.2.2/neo4j-kernel-2.2.2.jar
+2020-09-13 04:58:16.251+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/commons-codec/commons-codec/1.9/commons-codec-1.9.jar
+2020-09-13 04:58:16.251+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/reactivestreams/reactive-streams/1.0.3/reactive-streams-1.0.3.jar
+2020-09-13 04:58:16.251+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/xml-apis/xml-apis/1.3.04/xml-apis-1.3.04.jar
+2020-09-13 04:58:16.251+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/google/errorprone/error_prone_annotations/2.3.2/error_prone_annotations-2.3.2.jar
+2020-09-13 04:58:16.251+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/commons-logging-1.2.jar
+2020-09-13 04:58:16.251+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.9.0/jackson-annotations-2.9.0.jar
+2020-09-13 04:58:16.251+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/xml-apis/xml-apis-ext/1.3.04/xml-apis-ext-1.3.04.jar
+2020-09-13 04:58:16.251+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-test-5.2.3.RELEASE.jar
+2020-09-13 04:58:16.251+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/xmlgraphics-commons/2.2/xmlgraphics-commons-2.2.jar
+2020-09-13 04:58:16.251+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-oxm-5.2.3.RELEASE.jar
+2020-09-13 04:58:16.251+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-transcoder/1.9/batik-transcoder-1.9.jar
+2020-09-13 04:58:16.252+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-context-support-5.2.3.RELEASE.jar
+2020-09-13 04:58:16.252+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/xalan/serializer/2.7.2/serializer-2.7.2.jar
+2020-09-13 04:58:16.252+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-aop-5.2.3.RELEASE.jar
+2020-09-13 04:58:16.252+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar
+2020-09-13 04:58:16.252+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/checkerframework/checker-qual/2.8.1/checker-qual-2.8.1.jar
+2020-09-13 04:58:16.252+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-xml/1.9/batik-xml-1.9.jar
+2020-09-13 04:58:16.252+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/codehaus/jettison/jettison/1.4.1/jettison-1.4.1.jar
+2020-09-13 04:58:16.252+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/eclipse/collections/eclipse-collections-api/10.2.0/eclipse-collections-api-10.2.0.jar
+2020-09-13 04:58:16.252+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/io/github/classgraph/classgraph/4.8.86/classgraph-4.8.86.jar
+2020-09-13 04:58:16.252+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-jms-5.2.3.RELEASE.jar
+2020-09-13 04:58:16.252+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-orm-5.2.3.RELEASE.jar
+2020-09-13 04:58:16.252+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.9.9/jackson-datatype-jdk8-2.9.9.jar
+2020-09-13 04:58:16.252+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-io/2.2.0/neo4j-io-2.2.0-tests.jar
+2020-09-13 04:58:16.252+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ogm-api/3.2.15/neo4j-ogm-api-3.2.15.jar
+2020-09-13 04:58:16.252+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/eclipse/collections/eclipse-collections/10.2.0/eclipse-collections-10.2.0.jar
+2020-09-13 04:58:16.252+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar
+2020-09-13 04:58:16.252+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-web-5.2.3.RELEASE.jar
+2020-09-13 04:58:16.252+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-gvt/1.9/batik-gvt-1.9.jar
+2020-09-13 04:58:16.252+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-primitive-collections/2.2.2/neo4j-primitive-collections-2.2.2.jar
+2020-09-13 04:58:16.252+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-common/3.0.1/neo4j-common-3.0.1.jar
+2020-09-13 04:58:16.252+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar
+2020-09-13 04:58:16.252+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-ext/1.9/batik-ext-1.9.jar
+2020-09-13 04:58:16.252+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-instrument-5.2.3.RELEASE.jar
+2020-09-13 04:58:16.252+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/eclipsesource/j2v8/j2v8_macosx_x86_64/4.6.0/j2v8_macosx_x86_64-4.6.0.jar
+2020-09-13 04:58:16.252+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar
+2020-09-13 04:58:16.252+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-util/1.9/batik-util-1.9.jar
+2020-09-13 04:58:16.252+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/annotations/4.1.1/annotations-4.1.1.jar
+2020-09-13 04:58:16.252+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/target/classes
+2020-09-13 04:58:16.252+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/xalan/xalan/2.7.2/xalan-2.7.2.jar
+2020-09-13 04:58:16.252+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-collections/3.0.1/neo4j-collections-3.0.1.jar
+2020-09-13 04:58:16.252+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.jar
+2020-09-13 04:58:16.252+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-aspects-5.2.3.RELEASE.jar
+2020-09-13 04:58:16.252+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-codec/1.9/batik-codec-1.9.jar
+2020-09-13 04:58:16.252+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-bridge/1.9/batik-bridge-1.9.jar
+2020-09-13 04:58:16.252+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-script/1.9/batik-script-1.9.jar
+2020-09-13 04:58:16.252+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-beans-5.2.3.RELEASE.jar
+2020-09-13 04:58:16.252+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-io/2.2.2/neo4j-io-2.2.2.jar
+2020-09-13 04:58:16.252+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-parser/1.9/batik-parser-1.9.jar
+2020-09-13 04:58:16.253+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.30/jcl-over-slf4j-1.7.30.jar
+2020-09-13 04:58:16.253+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-awt-util/1.9/batik-awt-util-1.9.jar
+2020-09-13 04:58:16.253+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ogm-bolt-native-types/3.2.1/neo4j-ogm-bolt-native-types-3.2.1.jar
+2020-09-13 04:58:16.253+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/net/arnx/nashorn-promise/0.1.1/nashorn-promise-0.1.1.jar
+2020-09-13 04:58:16.253+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-tx-5.2.3.RELEASE.jar
+2020-09-13 04:58:16.253+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar
+2020-09-13 04:58:16.253+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-i18n/1.9/batik-i18n-1.9.jar
+2020-09-13 04:58:16.253+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-csv/2.2.2/neo4j-csv-2.2.2.jar
+2020-09-13 04:58:16.253+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/google/guava/guava/28.0-jre/guava-28.0-jre.jar
+2020-09-13 04:58:16.253+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.17/animal-sniffer-annotations-1.17.jar
+2020-09-13 04:58:16.253+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ogm-core/3.2.15/neo4j-ogm-core-3.2.15.jar
+2020-09-13 04:58:16.253+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/commons/commons-exec/1.3/commons-exec-1.3.jar
+2020-09-13 04:58:16.253+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-expression-5.2.3.RELEASE.jar
+2020-09-13 04:58:16.253+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/guru/nidi/com/kitfox/svgSalamander/1.1.3/svgSalamander-1.1.3.jar
+2020-09-13 04:58:16.253+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/httpcomponents/httpclient/4.5.2/httpclient-4.5.2.jar
+2020-09-13 04:58:16.253+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-webmvc-5.2.3.RELEASE.jar
+2020-09-13 04:58:16.253+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/1stleg/jnativehook/2.0.2/jnativehook-2.0.2.jar
+2020-09-13 04:58:16.253+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-svg-dom/1.9/batik-svg-dom-1.9.jar
+2020-09-13 04:58:16.253+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/aopalliance-1.0.jar
+2020-09-13 04:58:16.253+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ogm-http-driver/3.2.1/neo4j-ogm-http-driver-3.2.1.jar
+2020-09-13 04:58:16.253+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ogm-bolt-driver/3.2.15/neo4j-ogm-bolt-driver-3.2.15.jar
+2020-09-13 04:58:16.253+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/jline/jline/2.14.2/jline-2.14.2.jar
+2020-09-13 04:58:16.253+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-svggen/1.9/batik-svggen-1.9.jar
+2020-09-13 04:58:16.253+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-core-5.2.3.RELEASE.jar
+2020-09-13 04:58:16.253+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar
+2020-09-13 04:58:16.253+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/slf4j/jul-to-slf4j/1.7.30/jul-to-slf4j-1.7.30.jar
+2020-09-13 04:58:16.253+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-graphdb-api/3.0.1/neo4j-graphdb-api-3.0.1.jar
+2020-09-13 04:58:16.253+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ogm-embedded-native-types/3.2.1/neo4j-ogm-embedded-native-types-3.2.1.jar
+2020-09-13 04:58:16.253+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/httpcomponents/httpcore/4.4.4/httpcore-4.4.4.jar
+2020-09-13 04:58:16.253+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-jdbc-5.2.3.RELEASE.jar
+2020-09-13 04:58:16.253+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar
+2020-09-13 04:58:16.253+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-messaging-5.2.3.RELEASE.jar
+2020-09-13 04:58:16.253+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-exceptions/4.1.1/neo4j-exceptions-4.1.1.jar
+2020-09-13 04:58:16.253+0000 INFO  [o.n.k.i.DiagnosticsManager]: Library path:
+2020-09-13 04:58:16.254+0000 INFO  [o.n.k.i.DiagnosticsManager]: /Users/hannimpeha/Library/Java/Extensions
+2020-09-13 04:58:16.254+0000 INFO  [o.n.k.i.DiagnosticsManager]: /Library/Java/Extensions
+2020-09-13 04:58:16.254+0000 INFO  [o.n.k.i.DiagnosticsManager]: /Network/Library/Java/Extensions
+2020-09-13 04:58:16.257+0000 INFO  [o.n.k.i.DiagnosticsManager]: /System/Library/Java/Extensions
+2020-09-13 04:58:16.257+0000 INFO  [o.n.k.i.DiagnosticsManager]: /usr/lib/java
+2020-09-13 04:58:16.257+0000 INFO  [o.n.k.i.DiagnosticsManager]: /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject
+2020-09-13 04:58:16.257+0000 INFO  [o.n.k.i.DiagnosticsManager]: System.properties:
+2020-09-13 04:58:16.258+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.jnu.encoding = UTF-8
+2020-09-13 04:58:16.258+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.awt.enableExtraMouseButtons = true
+2020-09-13 04:58:16.258+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.arch.data.model = 64
+2020-09-13 04:58:16.258+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.font.fontmanager = sun.font.CFontManager
+2020-09-13 04:58:16.258+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.timezone = Asia/Seoul
+2020-09-13 04:58:16.258+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.java.launcher = SUN_STANDARD
+2020-09-13 04:58:16.258+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.country = US
+2020-09-13 04:58:16.258+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.boot.library.path = /Library/Java/JavaVirtualMachines/jdk-14.0.1.jdk/Contents/Home/lib
+2020-09-13 04:58:16.258+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.java.command = main
+2020-09-13 04:58:16.258+0000 INFO  [o.n.k.i.DiagnosticsManager]: http.nonProxyHosts = local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com
+2020-09-13 04:58:16.258+0000 INFO  [o.n.k.i.DiagnosticsManager]: jdk.debug = release
+2020-09-13 04:58:16.258+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.cpu.endian = little
+2020-09-13 04:58:16.258+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.home = /Users/hannimpeha
+2020-09-13 04:58:16.258+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.language = en
+2020-09-13 04:58:16.258+0000 INFO  [o.n.k.i.DiagnosticsManager]: file.separator = /
+2020-09-13 04:58:16.258+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+2020-09-13 04:58:16.258+0000 INFO  [o.n.k.i.DiagnosticsManager]: ftp.nonProxyHosts = local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com
+2020-09-13 04:58:16.258+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.name = hannimpeha
+2020-09-13 04:58:16.258+0000 INFO  [o.n.k.i.DiagnosticsManager]: path.separator = :
+2020-09-13 04:58:16.258+0000 INFO  [o.n.k.i.DiagnosticsManager]: file.encoding = UTF-8
+2020-09-13 04:58:16.258+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.dir = /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject
+2020-09-13 04:58:16.258+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.io.unicode.encoding = UnicodeBig
+2020-09-13 04:58:16.258+0000 INFO  [o.n.k.i.DiagnosticsManager]: socksNonProxyHosts = local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com
+2020-09-13 04:58:16.258+0000 INFO  [o.n.k.i.DiagnosticsManager]: Network information:
+2020-09-13 04:58:16.270+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface utun1:
+2020-09-13 04:58:16.270+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: fe80:0:0:0:8b89:7992:ebad:8a35%utun1
+2020-09-13 04:58:16.270+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface utun0:
+2020-09-13 04:58:16.270+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: fe80:0:0:0:cf0c:916:83d4:79d8%utun0
+2020-09-13 04:58:16.270+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface llw0:
+2020-09-13 04:58:16.270+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: fe80:0:0:0:1cc7:f2ff:fe39:5f21%llw0
+2020-09-13 04:58:16.270+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface awdl0:
+2020-09-13 04:58:16.270+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: fe80:0:0:0:1cc7:f2ff:fe39:5f21%awdl0
+2020-09-13 04:58:16.271+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface en5:
+2020-09-13 04:58:16.271+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: fe80:0:0:0:aede:48ff:fe00:1122%en5
+2020-09-13 04:58:16.271+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface en0:
+2020-09-13 04:58:16.271+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: fe80:0:0:0:1422:ab6c:9717:bd0%en0
+2020-09-13 04:58:16.271+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: 172.30.1.14
+2020-09-13 04:58:16.271+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface lo0:
+2020-09-13 04:58:16.271+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: fe80:0:0:0:0:0:0:1%lo0
+2020-09-13 04:58:16.271+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: 0:0:0:0:0:0:0:1%lo0
+2020-09-13 04:58:16.271+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: 127.0.0.1
+2020-09-13 04:58:16.271+0000 INFO  [o.n.k.i.DiagnosticsManager]: --- INITIALIZED diagnostics END ---
+2020-09-13 04:58:16.292+0000 INFO  [o.n.k.i.s.StoreFactory]: Creating new db @ data/neostore
+2020-09-13 04:58:17.650+0000 INFO  [o.n.k.i.DiagnosticsManager]: --- STOPPING diagnostics START ---
+2020-09-13 04:58:17.650+0000 INFO  [o.n.k.i.DiagnosticsManager]: --- STOPPING diagnostics END ---
+2020-09-13 04:58:17.650+0000 INFO  [o.n.k.EmbeddedGraphDatabase]: Shutdown started
+2020-09-13 05:03:01.216+0000 WARN  [o.n.k.EmbeddedGraphDatabase]: You are using an unsupported version of the Java runtime. Please use Oracle(R) Java(TM) Runtime Environment 7 or OpenJDK(TM) 7.
+2020-09-13 05:03:01.316+0000 INFO  [o.n.k.InternalAbstractGraphDatabase]: No locking implementation specified, defaulting to 'community'
+2020-09-13 05:03:01.405+0000 INFO  [o.n.k.i.DiagnosticsManager]: --- INITIALIZED diagnostics START ---
+2020-09-13 05:03:01.406+0000 INFO  [o.n.k.i.DiagnosticsManager]: Neo4j Kernel properties:
+2020-09-13 05:03:01.409+0000 INFO  [o.n.k.i.DiagnosticsManager]: store_dir=data
+2020-09-13 05:03:01.410+0000 INFO  [o.n.k.i.DiagnosticsManager]: ephemeral=false
+2020-09-13 05:03:01.411+0000 INFO  [o.n.k.i.DiagnosticsManager]: Diagnostics providers:
+2020-09-13 05:03:01.411+0000 INFO  [o.n.k.i.DiagnosticsManager]: org.neo4j.kernel.configuration.Config
+2020-09-13 05:03:01.411+0000 INFO  [o.n.k.i.DiagnosticsManager]: org.neo4j.kernel.info.DiagnosticsManager
+2020-09-13 05:03:01.411+0000 INFO  [o.n.k.i.DiagnosticsManager]: SYSTEM_MEMORY
+2020-09-13 05:03:01.411+0000 INFO  [o.n.k.i.DiagnosticsManager]: JAVA_MEMORY
+2020-09-13 05:03:01.411+0000 INFO  [o.n.k.i.DiagnosticsManager]: OPERATING_SYSTEM
+2020-09-13 05:03:01.411+0000 INFO  [o.n.k.i.DiagnosticsManager]: JAVA_VIRTUAL_MACHINE
+2020-09-13 05:03:01.411+0000 INFO  [o.n.k.i.DiagnosticsManager]: CLASSPATH
+2020-09-13 05:03:01.411+0000 INFO  [o.n.k.i.DiagnosticsManager]: LIBRARY_PATH
+2020-09-13 05:03:01.411+0000 INFO  [o.n.k.i.DiagnosticsManager]: SYSTEM_PROPERTIES
+2020-09-13 05:03:01.411+0000 INFO  [o.n.k.i.DiagnosticsManager]: NETWORK
+2020-09-13 05:03:01.411+0000 INFO  [o.n.k.i.DiagnosticsManager]: System memory information:
+2020-09-13 05:03:01.414+0000 INFO  [o.n.k.i.DiagnosticsManager]: Total Physical memory: 8.00 GB
+2020-09-13 05:03:01.416+0000 INFO  [o.n.k.i.DiagnosticsManager]: Free Physical memory: 15.25 MB
+2020-09-13 05:03:01.418+0000 INFO  [o.n.k.i.DiagnosticsManager]: Committed virtual memory: 8.61 GB
+2020-09-13 05:03:01.420+0000 INFO  [o.n.k.i.DiagnosticsManager]: Total swap space: 2.00 GB
+2020-09-13 05:03:01.422+0000 INFO  [o.n.k.i.DiagnosticsManager]: Free swap space: 1013.50 MB
+2020-09-13 05:03:01.423+0000 INFO  [o.n.k.i.DiagnosticsManager]: JVM memory information:
+2020-09-13 05:03:01.423+0000 INFO  [o.n.k.i.DiagnosticsManager]: Free  memory: 70.01 MB
+2020-09-13 05:03:01.423+0000 INFO  [o.n.k.i.DiagnosticsManager]: Total memory: 130.00 MB
+2020-09-13 05:03:01.423+0000 INFO  [o.n.k.i.DiagnosticsManager]: Max   memory: 2.00 GB
+2020-09-13 05:03:01.428+0000 INFO  [o.n.k.i.DiagnosticsManager]: Garbage Collector: G1 Young Generation: [G1 Eden Space, G1 Survivor Space, G1 Old Gen]
+2020-09-13 05:03:01.428+0000 INFO  [o.n.k.i.DiagnosticsManager]: Garbage Collector: G1 Old Generation: [G1 Eden Space, G1 Survivor Space, G1 Old Gen]
+2020-09-13 05:03:01.433+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: CodeHeap 'non-nmethods' (Non-heap memory): committed=2.44 MB, used=1.32 MB, max=5.57 MB, threshold=0.00 B
+2020-09-13 05:03:01.433+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: Metaspace (Non-heap memory): committed=16.75 MB, used=16.16 MB, max=-1.00 B, threshold=0.00 B
+2020-09-13 05:03:01.433+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: CodeHeap 'profiled nmethods' (Non-heap memory): committed=3.88 MB, used=3.82 MB, max=117.21 MB, threshold=0.00 B
+2020-09-13 05:03:01.434+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: Compressed Class Space (Non-heap memory): committed=2.25 MB, used=2.04 MB, max=1.00 GB, threshold=0.00 B
+2020-09-13 05:03:01.434+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: G1 Eden Space (Heap memory): committed=48.00 MB, used=28.00 MB, max=-1.00 B, threshold=?
+2020-09-13 05:03:01.435+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: G1 Old Gen (Heap memory): committed=78.00 MB, used=27.47 MB, max=2.00 GB, threshold=0.00 B
+2020-09-13 05:03:01.435+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: G1 Survivor Space (Heap memory): committed=4.00 MB, used=4.00 MB, max=-1.00 B, threshold=?
+2020-09-13 05:03:01.436+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: CodeHeap 'non-profiled nmethods' (Non-heap memory): committed=2.44 MB, used=601.75 kB, max=117.21 MB, threshold=0.00 B
+2020-09-13 05:03:01.436+0000 INFO  [o.n.k.i.DiagnosticsManager]: Operating system information:
+2020-09-13 05:03:01.438+0000 INFO  [o.n.k.i.DiagnosticsManager]: Operating System: Mac OS X; version: 10.15.6; arch: x86_64; cpus: 8
+2020-09-13 05:03:01.440+0000 INFO  [o.n.k.i.DiagnosticsManager]: Max number of file descriptors: 10240
+2020-09-13 05:03:01.441+0000 INFO  [o.n.k.i.DiagnosticsManager]: Number of open file descriptors: 119
+2020-09-13 05:03:01.598+0000 INFO  [o.n.k.i.DiagnosticsManager]: Process id: 17824@AmateurLife.local
+2020-09-13 05:03:01.598+0000 INFO  [o.n.k.i.DiagnosticsManager]: Byte order: LITTLE_ENDIAN
+2020-09-13 05:03:01.598+0000 INFO  [o.n.k.i.DiagnosticsManager]: Local timezone: Asia/Seoul
+2020-09-13 05:03:01.598+0000 INFO  [o.n.k.i.DiagnosticsManager]: JVM information:
+2020-09-13 05:03:01.599+0000 INFO  [o.n.k.i.DiagnosticsManager]: VM Name: Java HotSpot(TM) 64-Bit Server VM
+2020-09-13 05:03:01.599+0000 INFO  [o.n.k.i.DiagnosticsManager]: VM Vendor: Oracle Corporation
+2020-09-13 05:03:01.599+0000 INFO  [o.n.k.i.DiagnosticsManager]: VM Version: 14.0.1+7
+2020-09-13 05:03:01.599+0000 INFO  [o.n.k.i.DiagnosticsManager]: JIT compiler: HotSpot 64-Bit Tiered Compilers
+2020-09-13 05:03:01.601+0000 INFO  [o.n.k.i.DiagnosticsManager]: VM Arguments: [-javaagent:/Users/hannimpeha/Library/Application Support/JetBrains/Toolbox/apps/IDEA-U/ch-0/201.7223.91/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=51704:/Users/hannimpeha/Library/Application Support/JetBrains/Toolbox/apps/IDEA-U/ch-0/201.7223.91/IntelliJ IDEA.app/Contents/bin, -Dfile.encoding=UTF-8]
+2020-09-13 05:03:01.601+0000 INFO  [o.n.k.i.DiagnosticsManager]: Java classpath:
+2020-09-13 05:03:01.612+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-resource/3.0.1/neo4j-resource-3.0.1.jar
+2020-09-13 05:03:01.612+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/driver/neo4j-java-driver/4.0.1/neo4j-java-driver-4.0.1.jar
+2020-09-13 05:03:01.612+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/webjars/npm/viz.js-for-graphviz-java/2.1.3/viz.js-for-graphviz-java-2.1.3.jar
+2020-09-13 05:03:01.612+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.9.9/jackson-databind-2.9.9.jar
+2020-09-13 05:03:01.612+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.9.9/jackson-datatype-jsr310-2.9.9.jar
+2020-09-13 05:03:01.612+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/guru/nidi/graphviz-java/0.17.0/graphviz-java-0.17.0.jar
+2020-09-13 05:03:01.612+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/commons-io/commons-io/1.3.1/commons-io-1.3.1.jar
+2020-09-13 05:03:01.612+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-context-5.2.3.RELEASE.jar
+2020-09-13 05:03:01.612+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.9.9/jackson-core-2.9.9.jar
+2020-09-13 05:03:01.612+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/net/sf/jason/jason/1.4.2/jason-1.4.2.jar
+2020-09-13 05:03:01.612+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-anim/1.9/batik-anim-1.9.jar
+2020-09-13 05:03:01.612+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-dom/1.9/batik-dom-1.9.jar
+2020-09-13 05:03:01.612+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-unsafe/2.2.2/neo4j-unsafe-2.2.2.jar
+2020-09-13 05:03:01.612+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ogm-embedded-driver/3.2.1/neo4j-ogm-embedded-driver-3.2.1.jar
+2020-09-13 05:03:01.612+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar
+2020-09-13 05:03:01.612+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-constants/1.9/batik-constants-1.9.jar
+2020-09-13 05:03:01.612+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-css/1.9/batik-css-1.9.jar
+2020-09-13 05:03:01.612+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-configuration/4.1.1/neo4j-configuration-4.1.1.jar
+2020-09-13 05:03:01.612+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-values/4.1.1/neo4j-values-4.1.1.jar
+2020-09-13 05:03:01.612+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-logging/4.1.1/neo4j-logging-4.1.1.jar
+2020-09-13 05:03:01.612+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-kernel/2.2.2/neo4j-kernel-2.2.2.jar
+2020-09-13 05:03:01.612+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/commons-codec/commons-codec/1.9/commons-codec-1.9.jar
+2020-09-13 05:03:01.612+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/reactivestreams/reactive-streams/1.0.3/reactive-streams-1.0.3.jar
+2020-09-13 05:03:01.612+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/xml-apis/xml-apis/1.3.04/xml-apis-1.3.04.jar
+2020-09-13 05:03:01.612+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/google/errorprone/error_prone_annotations/2.3.2/error_prone_annotations-2.3.2.jar
+2020-09-13 05:03:01.612+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/commons-logging-1.2.jar
+2020-09-13 05:03:01.612+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.9.0/jackson-annotations-2.9.0.jar
+2020-09-13 05:03:01.612+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/xml-apis/xml-apis-ext/1.3.04/xml-apis-ext-1.3.04.jar
+2020-09-13 05:03:01.612+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-test-5.2.3.RELEASE.jar
+2020-09-13 05:03:01.612+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/xmlgraphics-commons/2.2/xmlgraphics-commons-2.2.jar
+2020-09-13 05:03:01.612+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-oxm-5.2.3.RELEASE.jar
+2020-09-13 05:03:01.612+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-transcoder/1.9/batik-transcoder-1.9.jar
+2020-09-13 05:03:01.613+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-context-support-5.2.3.RELEASE.jar
+2020-09-13 05:03:01.613+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/xalan/serializer/2.7.2/serializer-2.7.2.jar
+2020-09-13 05:03:01.613+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-aop-5.2.3.RELEASE.jar
+2020-09-13 05:03:01.613+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar
+2020-09-13 05:03:01.613+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/checkerframework/checker-qual/2.8.1/checker-qual-2.8.1.jar
+2020-09-13 05:03:01.613+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-xml/1.9/batik-xml-1.9.jar
+2020-09-13 05:03:01.613+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/codehaus/jettison/jettison/1.4.1/jettison-1.4.1.jar
+2020-09-13 05:03:01.613+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/eclipse/collections/eclipse-collections-api/10.2.0/eclipse-collections-api-10.2.0.jar
+2020-09-13 05:03:01.613+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/io/github/classgraph/classgraph/4.8.86/classgraph-4.8.86.jar
+2020-09-13 05:03:01.613+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-jms-5.2.3.RELEASE.jar
+2020-09-13 05:03:01.613+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-orm-5.2.3.RELEASE.jar
+2020-09-13 05:03:01.613+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.9.9/jackson-datatype-jdk8-2.9.9.jar
+2020-09-13 05:03:01.613+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-io/2.2.0/neo4j-io-2.2.0-tests.jar
+2020-09-13 05:03:01.613+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ogm-api/3.2.15/neo4j-ogm-api-3.2.15.jar
+2020-09-13 05:03:01.613+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/eclipse/collections/eclipse-collections/10.2.0/eclipse-collections-10.2.0.jar
+2020-09-13 05:03:01.613+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar
+2020-09-13 05:03:01.613+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-web-5.2.3.RELEASE.jar
+2020-09-13 05:03:01.613+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-gvt/1.9/batik-gvt-1.9.jar
+2020-09-13 05:03:01.613+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-primitive-collections/2.2.2/neo4j-primitive-collections-2.2.2.jar
+2020-09-13 05:03:01.613+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-common/3.0.1/neo4j-common-3.0.1.jar
+2020-09-13 05:03:01.613+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar
+2020-09-13 05:03:01.613+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-ext/1.9/batik-ext-1.9.jar
+2020-09-13 05:03:01.613+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-instrument-5.2.3.RELEASE.jar
+2020-09-13 05:03:01.613+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/eclipsesource/j2v8/j2v8_macosx_x86_64/4.6.0/j2v8_macosx_x86_64-4.6.0.jar
+2020-09-13 05:03:01.613+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar
+2020-09-13 05:03:01.613+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-util/1.9/batik-util-1.9.jar
+2020-09-13 05:03:01.613+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/annotations/4.1.1/annotations-4.1.1.jar
+2020-09-13 05:03:01.613+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/target/classes
+2020-09-13 05:03:01.613+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/xalan/xalan/2.7.2/xalan-2.7.2.jar
+2020-09-13 05:03:01.613+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-collections/3.0.1/neo4j-collections-3.0.1.jar
+2020-09-13 05:03:01.613+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.jar
+2020-09-13 05:03:01.613+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-aspects-5.2.3.RELEASE.jar
+2020-09-13 05:03:01.614+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-codec/1.9/batik-codec-1.9.jar
+2020-09-13 05:03:01.614+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-bridge/1.9/batik-bridge-1.9.jar
+2020-09-13 05:03:01.614+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-script/1.9/batik-script-1.9.jar
+2020-09-13 05:03:01.614+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-beans-5.2.3.RELEASE.jar
+2020-09-13 05:03:01.614+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-io/2.2.2/neo4j-io-2.2.2.jar
+2020-09-13 05:03:01.614+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-parser/1.9/batik-parser-1.9.jar
+2020-09-13 05:03:01.614+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.30/jcl-over-slf4j-1.7.30.jar
+2020-09-13 05:03:01.614+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-awt-util/1.9/batik-awt-util-1.9.jar
+2020-09-13 05:03:01.614+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ogm-bolt-native-types/3.2.1/neo4j-ogm-bolt-native-types-3.2.1.jar
+2020-09-13 05:03:01.614+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/net/arnx/nashorn-promise/0.1.1/nashorn-promise-0.1.1.jar
+2020-09-13 05:03:01.614+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-tx-5.2.3.RELEASE.jar
+2020-09-13 05:03:01.614+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar
+2020-09-13 05:03:01.614+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-i18n/1.9/batik-i18n-1.9.jar
+2020-09-13 05:03:01.614+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-csv/2.2.2/neo4j-csv-2.2.2.jar
+2020-09-13 05:03:01.614+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/google/guava/guava/28.0-jre/guava-28.0-jre.jar
+2020-09-13 05:03:01.614+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.17/animal-sniffer-annotations-1.17.jar
+2020-09-13 05:03:01.614+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ogm-core/3.2.15/neo4j-ogm-core-3.2.15.jar
+2020-09-13 05:03:01.614+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/commons/commons-exec/1.3/commons-exec-1.3.jar
+2020-09-13 05:03:01.614+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-expression-5.2.3.RELEASE.jar
+2020-09-13 05:03:01.614+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/guru/nidi/com/kitfox/svgSalamander/1.1.3/svgSalamander-1.1.3.jar
+2020-09-13 05:03:01.614+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/httpcomponents/httpclient/4.5.2/httpclient-4.5.2.jar
+2020-09-13 05:03:01.614+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-webmvc-5.2.3.RELEASE.jar
+2020-09-13 05:03:01.614+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/1stleg/jnativehook/2.0.2/jnativehook-2.0.2.jar
+2020-09-13 05:03:01.614+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-svg-dom/1.9/batik-svg-dom-1.9.jar
+2020-09-13 05:03:01.614+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/aopalliance-1.0.jar
+2020-09-13 05:03:01.614+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ogm-http-driver/3.2.1/neo4j-ogm-http-driver-3.2.1.jar
+2020-09-13 05:03:01.614+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ogm-bolt-driver/3.2.15/neo4j-ogm-bolt-driver-3.2.15.jar
+2020-09-13 05:03:01.614+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/jline/jline/2.14.2/jline-2.14.2.jar
+2020-09-13 05:03:01.614+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-svggen/1.9/batik-svggen-1.9.jar
+2020-09-13 05:03:01.614+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-core-5.2.3.RELEASE.jar
+2020-09-13 05:03:01.614+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar
+2020-09-13 05:03:01.614+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/slf4j/jul-to-slf4j/1.7.30/jul-to-slf4j-1.7.30.jar
+2020-09-13 05:03:01.614+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-graphdb-api/3.0.1/neo4j-graphdb-api-3.0.1.jar
+2020-09-13 05:03:01.614+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ogm-embedded-native-types/3.2.1/neo4j-ogm-embedded-native-types-3.2.1.jar
+2020-09-13 05:03:01.614+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/httpcomponents/httpcore/4.4.4/httpcore-4.4.4.jar
+2020-09-13 05:03:01.614+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-jdbc-5.2.3.RELEASE.jar
+2020-09-13 05:03:01.614+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar
+2020-09-13 05:03:01.614+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-messaging-5.2.3.RELEASE.jar
+2020-09-13 05:03:01.614+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-exceptions/4.1.1/neo4j-exceptions-4.1.1.jar
+2020-09-13 05:03:01.615+0000 INFO  [o.n.k.i.DiagnosticsManager]: Library path:
+2020-09-13 05:03:01.615+0000 INFO  [o.n.k.i.DiagnosticsManager]: /Users/hannimpeha/Library/Java/Extensions
+2020-09-13 05:03:01.615+0000 INFO  [o.n.k.i.DiagnosticsManager]: /Library/Java/Extensions
+2020-09-13 05:03:01.615+0000 INFO  [o.n.k.i.DiagnosticsManager]: /Network/Library/Java/Extensions
+2020-09-13 05:03:01.615+0000 INFO  [o.n.k.i.DiagnosticsManager]: /System/Library/Java/Extensions
+2020-09-13 05:03:01.615+0000 INFO  [o.n.k.i.DiagnosticsManager]: /usr/lib/java
+2020-09-13 05:03:01.615+0000 INFO  [o.n.k.i.DiagnosticsManager]: /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject
+2020-09-13 05:03:01.615+0000 INFO  [o.n.k.i.DiagnosticsManager]: System.properties:
+2020-09-13 05:03:01.615+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.jnu.encoding = UTF-8
+2020-09-13 05:03:01.615+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.awt.enableExtraMouseButtons = true
+2020-09-13 05:03:01.615+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.arch.data.model = 64
+2020-09-13 05:03:01.615+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.font.fontmanager = sun.font.CFontManager
+2020-09-13 05:03:01.615+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.timezone = Asia/Seoul
+2020-09-13 05:03:01.615+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.java.launcher = SUN_STANDARD
+2020-09-13 05:03:01.615+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.country = US
+2020-09-13 05:03:01.615+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.boot.library.path = /Library/Java/JavaVirtualMachines/jdk-14.0.1.jdk/Contents/Home/lib
+2020-09-13 05:03:01.616+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.java.command = main
+2020-09-13 05:03:01.616+0000 INFO  [o.n.k.i.DiagnosticsManager]: http.nonProxyHosts = local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com
+2020-09-13 05:03:01.616+0000 INFO  [o.n.k.i.DiagnosticsManager]: jdk.debug = release
+2020-09-13 05:03:01.616+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.cpu.endian = little
+2020-09-13 05:03:01.616+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.home = /Users/hannimpeha
+2020-09-13 05:03:01.616+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.language = en
+2020-09-13 05:03:01.616+0000 INFO  [o.n.k.i.DiagnosticsManager]: file.separator = /
+2020-09-13 05:03:01.616+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+2020-09-13 05:03:01.616+0000 INFO  [o.n.k.i.DiagnosticsManager]: ftp.nonProxyHosts = local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com
+2020-09-13 05:03:01.616+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.name = hannimpeha
+2020-09-13 05:03:01.616+0000 INFO  [o.n.k.i.DiagnosticsManager]: path.separator = :
+2020-09-13 05:03:01.616+0000 INFO  [o.n.k.i.DiagnosticsManager]: file.encoding = UTF-8
+2020-09-13 05:03:01.616+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.dir = /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject
+2020-09-13 05:03:01.616+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.io.unicode.encoding = UnicodeBig
+2020-09-13 05:03:01.616+0000 INFO  [o.n.k.i.DiagnosticsManager]: socksNonProxyHosts = local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com
+2020-09-13 05:03:01.616+0000 INFO  [o.n.k.i.DiagnosticsManager]: Network information:
+2020-09-13 05:03:01.627+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface utun1:
+2020-09-13 05:03:01.628+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: fe80:0:0:0:8b89:7992:ebad:8a35%utun1
+2020-09-13 05:03:01.628+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface utun0:
+2020-09-13 05:03:01.628+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: fe80:0:0:0:cf0c:916:83d4:79d8%utun0
+2020-09-13 05:03:01.628+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface llw0:
+2020-09-13 05:03:01.628+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: fe80:0:0:0:1cc7:f2ff:fe39:5f21%llw0
+2020-09-13 05:03:01.628+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface awdl0:
+2020-09-13 05:03:01.628+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: fe80:0:0:0:1cc7:f2ff:fe39:5f21%awdl0
+2020-09-13 05:03:01.628+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface en5:
+2020-09-13 05:03:01.628+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: fe80:0:0:0:aede:48ff:fe00:1122%en5
+2020-09-13 05:03:01.628+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface en0:
+2020-09-13 05:03:01.628+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: fe80:0:0:0:1422:ab6c:9717:bd0%en0
+2020-09-13 05:03:01.628+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: 172.30.1.14
+2020-09-13 05:03:01.628+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface lo0:
+2020-09-13 05:03:01.628+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: fe80:0:0:0:0:0:0:1%lo0
+2020-09-13 05:03:01.628+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: 0:0:0:0:0:0:0:1%lo0
+2020-09-13 05:03:01.628+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: 127.0.0.1
+2020-09-13 05:03:01.628+0000 INFO  [o.n.k.i.DiagnosticsManager]: --- INITIALIZED diagnostics END ---
+2020-09-13 05:03:01.650+0000 INFO  [o.n.k.i.DiagnosticsManager]: --- STOPPING diagnostics START ---
+2020-09-13 05:03:01.650+0000 INFO  [o.n.k.i.DiagnosticsManager]: --- STOPPING diagnostics END ---
+2020-09-13 05:03:01.652+0000 INFO  [o.n.k.EmbeddedGraphDatabase]: Shutdown started
+2020-09-13 05:20:30.388+0000 WARN  [o.n.k.EmbeddedGraphDatabase]: You are using an unsupported version of the Java runtime. Please use Oracle(R) Java(TM) Runtime Environment 7 or OpenJDK(TM) 7.
+2020-09-13 05:20:30.490+0000 INFO  [o.n.k.InternalAbstractGraphDatabase]: No locking implementation specified, defaulting to 'community'
+2020-09-13 05:20:30.563+0000 INFO  [o.n.k.i.DiagnosticsManager]: --- INITIALIZED diagnostics START ---
+2020-09-13 05:20:30.564+0000 INFO  [o.n.k.i.DiagnosticsManager]: Neo4j Kernel properties:
+2020-09-13 05:20:30.567+0000 INFO  [o.n.k.i.DiagnosticsManager]: store_dir=data
+2020-09-13 05:20:30.568+0000 INFO  [o.n.k.i.DiagnosticsManager]: data=localhost:7687
+2020-09-13 05:20:30.568+0000 INFO  [o.n.k.i.DiagnosticsManager]: ephemeral=false
+2020-09-13 05:20:30.569+0000 INFO  [o.n.k.i.DiagnosticsManager]: Diagnostics providers:
+2020-09-13 05:20:30.569+0000 INFO  [o.n.k.i.DiagnosticsManager]: org.neo4j.kernel.configuration.Config
+2020-09-13 05:20:30.569+0000 INFO  [o.n.k.i.DiagnosticsManager]: org.neo4j.kernel.info.DiagnosticsManager
+2020-09-13 05:20:30.569+0000 INFO  [o.n.k.i.DiagnosticsManager]: SYSTEM_MEMORY
+2020-09-13 05:20:30.569+0000 INFO  [o.n.k.i.DiagnosticsManager]: JAVA_MEMORY
+2020-09-13 05:20:30.569+0000 INFO  [o.n.k.i.DiagnosticsManager]: OPERATING_SYSTEM
+2020-09-13 05:20:30.569+0000 INFO  [o.n.k.i.DiagnosticsManager]: JAVA_VIRTUAL_MACHINE
+2020-09-13 05:20:30.569+0000 INFO  [o.n.k.i.DiagnosticsManager]: CLASSPATH
+2020-09-13 05:20:30.569+0000 INFO  [o.n.k.i.DiagnosticsManager]: LIBRARY_PATH
+2020-09-13 05:20:30.569+0000 INFO  [o.n.k.i.DiagnosticsManager]: SYSTEM_PROPERTIES
+2020-09-13 05:20:30.569+0000 INFO  [o.n.k.i.DiagnosticsManager]: NETWORK
+2020-09-13 05:20:30.569+0000 INFO  [o.n.k.i.DiagnosticsManager]: System memory information:
+2020-09-13 05:20:30.573+0000 INFO  [o.n.k.i.DiagnosticsManager]: Total Physical memory: 8.00 GB
+2020-09-13 05:20:30.575+0000 INFO  [o.n.k.i.DiagnosticsManager]: Free Physical memory: 17.08 MB
+2020-09-13 05:20:30.577+0000 INFO  [o.n.k.i.DiagnosticsManager]: Committed virtual memory: 8.61 GB
+2020-09-13 05:20:30.579+0000 INFO  [o.n.k.i.DiagnosticsManager]: Total swap space: 2.00 GB
+2020-09-13 05:20:30.581+0000 INFO  [o.n.k.i.DiagnosticsManager]: Free swap space: 1.01 GB
+2020-09-13 05:20:30.581+0000 INFO  [o.n.k.i.DiagnosticsManager]: JVM memory information:
+2020-09-13 05:20:30.581+0000 INFO  [o.n.k.i.DiagnosticsManager]: Free  memory: 67.96 MB
+2020-09-13 05:20:30.581+0000 INFO  [o.n.k.i.DiagnosticsManager]: Total memory: 130.00 MB
+2020-09-13 05:20:30.581+0000 INFO  [o.n.k.i.DiagnosticsManager]: Max   memory: 2.00 GB
+2020-09-13 05:20:30.585+0000 INFO  [o.n.k.i.DiagnosticsManager]: Garbage Collector: G1 Young Generation: [G1 Eden Space, G1 Survivor Space, G1 Old Gen]
+2020-09-13 05:20:30.585+0000 INFO  [o.n.k.i.DiagnosticsManager]: Garbage Collector: G1 Old Generation: [G1 Eden Space, G1 Survivor Space, G1 Old Gen]
+2020-09-13 05:20:30.588+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: CodeHeap 'non-nmethods' (Non-heap memory): committed=2.44 MB, used=1.32 MB, max=5.57 MB, threshold=0.00 B
+2020-09-13 05:20:30.588+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: Metaspace (Non-heap memory): committed=16.88 MB, used=16.20 MB, max=-1.00 B, threshold=0.00 B
+2020-09-13 05:20:30.589+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: CodeHeap 'profiled nmethods' (Non-heap memory): committed=3.81 MB, used=3.80 MB, max=117.21 MB, threshold=0.00 B
+2020-09-13 05:20:30.589+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: Compressed Class Space (Non-heap memory): committed=2.38 MB, used=2.06 MB, max=1.00 GB, threshold=0.00 B
+2020-09-13 05:20:30.589+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: G1 Eden Space (Heap memory): committed=54.00 MB, used=33.00 MB, max=-1.00 B, threshold=?
+2020-09-13 05:20:30.590+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: G1 Old Gen (Heap memory): committed=72.00 MB, used=24.54 MB, max=2.00 GB, threshold=0.00 B
+2020-09-13 05:20:30.590+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: G1 Survivor Space (Heap memory): committed=4.00 MB, used=4.00 MB, max=-1.00 B, threshold=?
+2020-09-13 05:20:30.590+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: CodeHeap 'non-profiled nmethods' (Non-heap memory): committed=2.44 MB, used=625.50 kB, max=117.21 MB, threshold=0.00 B
+2020-09-13 05:20:30.590+0000 INFO  [o.n.k.i.DiagnosticsManager]: Operating system information:
+2020-09-13 05:20:30.593+0000 INFO  [o.n.k.i.DiagnosticsManager]: Operating System: Mac OS X; version: 10.15.6; arch: x86_64; cpus: 8
+2020-09-13 05:20:30.594+0000 INFO  [o.n.k.i.DiagnosticsManager]: Max number of file descriptors: 10240
+2020-09-13 05:20:30.596+0000 INFO  [o.n.k.i.DiagnosticsManager]: Number of open file descriptors: 125
+2020-09-13 05:20:30.604+0000 INFO  [o.n.k.i.DiagnosticsManager]: Process id: 19041@AmateurLife.local
+2020-09-13 05:20:30.604+0000 INFO  [o.n.k.i.DiagnosticsManager]: Byte order: LITTLE_ENDIAN
+2020-09-13 05:20:30.605+0000 INFO  [o.n.k.i.DiagnosticsManager]: Local timezone: Asia/Seoul
+2020-09-13 05:20:30.605+0000 INFO  [o.n.k.i.DiagnosticsManager]: JVM information:
+2020-09-13 05:20:30.605+0000 INFO  [o.n.k.i.DiagnosticsManager]: VM Name: Java HotSpot(TM) 64-Bit Server VM
+2020-09-13 05:20:30.605+0000 INFO  [o.n.k.i.DiagnosticsManager]: VM Vendor: Oracle Corporation
+2020-09-13 05:20:30.605+0000 INFO  [o.n.k.i.DiagnosticsManager]: VM Version: 14.0.1+7
+2020-09-13 05:20:30.605+0000 INFO  [o.n.k.i.DiagnosticsManager]: JIT compiler: HotSpot 64-Bit Tiered Compilers
+2020-09-13 05:20:30.606+0000 INFO  [o.n.k.i.DiagnosticsManager]: VM Arguments: [-javaagent:/Users/hannimpeha/Library/Application Support/JetBrains/Toolbox/apps/IDEA-U/ch-0/201.7223.91/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=51901:/Users/hannimpeha/Library/Application Support/JetBrains/Toolbox/apps/IDEA-U/ch-0/201.7223.91/IntelliJ IDEA.app/Contents/bin, -Dfile.encoding=UTF-8]
+2020-09-13 05:20:30.606+0000 INFO  [o.n.k.i.DiagnosticsManager]: Java classpath:
+2020-09-13 05:20:30.616+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-resource/3.0.1/neo4j-resource-3.0.1.jar
+2020-09-13 05:20:30.616+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/driver/neo4j-java-driver/4.0.1/neo4j-java-driver-4.0.1.jar
+2020-09-13 05:20:30.616+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/webjars/npm/viz.js-for-graphviz-java/2.1.3/viz.js-for-graphviz-java-2.1.3.jar
+2020-09-13 05:20:30.616+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.9.9/jackson-databind-2.9.9.jar
+2020-09-13 05:20:30.616+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.9.9/jackson-datatype-jsr310-2.9.9.jar
+2020-09-13 05:20:30.616+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/guru/nidi/graphviz-java/0.17.0/graphviz-java-0.17.0.jar
+2020-09-13 05:20:30.616+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/commons-io/commons-io/1.3.1/commons-io-1.3.1.jar
+2020-09-13 05:20:30.616+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-context-5.2.3.RELEASE.jar
+2020-09-13 05:20:30.616+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/codehaus/jackson/jackson-core-asl/1.9.13/jackson-core-asl-1.9.13.jar
+2020-09-13 05:20:30.616+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.9.9/jackson-core-2.9.9.jar
+2020-09-13 05:20:30.616+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/net/sf/jason/jason/1.4.2/jason-1.4.2.jar
+2020-09-13 05:20:30.616+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-anim/1.9/batik-anim-1.9.jar
+2020-09-13 05:20:30.616+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-dom/1.9/batik-dom-1.9.jar
+2020-09-13 05:20:30.616+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/bouncycastle/bcpkix-jdk15on/1.59/bcpkix-jdk15on-1.59.jar
+2020-09-13 05:20:30.616+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-unsafe/2.2.2/neo4j-unsafe-2.2.2.jar
+2020-09-13 05:20:30.616+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ogm-embedded-driver/3.2.1/neo4j-ogm-embedded-driver-3.2.1.jar
+2020-09-13 05:20:30.616+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar
+2020-09-13 05:20:30.616+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-constants/1.9/batik-constants-1.9.jar
+2020-09-13 05:20:30.616+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-css/1.9/batik-css-1.9.jar
+2020-09-13 05:20:30.616+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-bolt/3.4.0/neo4j-bolt-3.4.0.jar
+2020-09-13 05:20:30.616+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-configuration/4.1.1/neo4j-configuration-4.1.1.jar
+2020-09-13 05:20:30.616+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-logging/4.1.1/neo4j-logging-4.1.1.jar
+2020-09-13 05:20:30.616+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-kernel/2.2.2/neo4j-kernel-2.2.2.jar
+2020-09-13 05:20:30.616+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/commons-codec/commons-codec/1.9/commons-codec-1.9.jar
+2020-09-13 05:20:30.616+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/reactivestreams/reactive-streams/1.0.3/reactive-streams-1.0.3.jar
+2020-09-13 05:20:30.617+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/xml-apis/xml-apis/1.3.04/xml-apis-1.3.04.jar
+2020-09-13 05:20:30.617+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/google/errorprone/error_prone_annotations/2.3.2/error_prone_annotations-2.3.2.jar
+2020-09-13 05:20:30.617+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/commons-logging-1.2.jar
+2020-09-13 05:20:30.617+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/io/netty/netty-all/4.1.24.Final/netty-all-4.1.24.Final.jar
+2020-09-13 05:20:30.617+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.9.0/jackson-annotations-2.9.0.jar
+2020-09-13 05:20:30.617+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/xml-apis/xml-apis-ext/1.3.04/xml-apis-ext-1.3.04.jar
+2020-09-13 05:20:30.617+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-test-5.2.3.RELEASE.jar
+2020-09-13 05:20:30.617+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/xmlgraphics-commons/2.2/xmlgraphics-commons-2.2.jar
+2020-09-13 05:20:30.617+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-oxm-5.2.3.RELEASE.jar
+2020-09-13 05:20:30.617+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-transcoder/1.9/batik-transcoder-1.9.jar
+2020-09-13 05:20:30.617+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-context-support-5.2.3.RELEASE.jar
+2020-09-13 05:20:30.617+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/xalan/serializer/2.7.2/serializer-2.7.2.jar
+2020-09-13 05:20:30.617+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-aop-5.2.3.RELEASE.jar
+2020-09-13 05:20:30.617+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar
+2020-09-13 05:20:30.617+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/checkerframework/checker-qual/2.8.1/checker-qual-2.8.1.jar
+2020-09-13 05:20:30.617+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-xml/1.9/batik-xml-1.9.jar
+2020-09-13 05:20:30.617+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ssl/3.4.0/neo4j-ssl-3.4.0.jar
+2020-09-13 05:20:30.617+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/codehaus/jettison/jettison/1.4.1/jettison-1.4.1.jar
+2020-09-13 05:20:30.617+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/eclipse/collections/eclipse-collections-api/10.2.0/eclipse-collections-api-10.2.0.jar
+2020-09-13 05:20:30.617+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/io/github/classgraph/classgraph/4.8.86/classgraph-4.8.86.jar
+2020-09-13 05:20:30.617+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-jms-5.2.3.RELEASE.jar
+2020-09-13 05:20:30.617+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-orm-5.2.3.RELEASE.jar
+2020-09-13 05:20:30.617+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.9.9/jackson-datatype-jdk8-2.9.9.jar
+2020-09-13 05:20:30.617+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-io/2.2.0/neo4j-io-2.2.0-tests.jar
+2020-09-13 05:20:30.617+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ogm-api/3.2.15/neo4j-ogm-api-3.2.15.jar
+2020-09-13 05:20:30.617+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/eclipse/collections/eclipse-collections/10.2.0/eclipse-collections-10.2.0.jar
+2020-09-13 05:20:30.617+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar
+2020-09-13 05:20:30.617+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-web-5.2.3.RELEASE.jar
+2020-09-13 05:20:30.617+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-gvt/1.9/batik-gvt-1.9.jar
+2020-09-13 05:20:30.617+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-primitive-collections/2.2.2/neo4j-primitive-collections-2.2.2.jar
+2020-09-13 05:20:30.617+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-common/3.0.1/neo4j-common-3.0.1.jar
+2020-09-13 05:20:30.617+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar
+2020-09-13 05:20:30.617+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-ext/1.9/batik-ext-1.9.jar
+2020-09-13 05:20:30.617+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-instrument-5.2.3.RELEASE.jar
+2020-09-13 05:20:30.617+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/eclipsesource/j2v8/j2v8_macosx_x86_64/4.6.0/j2v8_macosx_x86_64-4.6.0.jar
+2020-09-13 05:20:30.617+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar
+2020-09-13 05:20:30.617+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-util/1.9/batik-util-1.9.jar
+2020-09-13 05:20:30.617+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/annotations/4.1.1/annotations-4.1.1.jar
+2020-09-13 05:20:30.617+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/target/classes
+2020-09-13 05:20:30.617+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/xalan/xalan/2.7.2/xalan-2.7.2.jar
+2020-09-13 05:20:30.617+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-collections/3.0.1/neo4j-collections-3.0.1.jar
+2020-09-13 05:20:30.617+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.jar
+2020-09-13 05:20:30.617+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/codehaus/jackson/jackson-mapper-asl/1.9.13/jackson-mapper-asl-1.9.13.jar
+2020-09-13 05:20:30.617+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-aspects-5.2.3.RELEASE.jar
+2020-09-13 05:20:30.617+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-codec/1.9/batik-codec-1.9.jar
+2020-09-13 05:20:30.618+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-bridge/1.9/batik-bridge-1.9.jar
+2020-09-13 05:20:30.618+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-script/1.9/batik-script-1.9.jar
+2020-09-13 05:20:30.618+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-beans-5.2.3.RELEASE.jar
+2020-09-13 05:20:30.618+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-io/2.2.2/neo4j-io-2.2.2.jar
+2020-09-13 05:20:30.618+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-parser/1.9/batik-parser-1.9.jar
+2020-09-13 05:20:30.618+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.30/jcl-over-slf4j-1.7.30.jar
+2020-09-13 05:20:30.618+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-values/3.4.0/neo4j-values-3.4.0.jar
+2020-09-13 05:20:30.618+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-awt-util/1.9/batik-awt-util-1.9.jar
+2020-09-13 05:20:30.618+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ogm-bolt-native-types/3.2.1/neo4j-ogm-bolt-native-types-3.2.1.jar
+2020-09-13 05:20:30.618+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/net/arnx/nashorn-promise/0.1.1/nashorn-promise-0.1.1.jar
+2020-09-13 05:20:30.618+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-tx-5.2.3.RELEASE.jar
+2020-09-13 05:20:30.618+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar
+2020-09-13 05:20:30.618+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-i18n/1.9/batik-i18n-1.9.jar
+2020-09-13 05:20:30.618+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-csv/2.2.2/neo4j-csv-2.2.2.jar
+2020-09-13 05:20:30.618+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/google/guava/guava/28.0-jre/guava-28.0-jre.jar
+2020-09-13 05:20:30.618+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.17/animal-sniffer-annotations-1.17.jar
+2020-09-13 05:20:30.618+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ogm-core/3.2.15/neo4j-ogm-core-3.2.15.jar
+2020-09-13 05:20:30.618+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/commons/commons-exec/1.3/commons-exec-1.3.jar
+2020-09-13 05:20:30.618+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-expression-5.2.3.RELEASE.jar
+2020-09-13 05:20:30.618+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.59/bcprov-jdk15on-1.59.jar
+2020-09-13 05:20:30.618+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/guru/nidi/com/kitfox/svgSalamander/1.1.3/svgSalamander-1.1.3.jar
+2020-09-13 05:20:30.618+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/httpcomponents/httpclient/4.5.2/httpclient-4.5.2.jar
+2020-09-13 05:20:30.618+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-webmvc-5.2.3.RELEASE.jar
+2020-09-13 05:20:30.618+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/1stleg/jnativehook/2.0.2/jnativehook-2.0.2.jar
+2020-09-13 05:20:30.618+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-svg-dom/1.9/batik-svg-dom-1.9.jar
+2020-09-13 05:20:30.618+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/aopalliance-1.0.jar
+2020-09-13 05:20:30.618+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ogm-http-driver/3.2.1/neo4j-ogm-http-driver-3.2.1.jar
+2020-09-13 05:20:30.618+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ogm-bolt-driver/3.2.15/neo4j-ogm-bolt-driver-3.2.15.jar
+2020-09-13 05:20:30.618+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/jline/jline/2.14.2/jline-2.14.2.jar
+2020-09-13 05:20:30.618+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-svggen/1.9/batik-svggen-1.9.jar
+2020-09-13 05:20:30.618+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-core-5.2.3.RELEASE.jar
+2020-09-13 05:20:30.618+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar
+2020-09-13 05:20:30.618+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/slf4j/jul-to-slf4j/1.7.30/jul-to-slf4j-1.7.30.jar
+2020-09-13 05:20:30.618+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-graphdb-api/3.0.1/neo4j-graphdb-api-3.0.1.jar
+2020-09-13 05:20:30.618+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ogm-embedded-native-types/3.2.1/neo4j-ogm-embedded-native-types-3.2.1.jar
+2020-09-13 05:20:30.618+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/httpcomponents/httpcore/4.4.4/httpcore-4.4.4.jar
+2020-09-13 05:20:30.618+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-jdbc-5.2.3.RELEASE.jar
+2020-09-13 05:20:30.618+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar
+2020-09-13 05:20:30.618+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-messaging-5.2.3.RELEASE.jar
+2020-09-13 05:20:30.618+0000 INFO  [o.n.k.i.DiagnosticsManager]: Library path:
+2020-09-13 05:20:30.619+0000 INFO  [o.n.k.i.DiagnosticsManager]: /Users/hannimpeha/Library/Java/Extensions
+2020-09-13 05:20:30.619+0000 INFO  [o.n.k.i.DiagnosticsManager]: /Library/Java/Extensions
+2020-09-13 05:20:30.619+0000 INFO  [o.n.k.i.DiagnosticsManager]: /Network/Library/Java/Extensions
+2020-09-13 05:20:30.621+0000 INFO  [o.n.k.i.DiagnosticsManager]: /System/Library/Java/Extensions
+2020-09-13 05:20:30.621+0000 INFO  [o.n.k.i.DiagnosticsManager]: /usr/lib/java
+2020-09-13 05:20:30.622+0000 INFO  [o.n.k.i.DiagnosticsManager]: /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject
+2020-09-13 05:20:30.622+0000 INFO  [o.n.k.i.DiagnosticsManager]: System.properties:
+2020-09-13 05:20:30.622+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.jnu.encoding = UTF-8
+2020-09-13 05:20:30.622+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.awt.enableExtraMouseButtons = true
+2020-09-13 05:20:30.622+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.arch.data.model = 64
+2020-09-13 05:20:30.622+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.font.fontmanager = sun.font.CFontManager
+2020-09-13 05:20:30.622+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.timezone = Asia/Seoul
+2020-09-13 05:20:30.622+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.java.launcher = SUN_STANDARD
+2020-09-13 05:20:30.622+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.country = US
+2020-09-13 05:20:30.622+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.boot.library.path = /Library/Java/JavaVirtualMachines/jdk-14.0.1.jdk/Contents/Home/lib
+2020-09-13 05:20:30.622+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.java.command = main
+2020-09-13 05:20:30.622+0000 INFO  [o.n.k.i.DiagnosticsManager]: http.nonProxyHosts = local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com
+2020-09-13 05:20:30.622+0000 INFO  [o.n.k.i.DiagnosticsManager]: jdk.debug = release
+2020-09-13 05:20:30.622+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.cpu.endian = little
+2020-09-13 05:20:30.622+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.home = /Users/hannimpeha
+2020-09-13 05:20:30.622+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.language = en
+2020-09-13 05:20:30.622+0000 INFO  [o.n.k.i.DiagnosticsManager]: file.separator = /
+2020-09-13 05:20:30.622+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+2020-09-13 05:20:30.622+0000 INFO  [o.n.k.i.DiagnosticsManager]: ftp.nonProxyHosts = local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com
+2020-09-13 05:20:30.622+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.name = hannimpeha
+2020-09-13 05:20:30.622+0000 INFO  [o.n.k.i.DiagnosticsManager]: path.separator = :
+2020-09-13 05:20:30.622+0000 INFO  [o.n.k.i.DiagnosticsManager]: file.encoding = UTF-8
+2020-09-13 05:20:30.622+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.dir = /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject
+2020-09-13 05:20:30.622+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.io.unicode.encoding = UnicodeBig
+2020-09-13 05:20:30.622+0000 INFO  [o.n.k.i.DiagnosticsManager]: socksNonProxyHosts = local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com
+2020-09-13 05:20:30.622+0000 INFO  [o.n.k.i.DiagnosticsManager]: Network information:
+2020-09-13 05:20:30.635+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface utun1:
+2020-09-13 05:20:30.635+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: fe80:0:0:0:8b89:7992:ebad:8a35%utun1
+2020-09-13 05:20:30.635+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface utun0:
+2020-09-13 05:20:30.635+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: fe80:0:0:0:cf0c:916:83d4:79d8%utun0
+2020-09-13 05:20:30.635+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface llw0:
+2020-09-13 05:20:30.635+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: fe80:0:0:0:1cc7:f2ff:fe39:5f21%llw0
+2020-09-13 05:20:30.635+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface awdl0:
+2020-09-13 05:20:30.635+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: fe80:0:0:0:1cc7:f2ff:fe39:5f21%awdl0
+2020-09-13 05:20:30.635+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface en5:
+2020-09-13 05:20:30.635+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: fe80:0:0:0:aede:48ff:fe00:1122%en5
+2020-09-13 05:20:30.635+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface en0:
+2020-09-13 05:20:30.635+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: fe80:0:0:0:1422:ab6c:9717:bd0%en0
+2020-09-13 05:20:30.635+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: 172.30.1.14
+2020-09-13 05:20:30.636+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface lo0:
+2020-09-13 05:20:30.636+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: fe80:0:0:0:0:0:0:1%lo0
+2020-09-13 05:20:30.636+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: 0:0:0:0:0:0:0:1%lo0
+2020-09-13 05:20:30.636+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: 127.0.0.1
+2020-09-13 05:20:30.636+0000 INFO  [o.n.k.i.DiagnosticsManager]: --- INITIALIZED diagnostics END ---
+2020-09-13 05:20:30.640+0000 INFO  [o.n.k.i.DiagnosticsManager]: --- SHUTDOWN diagnostics START ---
+2020-09-13 05:20:30.640+0000 INFO  [o.n.k.i.DiagnosticsManager]: --- SHUTDOWN diagnostics END ---
+2020-09-13 05:21:19.663+0000 WARN  [o.n.k.EmbeddedGraphDatabase]: You are using an unsupported version of the Java runtime. Please use Oracle(R) Java(TM) Runtime Environment 7 or OpenJDK(TM) 7.
+2020-09-13 05:21:19.757+0000 INFO  [o.n.k.InternalAbstractGraphDatabase]: No locking implementation specified, defaulting to 'community'
+2020-09-13 05:21:19.827+0000 INFO  [o.n.k.i.DiagnosticsManager]: --- INITIALIZED diagnostics START ---
+2020-09-13 05:21:19.828+0000 INFO  [o.n.k.i.DiagnosticsManager]: Neo4j Kernel properties:
+2020-09-13 05:21:19.832+0000 INFO  [o.n.k.i.DiagnosticsManager]: graph.db=localhost:7687
+2020-09-13 05:21:19.832+0000 INFO  [o.n.k.i.DiagnosticsManager]: store_dir=data
+2020-09-13 05:21:19.832+0000 INFO  [o.n.k.i.DiagnosticsManager]: ephemeral=false
+2020-09-13 05:21:19.833+0000 INFO  [o.n.k.i.DiagnosticsManager]: Diagnostics providers:
+2020-09-13 05:21:19.833+0000 INFO  [o.n.k.i.DiagnosticsManager]: org.neo4j.kernel.configuration.Config
+2020-09-13 05:21:19.833+0000 INFO  [o.n.k.i.DiagnosticsManager]: org.neo4j.kernel.info.DiagnosticsManager
+2020-09-13 05:21:19.833+0000 INFO  [o.n.k.i.DiagnosticsManager]: SYSTEM_MEMORY
+2020-09-13 05:21:19.833+0000 INFO  [o.n.k.i.DiagnosticsManager]: JAVA_MEMORY
+2020-09-13 05:21:19.833+0000 INFO  [o.n.k.i.DiagnosticsManager]: OPERATING_SYSTEM
+2020-09-13 05:21:19.833+0000 INFO  [o.n.k.i.DiagnosticsManager]: JAVA_VIRTUAL_MACHINE
+2020-09-13 05:21:19.833+0000 INFO  [o.n.k.i.DiagnosticsManager]: CLASSPATH
+2020-09-13 05:21:19.833+0000 INFO  [o.n.k.i.DiagnosticsManager]: LIBRARY_PATH
+2020-09-13 05:21:19.834+0000 INFO  [o.n.k.i.DiagnosticsManager]: SYSTEM_PROPERTIES
+2020-09-13 05:21:19.834+0000 INFO  [o.n.k.i.DiagnosticsManager]: NETWORK
+2020-09-13 05:21:19.834+0000 INFO  [o.n.k.i.DiagnosticsManager]: System memory information:
+2020-09-13 05:21:19.836+0000 INFO  [o.n.k.i.DiagnosticsManager]: Total Physical memory: 8.00 GB
+2020-09-13 05:21:19.839+0000 INFO  [o.n.k.i.DiagnosticsManager]: Free Physical memory: 16.75 MB
+2020-09-13 05:21:19.841+0000 INFO  [o.n.k.i.DiagnosticsManager]: Committed virtual memory: 8.61 GB
+2020-09-13 05:21:19.843+0000 INFO  [o.n.k.i.DiagnosticsManager]: Total swap space: 2.00 GB
+2020-09-13 05:21:19.845+0000 INFO  [o.n.k.i.DiagnosticsManager]: Free swap space: 1.01 GB
+2020-09-13 05:21:19.846+0000 INFO  [o.n.k.i.DiagnosticsManager]: JVM memory information:
+2020-09-13 05:21:19.846+0000 INFO  [o.n.k.i.DiagnosticsManager]: Free  memory: 68.22 MB
+2020-09-13 05:21:19.846+0000 INFO  [o.n.k.i.DiagnosticsManager]: Total memory: 130.00 MB
+2020-09-13 05:21:19.846+0000 INFO  [o.n.k.i.DiagnosticsManager]: Max   memory: 2.00 GB
+2020-09-13 05:21:19.851+0000 INFO  [o.n.k.i.DiagnosticsManager]: Garbage Collector: G1 Young Generation: [G1 Eden Space, G1 Survivor Space, G1 Old Gen]
+2020-09-13 05:21:19.851+0000 INFO  [o.n.k.i.DiagnosticsManager]: Garbage Collector: G1 Old Generation: [G1 Eden Space, G1 Survivor Space, G1 Old Gen]
+2020-09-13 05:21:19.854+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: CodeHeap 'non-nmethods' (Non-heap memory): committed=2.44 MB, used=1.32 MB, max=5.57 MB, threshold=0.00 B
+2020-09-13 05:21:19.854+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: Metaspace (Non-heap memory): committed=17.00 MB, used=16.24 MB, max=-1.00 B, threshold=0.00 B
+2020-09-13 05:21:19.855+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: CodeHeap 'profiled nmethods' (Non-heap memory): committed=4.00 MB, used=3.99 MB, max=117.21 MB, threshold=0.00 B
+2020-09-13 05:21:19.855+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: Compressed Class Space (Non-heap memory): committed=2.25 MB, used=2.05 MB, max=1.00 GB, threshold=0.00 B
+2020-09-13 05:21:19.856+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: G1 Eden Space (Heap memory): committed=56.00 MB, used=34.00 MB, max=-1.00 B, threshold=?
+2020-09-13 05:21:19.856+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: G1 Old Gen (Heap memory): committed=70.00 MB, used=23.27 MB, max=2.00 GB, threshold=0.00 B
+2020-09-13 05:21:19.856+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: G1 Survivor Space (Heap memory): committed=4.00 MB, used=4.00 MB, max=-1.00 B, threshold=?
+2020-09-13 05:21:19.857+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: CodeHeap 'non-profiled nmethods' (Non-heap memory): committed=2.44 MB, used=653.13 kB, max=117.21 MB, threshold=0.00 B
+2020-09-13 05:21:19.857+0000 INFO  [o.n.k.i.DiagnosticsManager]: Operating system information:
+2020-09-13 05:21:19.859+0000 INFO  [o.n.k.i.DiagnosticsManager]: Operating System: Mac OS X; version: 10.15.6; arch: x86_64; cpus: 8
+2020-09-13 05:21:19.861+0000 INFO  [o.n.k.i.DiagnosticsManager]: Max number of file descriptors: 10240
+2020-09-13 05:21:19.863+0000 INFO  [o.n.k.i.DiagnosticsManager]: Number of open file descriptors: 125
+2020-09-13 05:21:19.871+0000 INFO  [o.n.k.i.DiagnosticsManager]: Process id: 19099@AmateurLife.local
+2020-09-13 05:21:19.871+0000 INFO  [o.n.k.i.DiagnosticsManager]: Byte order: LITTLE_ENDIAN
+2020-09-13 05:21:19.871+0000 INFO  [o.n.k.i.DiagnosticsManager]: Local timezone: Asia/Seoul
+2020-09-13 05:21:19.871+0000 INFO  [o.n.k.i.DiagnosticsManager]: JVM information:
+2020-09-13 05:21:19.871+0000 INFO  [o.n.k.i.DiagnosticsManager]: VM Name: Java HotSpot(TM) 64-Bit Server VM
+2020-09-13 05:21:19.871+0000 INFO  [o.n.k.i.DiagnosticsManager]: VM Vendor: Oracle Corporation
+2020-09-13 05:21:19.871+0000 INFO  [o.n.k.i.DiagnosticsManager]: VM Version: 14.0.1+7
+2020-09-13 05:21:19.871+0000 INFO  [o.n.k.i.DiagnosticsManager]: JIT compiler: HotSpot 64-Bit Tiered Compilers
+2020-09-13 05:21:19.872+0000 INFO  [o.n.k.i.DiagnosticsManager]: VM Arguments: [-javaagent:/Users/hannimpeha/Library/Application Support/JetBrains/Toolbox/apps/IDEA-U/ch-0/201.7223.91/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=51912:/Users/hannimpeha/Library/Application Support/JetBrains/Toolbox/apps/IDEA-U/ch-0/201.7223.91/IntelliJ IDEA.app/Contents/bin, -Dfile.encoding=UTF-8]
+2020-09-13 05:21:19.873+0000 INFO  [o.n.k.i.DiagnosticsManager]: Java classpath:
+2020-09-13 05:21:19.882+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-resource/3.0.1/neo4j-resource-3.0.1.jar
+2020-09-13 05:21:19.882+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/driver/neo4j-java-driver/4.0.1/neo4j-java-driver-4.0.1.jar
+2020-09-13 05:21:19.882+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/webjars/npm/viz.js-for-graphviz-java/2.1.3/viz.js-for-graphviz-java-2.1.3.jar
+2020-09-13 05:21:19.882+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.9.9/jackson-databind-2.9.9.jar
+2020-09-13 05:21:19.882+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.9.9/jackson-datatype-jsr310-2.9.9.jar
+2020-09-13 05:21:19.882+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/guru/nidi/graphviz-java/0.17.0/graphviz-java-0.17.0.jar
+2020-09-13 05:21:19.882+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/commons-io/commons-io/1.3.1/commons-io-1.3.1.jar
+2020-09-13 05:21:19.882+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-context-5.2.3.RELEASE.jar
+2020-09-13 05:21:19.882+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/codehaus/jackson/jackson-core-asl/1.9.13/jackson-core-asl-1.9.13.jar
+2020-09-13 05:21:19.882+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.9.9/jackson-core-2.9.9.jar
+2020-09-13 05:21:19.882+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/net/sf/jason/jason/1.4.2/jason-1.4.2.jar
+2020-09-13 05:21:19.882+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-anim/1.9/batik-anim-1.9.jar
+2020-09-13 05:21:19.882+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-dom/1.9/batik-dom-1.9.jar
+2020-09-13 05:21:19.882+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/bouncycastle/bcpkix-jdk15on/1.59/bcpkix-jdk15on-1.59.jar
+2020-09-13 05:21:19.882+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-unsafe/2.2.2/neo4j-unsafe-2.2.2.jar
+2020-09-13 05:21:19.882+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ogm-embedded-driver/3.2.1/neo4j-ogm-embedded-driver-3.2.1.jar
+2020-09-13 05:21:19.882+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar
+2020-09-13 05:21:19.882+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-constants/1.9/batik-constants-1.9.jar
+2020-09-13 05:21:19.882+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-css/1.9/batik-css-1.9.jar
+2020-09-13 05:21:19.882+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-bolt/3.4.0/neo4j-bolt-3.4.0.jar
+2020-09-13 05:21:19.882+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-configuration/4.1.1/neo4j-configuration-4.1.1.jar
+2020-09-13 05:21:19.882+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-logging/4.1.1/neo4j-logging-4.1.1.jar
+2020-09-13 05:21:19.882+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-kernel/2.2.2/neo4j-kernel-2.2.2.jar
+2020-09-13 05:21:19.882+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/commons-codec/commons-codec/1.9/commons-codec-1.9.jar
+2020-09-13 05:21:19.882+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/reactivestreams/reactive-streams/1.0.3/reactive-streams-1.0.3.jar
+2020-09-13 05:21:19.882+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/xml-apis/xml-apis/1.3.04/xml-apis-1.3.04.jar
+2020-09-13 05:21:19.882+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/google/errorprone/error_prone_annotations/2.3.2/error_prone_annotations-2.3.2.jar
+2020-09-13 05:21:19.882+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/commons-logging-1.2.jar
+2020-09-13 05:21:19.883+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/io/netty/netty-all/4.1.24.Final/netty-all-4.1.24.Final.jar
+2020-09-13 05:21:19.883+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.9.0/jackson-annotations-2.9.0.jar
+2020-09-13 05:21:19.883+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/xml-apis/xml-apis-ext/1.3.04/xml-apis-ext-1.3.04.jar
+2020-09-13 05:21:19.883+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-test-5.2.3.RELEASE.jar
+2020-09-13 05:21:19.883+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/xmlgraphics-commons/2.2/xmlgraphics-commons-2.2.jar
+2020-09-13 05:21:19.883+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-oxm-5.2.3.RELEASE.jar
+2020-09-13 05:21:19.883+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-transcoder/1.9/batik-transcoder-1.9.jar
+2020-09-13 05:21:19.883+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-context-support-5.2.3.RELEASE.jar
+2020-09-13 05:21:19.883+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/xalan/serializer/2.7.2/serializer-2.7.2.jar
+2020-09-13 05:21:19.883+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-aop-5.2.3.RELEASE.jar
+2020-09-13 05:21:19.883+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar
+2020-09-13 05:21:19.883+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/checkerframework/checker-qual/2.8.1/checker-qual-2.8.1.jar
+2020-09-13 05:21:19.883+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-xml/1.9/batik-xml-1.9.jar
+2020-09-13 05:21:19.883+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ssl/3.4.0/neo4j-ssl-3.4.0.jar
+2020-09-13 05:21:19.883+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/codehaus/jettison/jettison/1.4.1/jettison-1.4.1.jar
+2020-09-13 05:21:19.883+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/eclipse/collections/eclipse-collections-api/10.2.0/eclipse-collections-api-10.2.0.jar
+2020-09-13 05:21:19.883+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/io/github/classgraph/classgraph/4.8.86/classgraph-4.8.86.jar
+2020-09-13 05:21:19.883+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-jms-5.2.3.RELEASE.jar
+2020-09-13 05:21:19.883+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-orm-5.2.3.RELEASE.jar
+2020-09-13 05:21:19.883+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.9.9/jackson-datatype-jdk8-2.9.9.jar
+2020-09-13 05:21:19.883+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-io/2.2.0/neo4j-io-2.2.0-tests.jar
+2020-09-13 05:21:19.883+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ogm-api/3.2.15/neo4j-ogm-api-3.2.15.jar
+2020-09-13 05:21:19.883+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/eclipse/collections/eclipse-collections/10.2.0/eclipse-collections-10.2.0.jar
+2020-09-13 05:21:19.883+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar
+2020-09-13 05:21:19.883+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-web-5.2.3.RELEASE.jar
+2020-09-13 05:21:19.883+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-gvt/1.9/batik-gvt-1.9.jar
+2020-09-13 05:21:19.883+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-primitive-collections/2.2.2/neo4j-primitive-collections-2.2.2.jar
+2020-09-13 05:21:19.883+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-common/3.0.1/neo4j-common-3.0.1.jar
+2020-09-13 05:21:19.883+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar
+2020-09-13 05:21:19.883+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-ext/1.9/batik-ext-1.9.jar
+2020-09-13 05:21:19.883+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-instrument-5.2.3.RELEASE.jar
+2020-09-13 05:21:19.883+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/eclipsesource/j2v8/j2v8_macosx_x86_64/4.6.0/j2v8_macosx_x86_64-4.6.0.jar
+2020-09-13 05:21:19.883+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar
+2020-09-13 05:21:19.883+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-util/1.9/batik-util-1.9.jar
+2020-09-13 05:21:19.883+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/annotations/4.1.1/annotations-4.1.1.jar
+2020-09-13 05:21:19.883+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/target/classes
+2020-09-13 05:21:19.883+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/xalan/xalan/2.7.2/xalan-2.7.2.jar
+2020-09-13 05:21:19.883+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-collections/3.0.1/neo4j-collections-3.0.1.jar
+2020-09-13 05:21:19.883+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.jar
+2020-09-13 05:21:19.883+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/codehaus/jackson/jackson-mapper-asl/1.9.13/jackson-mapper-asl-1.9.13.jar
+2020-09-13 05:21:19.883+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-aspects-5.2.3.RELEASE.jar
+2020-09-13 05:21:19.884+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-codec/1.9/batik-codec-1.9.jar
+2020-09-13 05:21:19.884+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-bridge/1.9/batik-bridge-1.9.jar
+2020-09-13 05:21:19.884+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-script/1.9/batik-script-1.9.jar
+2020-09-13 05:21:19.884+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-beans-5.2.3.RELEASE.jar
+2020-09-13 05:21:19.884+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-io/2.2.2/neo4j-io-2.2.2.jar
+2020-09-13 05:21:19.884+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-parser/1.9/batik-parser-1.9.jar
+2020-09-13 05:21:19.884+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.30/jcl-over-slf4j-1.7.30.jar
+2020-09-13 05:21:19.884+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-values/3.4.0/neo4j-values-3.4.0.jar
+2020-09-13 05:21:19.884+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-awt-util/1.9/batik-awt-util-1.9.jar
+2020-09-13 05:21:19.884+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ogm-bolt-native-types/3.2.1/neo4j-ogm-bolt-native-types-3.2.1.jar
+2020-09-13 05:21:19.884+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/net/arnx/nashorn-promise/0.1.1/nashorn-promise-0.1.1.jar
+2020-09-13 05:21:19.884+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-tx-5.2.3.RELEASE.jar
+2020-09-13 05:21:19.884+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar
+2020-09-13 05:21:19.884+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-i18n/1.9/batik-i18n-1.9.jar
+2020-09-13 05:21:19.884+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-csv/2.2.2/neo4j-csv-2.2.2.jar
+2020-09-13 05:21:19.884+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/google/guava/guava/28.0-jre/guava-28.0-jre.jar
+2020-09-13 05:21:19.884+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.17/animal-sniffer-annotations-1.17.jar
+2020-09-13 05:21:19.884+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ogm-core/3.2.15/neo4j-ogm-core-3.2.15.jar
+2020-09-13 05:21:19.884+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/commons/commons-exec/1.3/commons-exec-1.3.jar
+2020-09-13 05:21:19.884+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-expression-5.2.3.RELEASE.jar
+2020-09-13 05:21:19.884+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.59/bcprov-jdk15on-1.59.jar
+2020-09-13 05:21:19.884+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/guru/nidi/com/kitfox/svgSalamander/1.1.3/svgSalamander-1.1.3.jar
+2020-09-13 05:21:19.884+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/httpcomponents/httpclient/4.5.2/httpclient-4.5.2.jar
+2020-09-13 05:21:19.884+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-webmvc-5.2.3.RELEASE.jar
+2020-09-13 05:21:19.884+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/1stleg/jnativehook/2.0.2/jnativehook-2.0.2.jar
+2020-09-13 05:21:19.884+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-svg-dom/1.9/batik-svg-dom-1.9.jar
+2020-09-13 05:21:19.884+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/aopalliance-1.0.jar
+2020-09-13 05:21:19.884+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ogm-http-driver/3.2.1/neo4j-ogm-http-driver-3.2.1.jar
+2020-09-13 05:21:19.884+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ogm-bolt-driver/3.2.15/neo4j-ogm-bolt-driver-3.2.15.jar
+2020-09-13 05:21:19.884+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/jline/jline/2.14.2/jline-2.14.2.jar
+2020-09-13 05:21:19.884+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-svggen/1.9/batik-svggen-1.9.jar
+2020-09-13 05:21:19.884+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-core-5.2.3.RELEASE.jar
+2020-09-13 05:21:19.884+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar
+2020-09-13 05:21:19.884+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/slf4j/jul-to-slf4j/1.7.30/jul-to-slf4j-1.7.30.jar
+2020-09-13 05:21:19.884+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-graphdb-api/3.0.1/neo4j-graphdb-api-3.0.1.jar
+2020-09-13 05:21:19.884+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ogm-embedded-native-types/3.2.1/neo4j-ogm-embedded-native-types-3.2.1.jar
+2020-09-13 05:21:19.884+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/httpcomponents/httpcore/4.4.4/httpcore-4.4.4.jar
+2020-09-13 05:21:19.884+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-jdbc-5.2.3.RELEASE.jar
+2020-09-13 05:21:19.884+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar
+2020-09-13 05:21:19.884+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-messaging-5.2.3.RELEASE.jar
+2020-09-13 05:21:19.884+0000 INFO  [o.n.k.i.DiagnosticsManager]: Library path:
+2020-09-13 05:21:19.885+0000 INFO  [o.n.k.i.DiagnosticsManager]: /Users/hannimpeha/Library/Java/Extensions
+2020-09-13 05:21:19.885+0000 INFO  [o.n.k.i.DiagnosticsManager]: /Library/Java/Extensions
+2020-09-13 05:21:19.885+0000 INFO  [o.n.k.i.DiagnosticsManager]: /Network/Library/Java/Extensions
+2020-09-13 05:21:19.885+0000 INFO  [o.n.k.i.DiagnosticsManager]: /System/Library/Java/Extensions
+2020-09-13 05:21:19.885+0000 INFO  [o.n.k.i.DiagnosticsManager]: /usr/lib/java
+2020-09-13 05:21:19.885+0000 INFO  [o.n.k.i.DiagnosticsManager]: /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject
+2020-09-13 05:21:19.885+0000 INFO  [o.n.k.i.DiagnosticsManager]: System.properties:
+2020-09-13 05:21:19.885+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.jnu.encoding = UTF-8
+2020-09-13 05:21:19.885+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.awt.enableExtraMouseButtons = true
+2020-09-13 05:21:19.885+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.arch.data.model = 64
+2020-09-13 05:21:19.885+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.font.fontmanager = sun.font.CFontManager
+2020-09-13 05:21:19.885+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.timezone = Asia/Seoul
+2020-09-13 05:21:19.885+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.java.launcher = SUN_STANDARD
+2020-09-13 05:21:19.886+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.country = US
+2020-09-13 05:21:19.886+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.boot.library.path = /Library/Java/JavaVirtualMachines/jdk-14.0.1.jdk/Contents/Home/lib
+2020-09-13 05:21:19.886+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.java.command = main
+2020-09-13 05:21:19.886+0000 INFO  [o.n.k.i.DiagnosticsManager]: http.nonProxyHosts = local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com
+2020-09-13 05:21:19.886+0000 INFO  [o.n.k.i.DiagnosticsManager]: jdk.debug = release
+2020-09-13 05:21:19.886+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.cpu.endian = little
+2020-09-13 05:21:19.886+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.home = /Users/hannimpeha
+2020-09-13 05:21:19.886+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.language = en
+2020-09-13 05:21:19.886+0000 INFO  [o.n.k.i.DiagnosticsManager]: file.separator = /
+2020-09-13 05:21:19.886+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+2020-09-13 05:21:19.886+0000 INFO  [o.n.k.i.DiagnosticsManager]: ftp.nonProxyHosts = local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com
+2020-09-13 05:21:19.886+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.name = hannimpeha
+2020-09-13 05:21:19.886+0000 INFO  [o.n.k.i.DiagnosticsManager]: path.separator = :
+2020-09-13 05:21:19.886+0000 INFO  [o.n.k.i.DiagnosticsManager]: file.encoding = UTF-8
+2020-09-13 05:21:19.886+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.dir = /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject
+2020-09-13 05:21:19.886+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.io.unicode.encoding = UnicodeBig
+2020-09-13 05:21:19.886+0000 INFO  [o.n.k.i.DiagnosticsManager]: socksNonProxyHosts = local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com
+2020-09-13 05:21:19.886+0000 INFO  [o.n.k.i.DiagnosticsManager]: Network information:
+2020-09-13 05:21:19.898+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface utun1:
+2020-09-13 05:21:19.898+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: fe80:0:0:0:8b89:7992:ebad:8a35%utun1
+2020-09-13 05:21:19.898+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface utun0:
+2020-09-13 05:21:19.898+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: fe80:0:0:0:cf0c:916:83d4:79d8%utun0
+2020-09-13 05:21:19.898+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface llw0:
+2020-09-13 05:21:19.898+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: fe80:0:0:0:1cc7:f2ff:fe39:5f21%llw0
+2020-09-13 05:21:19.898+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface awdl0:
+2020-09-13 05:21:19.898+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: fe80:0:0:0:1cc7:f2ff:fe39:5f21%awdl0
+2020-09-13 05:21:19.898+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface en5:
+2020-09-13 05:21:19.898+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: fe80:0:0:0:aede:48ff:fe00:1122%en5
+2020-09-13 05:21:19.898+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface en0:
+2020-09-13 05:21:19.898+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: fe80:0:0:0:1422:ab6c:9717:bd0%en0
+2020-09-13 05:21:19.898+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: 172.30.1.14
+2020-09-13 05:21:19.898+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface lo0:
+2020-09-13 05:21:19.898+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: fe80:0:0:0:0:0:0:1%lo0
+2020-09-13 05:21:19.899+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: 0:0:0:0:0:0:0:1%lo0
+2020-09-13 05:21:19.899+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: 127.0.0.1
+2020-09-13 05:21:19.899+0000 INFO  [o.n.k.i.DiagnosticsManager]: --- INITIALIZED diagnostics END ---
+2020-09-13 05:21:19.901+0000 INFO  [o.n.k.i.DiagnosticsManager]: --- SHUTDOWN diagnostics START ---
+2020-09-13 05:21:19.901+0000 INFO  [o.n.k.i.DiagnosticsManager]: --- SHUTDOWN diagnostics END ---
+2020-09-13 05:39:44.371+0000 WARN  [o.n.k.EmbeddedGraphDatabase]: You are using an unsupported version of the Java runtime. Please use Oracle(R) Java(TM) Runtime Environment 7 or OpenJDK(TM) 7.
+2020-09-13 05:39:44.477+0000 INFO  [o.n.k.InternalAbstractGraphDatabase]: No locking implementation specified, defaulting to 'community'
+2020-09-13 05:39:44.568+0000 INFO  [o.n.k.i.DiagnosticsManager]: --- INITIALIZED diagnostics START ---
+2020-09-13 05:39:44.569+0000 INFO  [o.n.k.i.DiagnosticsManager]: Neo4j Kernel properties:
+2020-09-13 05:39:44.572+0000 INFO  [o.n.k.i.DiagnosticsManager]: graph.db=localhost:7687
+2020-09-13 05:39:44.572+0000 INFO  [o.n.k.i.DiagnosticsManager]: store_dir=data
+2020-09-13 05:39:44.572+0000 INFO  [o.n.k.i.DiagnosticsManager]: ephemeral=false
+2020-09-13 05:39:44.573+0000 INFO  [o.n.k.i.DiagnosticsManager]: Diagnostics providers:
+2020-09-13 05:39:44.573+0000 INFO  [o.n.k.i.DiagnosticsManager]: org.neo4j.kernel.configuration.Config
+2020-09-13 05:39:44.573+0000 INFO  [o.n.k.i.DiagnosticsManager]: org.neo4j.kernel.info.DiagnosticsManager
+2020-09-13 05:39:44.573+0000 INFO  [o.n.k.i.DiagnosticsManager]: SYSTEM_MEMORY
+2020-09-13 05:39:44.573+0000 INFO  [o.n.k.i.DiagnosticsManager]: JAVA_MEMORY
+2020-09-13 05:39:44.573+0000 INFO  [o.n.k.i.DiagnosticsManager]: OPERATING_SYSTEM
+2020-09-13 05:39:44.573+0000 INFO  [o.n.k.i.DiagnosticsManager]: JAVA_VIRTUAL_MACHINE
+2020-09-13 05:39:44.573+0000 INFO  [o.n.k.i.DiagnosticsManager]: CLASSPATH
+2020-09-13 05:39:44.573+0000 INFO  [o.n.k.i.DiagnosticsManager]: LIBRARY_PATH
+2020-09-13 05:39:44.573+0000 INFO  [o.n.k.i.DiagnosticsManager]: SYSTEM_PROPERTIES
+2020-09-13 05:39:44.573+0000 INFO  [o.n.k.i.DiagnosticsManager]: NETWORK
+2020-09-13 05:39:44.573+0000 INFO  [o.n.k.i.DiagnosticsManager]: System memory information:
+2020-09-13 05:39:44.576+0000 INFO  [o.n.k.i.DiagnosticsManager]: Total Physical memory: 8.00 GB
+2020-09-13 05:39:44.578+0000 INFO  [o.n.k.i.DiagnosticsManager]: Free Physical memory: 21.67 MB
+2020-09-13 05:39:44.580+0000 INFO  [o.n.k.i.DiagnosticsManager]: Committed virtual memory: 8.61 GB
+2020-09-13 05:39:44.582+0000 INFO  [o.n.k.i.DiagnosticsManager]: Total swap space: 3.00 GB
+2020-09-13 05:39:44.584+0000 INFO  [o.n.k.i.DiagnosticsManager]: Free swap space: 1.20 GB
+2020-09-13 05:39:44.584+0000 INFO  [o.n.k.i.DiagnosticsManager]: JVM memory information:
+2020-09-13 05:39:44.584+0000 INFO  [o.n.k.i.DiagnosticsManager]: Free  memory: 68.79 MB
+2020-09-13 05:39:44.585+0000 INFO  [o.n.k.i.DiagnosticsManager]: Total memory: 130.00 MB
+2020-09-13 05:39:44.585+0000 INFO  [o.n.k.i.DiagnosticsManager]: Max   memory: 2.00 GB
+2020-09-13 05:39:44.588+0000 INFO  [o.n.k.i.DiagnosticsManager]: Garbage Collector: G1 Young Generation: [G1 Eden Space, G1 Survivor Space, G1 Old Gen]
+2020-09-13 05:39:44.589+0000 INFO  [o.n.k.i.DiagnosticsManager]: Garbage Collector: G1 Old Generation: [G1 Eden Space, G1 Survivor Space, G1 Old Gen]
+2020-09-13 05:39:44.591+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: CodeHeap 'non-nmethods' (Non-heap memory): committed=2.44 MB, used=1.32 MB, max=5.57 MB, threshold=0.00 B
+2020-09-13 05:39:44.592+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: Metaspace (Non-heap memory): committed=16.75 MB, used=16.21 MB, max=-1.00 B, threshold=0.00 B
+2020-09-13 05:39:44.592+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: CodeHeap 'profiled nmethods' (Non-heap memory): committed=4.00 MB, used=3.98 MB, max=117.21 MB, threshold=0.00 B
+2020-09-13 05:39:44.592+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: Compressed Class Space (Non-heap memory): committed=2.25 MB, used=2.05 MB, max=1.00 GB, threshold=0.00 B
+2020-09-13 05:39:44.593+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: G1 Eden Space (Heap memory): committed=54.00 MB, used=32.00 MB, max=-1.00 B, threshold=?
+2020-09-13 05:39:44.593+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: G1 Old Gen (Heap memory): committed=72.00 MB, used=24.21 MB, max=2.00 GB, threshold=0.00 B
+2020-09-13 05:39:44.593+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: G1 Survivor Space (Heap memory): committed=4.00 MB, used=4.00 MB, max=-1.00 B, threshold=?
+2020-09-13 05:39:44.594+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: CodeHeap 'non-profiled nmethods' (Non-heap memory): committed=2.44 MB, used=649.13 kB, max=117.21 MB, threshold=0.00 B
+2020-09-13 05:39:44.594+0000 INFO  [o.n.k.i.DiagnosticsManager]: Operating system information:
+2020-09-13 05:39:44.596+0000 INFO  [o.n.k.i.DiagnosticsManager]: Operating System: Mac OS X; version: 10.15.6; arch: x86_64; cpus: 8
+2020-09-13 05:39:44.598+0000 INFO  [o.n.k.i.DiagnosticsManager]: Max number of file descriptors: 10240
+2020-09-13 05:39:44.599+0000 INFO  [o.n.k.i.DiagnosticsManager]: Number of open file descriptors: 125
+2020-09-13 05:39:44.608+0000 INFO  [o.n.k.i.DiagnosticsManager]: Process id: 21286@AmateurLife.local
+2020-09-13 05:39:44.608+0000 INFO  [o.n.k.i.DiagnosticsManager]: Byte order: LITTLE_ENDIAN
+2020-09-13 05:39:44.608+0000 INFO  [o.n.k.i.DiagnosticsManager]: Local timezone: Asia/Seoul
+2020-09-13 05:39:44.608+0000 INFO  [o.n.k.i.DiagnosticsManager]: JVM information:
+2020-09-13 05:39:44.608+0000 INFO  [o.n.k.i.DiagnosticsManager]: VM Name: Java HotSpot(TM) 64-Bit Server VM
+2020-09-13 05:39:44.608+0000 INFO  [o.n.k.i.DiagnosticsManager]: VM Vendor: Oracle Corporation
+2020-09-13 05:39:44.608+0000 INFO  [o.n.k.i.DiagnosticsManager]: VM Version: 14.0.1+7
+2020-09-13 05:39:44.609+0000 INFO  [o.n.k.i.DiagnosticsManager]: JIT compiler: HotSpot 64-Bit Tiered Compilers
+2020-09-13 05:39:44.610+0000 INFO  [o.n.k.i.DiagnosticsManager]: VM Arguments: [-javaagent:/Users/hannimpeha/Library/Application Support/JetBrains/Toolbox/apps/IDEA-U/ch-0/201.7223.91/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=52928:/Users/hannimpeha/Library/Application Support/JetBrains/Toolbox/apps/IDEA-U/ch-0/201.7223.91/IntelliJ IDEA.app/Contents/bin, -Dfile.encoding=UTF-8]
+2020-09-13 05:39:44.610+0000 INFO  [o.n.k.i.DiagnosticsManager]: Java classpath:
+2020-09-13 05:39:44.619+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-resource/3.0.1/neo4j-resource-3.0.1.jar
+2020-09-13 05:39:44.619+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/driver/neo4j-java-driver/4.0.1/neo4j-java-driver-4.0.1.jar
+2020-09-13 05:39:44.619+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/webjars/npm/viz.js-for-graphviz-java/2.1.3/viz.js-for-graphviz-java-2.1.3.jar
+2020-09-13 05:39:44.619+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.9.9/jackson-databind-2.9.9.jar
+2020-09-13 05:39:44.619+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.9.9/jackson-datatype-jsr310-2.9.9.jar
+2020-09-13 05:39:44.619+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/guru/nidi/graphviz-java/0.17.0/graphviz-java-0.17.0.jar
+2020-09-13 05:39:44.619+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/commons-io/commons-io/1.3.1/commons-io-1.3.1.jar
+2020-09-13 05:39:44.619+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-context-5.2.3.RELEASE.jar
+2020-09-13 05:39:44.619+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/codehaus/jackson/jackson-core-asl/1.9.13/jackson-core-asl-1.9.13.jar
+2020-09-13 05:39:44.619+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.9.9/jackson-core-2.9.9.jar
+2020-09-13 05:39:44.619+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/net/sf/jason/jason/1.4.2/jason-1.4.2.jar
+2020-09-13 05:39:44.619+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-anim/1.9/batik-anim-1.9.jar
+2020-09-13 05:39:44.619+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-dom/1.9/batik-dom-1.9.jar
+2020-09-13 05:39:44.619+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/bouncycastle/bcpkix-jdk15on/1.59/bcpkix-jdk15on-1.59.jar
+2020-09-13 05:39:44.619+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-unsafe/2.2.2/neo4j-unsafe-2.2.2.jar
+2020-09-13 05:39:44.619+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ogm-embedded-driver/3.2.1/neo4j-ogm-embedded-driver-3.2.1.jar
+2020-09-13 05:39:44.619+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar
+2020-09-13 05:39:44.619+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-constants/1.9/batik-constants-1.9.jar
+2020-09-13 05:39:44.619+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-css/1.9/batik-css-1.9.jar
+2020-09-13 05:39:44.619+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-bolt/3.4.0/neo4j-bolt-3.4.0.jar
+2020-09-13 05:39:44.619+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-configuration/4.1.1/neo4j-configuration-4.1.1.jar
+2020-09-13 05:39:44.619+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-logging/4.1.1/neo4j-logging-4.1.1.jar
+2020-09-13 05:39:44.620+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-kernel/2.2.2/neo4j-kernel-2.2.2.jar
+2020-09-13 05:39:44.620+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/commons-codec/commons-codec/1.9/commons-codec-1.9.jar
+2020-09-13 05:39:44.620+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/reactivestreams/reactive-streams/1.0.3/reactive-streams-1.0.3.jar
+2020-09-13 05:39:44.620+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/xml-apis/xml-apis/1.3.04/xml-apis-1.3.04.jar
+2020-09-13 05:39:44.620+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/google/errorprone/error_prone_annotations/2.3.2/error_prone_annotations-2.3.2.jar
+2020-09-13 05:39:44.620+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/commons-logging-1.2.jar
+2020-09-13 05:39:44.620+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/io/netty/netty-all/4.1.24.Final/netty-all-4.1.24.Final.jar
+2020-09-13 05:39:44.620+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.9.0/jackson-annotations-2.9.0.jar
+2020-09-13 05:39:44.620+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/xml-apis/xml-apis-ext/1.3.04/xml-apis-ext-1.3.04.jar
+2020-09-13 05:39:44.620+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-test-5.2.3.RELEASE.jar
+2020-09-13 05:39:44.620+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/xmlgraphics-commons/2.2/xmlgraphics-commons-2.2.jar
+2020-09-13 05:39:44.620+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-oxm-5.2.3.RELEASE.jar
+2020-09-13 05:39:44.620+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-transcoder/1.9/batik-transcoder-1.9.jar
+2020-09-13 05:39:44.620+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-context-support-5.2.3.RELEASE.jar
+2020-09-13 05:39:44.620+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/xalan/serializer/2.7.2/serializer-2.7.2.jar
+2020-09-13 05:39:44.620+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-aop-5.2.3.RELEASE.jar
+2020-09-13 05:39:44.620+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar
+2020-09-13 05:39:44.620+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/checkerframework/checker-qual/2.8.1/checker-qual-2.8.1.jar
+2020-09-13 05:39:44.620+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-xml/1.9/batik-xml-1.9.jar
+2020-09-13 05:39:44.620+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ssl/3.4.0/neo4j-ssl-3.4.0.jar
+2020-09-13 05:39:44.620+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/codehaus/jettison/jettison/1.4.1/jettison-1.4.1.jar
+2020-09-13 05:39:44.620+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/eclipse/collections/eclipse-collections-api/10.2.0/eclipse-collections-api-10.2.0.jar
+2020-09-13 05:39:44.620+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/io/github/classgraph/classgraph/4.8.86/classgraph-4.8.86.jar
+2020-09-13 05:39:44.620+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-jms-5.2.3.RELEASE.jar
+2020-09-13 05:39:44.620+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-orm-5.2.3.RELEASE.jar
+2020-09-13 05:39:44.620+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.9.9/jackson-datatype-jdk8-2.9.9.jar
+2020-09-13 05:39:44.620+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-io/2.2.0/neo4j-io-2.2.0-tests.jar
+2020-09-13 05:39:44.620+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ogm-api/3.2.15/neo4j-ogm-api-3.2.15.jar
+2020-09-13 05:39:44.620+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/eclipse/collections/eclipse-collections/10.2.0/eclipse-collections-10.2.0.jar
+2020-09-13 05:39:44.620+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar
+2020-09-13 05:39:44.620+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-web-5.2.3.RELEASE.jar
+2020-09-13 05:39:44.620+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-gvt/1.9/batik-gvt-1.9.jar
+2020-09-13 05:39:44.620+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-primitive-collections/2.2.2/neo4j-primitive-collections-2.2.2.jar
+2020-09-13 05:39:44.620+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-common/3.0.1/neo4j-common-3.0.1.jar
+2020-09-13 05:39:44.620+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar
+2020-09-13 05:39:44.620+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-ext/1.9/batik-ext-1.9.jar
+2020-09-13 05:39:44.620+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-instrument-5.2.3.RELEASE.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/eclipsesource/j2v8/j2v8_macosx_x86_64/4.6.0/j2v8_macosx_x86_64-4.6.0.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-util/1.9/batik-util-1.9.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/annotations/4.1.1/annotations-4.1.1.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/target/classes
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/xalan/xalan/2.7.2/xalan-2.7.2.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-collections/3.0.1/neo4j-collections-3.0.1.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/codehaus/jackson/jackson-mapper-asl/1.9.13/jackson-mapper-asl-1.9.13.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-aspects-5.2.3.RELEASE.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-codec/1.9/batik-codec-1.9.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-bridge/1.9/batik-bridge-1.9.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-script/1.9/batik-script-1.9.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-beans-5.2.3.RELEASE.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-io/2.2.2/neo4j-io-2.2.2.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-parser/1.9/batik-parser-1.9.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.30/jcl-over-slf4j-1.7.30.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-values/3.4.0/neo4j-values-3.4.0.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-awt-util/1.9/batik-awt-util-1.9.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ogm-bolt-native-types/3.2.1/neo4j-ogm-bolt-native-types-3.2.1.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/net/arnx/nashorn-promise/0.1.1/nashorn-promise-0.1.1.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-tx-5.2.3.RELEASE.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-i18n/1.9/batik-i18n-1.9.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-csv/2.2.2/neo4j-csv-2.2.2.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/google/guava/guava/28.0-jre/guava-28.0-jre.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.17/animal-sniffer-annotations-1.17.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ogm-core/3.2.15/neo4j-ogm-core-3.2.15.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/commons/commons-exec/1.3/commons-exec-1.3.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-expression-5.2.3.RELEASE.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.59/bcprov-jdk15on-1.59.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/guru/nidi/com/kitfox/svgSalamander/1.1.3/svgSalamander-1.1.3.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/httpcomponents/httpclient/4.5.2/httpclient-4.5.2.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-webmvc-5.2.3.RELEASE.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/1stleg/jnativehook/2.0.2/jnativehook-2.0.2.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-svg-dom/1.9/batik-svg-dom-1.9.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/aopalliance-1.0.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ogm-http-driver/3.2.1/neo4j-ogm-http-driver-3.2.1.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ogm-bolt-driver/3.2.15/neo4j-ogm-bolt-driver-3.2.15.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/jline/jline/2.14.2/jline-2.14.2.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-svggen/1.9/batik-svggen-1.9.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-core-5.2.3.RELEASE.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/slf4j/jul-to-slf4j/1.7.30/jul-to-slf4j-1.7.30.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-graphdb-api/3.0.1/neo4j-graphdb-api-3.0.1.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ogm-embedded-native-types/3.2.1/neo4j-ogm-embedded-native-types-3.2.1.jar
+2020-09-13 05:39:44.621+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/httpcomponents/httpcore/4.4.4/httpcore-4.4.4.jar
+2020-09-13 05:39:44.622+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-jdbc-5.2.3.RELEASE.jar
+2020-09-13 05:39:44.622+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar
+2020-09-13 05:39:44.622+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-messaging-5.2.3.RELEASE.jar
+2020-09-13 05:39:44.622+0000 INFO  [o.n.k.i.DiagnosticsManager]: Library path:
+2020-09-13 05:39:44.622+0000 INFO  [o.n.k.i.DiagnosticsManager]: /Users/hannimpeha/Library/Java/Extensions
+2020-09-13 05:39:44.622+0000 INFO  [o.n.k.i.DiagnosticsManager]: /Library/Java/Extensions
+2020-09-13 05:39:44.622+0000 INFO  [o.n.k.i.DiagnosticsManager]: /Network/Library/Java/Extensions
+2020-09-13 05:39:44.622+0000 INFO  [o.n.k.i.DiagnosticsManager]: /System/Library/Java/Extensions
+2020-09-13 05:39:44.622+0000 INFO  [o.n.k.i.DiagnosticsManager]: /usr/lib/java
+2020-09-13 05:39:44.622+0000 INFO  [o.n.k.i.DiagnosticsManager]: /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject
+2020-09-13 05:39:44.622+0000 INFO  [o.n.k.i.DiagnosticsManager]: System.properties:
+2020-09-13 05:39:44.622+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.jnu.encoding = UTF-8
+2020-09-13 05:39:44.622+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.awt.enableExtraMouseButtons = true
+2020-09-13 05:39:44.622+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.arch.data.model = 64
+2020-09-13 05:39:44.622+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.font.fontmanager = sun.font.CFontManager
+2020-09-13 05:39:44.622+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.timezone = Asia/Seoul
+2020-09-13 05:39:44.622+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.java.launcher = SUN_STANDARD
+2020-09-13 05:39:44.622+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.country = US
+2020-09-13 05:39:44.622+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.boot.library.path = /Library/Java/JavaVirtualMachines/jdk-14.0.1.jdk/Contents/Home/lib
+2020-09-13 05:39:44.622+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.java.command = main
+2020-09-13 05:39:44.622+0000 INFO  [o.n.k.i.DiagnosticsManager]: http.nonProxyHosts = local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com
+2020-09-13 05:39:44.622+0000 INFO  [o.n.k.i.DiagnosticsManager]: jdk.debug = release
+2020-09-13 05:39:44.623+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.cpu.endian = little
+2020-09-13 05:39:44.623+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.home = /Users/hannimpeha
+2020-09-13 05:39:44.623+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.language = en
+2020-09-13 05:39:44.623+0000 INFO  [o.n.k.i.DiagnosticsManager]: file.separator = /
+2020-09-13 05:39:44.623+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+2020-09-13 05:39:44.623+0000 INFO  [o.n.k.i.DiagnosticsManager]: ftp.nonProxyHosts = local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com
+2020-09-13 05:39:44.623+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.name = hannimpeha
+2020-09-13 05:39:44.623+0000 INFO  [o.n.k.i.DiagnosticsManager]: path.separator = :
+2020-09-13 05:39:44.623+0000 INFO  [o.n.k.i.DiagnosticsManager]: file.encoding = UTF-8
+2020-09-13 05:39:44.623+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.dir = /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject
+2020-09-13 05:39:44.623+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.io.unicode.encoding = UnicodeBig
+2020-09-13 05:39:44.623+0000 INFO  [o.n.k.i.DiagnosticsManager]: socksNonProxyHosts = local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com
+2020-09-13 05:39:44.623+0000 INFO  [o.n.k.i.DiagnosticsManager]: Network information:
+2020-09-13 05:39:44.634+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface utun1:
+2020-09-13 05:39:44.634+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: fe80:0:0:0:8b89:7992:ebad:8a35%utun1
+2020-09-13 05:39:44.634+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface utun0:
+2020-09-13 05:39:44.635+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: fe80:0:0:0:cf0c:916:83d4:79d8%utun0
+2020-09-13 05:39:44.635+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface llw0:
+2020-09-13 05:39:44.635+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: fe80:0:0:0:1cc7:f2ff:fe39:5f21%llw0
+2020-09-13 05:39:44.635+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface awdl0:
+2020-09-13 05:39:44.635+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: fe80:0:0:0:1cc7:f2ff:fe39:5f21%awdl0
+2020-09-13 05:39:44.635+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface en5:
+2020-09-13 05:39:44.635+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: fe80:0:0:0:aede:48ff:fe00:1122%en5
+2020-09-13 05:39:44.635+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface en0:
+2020-09-13 05:39:44.635+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: fe80:0:0:0:1422:ab6c:9717:bd0%en0
+2020-09-13 05:39:44.635+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: 172.30.1.14
+2020-09-13 05:39:44.635+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface lo0:
+2020-09-13 05:39:44.635+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: fe80:0:0:0:0:0:0:1%lo0
+2020-09-13 05:39:44.635+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: 0:0:0:0:0:0:0:1%lo0
+2020-09-13 05:39:44.635+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: 127.0.0.1
+2020-09-13 05:39:44.635+0000 INFO  [o.n.k.i.DiagnosticsManager]: --- INITIALIZED diagnostics END ---
+2020-09-13 05:39:44.638+0000 INFO  [o.n.k.i.DiagnosticsManager]: --- SHUTDOWN diagnostics START ---
+2020-09-13 05:39:44.639+0000 INFO  [o.n.k.i.DiagnosticsManager]: --- SHUTDOWN diagnostics END ---
+2020-09-13 05:41:16.806+0000 WARN  [o.n.k.EmbeddedGraphDatabase]: You are using an unsupported version of the Java runtime. Please use Oracle(R) Java(TM) Runtime Environment 7 or OpenJDK(TM) 7.
+2020-09-13 05:41:16.908+0000 INFO  [o.n.k.InternalAbstractGraphDatabase]: No locking implementation specified, defaulting to 'community'
+2020-09-13 05:41:16.993+0000 INFO  [o.n.k.i.DiagnosticsManager]: --- INITIALIZED diagnostics START ---
+2020-09-13 05:41:16.994+0000 INFO  [o.n.k.i.DiagnosticsManager]: Neo4j Kernel properties:
+2020-09-13 05:41:16.997+0000 INFO  [o.n.k.i.DiagnosticsManager]: graph.db=localhost:7687
+2020-09-13 05:41:16.998+0000 INFO  [o.n.k.i.DiagnosticsManager]: store_dir=data
+2020-09-13 05:41:16.998+0000 INFO  [o.n.k.i.DiagnosticsManager]: ephemeral=false
+2020-09-13 05:41:16.999+0000 INFO  [o.n.k.i.DiagnosticsManager]: Diagnostics providers:
+2020-09-13 05:41:16.999+0000 INFO  [o.n.k.i.DiagnosticsManager]: org.neo4j.kernel.configuration.Config
+2020-09-13 05:41:16.999+0000 INFO  [o.n.k.i.DiagnosticsManager]: org.neo4j.kernel.info.DiagnosticsManager
+2020-09-13 05:41:16.999+0000 INFO  [o.n.k.i.DiagnosticsManager]: SYSTEM_MEMORY
+2020-09-13 05:41:16.999+0000 INFO  [o.n.k.i.DiagnosticsManager]: JAVA_MEMORY
+2020-09-13 05:41:16.999+0000 INFO  [o.n.k.i.DiagnosticsManager]: OPERATING_SYSTEM
+2020-09-13 05:41:16.999+0000 INFO  [o.n.k.i.DiagnosticsManager]: JAVA_VIRTUAL_MACHINE
+2020-09-13 05:41:16.999+0000 INFO  [o.n.k.i.DiagnosticsManager]: CLASSPATH
+2020-09-13 05:41:16.999+0000 INFO  [o.n.k.i.DiagnosticsManager]: LIBRARY_PATH
+2020-09-13 05:41:16.999+0000 INFO  [o.n.k.i.DiagnosticsManager]: SYSTEM_PROPERTIES
+2020-09-13 05:41:16.999+0000 INFO  [o.n.k.i.DiagnosticsManager]: NETWORK
+2020-09-13 05:41:16.999+0000 INFO  [o.n.k.i.DiagnosticsManager]: System memory information:
+2020-09-13 05:41:17.002+0000 INFO  [o.n.k.i.DiagnosticsManager]: Total Physical memory: 8.00 GB
+2020-09-13 05:41:17.004+0000 INFO  [o.n.k.i.DiagnosticsManager]: Free Physical memory: 17.39 MB
+2020-09-13 05:41:17.006+0000 INFO  [o.n.k.i.DiagnosticsManager]: Committed virtual memory: 8.61 GB
+2020-09-13 05:41:17.008+0000 INFO  [o.n.k.i.DiagnosticsManager]: Total swap space: 3.00 GB
+2020-09-13 05:41:17.009+0000 INFO  [o.n.k.i.DiagnosticsManager]: Free swap space: 1.36 GB
+2020-09-13 05:41:17.010+0000 INFO  [o.n.k.i.DiagnosticsManager]: JVM memory information:
+2020-09-13 05:41:17.010+0000 INFO  [o.n.k.i.DiagnosticsManager]: Free  memory: 68.71 MB
+2020-09-13 05:41:17.010+0000 INFO  [o.n.k.i.DiagnosticsManager]: Total memory: 130.00 MB
+2020-09-13 05:41:17.010+0000 INFO  [o.n.k.i.DiagnosticsManager]: Max   memory: 2.00 GB
+2020-09-13 05:41:17.015+0000 INFO  [o.n.k.i.DiagnosticsManager]: Garbage Collector: G1 Young Generation: [G1 Eden Space, G1 Survivor Space, G1 Old Gen]
+2020-09-13 05:41:17.015+0000 INFO  [o.n.k.i.DiagnosticsManager]: Garbage Collector: G1 Old Generation: [G1 Eden Space, G1 Survivor Space, G1 Old Gen]
+2020-09-13 05:41:17.018+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: CodeHeap 'non-nmethods' (Non-heap memory): committed=2.44 MB, used=1.32 MB, max=5.57 MB, threshold=0.00 B
+2020-09-13 05:41:17.018+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: Metaspace (Non-heap memory): committed=17.13 MB, used=16.24 MB, max=-1.00 B, threshold=0.00 B
+2020-09-13 05:41:17.019+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: CodeHeap 'profiled nmethods' (Non-heap memory): committed=3.88 MB, used=3.87 MB, max=117.21 MB, threshold=0.00 B
+2020-09-13 05:41:17.019+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: Compressed Class Space (Non-heap memory): committed=2.38 MB, used=2.06 MB, max=1.00 GB, threshold=0.00 B
+2020-09-13 05:41:17.020+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: G1 Eden Space (Heap memory): committed=56.00 MB, used=33.00 MB, max=-1.00 B, threshold=?
+2020-09-13 05:41:17.020+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: G1 Old Gen (Heap memory): committed=70.00 MB, used=23.78 MB, max=2.00 GB, threshold=0.00 B
+2020-09-13 05:41:17.020+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: G1 Survivor Space (Heap memory): committed=4.00 MB, used=4.00 MB, max=-1.00 B, threshold=?
+2020-09-13 05:41:17.021+0000 INFO  [o.n.k.i.DiagnosticsManager]: Memory Pool: CodeHeap 'non-profiled nmethods' (Non-heap memory): committed=2.44 MB, used=649.50 kB, max=117.21 MB, threshold=0.00 B
+2020-09-13 05:41:17.021+0000 INFO  [o.n.k.i.DiagnosticsManager]: Operating system information:
+2020-09-13 05:41:17.023+0000 INFO  [o.n.k.i.DiagnosticsManager]: Operating System: Mac OS X; version: 10.15.6; arch: x86_64; cpus: 8
+2020-09-13 05:41:17.025+0000 INFO  [o.n.k.i.DiagnosticsManager]: Max number of file descriptors: 10240
+2020-09-13 05:41:17.026+0000 INFO  [o.n.k.i.DiagnosticsManager]: Number of open file descriptors: 125
+2020-09-13 05:41:17.035+0000 INFO  [o.n.k.i.DiagnosticsManager]: Process id: 21465@AmateurLife.local
+2020-09-13 05:41:17.035+0000 INFO  [o.n.k.i.DiagnosticsManager]: Byte order: LITTLE_ENDIAN
+2020-09-13 05:41:17.035+0000 INFO  [o.n.k.i.DiagnosticsManager]: Local timezone: Asia/Seoul
+2020-09-13 05:41:17.035+0000 INFO  [o.n.k.i.DiagnosticsManager]: JVM information:
+2020-09-13 05:41:17.035+0000 INFO  [o.n.k.i.DiagnosticsManager]: VM Name: Java HotSpot(TM) 64-Bit Server VM
+2020-09-13 05:41:17.035+0000 INFO  [o.n.k.i.DiagnosticsManager]: VM Vendor: Oracle Corporation
+2020-09-13 05:41:17.035+0000 INFO  [o.n.k.i.DiagnosticsManager]: VM Version: 14.0.1+7
+2020-09-13 05:41:17.036+0000 INFO  [o.n.k.i.DiagnosticsManager]: JIT compiler: HotSpot 64-Bit Tiered Compilers
+2020-09-13 05:41:17.037+0000 INFO  [o.n.k.i.DiagnosticsManager]: VM Arguments: [-javaagent:/Users/hannimpeha/Library/Application Support/JetBrains/Toolbox/apps/IDEA-U/ch-0/201.7223.91/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=52968:/Users/hannimpeha/Library/Application Support/JetBrains/Toolbox/apps/IDEA-U/ch-0/201.7223.91/IntelliJ IDEA.app/Contents/bin, -Dfile.encoding=UTF-8]
+2020-09-13 05:41:17.037+0000 INFO  [o.n.k.i.DiagnosticsManager]: Java classpath:
+2020-09-13 05:41:17.045+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-resource/3.0.1/neo4j-resource-3.0.1.jar
+2020-09-13 05:41:17.046+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/driver/neo4j-java-driver/4.0.1/neo4j-java-driver-4.0.1.jar
+2020-09-13 05:41:17.046+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/webjars/npm/viz.js-for-graphviz-java/2.1.3/viz.js-for-graphviz-java-2.1.3.jar
+2020-09-13 05:41:17.046+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.9.9/jackson-databind-2.9.9.jar
+2020-09-13 05:41:17.046+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.9.9/jackson-datatype-jsr310-2.9.9.jar
+2020-09-13 05:41:17.046+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/guru/nidi/graphviz-java/0.17.0/graphviz-java-0.17.0.jar
+2020-09-13 05:41:17.046+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/commons-io/commons-io/1.3.1/commons-io-1.3.1.jar
+2020-09-13 05:41:17.046+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-context-5.2.3.RELEASE.jar
+2020-09-13 05:41:17.046+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/codehaus/jackson/jackson-core-asl/1.9.13/jackson-core-asl-1.9.13.jar
+2020-09-13 05:41:17.046+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.9.9/jackson-core-2.9.9.jar
+2020-09-13 05:41:17.046+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/net/sf/jason/jason/1.4.2/jason-1.4.2.jar
+2020-09-13 05:41:17.046+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-anim/1.9/batik-anim-1.9.jar
+2020-09-13 05:41:17.046+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-dom/1.9/batik-dom-1.9.jar
+2020-09-13 05:41:17.046+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/bouncycastle/bcpkix-jdk15on/1.59/bcpkix-jdk15on-1.59.jar
+2020-09-13 05:41:17.046+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-unsafe/2.2.2/neo4j-unsafe-2.2.2.jar
+2020-09-13 05:41:17.046+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ogm-embedded-driver/3.2.1/neo4j-ogm-embedded-driver-3.2.1.jar
+2020-09-13 05:41:17.046+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar
+2020-09-13 05:41:17.046+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-constants/1.9/batik-constants-1.9.jar
+2020-09-13 05:41:17.046+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-css/1.9/batik-css-1.9.jar
+2020-09-13 05:41:17.046+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-bolt/3.4.0/neo4j-bolt-3.4.0.jar
+2020-09-13 05:41:17.046+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-configuration/4.1.1/neo4j-configuration-4.1.1.jar
+2020-09-13 05:41:17.046+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-logging/4.1.1/neo4j-logging-4.1.1.jar
+2020-09-13 05:41:17.046+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-kernel/2.2.2/neo4j-kernel-2.2.2.jar
+2020-09-13 05:41:17.046+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/commons-codec/commons-codec/1.9/commons-codec-1.9.jar
+2020-09-13 05:41:17.046+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/reactivestreams/reactive-streams/1.0.3/reactive-streams-1.0.3.jar
+2020-09-13 05:41:17.046+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/xml-apis/xml-apis/1.3.04/xml-apis-1.3.04.jar
+2020-09-13 05:41:17.046+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/google/errorprone/error_prone_annotations/2.3.2/error_prone_annotations-2.3.2.jar
+2020-09-13 05:41:17.046+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/commons-logging-1.2.jar
+2020-09-13 05:41:17.046+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/io/netty/netty-all/4.1.24.Final/netty-all-4.1.24.Final.jar
+2020-09-13 05:41:17.046+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.9.0/jackson-annotations-2.9.0.jar
+2020-09-13 05:41:17.046+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/xml-apis/xml-apis-ext/1.3.04/xml-apis-ext-1.3.04.jar
+2020-09-13 05:41:17.046+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-test-5.2.3.RELEASE.jar
+2020-09-13 05:41:17.046+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/xmlgraphics-commons/2.2/xmlgraphics-commons-2.2.jar
+2020-09-13 05:41:17.046+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-oxm-5.2.3.RELEASE.jar
+2020-09-13 05:41:17.047+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-transcoder/1.9/batik-transcoder-1.9.jar
+2020-09-13 05:41:17.047+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-context-support-5.2.3.RELEASE.jar
+2020-09-13 05:41:17.047+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/xalan/serializer/2.7.2/serializer-2.7.2.jar
+2020-09-13 05:41:17.047+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-aop-5.2.3.RELEASE.jar
+2020-09-13 05:41:17.047+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar
+2020-09-13 05:41:17.047+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/checkerframework/checker-qual/2.8.1/checker-qual-2.8.1.jar
+2020-09-13 05:41:17.047+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-xml/1.9/batik-xml-1.9.jar
+2020-09-13 05:41:17.047+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ssl/3.4.0/neo4j-ssl-3.4.0.jar
+2020-09-13 05:41:17.047+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/codehaus/jettison/jettison/1.4.1/jettison-1.4.1.jar
+2020-09-13 05:41:17.047+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/eclipse/collections/eclipse-collections-api/10.2.0/eclipse-collections-api-10.2.0.jar
+2020-09-13 05:41:17.047+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/io/github/classgraph/classgraph/4.8.86/classgraph-4.8.86.jar
+2020-09-13 05:41:17.047+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-jms-5.2.3.RELEASE.jar
+2020-09-13 05:41:17.047+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-orm-5.2.3.RELEASE.jar
+2020-09-13 05:41:17.047+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.9.9/jackson-datatype-jdk8-2.9.9.jar
+2020-09-13 05:41:17.047+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-io/2.2.0/neo4j-io-2.2.0-tests.jar
+2020-09-13 05:41:17.047+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ogm-api/3.2.15/neo4j-ogm-api-3.2.15.jar
+2020-09-13 05:41:17.047+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/eclipse/collections/eclipse-collections/10.2.0/eclipse-collections-10.2.0.jar
+2020-09-13 05:41:17.047+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar
+2020-09-13 05:41:17.047+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-web-5.2.3.RELEASE.jar
+2020-09-13 05:41:17.047+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-gvt/1.9/batik-gvt-1.9.jar
+2020-09-13 05:41:17.047+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-primitive-collections/2.2.2/neo4j-primitive-collections-2.2.2.jar
+2020-09-13 05:41:17.047+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-common/3.0.1/neo4j-common-3.0.1.jar
+2020-09-13 05:41:17.047+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar
+2020-09-13 05:41:17.047+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-ext/1.9/batik-ext-1.9.jar
+2020-09-13 05:41:17.047+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-instrument-5.2.3.RELEASE.jar
+2020-09-13 05:41:17.047+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/eclipsesource/j2v8/j2v8_macosx_x86_64/4.6.0/j2v8_macosx_x86_64-4.6.0.jar
+2020-09-13 05:41:17.047+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar
+2020-09-13 05:41:17.047+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-util/1.9/batik-util-1.9.jar
+2020-09-13 05:41:17.047+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/annotations/4.1.1/annotations-4.1.1.jar
+2020-09-13 05:41:17.047+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/target/classes
+2020-09-13 05:41:17.047+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/xalan/xalan/2.7.2/xalan-2.7.2.jar
+2020-09-13 05:41:17.047+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-collections/3.0.1/neo4j-collections-3.0.1.jar
+2020-09-13 05:41:17.047+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.jar
+2020-09-13 05:41:17.047+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/codehaus/jackson/jackson-mapper-asl/1.9.13/jackson-mapper-asl-1.9.13.jar
+2020-09-13 05:41:17.047+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-aspects-5.2.3.RELEASE.jar
+2020-09-13 05:41:17.047+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-codec/1.9/batik-codec-1.9.jar
+2020-09-13 05:41:17.047+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-bridge/1.9/batik-bridge-1.9.jar
+2020-09-13 05:41:17.047+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-script/1.9/batik-script-1.9.jar
+2020-09-13 05:41:17.047+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-beans-5.2.3.RELEASE.jar
+2020-09-13 05:41:17.047+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-io/2.2.2/neo4j-io-2.2.2.jar
+2020-09-13 05:41:17.047+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-parser/1.9/batik-parser-1.9.jar
+2020-09-13 05:41:17.047+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.30/jcl-over-slf4j-1.7.30.jar
+2020-09-13 05:41:17.048+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-values/3.4.0/neo4j-values-3.4.0.jar
+2020-09-13 05:41:17.048+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-awt-util/1.9/batik-awt-util-1.9.jar
+2020-09-13 05:41:17.048+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ogm-bolt-native-types/3.2.1/neo4j-ogm-bolt-native-types-3.2.1.jar
+2020-09-13 05:41:17.048+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/net/arnx/nashorn-promise/0.1.1/nashorn-promise-0.1.1.jar
+2020-09-13 05:41:17.048+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-tx-5.2.3.RELEASE.jar
+2020-09-13 05:41:17.048+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar
+2020-09-13 05:41:17.048+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-i18n/1.9/batik-i18n-1.9.jar
+2020-09-13 05:41:17.048+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-csv/2.2.2/neo4j-csv-2.2.2.jar
+2020-09-13 05:41:17.048+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/google/guava/guava/28.0-jre/guava-28.0-jre.jar
+2020-09-13 05:41:17.048+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.17/animal-sniffer-annotations-1.17.jar
+2020-09-13 05:41:17.048+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ogm-core/3.2.15/neo4j-ogm-core-3.2.15.jar
+2020-09-13 05:41:17.048+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/commons/commons-exec/1.3/commons-exec-1.3.jar
+2020-09-13 05:41:17.048+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-expression-5.2.3.RELEASE.jar
+2020-09-13 05:41:17.048+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.59/bcprov-jdk15on-1.59.jar
+2020-09-13 05:41:17.048+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/guru/nidi/com/kitfox/svgSalamander/1.1.3/svgSalamander-1.1.3.jar
+2020-09-13 05:41:17.048+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/httpcomponents/httpclient/4.5.2/httpclient-4.5.2.jar
+2020-09-13 05:41:17.048+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-webmvc-5.2.3.RELEASE.jar
+2020-09-13 05:41:17.048+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/1stleg/jnativehook/2.0.2/jnativehook-2.0.2.jar
+2020-09-13 05:41:17.048+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-svg-dom/1.9/batik-svg-dom-1.9.jar
+2020-09-13 05:41:17.048+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/aopalliance-1.0.jar
+2020-09-13 05:41:17.048+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ogm-http-driver/3.2.1/neo4j-ogm-http-driver-3.2.1.jar
+2020-09-13 05:41:17.048+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ogm-bolt-driver/3.2.15/neo4j-ogm-bolt-driver-3.2.15.jar
+2020-09-13 05:41:17.048+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/jline/jline/2.14.2/jline-2.14.2.jar
+2020-09-13 05:41:17.048+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/xmlgraphics/batik-svggen/1.9/batik-svggen-1.9.jar
+2020-09-13 05:41:17.048+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-core-5.2.3.RELEASE.jar
+2020-09-13 05:41:17.048+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar
+2020-09-13 05:41:17.048+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/slf4j/jul-to-slf4j/1.7.30/jul-to-slf4j-1.7.30.jar
+2020-09-13 05:41:17.048+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-graphdb-api/3.0.1/neo4j-graphdb-api-3.0.1.jar
+2020-09-13 05:41:17.048+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/neo4j/neo4j-ogm-embedded-native-types/3.2.1/neo4j-ogm-embedded-native-types-3.2.1.jar
+2020-09-13 05:41:17.048+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/org/apache/httpcomponents/httpcore/4.4.4/httpcore-4.4.4.jar
+2020-09-13 05:41:17.048+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-jdbc-5.2.3.RELEASE.jar
+2020-09-13 05:41:17.048+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar
+2020-09-13 05:41:17.048+0000 INFO  [o.n.k.i.DiagnosticsManager]:  [classpath] /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject/lib/spring-messaging-5.2.3.RELEASE.jar
+2020-09-13 05:41:17.048+0000 INFO  [o.n.k.i.DiagnosticsManager]: Library path:
+2020-09-13 05:41:17.048+0000 INFO  [o.n.k.i.DiagnosticsManager]: /Users/hannimpeha/Library/Java/Extensions
+2020-09-13 05:41:17.049+0000 INFO  [o.n.k.i.DiagnosticsManager]: /Library/Java/Extensions
+2020-09-13 05:41:17.049+0000 INFO  [o.n.k.i.DiagnosticsManager]: /Network/Library/Java/Extensions
+2020-09-13 05:41:17.049+0000 INFO  [o.n.k.i.DiagnosticsManager]: /System/Library/Java/Extensions
+2020-09-13 05:41:17.049+0000 INFO  [o.n.k.i.DiagnosticsManager]: /usr/lib/java
+2020-09-13 05:41:17.049+0000 INFO  [o.n.k.i.DiagnosticsManager]: /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject
+2020-09-13 05:41:17.049+0000 INFO  [o.n.k.i.DiagnosticsManager]: System.properties:
+2020-09-13 05:41:17.049+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.jnu.encoding = UTF-8
+2020-09-13 05:41:17.049+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.awt.enableExtraMouseButtons = true
+2020-09-13 05:41:17.049+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.arch.data.model = 64
+2020-09-13 05:41:17.049+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.font.fontmanager = sun.font.CFontManager
+2020-09-13 05:41:17.049+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.timezone = Asia/Seoul
+2020-09-13 05:41:17.049+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.java.launcher = SUN_STANDARD
+2020-09-13 05:41:17.049+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.country = US
+2020-09-13 05:41:17.049+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.boot.library.path = /Library/Java/JavaVirtualMachines/jdk-14.0.1.jdk/Contents/Home/lib
+2020-09-13 05:41:17.049+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.java.command = main
+2020-09-13 05:41:17.049+0000 INFO  [o.n.k.i.DiagnosticsManager]: http.nonProxyHosts = local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com
+2020-09-13 05:41:17.049+0000 INFO  [o.n.k.i.DiagnosticsManager]: jdk.debug = release
+2020-09-13 05:41:17.049+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.cpu.endian = little
+2020-09-13 05:41:17.049+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.home = /Users/hannimpeha
+2020-09-13 05:41:17.049+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.language = en
+2020-09-13 05:41:17.049+0000 INFO  [o.n.k.i.DiagnosticsManager]: file.separator = /
+2020-09-13 05:41:17.049+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+2020-09-13 05:41:17.049+0000 INFO  [o.n.k.i.DiagnosticsManager]: ftp.nonProxyHosts = local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com
+2020-09-13 05:41:17.049+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.name = hannimpeha
+2020-09-13 05:41:17.049+0000 INFO  [o.n.k.i.DiagnosticsManager]: path.separator = :
+2020-09-13 05:41:17.049+0000 INFO  [o.n.k.i.DiagnosticsManager]: file.encoding = UTF-8
+2020-09-13 05:41:17.049+0000 INFO  [o.n.k.i.DiagnosticsManager]: user.dir = /Users/hannimpeha/HANNIMPEHA/Thesis/FascinatingProject
+2020-09-13 05:41:17.049+0000 INFO  [o.n.k.i.DiagnosticsManager]: sun.io.unicode.encoding = UnicodeBig
+2020-09-13 05:41:17.049+0000 INFO  [o.n.k.i.DiagnosticsManager]: socksNonProxyHosts = local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com
+2020-09-13 05:41:17.049+0000 INFO  [o.n.k.i.DiagnosticsManager]: Network information:
+2020-09-13 05:41:17.061+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface utun1:
+2020-09-13 05:41:17.061+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: fe80:0:0:0:8b89:7992:ebad:8a35%utun1
+2020-09-13 05:41:17.062+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface utun0:
+2020-09-13 05:41:17.062+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: fe80:0:0:0:cf0c:916:83d4:79d8%utun0
+2020-09-13 05:41:17.062+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface llw0:
+2020-09-13 05:41:17.062+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: fe80:0:0:0:1cc7:f2ff:fe39:5f21%llw0
+2020-09-13 05:41:17.062+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface awdl0:
+2020-09-13 05:41:17.062+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: fe80:0:0:0:1cc7:f2ff:fe39:5f21%awdl0
+2020-09-13 05:41:17.062+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface en5:
+2020-09-13 05:41:17.062+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: fe80:0:0:0:aede:48ff:fe00:1122%en5
+2020-09-13 05:41:17.062+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface en0:
+2020-09-13 05:41:17.062+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: fe80:0:0:0:1422:ab6c:9717:bd0%en0
+2020-09-13 05:41:17.062+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: 172.30.1.14
+2020-09-13 05:41:17.062+0000 INFO  [o.n.k.i.DiagnosticsManager]: Interface lo0:
+2020-09-13 05:41:17.063+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: fe80:0:0:0:0:0:0:1%lo0
+2020-09-13 05:41:17.063+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: 0:0:0:0:0:0:0:1%lo0
+2020-09-13 05:41:17.063+0000 INFO  [o.n.k.i.DiagnosticsManager]:     address: 127.0.0.1
+2020-09-13 05:41:17.063+0000 INFO  [o.n.k.i.DiagnosticsManager]: --- INITIALIZED diagnostics END ---
+2020-09-13 05:41:17.066+0000 INFO  [o.n.k.i.DiagnosticsManager]: --- SHUTDOWN diagnostics START ---
+2020-09-13 05:41:17.066+0000 INFO  [o.n.k.i.DiagnosticsManager]: --- SHUTDOWN diagnostics END ---

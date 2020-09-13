@@ -1,5 +1,6 @@
 package panels;
 
+import jason.Agent;
 import org.neo4j.graphdb.Node;
 import playerInfo.Player;
 import util.CreatePlayerUtil;
@@ -17,6 +18,7 @@ public class PlayerRoles  {
     private List<String> playerRole;
     private List<Player> playerInfo = new ArrayList<>();
     private List<Node> playerNode = new ArrayList<>();
+    private List<Agent> playerAgent = new ArrayList<>();
     private static final String saveFile =
             "/Users/hannimpeha/HANNIMPEHA/" +
                     "Thesis/FascinatingProject" +
@@ -76,13 +78,21 @@ public class PlayerRoles  {
         return playerNode;
     }
 
+    public List<Agent> setAllAgents(){
+        for (int i = 0; i < playerName.size(); i++) {
+            playerAgent.add(new Agent(
+                    playerName.get(i), playerRole.get(i), i));
+        }
+        return playerAgent;
+    }
+
     public static void saveGame(List<Player> playerInfo) {
         try(PrintWriter pw = new PrintWriter(
                 new FileOutputStream(saveFile, false))) {
             for (Player p : playerInfo) {
-                pw.print(p.getStatus());
-                pw.print(p.getRole());
-                pw.print(p.getName());
+                pw.print(p.getStatus()+",");
+                pw.print(p.getRole()+",");
+                pw.print(p.getName()+",");
                 pw.println();
             }
         } catch (FileNotFoundException e) {

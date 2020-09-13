@@ -1,10 +1,10 @@
 package playerInfo;
 import org.neo4j.graphdb.*;
 import org.neo4j.graphdb.Relationship;
-import org.neo4j.ogm.annotation.*;
+import org.neo4j.ogm.annotation.NodeEntity;
+
 
 import java.util.Map;
-
 @NodeEntity(label="townie")
 public class Townie extends Player {
 
@@ -76,6 +76,16 @@ public class Townie extends Player {
     }
 
     @Override
+    public Iterable<Relationship> getRelationships(RelationshipType relationshipType, Direction direction) {
+        return null;
+    }
+
+    @Override
+    public boolean hasRelationship(RelationshipType relationshipType, Direction direction) {
+        return false;
+    }
+
+    @Override
     public Relationship getSingleRelationship(RelationshipType relationshipType, Direction direction) {
         return null;
     }
@@ -111,6 +121,21 @@ public class Townie extends Player {
     }
 
     @Override
+    public Traverser traverse(Traverser.Order order, StopEvaluator stopEvaluator, ReturnableEvaluator returnableEvaluator, RelationshipType relationshipType, Direction direction) {
+        return null;
+    }
+
+    @Override
+    public Traverser traverse(Traverser.Order order, StopEvaluator stopEvaluator, ReturnableEvaluator returnableEvaluator, RelationshipType relationshipType, Direction direction, RelationshipType relationshipType1, Direction direction1) {
+        return null;
+    }
+
+    @Override
+    public Traverser traverse(Traverser.Order order, StopEvaluator stopEvaluator, ReturnableEvaluator returnableEvaluator, Object... objects) {
+        return null;
+    }
+
+    @Override
     public void addLabel(Label label) {
 
     }
@@ -133,6 +158,11 @@ public class Townie extends Player {
     @Override
     public long getId() {
         return 0;
+    }
+
+    @Override
+    public GraphDatabaseService getGraphDatabase() {
+        return null;
     }
 
     @Override
@@ -165,13 +195,4 @@ public class Townie extends Player {
         return null;
     }
 
-    @Override
-    public Map<String, Object> getProperties(String... strings) {
-        return null;
-    }
-
-    @Override
-    public Map<String, Object> getAllProperties() {
-        return null;
-    }
 }
