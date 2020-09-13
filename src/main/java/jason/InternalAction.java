@@ -21,10 +21,13 @@ public class InternalAction extends DefaultInternalAction {
                     agents.get(i).getRole(),
                     agents.get(i).getStatus());
             agent.setBB(mct);
+            writeNetwork(agent);
         }
     }
 
-
+    public void writeNetwork(Agent agent) {
+        System.out.println(agent.getBB());
+    }
 
     @Override
     public Object execute(TransitionSystem ts,
