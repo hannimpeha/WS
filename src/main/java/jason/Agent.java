@@ -14,9 +14,6 @@ import java.util.Set;
 @NodeEntity
 public class Agent extends jason.asSemantics.Agent implements Node {
 
-    private Label mafia;
-    private Label townie;
-    private Label doctor;
     private final String name;
     private final String role;
     private final int status;
@@ -31,9 +28,6 @@ public class Agent extends jason.asSemantics.Agent implements Node {
             new TransitionSystem(this, null, null, new AgArch());
     private Unifier un = new Unifier();
     private Term[] args = new Term[]{};
-    private List<Node> playerNode;
-    private MCT mct;
-    private List<Agent> playerAgent;
 
     public Agent(String name, String role, int status){
         this.name = name;

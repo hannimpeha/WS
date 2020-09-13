@@ -1,8 +1,6 @@
 package controllers;
 
 import jason.Agent;
-import jason.InternalAction;
-import jason.MCT;
 import jason.NCT;
 import jason.infra.centralised.RunCentralisedMAS;
 import org.neo4j.graphdb.Node;
