@@ -7,7 +7,6 @@ import jason.asSyntax.Term;
 import org.neo4j.graphdb.*;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
-
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -36,17 +35,10 @@ public class Agent extends jason.asSemantics.Agent implements Node {
     private MCT mct;
     private List<Agent> playerAgent;
 
-
     public Agent(String name, String role, int status){
         this.name = name;
         this.role = role;
         this.status = status;
-    }
-
-    public void run() {
-        ia = new InternalAction(this);
-        ia.execute(ts, un, args);
-        System.out.println(this.getBB());
     }
 
     public String getName() {

@@ -19,13 +19,11 @@ public class MCT implements BeliefBase {
     private Random random = new Random();
     private List<RelationshipType> ordinary =
             Collections.unmodifiableList(Arrays.asList(SEND, RECEIVE));
-    private List<Node> foo;
-    private Agent agent;
+    private List<Agent> playerAgent;
 
     public MCT(List<Agent> agents) {
-        createEachNetwork(
                 createFriendships(
-                        makePairsFromList(agents)));
+                        makePairsFromList(agents));
     }
 
 

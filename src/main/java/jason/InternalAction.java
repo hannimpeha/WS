@@ -5,15 +5,26 @@ import jason.asSemantics.TransitionSystem;
 import jason.asSemantics.Unifier;
 import jason.asSyntax.Term;
 
+import java.util.List;
 
 
 public class InternalAction extends DefaultInternalAction {
 
+    private MCT mct;
+    private Agent agent;
+    private List<Agent> agentList;
 
-
-    public InternalAction(Agent agent) {
-
+    public InternalAction(List<Agent> agents) {
+        mct = new MCT(agents);
+        for(int i=0; i<agents.size(); i++) {
+            agent = new Agent(agents.get(i).getName(),
+                    agents.get(i).getRole(),
+                    agents.get(i).getStatus());
+            agent.setBB(mct);
+        }
     }
+
+
 
     @Override
     public Object execute(TransitionSystem ts,

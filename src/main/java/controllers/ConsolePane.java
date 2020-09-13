@@ -1,6 +1,7 @@
 package controllers;
 
 import jason.Agent;
+import jason.InternalAction;
 import jason.MCT;
 import jason.NCT;
 import jason.infra.centralised.RunCentralisedMAS;
@@ -91,7 +92,6 @@ public abstract class ConsolePane extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 new RunCentralisedMAS();
                 new NCT(playerInfo = setAllPlayers());
-                new MCT(playerAgent = setAllAgents());
                 saveGame();
             }
 
