@@ -4,7 +4,6 @@ import jason.asSemantics.Message;
 import org.neo4j.graphdb.RelationshipType;
 
 import java.util.List;
-import java.util.Set;
 
 public class MyMessage extends Message {
 
