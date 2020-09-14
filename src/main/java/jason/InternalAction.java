@@ -43,17 +43,18 @@ public class InternalAction extends DefaultInternalAction {
 //                    .forEach(a -> out.print(
 //                            printing(a.getValue())+"\n"));
             cj = new Conjectures(agents);
-            cj.makingDefault().entrySet()
-                    .forEach(a->out.print(printing(a.getValue())+"\n"));
+            cj.makingDefault()
+                    .entrySet()
+                    .forEach(a->printing(a.getValue()));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private String printing(Collection<Double> values) {
-        return values.stream()
-                .map(String::valueOf)
-                    .collect(Collectors.joining(","));
+    private void printing(Map<String[], Double[]> values) {
+        values.entrySet()
+                .stream()
+                .forEach(a->System.out.println(a.getKey()));
     }
 
     @Override
