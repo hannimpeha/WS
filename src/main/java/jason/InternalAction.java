@@ -8,7 +8,6 @@ import jason.asSyntax.Term;
 import java.io.*;
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class InternalAction extends DefaultInternalAction {
 
@@ -19,7 +18,7 @@ public class InternalAction extends DefaultInternalAction {
     private static Set<Iterator> superM = new HashSet<>();
     private String path = "/Users/hannimpeha/HANNIMPEHA/" +
                     "Thesis/FascinatingProject" +
-                    "/src/main/java/resource/ballot-pre.txt";
+                    "/src/main/java/resource/ballots.txt";
 
     public InternalAction(List<Agents> agents) {
         bb = new BaseBelief(agents);
@@ -38,10 +37,6 @@ public class InternalAction extends DefaultInternalAction {
     public void probabilityConjecture(List<Agents> agents) {
         try {
             PrintStream out = new PrintStream(path, "UTF-8");
-//            cj = new Conjectures(agents);
-//            cj.makingDefault().entrySet()
-//                    .forEach(a -> out.print(
-//                            printing(a.getValue())+"\n"));
             cj = new Conjectures(agents);
             cj.makingDefault()
                     .entrySet()
