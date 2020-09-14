@@ -24,8 +24,7 @@ public class Circumstances extends Circumstance implements GoalListener {
     }
 
     @Override
-    public void goalFailed(Trigger trigger) {
-    }
+    public void goalFailed(Trigger trigger) { }
 
     @Override
     public void goalSuspended(Trigger trigger, String s) {

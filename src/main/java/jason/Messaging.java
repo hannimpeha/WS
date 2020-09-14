@@ -1,5 +1,6 @@
 package jason;
 
+import jason.asSemantics.Agent;
 import jason.asSemantics.Message;
 import org.neo4j.graphdb.RelationshipType;
 
