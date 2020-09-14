@@ -40,6 +40,8 @@ public class InternalAction extends DefaultInternalAction {
         System.out.println(agent.getBB());
     }
 
+    public void gossiping(List<Agents> agents) { new Messaging(agents); }
+
     public void probabilityConjecture(List<Agents> agents) {
         cj = new Conjectures(agents);
         map = cj.makingDecision(cj.makingDefault(agents));
@@ -52,9 +54,6 @@ public class InternalAction extends DefaultInternalAction {
             }
         }
     }
-
-
-    public void gossiping(List<Agents> agents) { new Messaging(agents); }
 
     // updating belief, writing voter's choice
     
