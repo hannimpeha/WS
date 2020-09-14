@@ -1,15 +1,14 @@
 package jason;
 
-import jason.asSemantics.Agent;
 import jason.asSemantics.DefaultInternalAction;
 import jason.asSemantics.TransitionSystem;
 import jason.asSemantics.Unifier;
 import jason.asSyntax.Term;
 
 import java.io.*;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class InternalAction extends DefaultInternalAction {
 
@@ -17,7 +16,7 @@ public class InternalAction extends DefaultInternalAction {
     private Agents agent;
     private List<Agents> agentList;
     private Conjectures cj;
-    private Map<String, Double> map;
+    private static Set<Iterator> superM = new HashSet<>();
     private String path = "/Users/hannimpeha/HANNIMPEHA/" +
                     "Thesis/FascinatingProject" +
                     "/src/main/java/resource/ballot-pre.txt";
@@ -29,30 +28,28 @@ public class InternalAction extends DefaultInternalAction {
                     agents.get(i).getRole(),
                     agents.get(i).getStatus());
             agent.setBB(bb);
-            //writeNetwork(agent);
         }
         gossiping(agents);
         probabilityConjecture(agents);
     }
 
-    public void writeNetwork(Agent agent) {
-        System.out.println(agent.getBB());
-    }
-
     public void gossiping(List<Agents> agents) { new Messaging(agents); }
 
     public void probabilityConjecture(List<Agents> agents) {
-        cj = new Conjectures(agents);
-        map = cj.makingDecision(cj.makingDefault(agents));
         try {
             PrintStream out = new PrintStream(path, "UTF-8");
-            map.keySet().stream()
-                    .map(a-> a + ",")
-                    .forEach(out::print);
-
+            cj = new Conjectures(agents);
+            cj.makingDefault().entrySet()
+                    .forEach(a -> out.print(print(a.getValue())+"\n"));
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private String print(Collection<Double> values) {
+        return values.stream()
+                .map(String::valueOf)
+                    .collect(Collectors.joining(","));
     }
 
     @Override
