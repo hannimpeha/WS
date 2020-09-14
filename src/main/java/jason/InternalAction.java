@@ -38,15 +38,19 @@ public class InternalAction extends DefaultInternalAction {
     public void probabilityConjecture(List<Agents> agents) {
         try {
             PrintStream out = new PrintStream(path, "UTF-8");
+//            cj = new Conjectures(agents);
+//            cj.makingDefault().entrySet()
+//                    .forEach(a -> out.print(
+//                            printing(a.getValue())+"\n"));
             cj = new Conjectures(agents);
             cj.makingDefault().entrySet()
-                    .forEach(a -> out.print(print(a.getValue())+"\n"));
+                    .forEach(a->out.print(printing(a.getValue())+"\n"));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private String print(Collection<Double> values) {
+    private String printing(Collection<Double> values) {
         return values.stream()
                 .map(String::valueOf)
                     .collect(Collectors.joining(","));
