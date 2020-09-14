@@ -54,7 +54,7 @@ public class InternalAction extends DefaultInternalAction {
     private void printing(Map<String[], Double[]> values) {
         values.entrySet()
                 .stream()
-                .forEach(a->System.out.println(a.getKey()));
+                .forEach(a->System.out.println(Arrays.asList(a.getKey()))s);
     }
 
     @Override
