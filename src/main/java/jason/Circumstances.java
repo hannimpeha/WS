@@ -6,11 +6,11 @@ import jason.asSemantics.GoalListener;
 import jason.asSemantics.Intention;
 import jason.asSyntax.Trigger;
 
-public class GameCir extends Circumstance implements GoalListener {
+public class Circumstances extends Circumstance implements GoalListener {
 
     private Intention in;
 
-    public GameCir(){
+    public Circumstances(){
 
     }
 

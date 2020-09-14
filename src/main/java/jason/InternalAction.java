@@ -10,17 +10,17 @@ import java.util.List;
 
 public class InternalAction extends DefaultInternalAction {
 
-    private MCT mct;
+    private BaseBelief bb;
     private Agent agent;
     private List<Agent> agentList;
 
     public InternalAction(List<Agent> agents) {
-        mct = new MCT(agents);
+        bb = new BaseBelief(agents);
         for(int i=0; i<agents.size(); i++) {
             agent = new Agent(agents.get(i).getName(),
                     agents.get(i).getRole(),
                     agents.get(i).getStatus());
-            agent.setBB(mct);
+            agent.setBB(bb);
             writeNetwork(agent);
         }
         gossiping(agents);
@@ -31,9 +31,11 @@ public class InternalAction extends DefaultInternalAction {
     }
 
     public void gossiping(List<Agent> agents) {
-        new MyMessage(agents);
+        new Messaging(agents);
     }
 
+    // updating belief, writing voter's choice
+    
     @Override
     public Object execute(TransitionSystem ts,
                           Unifier un, Term[] args) {

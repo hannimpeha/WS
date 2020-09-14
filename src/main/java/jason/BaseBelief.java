@@ -10,7 +10,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import java.util.*;
 
-public class MCT implements BeliefBase {
+public class BaseBelief implements BeliefBase {
 
     private RelationshipType SEND;
     private RelationshipType RECEIVE;
@@ -21,7 +21,7 @@ public class MCT implements BeliefBase {
             Collections.unmodifiableList(Arrays.asList(SEND, RECEIVE));
     private List<Agent> playerAgent;
 
-    public MCT(List<Agent> agents) {
+    public BaseBelief(List<Agent> agents) {
                 createFriendships(
                         makePairsFromList(agents));
     }

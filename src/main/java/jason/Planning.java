@@ -2,14 +2,14 @@ package jason;
 
 import jason.asSyntax.*;
 
-public class MyPlan extends Plan {
+public class Planning extends Plan {
 
     protected Trigger.TEOperator op;
     protected Trigger.TEType ty;
     private Trigger trigger = new Trigger(
             op.goalState, ty.achieve, Literal.parseLiteral("Hyo is Mafia"));
 
-    public MyPlan(){
+    public Planning(){
         reputationGood();
         reputationBad();
     }

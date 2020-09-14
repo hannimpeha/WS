@@ -47,6 +47,7 @@ public class Agent extends jason.asSemantics.Agent implements Node {
     public Set<Agent> getiAmReceiving() { return iAmReceiving; }
 
     public Set<Agent> getiAmSending() { return iAmSending; }
+
     @Override
     public long getId() {
         return 0;

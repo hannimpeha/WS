@@ -5,11 +5,11 @@ import org.neo4j.graphdb.RelationshipType;
 
 import java.util.List;
 
-public class MyMessage extends Message {
+public class Messaging extends Message {
 
     private RelationshipType KNOWS;
 
-    public MyMessage(List<Agent> agents){
+    public Messaging(List<Agent> agents){
         for(Agent agent: agents) {
             if(agent.hasRelationship(KNOWS)){
                 misinformation(agent);
