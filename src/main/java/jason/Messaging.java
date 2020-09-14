@@ -9,8 +9,8 @@ public class Messaging extends Message {
 
     private RelationshipType KNOWS;
 
-    public Messaging(List<Agent> agents){
-        for(Agent agent: agents) {
+    public Messaging(List<Agents> agents){
+        for(Agents agent: agents) {
             if(agent.hasRelationship(KNOWS)){
                 misinformation(agent);
             } else {
@@ -19,17 +19,17 @@ public class Messaging extends Message {
         }
     }
 
-    void information(Agent agent){
+    void information(Agents agent){
         setSender(agent.getName());
-        for(Agent ag: agent.getiAmSending()) {
+        for(Agents ag: agent.getiAmSending()) {
             setReceiver(ag.getName());
         }
         setMsgId("Mafia is "+ agent.getBB());
     }
 
-    void misinformation(Agent agent){
+    void misinformation(Agents agent){
         setSender(agent.getName());
-        for(Agent ag: agent.getiAmSending()) {
+        for(Agents ag: agent.getiAmSending()) {
             setReceiver(ag.getName());
         }
         setMsgId("Mafia is "+ agent.getBB());

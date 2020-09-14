@@ -19,11 +19,12 @@ public class BaseBelief implements BeliefBase {
     private Random random = new Random();
     private List<RelationshipType> ordinary =
             Collections.unmodifiableList(Arrays.asList(SEND, RECEIVE));
-    private List<Agent> playerAgent;
+    private List<Agents> playerAgent;
 
-    public BaseBelief(List<Agent> agents) {
-                createFriendships(
-                        makePairsFromList(agents));
+    public BaseBelief(List<Agents> agents) {
+                createEachNetwork(
+                        createFriendships(
+                                makePairsFromList(agents)));
     }
 
 
@@ -84,7 +85,7 @@ public class BaseBelief implements BeliefBase {
     }
 
 
-    public static List<Node[]> makePairsFromList(List<Agent> arr) {
+    public static List<Node[]> makePairsFromList(List<Agents> arr) {
         List<Node[]> list = new ArrayList<>();
 
         for(int i = 0; i < arr.size() - 1; i++) {

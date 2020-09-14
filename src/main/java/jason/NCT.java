@@ -20,9 +20,9 @@ public class NCT {
         ia.execute(ts, un, args);
     }
 
-    private List<Agent> createAgent(List<Player> playerInfo){
+    private List<Agents> createAgent(List<Player> playerInfo){
         return playerInfo.stream()
-                .map(a->new Agent(a.getName(), a.getRole(), a.getStatus()))
+                .map(a->new Agents(a.getName(), a.getRole(), a.getStatus()))
                 .collect(Collectors.toList());
     }
 

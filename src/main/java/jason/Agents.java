@@ -1,6 +1,7 @@
 package jason;
 
 import jason.architecture.AgArch;
+import jason.asSemantics.Agent;
 import jason.asSemantics.TransitionSystem;
 import jason.asSemantics.Unifier;
 import jason.asSyntax.Term;
@@ -11,24 +12,24 @@ import java.util.HashSet;
 import java.util.Set;
 
 @NodeEntity
-public class Agent extends jason.asSemantics.Agent implements Node {
+public class Agents extends Agent implements Node {
 
     private final String name;
     private final String role;
     private final int status;
     @Relationship(type="RECEIVE", direction = "INCOMING")
-    private Set<Agent> iAmReceiving = new HashSet<>();
+    private Set<Agents> iAmReceiving = new HashSet<>();
     @Relationship(type="SEND", direction = "OUTGOING")
-    private Set<Agent> iAmSending = new HashSet<>();
+    private Set<Agents> iAmSending = new HashSet<>();
     @Relationship(type="KNOWS")
-    private Set<Agent> weAreMafia = new HashSet<>();
+    private Set<Agents> weAreMafia = new HashSet<>();
     private InternalAction ia;
     private  TransitionSystem ts =
             new TransitionSystem(this, null, null, new AgArch());
     private Unifier un = new Unifier();
     private Term[] args = new Term[]{};
 
-    public Agent(String name, String role, int status){
+    public Agents(String name, String role, int status){
         this.name = name;
         this.role = role;
         this.status = status;
@@ -42,11 +43,11 @@ public class Agent extends jason.asSemantics.Agent implements Node {
 
     public int getStatus(){ return status; }
 
-    public Set<Agent> getWeAreMafia() { return weAreMafia; }
+    public Set<Agents> getWeAreMafia() { return weAreMafia; }
 
-    public Set<Agent> getiAmReceiving() { return iAmReceiving; }
+    public Set<Agents> getiAmReceiving() { return iAmReceiving; }
 
-    public Set<Agent> getiAmSending() { return iAmSending; }
+    public Set<Agents> getiAmSending() { return iAmSending; }
 
     @Override
     public long getId() {

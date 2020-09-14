@@ -1,6 +1,6 @@
 package panels;
 
-import jason.Agent;
+import jason.Agents;
 import org.neo4j.graphdb.Node;
 import playerInfo.Player;
 import util.CreatePlayerUtil;
@@ -18,7 +18,7 @@ public class PlayerRoles  {
     private List<String> playerRole;
     private List<Player> playerInfo = new ArrayList<>();
     private List<Node> playerNode = new ArrayList<>();
-    private List<Agent> playerAgent = new ArrayList<>();
+    private List<Agents> playerAgent = new ArrayList<>();
     private static final String saveFile =
             "/Users/hannimpeha/HANNIMPEHA/" +
                     "Thesis/FascinatingProject" +
@@ -78,9 +78,9 @@ public class PlayerRoles  {
         return playerNode;
     }
 
-    public List<Agent> setAllAgents(){
+    public List<Agents> setAllAgents(){
         for (int i = 0; i < playerName.size(); i++) {
-            playerAgent.add(new Agent(
+            playerAgent.add(new Agents(
                     playerName.get(i), playerRole.get(i), i));
         }
         return playerAgent;

@@ -1,6 +1,6 @@
 package controllers;
 
-import jason.Agent;
+import jason.Agents;
 import jason.NCT;
 import jason.infra.centralised.RunCentralisedMAS;
 import org.neo4j.graphdb.Node;
@@ -23,7 +23,7 @@ public abstract class ConsolePane extends JPanel {
 
     public List<Player> playerInfo;
     public List<Node> playerNode;
-    public List<Agent> playerAgent;
+    public List<Agents> playerAgent;
     public PlayerNames pnp = new PlayerNames();
     public PlayerRoles prp = new PlayerRoles();
     public DayPanel dp = new DayPanel();
@@ -102,7 +102,7 @@ public abstract class ConsolePane extends JPanel {
             public List<Node> setAllNodes() { return prp.setAllNodes(); }
 
             @Override
-            public List<Agent> setAllAgents() { return prp.setAllAgents(); }
+            public List<Agents> setAllAgents() { return prp.setAllAgents(); }
 
             @Override
             public void saveGame() {

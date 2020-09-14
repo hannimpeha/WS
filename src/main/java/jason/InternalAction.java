@@ -11,13 +11,13 @@ import java.util.List;
 public class InternalAction extends DefaultInternalAction {
 
     private BaseBelief bb;
-    private Agent agent;
-    private List<Agent> agentList;
+    private Agents agent;
+    private List<Agents> agentList;
 
-    public InternalAction(List<Agent> agents) {
+    public InternalAction(List<Agents> agents) {
         bb = new BaseBelief(agents);
         for(int i=0; i<agents.size(); i++) {
-            agent = new Agent(agents.get(i).getName(),
+            agent = new Agents(agents.get(i).getName(),
                     agents.get(i).getRole(),
                     agents.get(i).getStatus());
             agent.setBB(bb);
@@ -26,11 +26,11 @@ public class InternalAction extends DefaultInternalAction {
         gossiping(agents);
     }
 
-    public void writeNetwork(Agent agent) {
+    public void writeNetwork(Agents agent) {
         System.out.println(agent.getBB());
     }
 
-    public void gossiping(List<Agent> agents) {
+    public void gossiping(List<Agents> agents) {
         new Messaging(agents);
     }
 
