@@ -9,7 +9,7 @@ import jason.asSyntax.Term;
 import java.io.*;
 import java.util.List;
 import java.util.Map;
-
+import java.util.stream.Collectors;
 
 public class InternalAction extends DefaultInternalAction {
 
@@ -33,7 +33,6 @@ public class InternalAction extends DefaultInternalAction {
         }
         gossiping(agents);
         probabilityConjecture(agents);
-
     }
 
     public void writeNetwork(Agent agent) {
@@ -45,18 +44,17 @@ public class InternalAction extends DefaultInternalAction {
     public void probabilityConjecture(List<Agents> agents) {
         cj = new Conjectures(agents);
         map = cj.makingDecision(cj.makingDefault(agents));
-        for(Map.Entry<String, Double> pair: map.entrySet()){
-            try {
-                PrintStream out = new PrintStream(path, "UTF-8");
-                out.print(pair.getKey()+",");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        try {
+            PrintStream out = new PrintStream(path, "UTF-8");
+            map.keySet().stream()
+                    .map(a-> a + ",")
+                    .forEach(out::print);
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
-    // updating belief, writing voter's choice
-    
     @Override
     public Object execute(TransitionSystem ts,
                           Unifier un, Term[] args) {
