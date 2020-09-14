@@ -45,16 +45,21 @@ public class InternalAction extends DefaultInternalAction {
             cj = new Conjectures(agents);
             cj.makingDefault()
                     .entrySet()
-                    .forEach(a->printing(a.getValue()));
+                    .forEach(a->out.print(
+                            printing(a.getValue())
+                                    .toString()
+                                    .replaceAll("(^\\[|\\]$)", "")+"\n"));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private void printing(Map<String[], Double[]> values) {
-        values.entrySet()
+    private List<String> printing(Map<String[], Double[]> values) {
+        return values.entrySet()
                 .stream()
-                .forEach(a->System.out.println(Arrays.asList(a.getKey()))s);
+                .map(a->Arrays.asList(a.getKey()))
+                .map(a->a.toString().replaceAll("(^\\[|\\]$)", ""))
+                .collect(Collectors.toList());
     }
 
     @Override
