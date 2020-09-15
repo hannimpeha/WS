@@ -14,6 +14,7 @@ public class NightAction {
             Arrays.asList("ji", "yoo", "mi", "vi", "se", "ari");
     private LoadFileUtil fu = new LoadFileUtil(playerName);
     private List<Player> playerInfo = fu.setAllPlayers();
+
     public NightAction(){
     }
 

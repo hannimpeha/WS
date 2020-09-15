@@ -18,9 +18,7 @@ public class NightPanel {
             Arrays.asList("ji", "yoo", "mi", "vi", "se", "ari");
     private LoadFileUtil fu;
     private NightAction na;
-    private List<Player> playerInfo;
     private Victory victory;
-
 
     public NightPanel() {
     }
