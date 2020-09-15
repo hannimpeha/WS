@@ -14,7 +14,6 @@ public class Conjectures {
         this.agents = agents;
     }
 
-
     public Map<String, Map> makingDefault() {
         for(Agents agent: agents) {
             double rand = Math.random();
