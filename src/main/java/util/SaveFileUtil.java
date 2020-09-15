@@ -11,8 +11,8 @@ public class SaveFileUtil {
 
     private static final String saveFile =
             "/Users/hannimpeha/HANNIMPEHA/" +
-            "Thesis/FascinatingProject" +
-            "/src/main/java/resource/saveGame.txt";;
+                    "Thesis/FascinatingProject" +
+                    "/src/main/java/resource/saveGame.txt";;
 
     public static void saveGame(List<Player> playerInfo) {
         try (PrintWriter pw = new PrintWriter(

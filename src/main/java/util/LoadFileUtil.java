@@ -30,10 +30,6 @@ public class LoadFileUtil {
         playerNode = setAllNodes();
         playerAgent = setAllAgents();
     }
-    public void newFile(List<Player> playerInfo, String lynched) {
-        deletePlayers(playerInfo, lynched);
-        saveGame(playerInfo);
-    }
 
     public List<String> createRoles(List<String> playerName) {
         int num = playerName.size();

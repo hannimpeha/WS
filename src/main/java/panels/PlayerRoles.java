@@ -1,29 +1,32 @@
 package panels;
 
+import jason.Agents;
 import jason.NCT;
 import jason.infra.centralised.RunCentralisedMAS;
+import org.neo4j.graphdb.Node;
+import playerInfo.Player;
 import util.LoadFileUtil;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.*;
 import java.util.List;
 
 public class PlayerRoles  {
 
-    private LoadFileUtil fu;
-    private List<String> playerName;
+    private List<String> playerName =
+            Arrays.asList("hyo", "ji", "yoo", "mi", "vi", "se", "ari");
+    private LoadFileUtil fu = new LoadFileUtil(playerName);
     private List<String> playerRole;
 
 
-    public PlayerRoles(LoadFileUtil fu) {
-        this.fu = fu;
+    public PlayerRoles() {
     }
 
     public JTextArea createPanel() {
         final JTextArea textAreaOrder =
                 new JTextArea(20, 30);
-        playerName = fu.loadFile();
         playerRole = fu.createRoles(playerName);
         textAreaOrder.setText("Assigned Roles are as follows\n");
         for(int i=0; i<playerName.size(); i++) {
@@ -44,6 +47,7 @@ public class PlayerRoles  {
             public void actionPerformed(ActionEvent e) {
                 new RunCentralisedMAS();
                 new NCT(fu.setAllPlayers());
+                fu.saveGame(fu.setAllPlayers());
             }
 
         });

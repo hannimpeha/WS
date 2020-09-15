@@ -7,16 +7,18 @@ import util.LoadFileUtil;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
 import java.util.List;
 
 public class DayPanel {
 
+    private List<String> playerName =
+            Arrays.asList("hyo", "ji", "yoo", "mi", "vi", "se", "ari");
+    private LoadFileUtil fu = new LoadFileUtil(playerName);;
     private Voting vote = new Voting();
-    private LoadFileUtil fu;
     private List<Player> playerInfo;
 
-    public DayPanel(LoadFileUtil fu) {
-        this.fu = fu;
+    public DayPanel() {
     }
 
     public JTextArea createPanel() {
@@ -37,7 +39,8 @@ public class DayPanel {
         continueButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                fu.newFile(playerInfo, vote.run());
+                fu.deletePlayers(playerInfo, vote.run());
+                fu.saveGame(playerInfo);
             }
         });
         box.add(continueButton);
