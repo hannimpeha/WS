@@ -1,10 +1,7 @@
 package panels;
 
-import jason.Agents;
 import jason.NCT;
 import jason.infra.centralised.RunCentralisedMAS;
-import org.neo4j.graphdb.Node;
-import playerInfo.Player;
 import util.LoadFileUtil;
 
 import javax.swing.*;
@@ -47,7 +44,6 @@ public class PlayerRoles  {
             public void actionPerformed(ActionEvent e) {
                 new RunCentralisedMAS();
                 new NCT(fu.setAllPlayers());
-                fu.saveGame(fu.setAllPlayers());
             }
 
         });

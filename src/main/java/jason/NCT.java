@@ -4,12 +4,14 @@ import jason.asSemantics.TransitionSystem;
 import jason.asSemantics.Unifier;
 import jason.asSyntax.Term;
 import playerInfo.Player;
+import util.LoadFileUtil;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class NCT {
 
+    private LoadFileUtil fu;
     private InternalAction ia;
     private TransitionSystem ts;
     private Unifier un;
@@ -18,6 +20,7 @@ public class NCT {
     public NCT(List<Player> playerInfo) {
         ia = new InternalAction(createAgent(playerInfo));
         ia.execute(ts, un, args);
+        fu.saveGame(playerInfo);
     }
 
     private List<Agents> createAgent(List<Player> playerInfo){

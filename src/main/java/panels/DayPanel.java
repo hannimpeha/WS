@@ -40,8 +40,7 @@ public class DayPanel {
         continueButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                fu.deletePlayers(playerInfo, vote.run());
-                fu.saveGame(playerInfo);
+                fu.newFile(playerInfo, vote.run());
             }
         });
         box.add(continueButton);
