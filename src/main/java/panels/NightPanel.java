@@ -3,7 +3,6 @@ package panels;
 import logic.Game;
 import logic.NightAction;
 import logic.Victory;
-import playerInfo.Player;
 import util.LoadFileUtil;
 
 import javax.swing.*;
