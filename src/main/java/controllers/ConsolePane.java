@@ -83,6 +83,7 @@ public abstract class ConsolePane extends JPanel {
         south.add(box);
         south.add(prp.createButton());
         south.add(dp.createButton());
+        south.add(np.createButton());
         contentPane.add(south);
     }
 
