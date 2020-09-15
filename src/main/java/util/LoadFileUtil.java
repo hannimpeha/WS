@@ -26,6 +26,7 @@ public class LoadFileUtil {
 
     public LoadFileUtil(List<String> playerName) {
         this.playerName = playerName;
+        playerRole = createRoles(playerName);
     }
 
     public List<String> createRoles(List<String> playerName) {
@@ -75,10 +76,6 @@ public class LoadFileUtil {
         su.saveGame(playerInfo);
     }
 
-    public void deleteGame(List<Player> playerInfo, String lynched) {
-        su.deleteGame(playerInfo, lynched);
-    }
-
     public List<String> loadFile() {
         try {
             BufferedReader br = new BufferedReader(
@@ -99,8 +96,6 @@ public class LoadFileUtil {
     }
 
     public List<Player> getPlayerInfo() {
-        ArrayList<Player> clone = new ArrayList<>(playerInfo);
-        playerInfo = new ArrayList<>();
-        return clone;
+        return playerInfo;
     }
 }

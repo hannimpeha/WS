@@ -38,7 +38,7 @@ public class DayPanel {
         continueButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new Game(fu.getPlayerInfo(), vote.run());
+                new Game(fu.setAllPlayers(), vote.run());
             }
         });
         box.add(continueButton);

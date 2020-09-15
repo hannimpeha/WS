@@ -6,7 +6,6 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class SaveFileUtil {
 
@@ -29,15 +28,4 @@ public class SaveFileUtil {
         }
     }
 
-    public static void deleteGame(List<Player> playerInfo, String lynched) {
-        try (PrintWriter pw = new PrintWriter(
-                new FileOutputStream(saveFile, false))) {
-                playerInfo.stream()
-                        .filter(i->i.getName()!=lynched)
-                        .forEach(pw::print);
-
-        }catch(FileNotFoundException e){
-            e.printStackTrace();
-        }
-    }
 }
