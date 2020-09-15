@@ -1,10 +1,7 @@
 package panels;
 
-import jason.Agents;
 import jason.NCT;
 import jason.infra.centralised.RunCentralisedMAS;
-import org.neo4j.graphdb.Node;
-import playerInfo.Player;
 import util.LoadFileUtil;
 
 import javax.swing.*;
@@ -15,10 +12,10 @@ import java.util.List;
 
 public class PlayerRoles  {
 
-    private static List<String> playerName =
+    private List<String> playerName =
             Arrays.asList("hyo", "ji", "yoo", "mi", "vi", "se", "ari");
     private LoadFileUtil fu = new LoadFileUtil(playerName);
-    private static List<String> playerRole;
+    private List<String> playerRole;
 
 
     public PlayerRoles() {
@@ -47,7 +44,6 @@ public class PlayerRoles  {
             public void actionPerformed(ActionEvent e) {
                 new RunCentralisedMAS();
                 new NCT(fu.setAllPlayers());
-                fu.saveGame(fu.setAllPlayers());
             }
 
         });

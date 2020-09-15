@@ -1,6 +1,7 @@
 package panels;
 
 import ballot.Voting;
+import logic.Game;
 import playerInfo.Player;
 import util.LoadFileUtil;
 
@@ -14,9 +15,8 @@ public class DayPanel {
 
     private List<String> playerName =
             Arrays.asList("hyo", "ji", "yoo", "mi", "vi", "se", "ari");
-    private LoadFileUtil fu = new LoadFileUtil(playerName);;
+    private LoadFileUtil fu = new LoadFileUtil(playerName);
     private Voting vote = new Voting();
-    private List<Player> playerInfo;
 
     public DayPanel() {
     }
@@ -24,7 +24,6 @@ public class DayPanel {
     public JTextArea createPanel() {
         final JTextArea textAreaOrder =
                 new JTextArea(20, 30);
-        Voting vote = new Voting();
         textAreaOrder.setText("Player "+vote.run()+" has been lynched");
         textAreaOrder.setEditable(false);
         return textAreaOrder;
@@ -39,8 +38,7 @@ public class DayPanel {
         continueButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                fu.deletePlayers(playerInfo, vote.run());
-                fu.saveGame(playerInfo);
+                new Game(fu.getPlayerInfo(), vote.run());
             }
         });
         box.add(continueButton);

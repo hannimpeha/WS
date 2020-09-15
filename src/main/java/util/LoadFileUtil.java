@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class LoadFileUtil {
 
@@ -69,16 +70,13 @@ public class LoadFileUtil {
         return playerAgent;
     }
 
-    public static void saveGame(List<Player> playerInfo) {
+
+    public void saveGame(List<Player> playerInfo) {
         su.saveGame(playerInfo);
     }
 
-    public void deletePlayers(List<Player> playerInfo, String lynched) {
-        for(Player p:playerInfo) {
-            if(p.getName()==lynched) {
-                p.setStatus(0);
-            }
-        }
+    public void deleteGame(List<Player> playerInfo, String lynched) {
+        su.deleteGame(playerInfo, lynched);
     }
 
     public List<String> loadFile() {
@@ -100,7 +98,7 @@ public class LoadFileUtil {
         return playerName;
     }
 
-    public ArrayList<Player> getPlayerInfo() {
+    public List<Player> getPlayerInfo() {
         ArrayList<Player> clone = new ArrayList<>(playerInfo);
         playerInfo = new ArrayList<>();
         return clone;

@@ -29,7 +29,7 @@ public abstract class ConsolePane extends JPanel {
     private static JPanel north = new JPanel();
     private static JPanel south = new JPanel();
     private List<String> playerName;
-    private static  String path = "/Users/hannimpeha/HANNIMPEHA/" +
+    private static String path = "/Users/hannimpeha/HANNIMPEHA/" +
             "Thesis/FascinatingProject" +
             "/src/main/java/resource/players.txt";
 
@@ -82,7 +82,7 @@ public abstract class ConsolePane extends JPanel {
         box.add(button);
         south.add(box);
         south.add(prp.createButton());
-        //south.add(dp.createButton());
+        south.add(dp.createButton());
         contentPane.add(south);
     }
 
