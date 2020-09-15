@@ -7,23 +7,23 @@ import util.LoadFileUtil;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.*;
 import java.util.List;
 
 public class PlayerRoles  {
 
-    private List<String> playerName =
-            Arrays.asList("hyo", "ji", "yoo", "mi", "vi", "se", "ari");
-    private LoadFileUtil fu = new LoadFileUtil(playerName);
+    private LoadFileUtil fu;
+    private List<String> playerName;
     private List<String> playerRole;
 
 
-    public PlayerRoles() {
+    public PlayerRoles(LoadFileUtil fu) {
+        this.fu = fu;
     }
 
     public JTextArea createPanel() {
         final JTextArea textAreaOrder =
                 new JTextArea(20, 30);
+        playerName = fu.loadFile();
         playerRole = fu.createRoles(playerName);
         textAreaOrder.setText("Assigned Roles are as follows\n");
         for(int i=0; i<playerName.size(); i++) {

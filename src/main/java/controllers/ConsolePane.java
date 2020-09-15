@@ -4,6 +4,7 @@ import jason.Agents;
 import org.neo4j.graphdb.Node;
 import panels.*;
 import playerInfo.Player;
+import util.LoadFileUtil;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,6 +13,7 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -20,15 +22,17 @@ public abstract class ConsolePane extends JPanel {
     public List<Player> playerInfo;
     public List<Node> playerNode;
     public List<Agents> playerAgent;
+    private List<String> playerName = new ArrayList<>();
+    private LoadFileUtil fu = new LoadFileUtil(playerName);;
+
     public PlayerNames pnp = new PlayerNames();
-    public PlayerRoles prp = new PlayerRoles();
-    public DayPanel dp = new DayPanel();
+    public PlayerRoles prp = new PlayerRoles(fu);
+    public DayPanel dp = new DayPanel(fu);
     public NightPanel np = new NightPanel();
 
     private static JPanel contentPane = new JPanel();
     private static JPanel north = new JPanel();
     private static JPanel south = new JPanel();
-    private List<String> playerName;
     private static  String path = "/Users/hannimpeha/HANNIMPEHA/" +
             "Thesis/FascinatingProject" +
             "/src/main/java/resource/players.txt";
