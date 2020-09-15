@@ -15,10 +15,10 @@ import java.util.List;
 
 public class PlayerRoles  {
 
-    private List<String> playerName =
+    private static List<String> playerName =
             Arrays.asList("hyo", "ji", "yoo", "mi", "vi", "se", "ari");
     private LoadFileUtil fu = new LoadFileUtil(playerName);
-    private List<String> playerRole;
+    private static List<String> playerRole;
 
 
     public PlayerRoles() {

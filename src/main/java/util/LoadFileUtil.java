@@ -14,21 +14,17 @@ public class LoadFileUtil {
 
     private static SaveFileUtil su;
     private CreatePlayerUtil cpu;
+    private List<String> playerName = new ArrayList<>();
     private List<String> playerRole = new ArrayList<>();
     private List<Player> playerInfo = new ArrayList<>();
-    private List<String> playerName = new ArrayList<>();
-    private List<Node> playerNode = new ArrayList<>();
-    private List<Agents> playerAgent = new ArrayList<>();
-    private String path = "/Users/hannimpeha/HANNIMPEHA/" +
+    private final List<Node> playerNode = new ArrayList<>();
+    private final List<Agents> playerAgent = setAllAgents();
+    private static final String path = "/Users/hannimpeha/HANNIMPEHA/" +
             "Thesis/FascinatingProject" +
             "/src/main/java/resource/players.txt";
 
     public LoadFileUtil(List<String> playerName) {
         this.playerName = playerName;
-        playerRole = createRoles(playerName);
-        playerInfo = setAllPlayers();
-        playerNode = setAllNodes();
-        playerAgent = setAllAgents();
     }
 
     public List<String> createRoles(List<String> playerName) {
