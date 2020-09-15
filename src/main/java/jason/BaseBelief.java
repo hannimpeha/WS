@@ -1,5 +1,6 @@
 package jason;
 
+import jason.asSemantics.Agent;
 import jason.asSemantics.Unifier;
 import jason.asSyntax.Atom;
 import jason.asSyntax.Literal;
@@ -104,7 +105,7 @@ public class BaseBelief implements BeliefBase {
     }
 
     @Override
-    public void init(jason.asSemantics.Agent agent, String[] strings) {
+    public void init(Agent agent, String[] strings) {
 
     }
 
