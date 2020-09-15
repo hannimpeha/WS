@@ -2,7 +2,6 @@ package panels;
 
 import ballot.Voting;
 import logic.Game;
-import playerInfo.Player;
 import util.LoadFileUtil;
 
 import javax.swing.*;
