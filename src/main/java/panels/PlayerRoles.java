@@ -1,31 +1,28 @@
 package panels;
 
 import jason.Agents;
+import jason.NCT;
+import jason.infra.centralised.RunCentralisedMAS;
 import org.neo4j.graphdb.Node;
 import playerInfo.Player;
-import util.CreatePlayerUtil;
+import util.LoadFileUtil;
 
 import javax.swing.*;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.PrintWriter;
+import java.awt.event.ActionEvent;
 import java.util.*;
 import java.util.List;
 
 public class PlayerRoles  {
 
+    private LoadFileUtil fu = new LoadFileUtil();
+    private List<Player> playerInfo;
     private List<String> playerName;
     private List<String> playerRole;
-    private List<Player> playerInfo = new ArrayList<>();
-    private List<Node> playerNode = new ArrayList<>();
-    private List<Agents> playerAgent = new ArrayList<>();
-    private static final String saveFile =
-            "/Users/hannimpeha/HANNIMPEHA/" +
-                    "Thesis/FascinatingProject" +
-                    "/src/main/java/resource/saveGame.txt";
+
 
     public PlayerRoles() {
         createPanel();
+        createButton();
     }
 
 
@@ -34,7 +31,7 @@ public class PlayerRoles  {
                 new JTextArea(20, 30);
         playerName = Arrays.asList("hyo", "ji", "yoo",
                 "mi", "vi", "se", "ari");
-        createRoles(playerName);
+        fu.createRoles(playerName);
         textAreaOrder.setText("Assigned Roles are as follows\n");
         for(int i=0; i<playerName.size(); i++) {
             textAreaOrder.append(playerName.get(i)+" is "+playerRole.get(i)+".\n");
@@ -43,62 +40,47 @@ public class PlayerRoles  {
         return textAreaOrder;
     }
 
-    public void createRoles(List<String> playerName) {
-        playerRole = Arrays.asList("Mafia", "Mafia", "Doctor",
-                "Townie", "Townie", "Townie", "Townie");
-        int num = playerName.size();
-        switch(num) {
-            case 3:
-                playerRole = Arrays.asList("Mafia", "Doctor", "Townie");
-            case 4:
-                playerRole = Arrays.asList("Mafia", "Doctor", "Townie", "Townie");
-            case 5:
-                playerRole = Arrays.asList("Mafia", "Doctor", "Townie", "Townie", "Townie");
-            case 6:
-                playerRole = Arrays.asList("Mafia", "Mafia", "Doctor", "Townie", "Townie", "Townie");
-            case 7:
-                playerRole = Arrays.asList("Mafia", "Mafia", "Doctor", "Townie", "Townie", "Townie", "Townie");
-        }
-        Collections.shuffle(playerRole);
-    }
-
-    public List<Player> setAllPlayers() {
-        for (int i = 0; i < playerName.size(); i++) {
-            playerInfo.add(CreatePlayerUtil.createPlayer(
-                    playerName.get(i), playerRole.get(i), i));
-        }
-        return playerInfo;
-    }
-
-    public List<Node> setAllNodes(){
-        for (int i = 0; i < playerName.size(); i++) {
-            playerNode.add(CreatePlayerUtil.createPlayer(
-                    playerName.get(i), playerRole.get(i), i));
-        }
-        return playerNode;
-    }
-
-    public List<Agents> setAllAgents(){
-        for (int i = 0; i < playerName.size(); i++) {
-            playerAgent.add(new Agents(
-                    playerName.get(i), playerRole.get(i), i));
-        }
-        return playerAgent;
-    }
-
-    public static void saveGame(List<Player> playerInfo) {
-        try(PrintWriter pw = new PrintWriter(
-                new FileOutputStream(saveFile, false))) {
-            for (Player p : playerInfo) {
-                pw.print(p.getStatus()+",");
-                pw.print(p.getRole()+",");
-                pw.print(p.getName()+",");
-                pw.println();
+    public Box createButton() {
+        final Box box = Box.createHorizontalBox();
+        box.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        box.add(Box.createHorizontalStrut(5));
+        box.add(Box.createHorizontalGlue());
+        final JTextField textField = new JTextField(24);
+        box.add(textField);
+        final JButton sendButton = new JButton("Send");
+        sendButton.addActionListener(new PlayerRolesActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new RunCentralisedMAS();
+                new NCT(playerInfo = fu.setAllPlayers());
+                fu.saveGame(playerInfo);
             }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+
+            @Override
+            public List<Player> setAllPlayers() {
+                return fu.setAllPlayers();
+            }
+
+            @Override
+            public List<Node> setAllNodes() {
+                return fu.setAllNodes();
+            }
+
+            @Override
+            public List<Agents> setAllAgents() {
+                return fu.setAllAgents();
+            }
+
+            @Override
+            public void saveGameRole(List<Player> playerInfo) {
+                fu.saveGame(playerInfo);
+            }
+
+        });
+        box.add(sendButton);
+        return box;
     }
 
 }
+
 

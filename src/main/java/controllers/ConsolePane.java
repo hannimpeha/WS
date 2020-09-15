@@ -1,22 +1,12 @@
 package controllers;
 
 import jason.Agents;
-import jason.NCT;
-import jason.infra.centralised.RunCentralisedMAS;
 import org.neo4j.graphdb.Node;
-import panels.DayPanel;
-import panels.NightPanel;
-import panels.PlayerNames;
-import panels.PlayerRoles;
+import panels.*;
 import playerInfo.Player;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
-import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.*;
 import java.util.List;
 
 public abstract class ConsolePane extends JPanel {
@@ -28,14 +18,10 @@ public abstract class ConsolePane extends JPanel {
     public PlayerRoles prp = new PlayerRoles();
     public DayPanel dp = new DayPanel();
     public NightPanel np = new NightPanel();
-    private List<String> playerName;
+
     private static JPanel contentPane = new JPanel();
     private static JPanel north = new JPanel();
     private static JPanel south = new JPanel();
-    private JPanel PlayerNames = new JPanel();
-    private static  String path = "/Users/hannimpeha/HANNIMPEHA/" +
-            "Thesis/FascinatingProject" +
-            "/src/main/java/resource/players.txt";
 
     public ConsolePane() {
         displayNorth();
@@ -63,56 +49,10 @@ public abstract class ConsolePane extends JPanel {
     }
 
     private void displaySouth() {
-        final Box box = Box.createHorizontalBox();
-        box.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
-        box.add(Box.createHorizontalStrut(5));
-        box.add(Box.createHorizontalGlue());
-        final JTextField textField = new JTextField(24);
-        box.add(textField);
-        JButton button = new JButton("Enter");
-        button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                CardLayout cardLayout = (CardLayout) north.getLayout();
-                cardLayout.next(north);
-                playerName = Arrays.asList(textField.getText().split(", "));
-                try {
-                    Files.write(Paths.get(path),playerName);
-                } catch (IOException ioException) {
-                    ioException.printStackTrace();
-                }
-            }
-        });
-
-        final JButton sendButton = new JButton("Send");
-        sendButton.addActionListener(new SettingActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new RunCentralisedMAS();
-                new NCT(playerInfo = setAllPlayers());
-                saveGame();
-            }
-
-            @Override
-            public List<Player> setAllPlayers() {
-                return prp.setAllPlayers();
-            }
-
-            @Override
-            public List<Node> setAllNodes() { return prp.setAllNodes(); }
-
-            @Override
-            public List<Agents> setAllAgents() { return prp.setAllAgents(); }
-
-            @Override
-            public void saveGame() {
-                prp.saveGame(playerInfo);
-            }
-        });
-
-        box.add(button);
-        box.add(sendButton);
-        south.add(box);
+        south.add(pnp.createButton());
+        south.add(prp.createButton());
+        south.add(dp.createButton());
+        south.add(np.createButton());
         contentPane.add(south);
     }
 

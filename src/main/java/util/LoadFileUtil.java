@@ -1,5 +1,7 @@
 package util;
 
+import jason.Agents;
+import org.neo4j.graphdb.Node;
 import playerInfo.Player;
 
 import java.io.*;
@@ -10,22 +12,18 @@ import java.util.List;
 
 public class LoadFileUtil {
 
+    private static SaveFileUtil su;
     private CreatePlayerUtil cpu;
     private List<Player> playerInfo;
     private List<String> playerName;
     private List<String> playerRole;
+    private List<Node> playerNode = new ArrayList<>();
+    private List<Agents> playerAgent = new ArrayList<>();
     private String path = "/Users/hannimpeha/HANNIMPEHA/" +
             "Thesis/FascinatingProject" +
             "/src/main/java/resource/players.txt";
 
     public LoadFileUtil() {
-    }
-
-    public void newFile(List<String> playerName) {
-        playerInfo = new ArrayList<>();
-        createRoles(playerName);
-        setAllPlayers();
-        SaveFileUtil.saveGame(playerInfo);
     }
 
     public void createRoles(List<String> playerName) {
@@ -45,24 +43,40 @@ public class LoadFileUtil {
         Collections.shuffle(playerRole);
     }
 
-    private void setAllPlayers() {
-        for(int i=0; i<playerName.size(); i++) {
-            System.out.println("\n"+playerName.get(i)+" is "+playerRole.get(i)+".");
+    public List<Player> setAllPlayers() {
+        for (int i = 0; i < playerName.size(); i++) {
             playerInfo.add(CreatePlayerUtil.createPlayer(
                     playerName.get(i), playerRole.get(i), i));
         }
+        return playerInfo;
+    }
+
+    public List<Node> setAllNodes(){
+        for (int i = 0; i < playerName.size(); i++) {
+            playerNode.add(CreatePlayerUtil.createPlayer(
+                    playerName.get(i), playerRole.get(i), i));
+        }
+        return playerNode;
+    }
+
+    public List<Agents> setAllAgents(){
+        for (int i = 0; i < playerName.size(); i++) {
+            playerAgent.add(new Agents(
+                    playerName.get(i), playerRole.get(i), i));
+        }
+        return playerAgent;
+    }
+
+    public static void saveGame(List<Player> playerInfo) {
+            su.saveGame(playerInfo);
     }
 
     public void deletePlayers(List<Player> playerInfo, String lynched) {
         for(Player p:playerInfo) {
             if(p.getName()==lynched) {
-                setLynchTarget();
+                p.setStatus(0);
             }
         }
-    }
-
-    private void setLynchTarget() {
-        //this.status=0;
     }
 
     public void loadFile() {

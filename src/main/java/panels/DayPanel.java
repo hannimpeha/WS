@@ -1,29 +1,23 @@
 package panels;
 
 import ballot.Voting;
-import org.neo4j.graphdb.Node;
 import playerInfo.Player;
+import util.LoadFileUtil;
 
 import javax.swing.*;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.PrintWriter;
+import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
 
 public class DayPanel {
 
+    private LoadFileUtil fu = new LoadFileUtil();;
     private Voting vote = new Voting();
     private List<Player> playerInfo = new ArrayList<>();
-    private List<Node> playerNode = new ArrayList<>();
-    private static final String saveFile =
-            "/Users/hannimpeha/HANNIMPEHA/" +
-                    "Thesis/FascinatingProject" +
-                    "/src/main/java/resource/saveGame.txt";
 
     public DayPanel() {
         createPanel();
-        deletePlayers(playerInfo, vote.run());
+        createButton();
     }
 
     public JTextArea createPanel() {
@@ -35,25 +29,31 @@ public class DayPanel {
         return textAreaOrder;
     }
 
-    public void deletePlayers(List<Player> playerInfo, String lynched) {
-        for(Player p:playerInfo) {
-            if(p.getName()==lynched) {
-                p.setStatus(0);
-            }
-        }
-    }
+    public Box createButton() {
+        final Box box = Box.createHorizontalBox();
+        box.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        box.add(Box.createHorizontalStrut(5));
+        box.add(Box.createHorizontalGlue());
+        final JTextField textField = new JTextField(24);
+        box.add(textField);
+        final JButton continueButton = new JButton("Continue");
+        continueButton.addActionListener(new DayPanelActionListener() {
 
-    public static void saveGame(List<Player> playerInfo) {
-        try(PrintWriter pw = new PrintWriter(
-                new FileOutputStream(saveFile, false))) {
-            for (Player p : playerInfo) {
-                pw.print(p.getStatus()+",");
-                pw.print(p.getRole()+",");
-                pw.print(p.getName()+",");
-                pw.println();
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                fu.saveGame(playerInfo);
             }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+            @Override
+            public void deletePlayers(List<Player> playerInfo, String lynched) {
+                fu.deletePlayers(playerInfo, vote.run());
+            }
+
+            @Override
+            public void saveGameContinue(List<Player> playerInfo) {
+                fu.saveGame(playerInfo);
+            }
+        });
+        box.add(continueButton);
+        return box;
     }
 }
