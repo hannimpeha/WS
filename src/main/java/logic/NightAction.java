@@ -1,22 +1,25 @@
 package logic;
 
 import playerInfo.Player;
+import util.LoadFileUtil;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
 public class NightAction {
 
     private Random randomGenerator;
-    private List<Player> playerInfo;
-
-    public NightAction(List<Player> playerInfo){
-        this.playerInfo = playerInfo;
+    private List<String> playerName =
+            Arrays.asList("ji", "yoo", "mi", "vi", "se", "ari");
+    private LoadFileUtil fu = new LoadFileUtil(playerName);
+    private List<Player> playerInfo = fu.setAllPlayers();
+    public NightAction(){
     }
 
     public String nightAction() {
         randomGenerator = new Random();
-        return playerInfo.get(randomGenerator.nextInt()).getName();
+        int ind = randomGenerator.nextInt(playerName.size()-1);
+        return playerInfo.get(ind).getName();
     }
-
 }

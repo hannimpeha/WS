@@ -45,7 +45,7 @@ public class NightPanel {
         continueButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               na = new NightAction(fu.setAllPlayers());
+               na = new NightAction();
                new Game(fu.setAllPlayers(), na.nightAction());
             }
         });
