@@ -14,19 +14,24 @@ public class LoadFileUtil {
 
     private static SaveFileUtil su;
     private CreatePlayerUtil cpu;
-    private List<Player> playerInfo;
-    private List<String> playerName;
-    private List<String> playerRole;
+    private List<String> playerRole = new ArrayList<>();
+    private List<Player> playerInfo = new ArrayList<>();
+    private List<String> playerName = new ArrayList<>();
     private List<Node> playerNode = new ArrayList<>();
     private List<Agents> playerAgent = new ArrayList<>();
     private String path = "/Users/hannimpeha/HANNIMPEHA/" +
             "Thesis/FascinatingProject" +
             "/src/main/java/resource/players.txt";
 
-    public LoadFileUtil() {
+    public LoadFileUtil(List<String> playerName) {
+        this.playerName = playerName;
+        playerRole = createRoles(playerName);
+        playerInfo = setAllPlayers();
+        playerNode = setAllNodes();
+        playerAgent = setAllAgents();
     }
 
-    public void createRoles(List<String> playerName) {
+    public List<String> createRoles(List<String> playerName) {
         int num = playerName.size();
         switch(num) {
             case 3:
@@ -41,6 +46,7 @@ public class LoadFileUtil {
                 playerRole = Arrays.asList("Mafia", "Mafia", "Doctor", "Townie", "Townie", "Townie", "Townie");
         }
         Collections.shuffle(playerRole);
+        return playerRole;
     }
 
     public List<Player> setAllPlayers() {
@@ -79,7 +85,7 @@ public class LoadFileUtil {
         }
     }
 
-    public void loadFile() {
+    public List<String> loadFile() {
         try {
             BufferedReader br = new BufferedReader(
                     new FileReader(new File(path)));
@@ -95,6 +101,7 @@ public class LoadFileUtil {
         } catch (IOException exception) {
             exception.printStackTrace();
         }
+        return playerName;
     }
 
     public ArrayList<Player> getPlayerInfo() {

@@ -6,18 +6,20 @@ import util.LoadFileUtil;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class DayPanel {
 
-    private LoadFileUtil fu = new LoadFileUtil();;
+    private List<String> playerName =
+            Arrays.asList("hyo", "ji", "yoo", "mi", "vi", "se", "ari");
+    private LoadFileUtil fu = new LoadFileUtil(playerName);;
     private Voting vote = new Voting();
-    private List<Player> playerInfo = new ArrayList<>();
+    private List<Player> playerInfo;
 
     public DayPanel() {
-        createPanel();
-        createButton();
     }
 
     public JTextArea createPanel() {
@@ -31,25 +33,14 @@ public class DayPanel {
 
     public Box createButton() {
         final Box box = Box.createHorizontalBox();
-        box.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        box.setBorder(BorderFactory.createEmptyBorder(5, 1, 5, 1));
         box.add(Box.createHorizontalStrut(5));
         box.add(Box.createHorizontalGlue());
-        final JTextField textField = new JTextField(24);
-        box.add(textField);
-        final JButton continueButton = new JButton("Continue");
-        continueButton.addActionListener(new DayPanelActionListener() {
-
+        final JButton continueButton = new JButton("Cont.");
+        continueButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                fu.saveGame(playerInfo);
-            }
-            @Override
-            public void deletePlayers(List<Player> playerInfo, String lynched) {
                 fu.deletePlayers(playerInfo, vote.run());
-            }
-
-            @Override
-            public void saveGameContinue(List<Player> playerInfo) {
                 fu.saveGame(playerInfo);
             }
         });

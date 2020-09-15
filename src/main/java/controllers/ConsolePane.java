@@ -7,6 +7,12 @@ import playerInfo.Player;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.List;
 
 public abstract class ConsolePane extends JPanel {
@@ -22,6 +28,10 @@ public abstract class ConsolePane extends JPanel {
     private static JPanel contentPane = new JPanel();
     private static JPanel north = new JPanel();
     private static JPanel south = new JPanel();
+    private List<String> playerName;
+    private static  String path = "/Users/hannimpeha/HANNIMPEHA/" +
+            "Thesis/FascinatingProject" +
+            "/src/main/java/resource/players.txt";
 
     public ConsolePane() {
         displayNorth();
@@ -49,10 +59,30 @@ public abstract class ConsolePane extends JPanel {
     }
 
     private void displaySouth() {
-        south.add(pnp.createButton());
+        final Box box = Box.createHorizontalBox();
+        box.setBorder(BorderFactory.createEmptyBorder(5, 1, 5, 1));
+        box.add(Box.createHorizontalStrut(5));
+        box.add(Box.createHorizontalGlue());
+        final JTextField textField = new JTextField(24);
+        box.add(textField);
+        JButton button = new JButton("Enter");
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CardLayout cardLayout = (CardLayout) north.getLayout();
+                cardLayout.next(north);
+                playerName = Arrays.asList(textField.getText().split(", "));
+                try {
+                    Files.write(Paths.get(path),playerName);
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+            }
+        });
+        box.add(button);
+        south.add(box);
         south.add(prp.createButton());
-        south.add(dp.createButton());
-        south.add(np.createButton());
+        //south.add(dp.createButton());
         contentPane.add(south);
     }
 
