@@ -35,12 +35,12 @@ public class ConsolePane extends JPanel {
     }
 
     public void displayNorth() {
-        north.add(hannah.getState().onNorth());
+        north = hannah.getState().onContinue();
         contentPane.add(new JScrollPane(north));
     }
 
     public void displaySouth() {
-        south.add(hannah.getState().onSouth());
+        south = hannah.getState().onContinue();
         contentPane.add(south);
     }
 

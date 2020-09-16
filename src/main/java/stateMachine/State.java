@@ -12,8 +12,8 @@ public abstract class State {
         this.hannah = hannah;
     }
 
-    public abstract JTextArea onNorth();
-    public abstract Box onSouth();
+    public abstract JPanel onContinue();
+    public abstract JPanel onPrevious();
     public abstract String getCurrent();
 }
 

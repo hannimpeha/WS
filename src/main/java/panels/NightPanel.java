@@ -13,9 +13,12 @@ import java.awt.event.ActionListener;
 import java.util.Arrays;
 import java.util.List;
 
-public class NightPanel {
+public class NightPanel extends JPanel {
 
     private static Hannah hannah;
+    private static JPanel contentPane = new JPanel();
+    private static JPanel north = new JPanel();
+    private static JPanel south = new JPanel();
     private List<String> playerName =
             Arrays.asList("ji", "yoo", "mi", "vi", "se", "ari");
     private LoadFileUtil fu;
@@ -27,6 +30,8 @@ public class NightPanel {
     private static JTextField textField = new JTextField(24);
 
     public NightPanel() {
+        north.add(createPanel());
+        south.add(doButton());
     }
 
     public JTextArea createPanel() {

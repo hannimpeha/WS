@@ -2,35 +2,27 @@ package stateMachine;
 
 import controllers.Hannah;
 import panels.DayPanel;
-import panels.NightPanel;
-import panels.PlayerNames;
-import panels.PlayerRoles;
-import playerInfo.Player;
-
 import javax.swing.*;
 
 public class DayState extends State {
-
-    public PlayerNames pnp;
-    public PlayerRoles prp;
-    public DayPanel dp;
-    public NightPanel np;
 
     public DayState(Hannah hannah) {
         super(hannah);
     }
 
     @Override
-    public JTextArea onNorth() {
+    public JPanel onContinue() {
+        JPanel action = hannah.getState().onPrevious();
         hannah.changeState(new NightState(hannah));
-        return new DayPanel().createPanel();
+        return action;
     }
 
     @Override
-    public Box onSouth() {
+    public JPanel onPrevious() {
         hannah.changeState(new NightState(hannah));
-        return new DayPanel().doButton();
+        return new DayPanel();
     }
+
 
     @Override
     public String getCurrent() {

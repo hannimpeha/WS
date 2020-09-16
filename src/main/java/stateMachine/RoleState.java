@@ -20,17 +20,17 @@ public class RoleState extends State{
     }
 
     @Override
-    public JTextArea onNorth() {
+    public JPanel onContinue() {
+        JPanel action = hannah.getState().onPrevious();
         hannah.changeState(new DayState(hannah));
-        return new PlayerRoles().createPanel();
+        return action;
     }
 
     @Override
-    public Box onSouth() {
+    public JPanel onPrevious() {
         hannah.changeState(new DayState(hannah));
-        return new PlayerRoles().doButton();
+        return new PlayerRoles();
     }
-
 
     @Override
     public String getCurrent() {

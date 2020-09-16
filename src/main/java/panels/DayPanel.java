@@ -12,9 +12,12 @@ import java.awt.event.ActionListener;
 import java.util.Arrays;
 import java.util.List;
 
-public class DayPanel {
+public class DayPanel extends JPanel {
 
     private static Hannah hannah;
+    private static JPanel contentPane = new JPanel();
+    private static JPanel north = new JPanel();
+    private static JPanel south = new JPanel();
     private static Box box = Box.createHorizontalBox();
     private static JTextField textField = new JTextField(24);
     private static JButton button = new JButton("Enter");
@@ -25,6 +28,8 @@ public class DayPanel {
     private Voting vote = new Voting();
 
     public DayPanel() {
+        north.add(createPanel());
+        south.add(doButton());
     }
 
     public JTextArea createPanel() {
