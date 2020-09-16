@@ -12,10 +12,10 @@ public abstract class State {
         this.hannah = hannah;
     }
 
-    public abstract JPanel onName();
-    public abstract JPanel onRole();
-    public abstract JPanel onDay();
-    public abstract JPanel onNight();
+    public abstract JTextArea onNextTop();
+    public abstract JButton onNextBottom();
+    public abstract JTextArea onPreviousTop();
+    public abstract JButton onPreviousBottom();
 
     public abstract String getCurrent();
 }

@@ -5,6 +5,8 @@ import panels.DayPanel;
 import panels.NightPanel;
 import panels.PlayerNames;
 import panels.PlayerRoles;
+import playerInfo.Player;
+
 import javax.swing.*;
 
 public class DayState extends State {
@@ -19,27 +21,26 @@ public class DayState extends State {
     }
 
     @Override
-    public JPanel onName() {
+    public JTextArea onNextTop() {
+        return new DayPanel(hannah).createPanel();
+    }
+
+    @Override
+    public JButton onNextBottom() {
+        hannah.changeState(new NightState(hannah));
+        return new DayPanel(hannah).doButton();
+    }
+
+    @Override
+    public JTextArea onPreviousTop() {
         return null;
     }
 
     @Override
-    public JPanel onRole() {
+    public JButton onPreviousBottom() {
         return null;
     }
 
-    @Override
-    public JPanel onDay() {
-        JPanel action = hannah.getState().onNight();
-        hannah.changeState(new NightState(hannah));
-        return action;
-    }
-
-    @Override
-    public JPanel onNight() {
-        hannah.changeState(new NightState(hannah));
-        return new DayPanel(hannah);
-    }
 
     @Override
     public String getCurrent() {
