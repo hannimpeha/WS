@@ -12,11 +12,7 @@ public abstract class State {
         this.hannah = hannah;
     }
 
-    public abstract JTextArea onNextTop();
-    public abstract JButton onNextBottom();
-    public abstract JTextArea onPreviousTop();
-    public abstract JButton onPreviousBottom();
-
+    public abstract JPanel onNext();
     public abstract String getCurrent();
 }
 

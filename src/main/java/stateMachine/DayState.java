@@ -21,24 +21,9 @@ public class DayState extends State {
     }
 
     @Override
-    public JTextArea onNextTop() {
-        return new DayPanel(hannah).createPanel();
-    }
-
-    @Override
-    public JButton onNextBottom() {
+    public JPanel onNext() {
         hannah.changeState(new NightState(hannah));
-        return new DayPanel(hannah).doButton();
-    }
-
-    @Override
-    public JTextArea onPreviousTop() {
-        return null;
-    }
-
-    @Override
-    public JButton onPreviousBottom() {
-        return null;
+        return new DayPanel(hannah);
     }
 
 

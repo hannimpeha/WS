@@ -23,9 +23,13 @@ public class NightPanel extends ConsolePane {
     private Victory victory;
     private static JButton button = new JButton("Enter");
     private static JTextArea textAreaOrder = new JTextArea(20, 30);
+    private static Box box = Box.createHorizontalBox();
+    private static JTextField textField = new JTextField(24);
 
     public NightPanel(Hannah hannah) {
         super(hannah);
+        getNorthPane().add(createPanel());
+        getSouthPane().add(doButton());
     }
 
     public JTextArea createPanel() {
@@ -37,7 +41,12 @@ public class NightPanel extends ConsolePane {
         return textAreaOrder;
     }
 
-    public JButton doButton() {
+    public Box doButton(){
+        box.setBorder(
+                BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        box.add(Box.createHorizontalStrut(5));
+        box.add(Box.createHorizontalGlue());
+        box.add(textField);
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -45,7 +54,8 @@ public class NightPanel extends ConsolePane {
                new Game(fu.setAllPlayers(), na.nightAction());
             }
         });
-        return button;
+        box.add(button);
+        return box;
     }
 
 }

@@ -15,15 +15,19 @@ import java.util.List;
 public class DayPanel extends ConsolePane {
 
     private static Hannah hannah;
+    private static Box box = Box.createHorizontalBox();
+    private static JTextField textField = new JTextField(24);
+    private static JButton button = new JButton("Enter");
+    private static JTextArea textAreaOrder = new JTextArea(20, 30);
     private List<String> playerName =
             Arrays.asList("hyo", "ji", "yoo", "mi", "vi", "se", "ari");
     private LoadFileUtil fu = new LoadFileUtil(playerName);
     private Voting vote = new Voting();
-    private static JButton button = new JButton("Enter");
-    private static JTextArea textAreaOrder = new JTextArea(20, 30);
 
     public DayPanel(Hannah hannah) {
         super(hannah);
+        getNorthPane().add(createPanel());
+        getSouthPane().add(doButton());
     }
 
     public JTextArea createPanel() {
@@ -32,13 +36,19 @@ public class DayPanel extends ConsolePane {
         return textAreaOrder;
     }
 
-    public JButton doButton() {
+    public Box doButton(){
+        box.setBorder(
+                BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        box.add(Box.createHorizontalStrut(5));
+        box.add(Box.createHorizontalGlue());
+        box.add(textField);
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new Game(fu.setAllPlayers(), vote.run());
             }
         });
-        return button;
+        box.add(button);
+        return box;
     }
 }

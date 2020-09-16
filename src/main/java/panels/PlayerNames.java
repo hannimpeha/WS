@@ -1,8 +1,10 @@
 package panels;
 
+import controllers.ConsolePane;
 import controllers.Hannah;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -11,19 +13,22 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
 
-public class PlayerNames {
+public class PlayerNames extends ConsolePane {
 
     private static Hannah hannah;
+    private static Box box = Box.createHorizontalBox();
+    private static JTextField textField = new JTextField(24);
     private static JButton button = new JButton("Enter");
     private static JTextArea textAreaOrder = new JTextArea(20, 30);
-    private List<String> playerName;
-    private static JTextField textField = new JTextField(24);
     private static String path = "/Users/hannimpeha/HANNIMPEHA/" +
             "Thesis/FascinatingProject" +
             "/src/main/java/resource/players.txt";
+    private List<String> playerName;
 
     public PlayerNames(Hannah hannah) {
-        this.hannah = hannah;
+        super(hannah);
+        getNorthPane().add(createPanel());
+        getSouthPane().add(doButton());
     }
 
     public JTextArea createPanel() {
@@ -33,7 +38,12 @@ public class PlayerNames {
     }
 
 
-    public JButton doButton(){
+    public Box doButton(){
+        box.setBorder(
+                BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        box.add(Box.createHorizontalStrut(5));
+        box.add(Box.createHorizontalGlue());
+        box.add(textField);
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -45,7 +55,8 @@ public class PlayerNames {
                     exp.printStackTrace(); }
             }
         });
-        return button;
+        box.add(button);
+        return box;
     }
 
 }
