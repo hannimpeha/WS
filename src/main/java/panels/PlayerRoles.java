@@ -1,7 +1,9 @@
 package panels;
 
+import controllers.ConsolePane;
 import jason.NCT;
 import jason.infra.centralised.RunCentralisedMAS;
+import stateMachine.Hannah;
 import util.LoadFileUtil;
 
 import javax.swing.*;
@@ -10,15 +12,16 @@ import java.awt.event.ActionListener;
 import java.util.*;
 import java.util.List;
 
-public class PlayerRoles  {
+public class PlayerRoles extends ConsolePane {
 
     private List<String> playerName =
             Arrays.asList("hyo", "ji", "yoo", "mi", "vi", "se", "ari");
     private LoadFileUtil fu = new LoadFileUtil(playerName);
     private List<String> playerRole;
 
-
-    public PlayerRoles() {
+    public PlayerRoles(Hannah hannah) {
+        super(hannah);
+        doButton();
     }
 
     public JTextArea createPanel() {
@@ -33,22 +36,14 @@ public class PlayerRoles  {
         return textAreaOrder;
     }
 
-    public Box createButton() {
-        final Box box = Box.createHorizontalBox();
-        box.setBorder(BorderFactory.createEmptyBorder(5, 1, 5, 1));
-        box.add(Box.createHorizontalStrut(5));
-        box.add(Box.createHorizontalGlue());
-        final JButton sendButton = new JButton("Send");
-        sendButton.addActionListener(new ActionListener() {
+    public void doButton() {
+        getButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new RunCentralisedMAS();
                 new NCT(fu.setAllPlayers());
             }
-
         });
-        box.add(sendButton);
-        return box;
     }
 
 }

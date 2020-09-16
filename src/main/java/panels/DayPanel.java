@@ -1,7 +1,9 @@
 package panels;
 
 import ballot.Voting;
+import controllers.ConsolePane;
 import logic.Game;
+import stateMachine.Hannah;
 import util.LoadFileUtil;
 
 import javax.swing.*;
@@ -10,14 +12,16 @@ import java.awt.event.ActionListener;
 import java.util.Arrays;
 import java.util.List;
 
-public class DayPanel {
+public class DayPanel extends ConsolePane {
 
     private List<String> playerName =
             Arrays.asList("hyo", "ji", "yoo", "mi", "vi", "se", "ari");
     private LoadFileUtil fu = new LoadFileUtil(playerName);
     private Voting vote = new Voting();
 
-    public DayPanel() {
+    public DayPanel(Hannah hannah) {
+        super(hannah);
+        doButton();
     }
 
     public JTextArea createPanel() {
@@ -28,19 +32,12 @@ public class DayPanel {
         return textAreaOrder;
     }
 
-    public Box createButton() {
-        final Box box = Box.createHorizontalBox();
-        box.setBorder(BorderFactory.createEmptyBorder(5, 1, 5, 1));
-        box.add(Box.createHorizontalStrut(5));
-        box.add(Box.createHorizontalGlue());
-        final JButton continueButton = new JButton("Cont.");
-        continueButton.addActionListener(new ActionListener() {
+    public void doButton() {
+        getButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new Game(fu.setAllPlayers(), vote.run());
             }
         });
-        box.add(continueButton);
-        return box;
     }
 }

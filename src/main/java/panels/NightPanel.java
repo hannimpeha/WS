@@ -1,8 +1,10 @@
 package panels;
 
+import controllers.ConsolePane;
 import logic.Game;
 import logic.NightAction;
 import logic.Victory;
+import stateMachine.Hannah;
 import util.LoadFileUtil;
 
 import javax.swing.*;
@@ -11,7 +13,7 @@ import java.awt.event.ActionListener;
 import java.util.Arrays;
 import java.util.List;
 
-public class NightPanel {
+public class NightPanel extends ConsolePane {
 
     private List<String> playerName =
             Arrays.asList("ji", "yoo", "mi", "vi", "se", "ari");
@@ -19,7 +21,9 @@ public class NightPanel {
     private NightAction na;
     private Victory victory;
 
-    public NightPanel() {
+    public NightPanel(Hannah hannah) {
+        super(hannah);
+        doButton();
     }
 
     public JTextArea createPanel() {
@@ -33,21 +37,14 @@ public class NightPanel {
         return textAreaOrder;
     }
 
-    public Box createButton() {
-        final Box box = Box.createHorizontalBox();
-        box.setBorder(BorderFactory.createEmptyBorder(5, 1, 5, 1));
-        box.add(Box.createHorizontalStrut(5));
-        box.add(Box.createHorizontalGlue());
-        final JButton continueButton = new JButton("Cont..");
-        continueButton.addActionListener(new ActionListener() {
+    public void doButton() {
+        getButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                na = new NightAction();
                new Game(fu.setAllPlayers(), na.nightAction());
             }
         });
-        box.add(continueButton);
-        return box;
     }
 
 }
