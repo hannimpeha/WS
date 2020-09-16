@@ -32,16 +32,15 @@ public class Game {
 
     private List<String> getAgentName(List<Player> playerInfo, String lynched) {
         return playerInfo.stream()
-                .map(a->a.getName())
-                .filter(a->a.contains(lynched))
+                .map(a -> a.getName())
+                .filter(a -> a.contains(lynched))
                 .collect(Collectors.toList());
     }
 
     private List<Player> remainingPlayer(List<Player> playerInfo, String lynched) {
         return playerInfo.stream()
-                .filter(a->a.getName()!=lynched)
+                .filter(a -> a.getName() != lynched)
                 .collect(Collectors.toList());
     }
-
 
 }

@@ -1,6 +1,5 @@
 package jason;
 
-import jason.asSemantics.Agent;
 import jason.asSemantics.Message;
 import org.neo4j.graphdb.RelationshipType;
 
@@ -35,6 +34,5 @@ public class Messaging extends Message {
         }
         setMsgId("Mafia is "+ agent.getBB());
     }
-
 
 }

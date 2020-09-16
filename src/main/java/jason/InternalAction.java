@@ -13,9 +13,7 @@ public class InternalAction extends DefaultInternalAction {
 
     private BaseBelief bb;
     private Agents agent;
-    private List<Agents> agentList;
     private Conjectures cj;
-    private static Set<Iterator> superM = new HashSet<>();
     private String path = "/Users/hannimpeha/HANNIMPEHA/" +
                     "Thesis/FascinatingProject" +
                     "/src/main/java/resource/ballots.txt";

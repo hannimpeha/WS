@@ -36,5 +36,4 @@ public class NCT {
                 .collect(Collectors.toList());
     }
 
-
 }

@@ -28,5 +28,4 @@ public class Conjectures {
         return sub;
     }
 
-
 }
