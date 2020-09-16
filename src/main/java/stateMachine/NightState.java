@@ -20,6 +20,7 @@ public class NightState extends State{
 
     @Override
     public JTextArea onNorth() {
+        hannah.changeState(new DayState(hannah));
         return new NightPanel().createPanel();
     }
 

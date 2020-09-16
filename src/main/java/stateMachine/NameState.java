@@ -22,6 +22,7 @@ public class NameState extends State {
 
     @Override
     public JTextArea onNorth() {
+        hannah.changeState(new RoleState(hannah));
         return new PlayerNames().createPanel();
     }
 

@@ -21,6 +21,7 @@ public class RoleState extends State{
 
     @Override
     public JTextArea onNorth() {
+        hannah.changeState(new DayState(hannah));
         return new PlayerRoles().createPanel();
     }
 
