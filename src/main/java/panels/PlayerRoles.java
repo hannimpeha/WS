@@ -14,14 +14,13 @@ import java.util.List;
 
 public class PlayerRoles extends ConsolePane {
 
-    private Hannah hannah;
     private List<String> playerName =
             Arrays.asList("hyo", "ji", "yoo", "mi", "vi", "se", "ari");
     private LoadFileUtil fu = new LoadFileUtil(playerName);
     private List<String> playerRole;
 
     public PlayerRoles(Hannah hannah) {
-       this.hannah= hannah;
+        super(hannah);
        doButton();
     }
 

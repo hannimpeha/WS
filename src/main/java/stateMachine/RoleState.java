@@ -20,13 +20,12 @@ public class RoleState extends State{
 
     @Override
     public JPanel onName() {
-        hannah.changeState(new DayState(hannah));
-        return new PlayerRoles(hannah);
+        return null;
     }
 
     @Override
     public JPanel onRole() {
-        JPanel action = hannah.getState().onName();
+        JPanel action = hannah.getState().onDay();
         hannah.changeState(new DayState(hannah));
         return action;
     }
@@ -39,8 +38,7 @@ public class RoleState extends State{
 
     @Override
     public JPanel onNight() {
-        hannah.changeState(new DayState(hannah));
-        return new PlayerRoles(hannah);
+        return null;
     }
 
     @Override

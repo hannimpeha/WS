@@ -14,14 +14,13 @@ import java.util.List;
 
 public class PlayerNames extends ConsolePane {
 
-    private Hannah hannah;
     private List<String> playerName;
     private static String path = "/Users/hannimpeha/HANNIMPEHA/" +
             "Thesis/FascinatingProject" +
             "/src/main/java/resource/players.txt";
 
     public PlayerNames(Hannah hannah) {
-        this.hannah = hannah;
+        super(hannah);
         doButton();
     }
 

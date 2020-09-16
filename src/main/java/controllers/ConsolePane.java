@@ -2,13 +2,8 @@ package controllers;
 
 import jason.Agents;
 import org.neo4j.graphdb.Node;
-import panels.DayPanel;
-import panels.NightPanel;
-import panels.PlayerNames;
-import panels.PlayerRoles;
 import playerInfo.Player;
-import stateMachine.Hannah;
-import stateMachine.State;
+import stateMachine.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -31,11 +26,8 @@ public class ConsolePane extends JPanel {
 
     public ConsolePane(Hannah hannah) {
         this.hannah = hannah;
-        displayNorth(hannah);
-        displaySouth(hannah);
-    }
-
-    public ConsolePane() {
+        displayNorth();
+        displaySouth();
     }
 
     public void initFrame() {
@@ -49,13 +41,12 @@ public class ConsolePane extends JPanel {
         frame.setVisible(true);
     }
 
-    public void displayNorth(Hannah hannah) {
+    public void displayNorth() {
         north.add(new JScrollPane(switchPanel(hannah.getState())));
         contentPane.add(north);
     }
 
-    public void displaySouth(Hannah hannah) {
-        this.hannah = hannah;
+    public void displaySouth() {
         box.setBorder(
                 BorderFactory.createEmptyBorder(5, 1, 5, 1));
         box.add(Box.createHorizontalStrut(5));
@@ -66,12 +57,9 @@ public class ConsolePane extends JPanel {
         contentPane.add(south);
     }
 
-    public JTextArea switchPanel(State state) {
+    public JPanel switchPanel(State state) {
         switch(state.getCurrent()) {
-            case "Name" : return new PlayerNames(hannah).createPanel();
-            case "Role" : return new PlayerRoles(hannah).createPanel();
-            case "Day" : return new DayPanel(hannah).createPanel();
-            case "Night" : return new NightPanel(hannah).createPanel();
+            case "Name" : return new NameState(hannah).onRole();
             default : break;
         }
         return null;

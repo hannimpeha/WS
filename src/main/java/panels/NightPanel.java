@@ -15,7 +15,6 @@ import java.util.List;
 
 public class NightPanel extends ConsolePane {
 
-    private Hannah hannah;
     private List<String> playerName =
             Arrays.asList("ji", "yoo", "mi", "vi", "se", "ari");
     private LoadFileUtil fu;
@@ -23,7 +22,7 @@ public class NightPanel extends ConsolePane {
     private Victory victory;
 
     public NightPanel(Hannah hannah) {
-        this.hannah = hannah;
+        super(hannah);
         doButton();
     }
 

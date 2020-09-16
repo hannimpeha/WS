@@ -19,19 +19,17 @@ public class DayState extends State {
 
     @Override
     public JPanel onName() {
-        hannah.changeState(new NightState(hannah));
-        return new DayPanel(hannah);
+        return null;
     }
 
     @Override
     public JPanel onRole() {
-        hannah.changeState(new NightState(hannah));
-        return new DayPanel(hannah);
+        return null;
     }
 
     @Override
     public JPanel onDay() {
-        JPanel action = hannah.getState().onRole();
+        JPanel action = hannah.getState().onNight();
         hannah.changeState(new NightState(hannah));
         return action;
     }

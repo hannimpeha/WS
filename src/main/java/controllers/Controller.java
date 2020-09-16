@@ -17,8 +17,7 @@ public class Controller {
 
     public void run() {
         Hannah hannah = new Hannah();
-        ConsolePane cp = new ConsolePane(hannah);
-        cp.initFrame();
+        new ConsolePane(hannah).initFrame();
     }
 
 }
