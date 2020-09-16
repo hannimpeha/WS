@@ -21,15 +21,13 @@ public class DayPanel extends ConsolePane {
 
     public DayPanel(Hannah hannah) {
         super(hannah);
+        createPanel();
         doButton();
     }
 
-    public JTextArea createPanel() {
-        final JTextArea textAreaOrder =
-                new JTextArea(20, 30);
-        textAreaOrder.setText("Player "+vote.run()+" has been lynched");
-        textAreaOrder.setEditable(false);
-        return textAreaOrder;
+    public void createPanel() {
+        getTextAreaOrder().setText("Player "+vote.run()+" has been lynched");
+        getTextAreaOrder().setEditable(false);
     }
 
     public void doButton() {

@@ -23,18 +23,16 @@ public class NightPanel extends ConsolePane {
 
     public NightPanel(Hannah hannah) {
         super(hannah);
+        createPanel();
         doButton();
     }
 
-    public JTextArea createPanel() {
-        final JTextArea textAreaOrder =
-                new JTextArea(20, 30);
-        textAreaOrder.setText("Night Start\n");
+    public void createPanel() {
+        getTextAreaOrder().setText("Night Start\n");
         fu = new LoadFileUtil(playerName);
         victory = new Victory(fu.setAllPlayers());
-        textAreaOrder.append(victory.victoryMessage());
-        textAreaOrder.setEditable(false);
-        return textAreaOrder;
+        getTextAreaOrder().append(victory.victoryMessage());
+        getTextAreaOrder().setEditable(false);
     }
 
     public void doButton() {

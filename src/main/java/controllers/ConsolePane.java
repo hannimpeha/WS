@@ -2,6 +2,7 @@ package controllers;
 
 import jason.Agents;
 import org.neo4j.graphdb.Node;
+import panels.PlayerNames;
 import playerInfo.Player;
 import stateMachine.*;
 
@@ -21,6 +22,7 @@ public class ConsolePane extends JPanel {
     private static JPanel south = new JPanel();
     private static Box box = Box.createHorizontalBox();
     private static JButton button = new JButton("Enter");
+    private static JTextArea textAreaOrder = new JTextArea(20, 30);
     private static JTextField textField = new JTextField(24);
 
 
@@ -42,7 +44,7 @@ public class ConsolePane extends JPanel {
     }
 
     public void displayNorth() {
-        north.add(new JScrollPane(switchPanel(hannah.getState())));
+        north.add(new JScrollPane(new NameState(hannah).onName()));
         contentPane.add(north);
     }
 
@@ -57,19 +59,12 @@ public class ConsolePane extends JPanel {
         contentPane.add(south);
     }
 
-    public JPanel switchPanel(State state) {
-        switch(state.getCurrent()) {
-            case "Name" : return new NameState(hannah).onRole();
-            default : break;
-        }
-        return null;
-    }
-
     public static JPanel getContentPane(){ return contentPane; }
     public static JPanel getNorthPane() { return north; }
     public static JPanel getSouthPane() { return south; }
     public static JTextField getTextField() { return textField; }
     public static Box getBox() { return box; }
     public static JButton getButton() { return button; }
+    public static JTextArea getTextAreaOrder() { return textAreaOrder; }
 
 }

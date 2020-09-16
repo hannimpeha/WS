@@ -21,15 +21,13 @@ public class PlayerNames extends ConsolePane {
 
     public PlayerNames(Hannah hannah) {
         super(hannah);
+        createPanel();
         doButton();
     }
 
-    public JTextArea createPanel() {
-        final JTextArea textAreaOrder =
-                new JTextArea(20, 30);
-        textAreaOrder.setText("Type Players's Names");
-        textAreaOrder.setEditable(false);
-        return textAreaOrder;
+    public void createPanel() {
+        getTextAreaOrder().setText("Type Players's Names");
+        getTextAreaOrder().setEditable(false);
     }
 
 

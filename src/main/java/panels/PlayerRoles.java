@@ -6,7 +6,6 @@ import jason.infra.centralised.RunCentralisedMAS;
 import stateMachine.Hannah;
 import util.LoadFileUtil;
 
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.*;
@@ -21,19 +20,17 @@ public class PlayerRoles extends ConsolePane {
 
     public PlayerRoles(Hannah hannah) {
         super(hannah);
-       doButton();
+        createPanel();
+        doButton();
     }
 
-    public JTextArea createPanel() {
-        final JTextArea textAreaOrder =
-                new JTextArea(20, 30);
+    public void createPanel() {
         playerRole = fu.createRoles(playerName);
-        textAreaOrder.setText("Assigned Roles are as follows\n");
+        getTextAreaOrder().setText("Assigned Roles are as follows\n");
         for(int i=0; i<playerName.size(); i++) {
-            textAreaOrder.append(playerName.get(i)+" is "+playerRole.get(i)+".\n");
+            getTextAreaOrder().append(playerName.get(i)+" is "+playerRole.get(i)+".\n");
         }
-        textAreaOrder.setEditable(false);
-        return textAreaOrder;
+        getTextAreaOrder().setEditable(false);
     }
 
     public void doButton() {
