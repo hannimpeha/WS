@@ -31,8 +31,11 @@ public class ConsolePane extends JPanel {
 
     public ConsolePane(Hannah hannah) {
         this.hannah = hannah;
-        displayNorth();
-        displaySouth();
+        displayNorth(hannah);
+        displaySouth(hannah);
+    }
+
+    public ConsolePane() {
     }
 
     public void initFrame() {
@@ -46,13 +49,13 @@ public class ConsolePane extends JPanel {
         frame.setVisible(true);
     }
 
-    public void displayNorth() {
-        button.addActionListener(e->
-                north.add(new JScrollPane(switchPanel(hannah.getState()))));
+    public void displayNorth(Hannah hannah) {
+        north.add(new JScrollPane(switchPanel(hannah.getState())));
         contentPane.add(north);
     }
 
-    public void displaySouth() {
+    public void displaySouth(Hannah hannah) {
+        this.hannah = hannah;
         box.setBorder(
                 BorderFactory.createEmptyBorder(5, 1, 5, 1));
         box.add(Box.createHorizontalStrut(5));

@@ -14,13 +14,14 @@ import java.util.List;
 
 public class DayPanel extends ConsolePane {
 
+    private Hannah hannah;
     private List<String> playerName =
             Arrays.asList("hyo", "ji", "yoo", "mi", "vi", "se", "ari");
     private LoadFileUtil fu = new LoadFileUtil(playerName);
     private Voting vote = new Voting();
 
     public DayPanel(Hannah hannah) {
-        super(hannah);
+        this.hannah = hannah;
         doButton();
     }
 
