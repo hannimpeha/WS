@@ -1,6 +1,5 @@
 package panels;
 
-import controllers.ConsolePane;
 import logic.Game;
 import logic.NightAction;
 import logic.Victory;

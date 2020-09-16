@@ -1,17 +1,10 @@
 package controllers;
 
-import jason.Agents;
-import org.neo4j.graphdb.Node;
-import playerInfo.Player;
 import javax.swing.*;
 import java.awt.*;
-import java.util.List;
 
 public class ConsolePane extends JPanel {
 
-    public List<Player> playerInfo;
-    public List<Node> playerNode;
-    public List<Agents> playerAgent;
     private static JPanel contentPane = new JPanel();
     private static JPanel north = new JPanel();
     private static JPanel south = new JPanel();

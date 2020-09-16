@@ -1,19 +1,11 @@
 package stateMachine;
 
 import controllers.Hannah;
-import panels.DayPanel;
-import panels.NightPanel;
-import panels.PlayerNames;
 import panels.PlayerRoles;
 
 import javax.swing.*;
 
 public class RoleState extends State{
-
-    public PlayerNames pnp;
-    public PlayerRoles prp;
-    public DayPanel dp;
-    public NightPanel np;
 
     public RoleState(Hannah hannah) {
         super(hannah);
