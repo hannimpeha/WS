@@ -2,15 +2,16 @@ package controllers;
 
 import javax.swing.*;
 
-public class Controller extends ConsolePane{
+public class Controller {
 
+    private ConsolePane cp;
 
-    public Controller(Hannah hannah) {
-        super(hannah);
+    public Controller() {
         SwingUtilities.invokeLater(new Hannah(){
             @Override
             public void run() {
-                initFrame();
+                cp = new ConsolePane(this);
+                cp.initFrame();
             }
         });
     }

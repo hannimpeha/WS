@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
 import java.util.Arrays;
 import java.util.List;
 
-public class NightPanel extends ConsolePane {
+public class NightPanel {
 
     private static Hannah hannah;
     private List<String> playerName =
@@ -26,10 +26,7 @@ public class NightPanel extends ConsolePane {
     private static Box box = Box.createHorizontalBox();
     private static JTextField textField = new JTextField(24);
 
-    public NightPanel(Hannah hannah) {
-        super(hannah);
-        getNorthPane().add(createPanel());
-        getSouthPane().add(doButton());
+    public NightPanel() {
     }
 
     public JTextArea createPanel() {

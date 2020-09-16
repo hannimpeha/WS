@@ -12,7 +12,7 @@ import java.awt.event.ActionListener;
 import java.util.Arrays;
 import java.util.List;
 
-public class DayPanel extends ConsolePane {
+public class DayPanel {
 
     private static Hannah hannah;
     private static Box box = Box.createHorizontalBox();
@@ -24,10 +24,7 @@ public class DayPanel extends ConsolePane {
     private LoadFileUtil fu = new LoadFileUtil(playerName);
     private Voting vote = new Voting();
 
-    public DayPanel(Hannah hannah) {
-        super(hannah);
-        getNorthPane().add(createPanel());
-        getSouthPane().add(doButton());
+    public DayPanel() {
     }
 
     public JTextArea createPanel() {

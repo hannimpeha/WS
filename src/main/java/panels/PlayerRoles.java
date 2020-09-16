@@ -14,7 +14,7 @@ import java.awt.event.ActionListener;
 import java.util.*;
 import java.util.List;
 
-public class PlayerRoles extends ConsolePane {
+public class PlayerRoles {
 
     private static Hannah hannah;
     private static Box box = Box.createHorizontalBox();
@@ -26,10 +26,7 @@ public class PlayerRoles extends ConsolePane {
     private LoadFileUtil fu = new LoadFileUtil(playerName);
     private List<String> playerRole;
 
-    public PlayerRoles(Hannah hannah) {
-        super(hannah);
-        getNorthPane().add(createPanel());
-        getSouthPane().add(doButton());
+    public PlayerRoles() {
     }
 
     public JTextArea createPanel() {

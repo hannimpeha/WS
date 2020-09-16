@@ -21,11 +21,15 @@ public class DayState extends State {
     }
 
     @Override
-    public JPanel onNext() {
-        hannah.changeState(new NightState(hannah));
-        return new DayPanel(hannah);
+    public JTextArea onNorth() {
+        return new DayPanel().createPanel();
     }
 
+    @Override
+    public Box onSouth() {
+        hannah.changeState(new NightState(hannah));
+        return new DayPanel().doButton();
+    }
 
     @Override
     public String getCurrent() {

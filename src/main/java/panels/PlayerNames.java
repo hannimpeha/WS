@@ -13,8 +13,7 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
 
-public class PlayerNames extends ConsolePane {
-
+public class PlayerNames {
     private static Hannah hannah;
     private static Box box = Box.createHorizontalBox();
     private static JTextField textField = new JTextField(24);
@@ -25,10 +24,7 @@ public class PlayerNames extends ConsolePane {
             "/src/main/java/resource/players.txt";
     private List<String> playerName;
 
-    public PlayerNames(Hannah hannah) {
-        super(hannah);
-        getNorthPane().add(createPanel());
-        getSouthPane().add(doButton());
+    public PlayerNames() {
     }
 
     public JTextArea createPanel() {

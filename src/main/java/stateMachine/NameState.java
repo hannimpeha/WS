@@ -5,6 +5,7 @@ import panels.DayPanel;
 import panels.NightPanel;
 import panels.PlayerNames;
 import panels.PlayerRoles;
+import playerInfo.Player;
 
 import javax.swing.*;
 
@@ -20,10 +21,16 @@ public class NameState extends State {
     }
 
     @Override
-    public JPanel onNext() {
-        hannah.changeState(new RoleState(hannah));
-        return new PlayerNames(hannah);
+    public JTextArea onNorth() {
+        return new PlayerNames().createPanel();
     }
+
+    @Override
+    public Box onSouth() {
+        hannah.changeState(new RoleState(hannah));
+        return new PlayerNames().doButton();
+    }
+
 
     @Override
     public String getCurrent() {
