@@ -19,29 +19,28 @@ public class RoleState extends State{
     }
 
     @Override
-    public JTextArea onName() {
-        pnp = new PlayerNames(hannah);
-        return pnp.createPanel();
+    public JPanel onName() {
+        hannah.changeState(new DayState(hannah));
+        return new PlayerRoles(hannah);
     }
 
     @Override
-    public JTextArea onRole() {
-        prp = new PlayerRoles(hannah);
-        JTextArea action = hannah.getState().onRole();
+    public JPanel onRole() {
+        JPanel action = hannah.getState().onName();
         hannah.changeState(new DayState(hannah));
         return action;
     }
 
     @Override
-    public JTextArea onDay() {
-        dp = new DayPanel(hannah);
-        return dp.createPanel();
+    public JPanel onDay() {
+        hannah.changeState(new DayState(hannah));
+        return new PlayerRoles(hannah);
     }
 
     @Override
-    public JTextArea onNight() {
-        np = new NightPanel(hannah);
-        return np.createPanel();
+    public JPanel onNight() {
+        hannah.changeState(new DayState(hannah));
+        return new PlayerRoles(hannah);
     }
 
     @Override

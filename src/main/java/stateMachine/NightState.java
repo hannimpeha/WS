@@ -1,6 +1,7 @@
 package stateMachine;
 
 import panels.DayPanel;
+import panels.NightPanel;
 import panels.PlayerNames;
 import panels.PlayerRoles;
 
@@ -17,27 +18,26 @@ public class NightState extends State{
     }
 
     @Override
-    public JTextArea onName() {
-        pnp = new PlayerNames(hannah);
-        return pnp.createPanel();
-    }
-
-    @Override
-    public JTextArea onRole() {
-        prp = new PlayerRoles(hannah);
-        return prp.createPanel();
-    }
-
-    @Override
-    public JTextArea onDay() {
-        dp = new DayPanel(hannah);
+    public JPanel onName() {
         hannah.changeState(new DayState(hannah));
-        return dp.createPanel();
+        return new NightPanel(hannah);
     }
 
     @Override
-    public JTextArea onNight() {
-        JTextArea action = hannah.getState().onNight();
+    public JPanel onRole() {
+        hannah.changeState(new DayState(hannah));
+        return new NightPanel(hannah);
+    }
+
+    @Override
+    public JPanel onDay() {
+        hannah.changeState(new DayState(hannah));
+        return new NightPanel(hannah);
+    }
+
+    @Override
+    public JPanel onNight() {
+        JPanel action = hannah.getState().onDay();
         hannah.changeState(new DayState(hannah));
         return action;
     }

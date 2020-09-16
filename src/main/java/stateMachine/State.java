@@ -10,10 +10,10 @@ public abstract class State {
         this.hannah = hannah;
     }
 
-    public abstract JTextArea onName();
-    public abstract JTextArea onRole();
-    public abstract JTextArea onDay();
-    public abstract JTextArea onNight();
+    public abstract JPanel onName();
+    public abstract JPanel onRole();
+    public abstract JPanel onDay();
+    public abstract JPanel onNight();
 
     public abstract String getCurrent();
 }
