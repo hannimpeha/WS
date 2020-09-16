@@ -1,23 +1,19 @@
 package controllers;
 
-import stateMachine.Hannah;
-
 import javax.swing.*;
 
-public class Controller {
+public class Controller extends ConsolePane{
 
     public Controller() {
-        SwingUtilities.invokeLater(new Runnable(){
+        SwingUtilities.invokeLater(new Hannah(){
             @Override
             public void run() {
-
+                initFrame();
             }
         });
     }
 
     public void run() {
-        Hannah hannah = new Hannah();
-        new ConsolePane(hannah).initFrame();
     }
 
 }

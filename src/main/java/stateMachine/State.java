@@ -1,5 +1,7 @@
 package stateMachine;
 
+import controllers.Hannah;
+
 import javax.swing.*;
 
 public abstract class State {

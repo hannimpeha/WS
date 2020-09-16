@@ -4,10 +4,9 @@ import controllers.ConsolePane;
 import logic.Game;
 import logic.NightAction;
 import logic.Victory;
-import stateMachine.Hannah;
+import controllers.Hannah;
 import util.LoadFileUtil;
 
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Arrays;
@@ -15,6 +14,7 @@ import java.util.List;
 
 public class NightPanel extends ConsolePane {
 
+    private Hannah hannah;
     private List<String> playerName =
             Arrays.asList("ji", "yoo", "mi", "vi", "se", "ari");
     private LoadFileUtil fu;
@@ -22,7 +22,7 @@ public class NightPanel extends ConsolePane {
     private Victory victory;
 
     public NightPanel(Hannah hannah) {
-        super(hannah);
+        this.hannah = hannah;
         createPanel();
         doButton();
     }

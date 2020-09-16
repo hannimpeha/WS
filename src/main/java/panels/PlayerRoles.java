@@ -3,7 +3,7 @@ package panels;
 import controllers.ConsolePane;
 import jason.NCT;
 import jason.infra.centralised.RunCentralisedMAS;
-import stateMachine.Hannah;
+import controllers.Hannah;
 import util.LoadFileUtil;
 
 import java.awt.event.ActionEvent;
@@ -13,13 +13,14 @@ import java.util.List;
 
 public class PlayerRoles extends ConsolePane {
 
+    private Hannah hannah;
     private List<String> playerName =
             Arrays.asList("hyo", "ji", "yoo", "mi", "vi", "se", "ari");
     private LoadFileUtil fu = new LoadFileUtil(playerName);
     private List<String> playerRole;
 
     public PlayerRoles(Hannah hannah) {
-        super(hannah);
+        this.hannah = hannah;
         createPanel();
         doButton();
     }

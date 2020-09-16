@@ -3,10 +3,9 @@ package panels;
 import ballot.Voting;
 import controllers.ConsolePane;
 import logic.Game;
-import stateMachine.Hannah;
+import controllers.Hannah;
 import util.LoadFileUtil;
 
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Arrays;
@@ -14,13 +13,14 @@ import java.util.List;
 
 public class DayPanel extends ConsolePane {
 
+    private Hannah hannah;
     private List<String> playerName =
             Arrays.asList("hyo", "ji", "yoo", "mi", "vi", "se", "ari");
     private LoadFileUtil fu = new LoadFileUtil(playerName);
     private Voting vote = new Voting();
 
     public DayPanel(Hannah hannah) {
-        super(hannah);
+        this.hannah = hannah;
         createPanel();
         doButton();
     }

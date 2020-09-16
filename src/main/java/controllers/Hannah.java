@@ -1,14 +1,12 @@
-package stateMachine;
+package controllers;
 
-public class Hannah {
+import stateMachine.NameState;
+import stateMachine.State;
+
+public class Hannah implements Runnable{
 
     private State state;
     private boolean playing = false;
-
-    public Hannah(){
-        this.state = new NameState(this);
-        setPlaying(true);
-    }
 
     public void changeState(State state) {
         this.state = state;
@@ -26,4 +24,9 @@ public class Hannah {
         return playing;
     }
 
+    @Override
+    public void run() {
+        this.state = new NameState(this);
+        setPlaying(true);
+    }
 }

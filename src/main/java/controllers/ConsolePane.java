@@ -2,7 +2,6 @@ package controllers;
 
 import jason.Agents;
 import org.neo4j.graphdb.Node;
-import panels.PlayerNames;
 import playerInfo.Player;
 import stateMachine.*;
 
@@ -10,7 +9,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.List;
 
-public class ConsolePane extends JPanel {
+public abstract class ConsolePane extends JPanel {
 
     private static Hannah hannah;
     public List<Player> playerInfo;
@@ -26,8 +25,7 @@ public class ConsolePane extends JPanel {
     private static JTextField textField = new JTextField(24);
 
 
-    public ConsolePane(Hannah hannah) {
-        this.hannah = hannah;
+    public ConsolePane() {
         displayNorth();
         displaySouth();
     }

@@ -1,9 +1,8 @@
 package panels;
 
 import controllers.ConsolePane;
-import stateMachine.Hannah;
+import controllers.Hannah;
 
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -14,13 +13,14 @@ import java.util.List;
 
 public class PlayerNames extends ConsolePane {
 
+    private Hannah hannah;
     private List<String> playerName;
     private static String path = "/Users/hannimpeha/HANNIMPEHA/" +
             "Thesis/FascinatingProject" +
             "/src/main/java/resource/players.txt";
 
     public PlayerNames(Hannah hannah) {
-        super(hannah);
+        this.hannah = hannah;
         createPanel();
         doButton();
     }
