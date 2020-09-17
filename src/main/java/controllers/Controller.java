@@ -1,17 +1,16 @@
 package controllers;
 
 import javax.swing.*;
+import java.awt.event.ActionListener;
 
-public class Controller {
+public class Controller extends ConsolePane{
 
-    private ConsolePane cp;
-
-    public Controller() {
-        SwingUtilities.invokeLater(new Hannah(){
+    public Controller(Hannah hannah) {
+        super(hannah);
+        SwingUtilities.invokeLater(new Runnable(){
             @Override
             public void run() {
-                cp = new ConsolePane(this);
-                cp.initFrame();
+                initFrame();
             }
         });
     }

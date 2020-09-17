@@ -1,15 +1,14 @@
 package controllers;
 
-import stateMachine.NameState;
-import stateMachine.State;
+import panels.PlayerNames;
 
-public class Hannah implements Runnable {
+public class Hannah {
 
-    private State state;
+    private static State state;
     private boolean playing = false;
 
     public Hannah() {
-        this.state = new NameState(this);
+        this.state = new PlayerNames();
         setPlaying(true);
     }
 
@@ -29,8 +28,4 @@ public class Hannah implements Runnable {
         return playing;
     }
 
-    @Override
-    public void run() {
-
-    }
 }
