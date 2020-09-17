@@ -8,8 +8,7 @@ import playerInfo.Player;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -29,6 +28,11 @@ public class ConsolePane extends JPanel {
     private static JPanel contentPane = new JPanel();
     private static JPanel north = new JPanel();
     private static JPanel south = new JPanel();
+    private static JScrollPane north0 = new JScrollPane();
+    private static JScrollPane north1 = new JScrollPane();
+    private static JScrollPane north2 = new JScrollPane();
+    private static JScrollPane north3 = new JScrollPane();
+    private static JScrollPane north4 = new JScrollPane();
     private List<String> playerName;
     private static String path = "/Users/hannimpeha/HANNIMPEHA/" +
             "Thesis/FascinatingProject" +
@@ -52,12 +56,17 @@ public class ConsolePane extends JPanel {
     }
 
     private void displayNorth(){
-        north.setLayout(new CardLayout(20, 20));
-        north.add(new JScrollPane(sp.createPanel()), "north0");
-        north.add(new JScrollPane(pnp.createPanel()), "north1");
-        north.add(new JScrollPane(prp.createPanel()), "north2");
-        north.add(new JScrollPane(dp.createPanel()), "north3");
-        north.add(new JScrollPane(np.createPanel()), "north4");
+        north.setLayout(new RXCardLayout(20, 20));
+        north0 = new JScrollPane(sp.createPanel());
+        north1 = new JScrollPane(pnp.createPanel());
+        north2 = new JScrollPane(prp.createPanel());
+        north3 = new JScrollPane(dp.createPanel());
+        north4 = new JScrollPane(np.createPanel());
+        north.add(north0, "north0");
+        north.add(north1, "north1");
+        north.add(north2, "north2");
+        north.add(north3, "north3");
+        north.add(north4, "north4");
         contentPane.add(north);
     }
 
@@ -69,40 +78,12 @@ public class ConsolePane extends JPanel {
         final JTextField textField = new JTextField(24);
         box.add(textField);
         JButton button = new JButton("Enter");
-        south.setLayout(new CardLayout(20, 20));
+        south.setLayout(new RXCardLayout(20, 20));
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                playerName = Arrays.asList(textField.getText().split(", "));
-                try {
-                    Files.write(Paths.get(path),playerName);
-                } catch (IOException ioException) {
-                    ioException.printStackTrace();
-                }
-                CardLayout cardLayout = (CardLayout) north.getLayout();
-                CardLayout layoutCard = (CardLayout) south.getLayout();
-
+                RXCardLayout cardLayout = (RXCardLayout) north.getLayout();
                 cardLayout.next(north);
-                layoutCard.next(south);
-//                if(e.getActionCommand()=="Enter") {
-//                    cardLayout.show(north, "north2");
-//                    layoutCard.show(south, "south2");
-//                } else if (e.getActionCommand()=="Name") {
-//                    cardLayout.show(north, "north2");
-//                    layoutCard.show(south, "south2");
-//                } else if (e.getActionCommand()=="Role") {
-//                    cardLayout.show(north, "north3");
-//                    layoutCard.show(south, "south3");
-//                } else if (e.getActionCommand()=="Day") {
-//                    cardLayout.show(north, "north4");
-//                    layoutCard.show(south, "south4");
-//                } else if (e.getActionCommand()=="Night") {
-//                    cardLayout.show(north, "north1");
-//                    layoutCard.show(south, "south1");
-//                } else {
-//                    cardLayout.show(north, "north3");
-//                    layoutCard.show(south, "south3");
-//                }
             }
         });
         box.add(button);
