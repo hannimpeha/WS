@@ -1,7 +1,5 @@
 package panels;
 
-import controllers.Hannah;
-import controllers.State;
 import jason.NCT;
 import jason.infra.centralised.RunCentralisedMAS;
 import util.LoadFileUtil;
@@ -12,7 +10,7 @@ import java.awt.event.ActionListener;
 import java.util.*;
 import java.util.List;
 
-public class PlayerRoles implements State {
+public class PlayerRoles {
 
     private List<String> playerName =
             Arrays.asList("hyo", "ji", "yoo", "mi", "vi", "se", "ari");
@@ -40,8 +38,8 @@ public class PlayerRoles implements State {
         box.setBorder(BorderFactory.createEmptyBorder(5, 1, 5, 1));
         box.add(Box.createHorizontalStrut(5));
         box.add(Box.createHorizontalGlue());
-        final JButton sendButton = new JButton("Send");
-        sendButton.addActionListener(new ActionListener() {
+        final JButton button = new JButton("Role");
+        button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new RunCentralisedMAS();
@@ -49,18 +47,8 @@ public class PlayerRoles implements State {
             }
 
         });
-        box.add(sendButton);
+        box.add(button);
         return box;
     }
 
-    @Override
-    public JTextArea doContinue(Hannah hannah) {
-        hannah.changeState(new DayPanel());
-        return createPanel();
-    }
-
-    @Override
-    public String getThis() {
-        return "Role";
-    }
 }

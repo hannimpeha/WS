@@ -5,10 +5,10 @@ import javax.swing.*;
 public class Controller {
 
     public Controller() {
-        SwingUtilities.invokeLater(new Hannah(){
+        SwingUtilities.invokeLater(new Runnable(){
             @Override
             public void run() {
-                ConsolePane cp = new ConsolePane(this);
+                ConsolePane cp = new ConsolePane();
                 cp.initFrame();
             }
         });

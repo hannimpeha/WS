@@ -1,6 +1,7 @@
 package controllers;
 
 import jason.Agents;
+import org.bouncycastle.cert.ocsp.jcajce.JcaRespID;
 import org.neo4j.graphdb.Node;
 import panels.*;
 import playerInfo.Player;
@@ -20,11 +21,11 @@ public class ConsolePane extends JPanel {
     public List<Player> playerInfo;
     public List<Node> playerNode;
     public List<Agents> playerAgent;
+    public SettingPanel sp = new SettingPanel();
     public PlayerNames pnp = new PlayerNames();
     public PlayerRoles prp = new PlayerRoles();
     public DayPanel dp = new DayPanel();
     public NightPanel np = new NightPanel();
-
     private static JPanel contentPane = new JPanel();
     private static JPanel north = new JPanel();
     private static JPanel south = new JPanel();
@@ -32,10 +33,9 @@ public class ConsolePane extends JPanel {
     private static String path = "/Users/hannimpeha/HANNIMPEHA/" +
             "Thesis/FascinatingProject" +
             "/src/main/java/resource/players.txt";
-    private Hannah hannah;
 
-    public ConsolePane(Hannah hannah) {
-        this.hannah = hannah;
+
+    public ConsolePane() {
         displayNorth();
         displaySouth();
     }
@@ -53,13 +53,11 @@ public class ConsolePane extends JPanel {
 
     private void displayNorth(){
         north.setLayout(new CardLayout(20, 20));
-        north.add(new JScrollPane(hannah.getState().doContinue(hannah)));
-        north.add(new JScrollPane(hannah.getState().doContinue(hannah)));
-        north.add(new JScrollPane(hannah.getState().doContinue(hannah)));
-        north.add(new JScrollPane(hannah.getState().doContinue(hannah)));
-//        north.add(new JScrollPane(prp.createPanel()));
-//        north.add(new JScrollPane(dp.createPanel()));
-//        north.add(new JScrollPane(np.createPanel()));
+        north.add(new JScrollPane(sp.createPanel()), "north0");
+        north.add(new JScrollPane(pnp.createPanel()), "north1");
+        north.add(new JScrollPane(prp.createPanel()), "north2");
+        north.add(new JScrollPane(dp.createPanel()), "north3");
+        north.add(new JScrollPane(np.createPanel()), "north4");
         contentPane.add(north);
     }
 
@@ -71,24 +69,48 @@ public class ConsolePane extends JPanel {
         final JTextField textField = new JTextField(24);
         box.add(textField);
         JButton button = new JButton("Enter");
+        south.setLayout(new CardLayout(20, 20));
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                CardLayout cardLayout = (CardLayout) north.getLayout();
-                cardLayout.next(north);
                 playerName = Arrays.asList(textField.getText().split(", "));
                 try {
                     Files.write(Paths.get(path),playerName);
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
+                CardLayout cardLayout = (CardLayout) north.getLayout();
+                CardLayout layoutCard = (CardLayout) south.getLayout();
+
+                cardLayout.next(north);
+                layoutCard.next(south);
+//                if(e.getActionCommand()=="Enter") {
+//                    cardLayout.show(north, "north2");
+//                    layoutCard.show(south, "south2");
+//                } else if (e.getActionCommand()=="Name") {
+//                    cardLayout.show(north, "north2");
+//                    layoutCard.show(south, "south2");
+//                } else if (e.getActionCommand()=="Role") {
+//                    cardLayout.show(north, "north3");
+//                    layoutCard.show(south, "south3");
+//                } else if (e.getActionCommand()=="Day") {
+//                    cardLayout.show(north, "north4");
+//                    layoutCard.show(south, "south4");
+//                } else if (e.getActionCommand()=="Night") {
+//                    cardLayout.show(north, "north1");
+//                    layoutCard.show(south, "south1");
+//                } else {
+//                    cardLayout.show(north, "north3");
+//                    layoutCard.show(south, "south3");
+//                }
             }
         });
         box.add(button);
-        south.add(box);
-        south.add(prp.createButton());
-        south.add(dp.createButton());
-        south.add(np.createButton());
+        south.add(box, "south0");
+        south.add(pnp.createButton(), "south1");
+        south.add(prp.createButton(), "south2");
+        south.add(dp.createButton(), "south3");
+        south.add(np.createButton(), "south4");
         contentPane.add(south);
     }
 

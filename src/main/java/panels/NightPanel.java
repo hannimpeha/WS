@@ -1,7 +1,5 @@
 package panels;
 
-import controllers.Hannah;
-import controllers.State;
 import logic.Game;
 import logic.NightAction;
 import logic.Victory;
@@ -13,7 +11,7 @@ import java.awt.event.ActionListener;
 import java.util.Arrays;
 import java.util.List;
 
-public class NightPanel implements State {
+public class NightPanel {
 
     private List<String> playerName =
             Arrays.asList("hyo", "ji", "yoo", "mi", "vi", "se", "ari");
@@ -40,26 +38,16 @@ public class NightPanel implements State {
         box.setBorder(BorderFactory.createEmptyBorder(5, 1, 5, 1));
         box.add(Box.createHorizontalStrut(5));
         box.add(Box.createHorizontalGlue());
-        final JButton continueButton = new JButton("Cont..");
-        continueButton.addActionListener(new ActionListener() {
+        final JButton button = new JButton("Night");
+        button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 na = new NightAction();
                 new Game(fu.setAllPlayers(), na.nightAction());
             }
         });
-        box.add(continueButton);
+        box.add(button);
         return box;
     }
 
-    @Override
-    public JTextArea doContinue(Hannah hannah) {
-        hannah.changeState(new DayPanel());
-        return createPanel();
-    }
-
-    @Override
-    public String getThis() {
-        return "Night";
-    }
 }
