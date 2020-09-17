@@ -1,9 +1,9 @@
 package panels;
 
+import controllers.Hannah;
 import controllers.State;
 import jason.NCT;
 import jason.infra.centralised.RunCentralisedMAS;
-import controllers.Hannah;
 import util.LoadFileUtil;
 
 import javax.swing.*;
@@ -18,32 +18,49 @@ public class PlayerRoles implements State {
             Arrays.asList("hyo", "ji", "yoo", "mi", "vi", "se", "ari");
     private LoadFileUtil fu = new LoadFileUtil(playerName);
     private List<String> playerRole;
-    private final JTextArea textAreaOrder = new JTextArea(20, 30);
-    private final JTextField textField = new JTextField(24);
-    private Hannah hannah;
+
 
     public PlayerRoles() {
     }
 
-    public void doButton(Hannah hannah) {
-        new RunCentralisedMAS();
-        new NCT(fu.setAllPlayers());
-    }
-
-    @Override
-    public void doContinue(Hannah hannah) {
-        doButton(hannah);
-        hannah.changeState(new DayPanel());
-    }
-
-    @Override
-    public JTextArea getTextArea() {
+    public JTextArea createPanel() {
+        final JTextArea textAreaOrder =
+                new JTextArea(20, 30);
         playerRole = fu.createRoles(playerName);
         textAreaOrder.setText("Assigned Roles are as follows\n");
-        for (int i = 0; i < playerName.size(); i++) {
-            textAreaOrder.append(playerName.get(i) + " is " + playerRole.get(i) + ".\n");
+        for(int i=0; i<playerName.size(); i++) {
+            textAreaOrder.append(playerName.get(i)+" is "+playerRole.get(i)+".\n");
         }
         textAreaOrder.setEditable(false);
         return textAreaOrder;
+    }
+
+    public Box createButton() {
+        final Box box = Box.createHorizontalBox();
+        box.setBorder(BorderFactory.createEmptyBorder(5, 1, 5, 1));
+        box.add(Box.createHorizontalStrut(5));
+        box.add(Box.createHorizontalGlue());
+        final JButton sendButton = new JButton("Send");
+        sendButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new RunCentralisedMAS();
+                new NCT(fu.setAllPlayers());
+            }
+
+        });
+        box.add(sendButton);
+        return box;
+    }
+
+    @Override
+    public JTextArea doContinue(Hannah hannah) {
+        hannah.changeState(new DayPanel());
+        return createPanel();
+    }
+
+    @Override
+    public String getThis() {
+        return null;
     }
 }

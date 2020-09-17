@@ -2,7 +2,7 @@ package controllers;
 
 import panels.PlayerNames;
 
-public class Hannah {
+public class Hannah implements Runnable{
 
     private static State state;
     private boolean playing = false;
@@ -28,4 +28,8 @@ public class Hannah {
         return playing;
     }
 
+    @Override
+    public void run() {
+
+    }
 }
