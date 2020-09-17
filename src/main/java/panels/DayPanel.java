@@ -54,6 +54,6 @@ public class DayPanel implements State {
 
     @Override
     public String getThis() {
-        return null;
+        return "Day";
     }
 }

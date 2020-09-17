@@ -61,6 +61,6 @@ public class PlayerRoles implements State {
 
     @Override
     public String getThis() {
-        return null;
+        return "Role";
     }
 }

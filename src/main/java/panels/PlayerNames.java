@@ -26,6 +26,6 @@ public class PlayerNames implements State {
 
     @Override
     public String getThis() {
-        return null;
+        return "Name";
     }
 }

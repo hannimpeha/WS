@@ -16,19 +16,19 @@ import java.util.List;
 public class NightPanel implements State {
 
     private List<String> playerName =
-            Arrays.asList("ji", "yoo", "mi", "vi", "se", "ari");
+            Arrays.asList("hyo", "ji", "yoo", "mi", "vi", "se", "ari");
     private LoadFileUtil fu;
     private NightAction na;
     private Victory victory;
 
     public NightPanel() {
+        fu = new LoadFileUtil(playerName);
     }
 
     public JTextArea createPanel() {
         final JTextArea textAreaOrder =
                 new JTextArea(20, 30);
         textAreaOrder.setText("Night Start\n");
-        fu = new LoadFileUtil(playerName);
         victory = new Victory(fu.setAllPlayers());
         textAreaOrder.append(victory.victoryMessage());
         textAreaOrder.setEditable(false);
@@ -60,6 +60,6 @@ public class NightPanel implements State {
 
     @Override
     public String getThis() {
-        return null;
+        return "Night";
     }
 }
