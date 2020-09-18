@@ -1,18 +1,24 @@
 package panels;
 
 
+import playerInfo.Player;
+import util.LoadFileUtil;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class PlayerNames {
 
     private List<String> playerName;
+    private List<Player> playerInfo = new ArrayList<>();
+    private LoadFileUtil fu = new LoadFileUtil();
     private static String path = "/Users/hannimpeha/HANNIMPEHA/" +
             "Thesis/FascinatingProject" +
             "/src/main/java/resource/players.txt";
@@ -47,6 +53,8 @@ public class PlayerNames {
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
+                playerInfo = fu.setAllPlayers();
+                fu.saveGame(playerInfo);
             }
         });
         box.add(button);

@@ -5,15 +5,14 @@ import org.neo4j.graphdb.Node;
 import playerInfo.Player;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.*;
 
 public class LoadFileUtil {
 
     private static SaveFileUtil su;
-    private CreatePlayerUtil cpu;
     private List<String> playerName = new ArrayList<>();
     private List<String> playerRole = new ArrayList<>();
     private List<Player> playerInfo = new ArrayList<>();
@@ -22,10 +21,13 @@ public class LoadFileUtil {
     private static final String path = "/Users/hannimpeha/HANNIMPEHA/" +
             "Thesis/FascinatingProject" +
             "/src/main/java/resource/players.txt";
+    private static final String saveFile =
+            "/Users/hannimpeha/HANNIMPEHA/" +
+                    "Thesis/FascinatingProject" +
+                    "/src/main/java/resource/saveGame.txt";;
 
-    public LoadFileUtil(List<String> playerName) {
-        this.playerName = playerName;
-        playerRole = createRoles(playerName);
+    public LoadFileUtil() {
+        playerRole = createRoles(this.loadFile());
     }
 
     public List<String> createRoles(List<String> playerName) {
@@ -77,24 +79,26 @@ public class LoadFileUtil {
 
     public List<String> loadFile() {
         try {
-            BufferedReader br = new BufferedReader(
-                    new FileReader(new File(path)));
-            StringBuilder sb = new StringBuilder();
-            String str = br.readLine();
-            while (str != null) {
-                sb.append(str);
-                sb.append(System.lineSeparator());
-                str = br.readLine();
-            }
-            playerName.add(sb.toString());
-            //System.out.println(sb.toString().split(","));
+            playerName = Files.readAllLines(
+                    Paths.get(path), StandardCharsets.UTF_8);
         } catch (IOException exception) {
             exception.printStackTrace();
         }
         return playerName;
     }
 
-    public List<Player> getPlayerInfo() {
+    public List<Player> loadPlayer() {
+        try{
+            BufferedReader br = new BufferedReader(
+                    new FileReader(new File(saveFile)));
+            String[] arr = br.readLine().split(", ");
+            Player player = CreatePlayerUtil.createPlayer(
+                    arr[0], arr[1], Integer.parseInt(arr[2]));
+            playerInfo.add(player);
+        }catch(IOException e) {
+            e.printStackTrace();
+        }
         return playerInfo;
     }
+
 }

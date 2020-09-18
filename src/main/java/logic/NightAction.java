@@ -10,17 +10,15 @@ import java.util.Random;
 public class NightAction {
 
     private Random randomGenerator;
-    private List<String> playerName =
-            Arrays.asList("ji", "yoo", "mi", "vi", "se", "ari");
-    private LoadFileUtil fu = new LoadFileUtil(playerName);
-    private List<Player> playerInfo = fu.setAllPlayers();
+    private LoadFileUtil fu = new LoadFileUtil();
+    private List<Player> playerInfo = fu.loadPlayer();
 
     public NightAction(){
     }
 
     public String nightAction() {
         randomGenerator = new Random();
-        int ind = randomGenerator.nextInt(playerName.size()-1);
+        int ind = randomGenerator.nextInt(playerInfo.size()-1);
         return playerInfo.get(ind).getName();
     }
 }

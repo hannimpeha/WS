@@ -8,19 +8,15 @@ import util.LoadFileUtil;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Arrays;
-import java.util.List;
 
-public class NightPanel {
+public class NightPanel implements State {
 
-    private List<String> playerName =
-            Arrays.asList("hyo", "ji", "yoo", "mi", "vi", "se", "ari");
-    private LoadFileUtil fu;
+    private LoadFileUtil fu = new LoadFileUtil();;
     private NightAction na;
     private Victory victory;
+    private Student student;
 
     public NightPanel() {
-        fu = new LoadFileUtil(playerName);
     }
 
     public JTextArea createPanel() {
@@ -45,4 +41,30 @@ public class NightPanel {
         return button;
     }
 
+
+    @Override
+    public JTextArea onPlayAbove(Student student) {
+        return createPanel();
+    }
+
+    @Override
+    public JTextArea onExitAbove(Student student) {
+        return createPanel();
+    }
+
+    @Override
+    public JButton onPlayBottom(Student student) {
+        student.setState(new DayPanel());
+        return createButton();
+    }
+
+    @Override
+    public JButton onExitBottom(Student student) {
+        return createButton();
+    }
+
+    @Override
+    public String getName() {
+        return "Night";
+    }
 }

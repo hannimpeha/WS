@@ -7,15 +7,14 @@ import util.LoadFileUtil;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Arrays;
 import java.util.List;
 
-public class DayPanel {
+public class DayPanel implements State {
 
-    private List<String> playerName =
-            Arrays.asList("hyo", "ji", "yoo", "mi", "vi", "se", "ari");
-    private LoadFileUtil fu = new LoadFileUtil(playerName);
+    private LoadFileUtil fu = new LoadFileUtil();
+    private List<String> playerName = fu.loadFile();
     private Voting vote = new Voting();
+    private Student student;
 
     public DayPanel() {
     }
@@ -23,7 +22,8 @@ public class DayPanel {
     public JTextArea createPanel() {
         final JTextArea textAreaOrder =
                 new JTextArea(20, 40);
-        textAreaOrder.setText("Player "+vote.run()+" has been lynched");
+        textAreaOrder.setText("There are "+playerName.size()+" number of Players\n");
+        textAreaOrder.append("Player "+vote.run()+" has been lynched");
         textAreaOrder.setEditable(false);
         return textAreaOrder;
     }
@@ -40,4 +40,34 @@ public class DayPanel {
         return button;
     }
 
+    public List<String> getSurvivor() {
+        return fu.loadFile();
+    }
+
+    @Override
+    public JTextArea onPlayAbove(Student student) {
+        student.setState(new NightPanel());
+        return createPanel();
+    }
+
+    @Override
+    public JTextArea onExitAbove(Student student) {
+        return createPanel();
+    }
+
+    @Override
+    public JButton onPlayBottom(Student student) {
+        student.setState(new NightPanel());
+        return createButton();
+    }
+
+    @Override
+    public JButton onExitBottom(Student student) {
+        return createButton();
+    }
+
+    @Override
+    public String getName() {
+        return "Day";
+    }
 }

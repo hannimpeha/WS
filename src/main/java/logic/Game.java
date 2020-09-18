@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 public class Game {
 
-    private LoadFileUtil fu;
+    private LoadFileUtil fu = new LoadFileUtil();
     private List<Player> playerInfo;
     private String lynched;
     private static String path = "/Users/hannimpeha/HANNIMPEHA/" +
@@ -21,7 +21,6 @@ public class Game {
     public Game(List<Player> playerInfo, String lynched) {
         this.playerInfo = playerInfo;
         this.lynched = lynched;
-        fu = new LoadFileUtil(getAgentName(playerInfo, lynched));
         fu.saveGame(remainingPlayer(playerInfo, lynched));
         try {
             Files.write(Paths.get(path), getAgentName(playerInfo, lynched));

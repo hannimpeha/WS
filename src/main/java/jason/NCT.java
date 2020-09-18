@@ -20,7 +20,6 @@ public class NCT {
     public NCT(List<Player> playerInfo) {
         ia = new InternalAction(createAgent(playerInfo));
         ia.execute(ts, un, args);
-        fu = new LoadFileUtil(getAgentName(playerInfo));
         fu.saveGame(playerInfo);
     }
 

@@ -6,13 +6,13 @@ import panels.*;
 import playerInfo.Player;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.List;
 
 public class ConsolePane extends JPanel {
 
+    private Student student;
     public List<Player> playerInfo;
     public List<Node> playerNode;
     public List<Agents> playerAgent;
@@ -36,6 +36,7 @@ public class ConsolePane extends JPanel {
     private static String path = "/Users/hannimpeha/HANNIMPEHA/" +
             "Thesis/FascinatingProject" +
             "/src/main/java/resource/players.txt";
+
 
     public ConsolePane() {
         displayNorth();
@@ -63,6 +64,11 @@ public class ConsolePane extends JPanel {
         north.add(north2, "north2");
         north.add(north3, "north3");
         north.add(north4, "north4");
+//        north1 = new JScrollPane(student.getState().onPlayAbove(student));
+//        north.add(north1, "north1");
+        //north2 = new JScrollPane(student.getState().onExitAbove(student));
+
+        //north.add(north2, "north2");
         contentPane.add(north);
     }
 
@@ -78,6 +84,8 @@ public class ConsolePane extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 RXCardLayout layoutCard = (RXCardLayout) realSouth.getLayout();
+                RXCardLayout cardLayout = (RXCardLayout) north.getLayout();
+                cardLayout.next(north);
                 layoutCard.next(realSouth);
             }
         });
@@ -87,6 +95,20 @@ public class ConsolePane extends JPanel {
         south3 = dp.createButton();
         south4 = np.createButton();
 
+//        JButton button = dp.createButton();
+//        button.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                System.out.println(e.getActionCommand());
+//                if(e.getActionCommand()=="Day") {
+//                    student.setState(new NightPanel(student));
+//                } else {
+//                    student.setState(new DayPanel(student));
+//                }
+//                south1 = student.getState().onPlayBottom(student);
+//            }
+//        });
+        //south2 = student.getState().onExitBottom(student);
         south2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
