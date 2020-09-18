@@ -25,7 +25,7 @@ public class NightPanel {
 
     public JTextArea createPanel() {
         final JTextArea textAreaOrder =
-                new JTextArea(20, 30);
+                new JTextArea(20, 40);
         textAreaOrder.setText("Night Start\n");
         victory = new Victory(fu.setAllPlayers());
         textAreaOrder.append(victory.victoryMessage());
@@ -33,7 +33,7 @@ public class NightPanel {
         return textAreaOrder;
     }
 
-    public Box createButton() {
+    public JButton createButton() {
         final Box box = Box.createHorizontalBox();
         box.setBorder(BorderFactory.createEmptyBorder(5, 1, 5, 1));
         box.add(Box.createHorizontalStrut(5));
@@ -46,8 +46,8 @@ public class NightPanel {
                 new Game(fu.setAllPlayers(), na.nightAction());
             }
         });
-        box.add(button);
-        return box;
+        //box.add(button);
+        return button;
     }
 
 }

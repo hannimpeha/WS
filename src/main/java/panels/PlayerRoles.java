@@ -23,7 +23,7 @@ public class PlayerRoles {
 
     public JTextArea createPanel() {
         final JTextArea textAreaOrder =
-                new JTextArea(20, 30);
+                new JTextArea(20, 40);
         playerRole = fu.createRoles(playerName);
         textAreaOrder.setText("Assigned Roles are as follows\n");
         for(int i=0; i<playerName.size(); i++) {
@@ -33,7 +33,7 @@ public class PlayerRoles {
         return textAreaOrder;
     }
 
-    public Box createButton() {
+    public JButton createButton() {
         final Box box = Box.createHorizontalBox();
         box.setBorder(BorderFactory.createEmptyBorder(5, 1, 5, 1));
         box.add(Box.createHorizontalStrut(5));
@@ -47,8 +47,8 @@ public class PlayerRoles {
             }
 
         });
-        box.add(button);
-        return box;
+        //box.add(button);
+        return button;
     }
 
 }

@@ -22,14 +22,14 @@ public class PlayerNames {
 
     public JTextArea createPanel() {
         final JTextArea textAreaOrder =
-                new JTextArea(20, 30);
+                new JTextArea(20, 40);
         textAreaOrder.setText("Type Players's Names");
         textAreaOrder.setEditable(false);
         return textAreaOrder;
     }
 
 
-    public Box createButton() {
+    public JButton createButton() {
         final Box box = Box.createHorizontalBox();
         box.setBorder(BorderFactory.createEmptyBorder(5, 1, 5, 1));
         box.add(Box.createHorizontalStrut(5));
@@ -48,8 +48,8 @@ public class PlayerNames {
                 }
             }
         });
-        box.add(button);
-        return box;
+        //box.add(button);
+        return button;
     }
 
 }

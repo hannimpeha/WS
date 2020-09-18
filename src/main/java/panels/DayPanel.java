@@ -22,14 +22,14 @@ public class DayPanel  {
 
     public JTextArea createPanel() {
         final JTextArea textAreaOrder =
-                new JTextArea(20, 30);
+                new JTextArea(20, 40);
         textAreaOrder.setText("Player "+vote.run()+" has been lynched");
         textAreaOrder.setEditable(false);
         return textAreaOrder;
     }
 
 
-    public Box createButton() {
+    public JButton createButton() {
         final Box box = Box.createHorizontalBox();
         box.setBorder(BorderFactory.createEmptyBorder(5, 1, 5, 1));
         box.add(Box.createHorizontalStrut(5));
@@ -41,8 +41,8 @@ public class DayPanel  {
                 new Game(fu.setAllPlayers(), vote.run());
             }
         });
-        box.add(button);
-        return box;
+        //box.add(button);
+        return button;
     }
 
 }

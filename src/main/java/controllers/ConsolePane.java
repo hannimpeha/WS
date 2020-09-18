@@ -1,7 +1,6 @@
 package controllers;
 
 import jason.Agents;
-import org.bouncycastle.cert.ocsp.jcajce.JcaRespID;
 import org.neo4j.graphdb.Node;
 import panels.*;
 import playerInfo.Player;
@@ -29,6 +28,10 @@ public class ConsolePane extends JPanel {
     private static JScrollPane north2 = new JScrollPane();
     private static JScrollPane north3 = new JScrollPane();
     private static JScrollPane north4 = new JScrollPane();
+    private static JButton south1 = new JButton();
+    private static JButton south2 = new JButton();
+    private static JButton south3 = new JButton();
+    private static JButton south4 = new JButton();
     private List<String> playerName;
     private static String path = "/Users/hannimpeha/HANNIMPEHA/" +
             "Thesis/FascinatingProject" +
@@ -47,7 +50,6 @@ public class ConsolePane extends JPanel {
         frame.setLocationRelativeTo(null);
         frame.add(north, BorderLayout.CENTER);
         frame.add(south, BorderLayout.PAGE_END);
-        frame.add(realSouth, BorderLayout.EAST);
         frame.pack();
         frame.setVisible(true);
     }
@@ -66,30 +68,71 @@ public class ConsolePane extends JPanel {
     }
 
     private void displaySouth() {
-        south.setLayout(new RXCardLayout(20,20));
-        south.add(pnp.createButton(), "south1");
-        south.add(prp.createButton(), "south2");
-        south.add(dp.createButton(), "south3");
-        south.add(np.createButton(), "south4");
+        realSouth.setLayout(new RXCardLayout(20,20));
+//        south.add(pnp.createButton(), "south1");
+//        south.add(prp.createButton(), "south2");
+//        south.add(dp.createButton(), "south3");
+//        south.add(np.createButton(), "south4");
         final Box box = Box.createHorizontalBox();
         box.setBorder(BorderFactory.createEmptyBorder(
                 5, 5, 5, 5));
         box.add(Box.createHorizontalStrut(5));
         box.add(Box.createHorizontalGlue());
+        final JTextField textField = new JTextField(24);
+        box.add(textField);
         JButton button = new JButton("Enter");
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                RXCardLayout cardLayout = (RXCardLayout) north.getLayout();
-                RXCardLayout layoutCard = (RXCardLayout) south.getLayout();
-                System.out.println(e.getActionCommand());
-                cardLayout.next(north);
-                layoutCard.next(south);
+                RXCardLayout layoutCard = (RXCardLayout) realSouth.getLayout();
+                layoutCard.next(realSouth);
             }
         });
+
+        south1 = pnp.createButton();
+        south2 = prp.createButton();
+        south3 = dp.createButton();
+        south4 = np.createButton();
+
+        south1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                RXCardLayout cardLayout = (RXCardLayout) north.getLayout();
+                cardLayout.show(north, "north1");
+            }
+        });
+
+        south2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                RXCardLayout cardLayout = (RXCardLayout) north.getLayout();
+                cardLayout.show(north, "north2");
+            }
+        });
+
+        south3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                RXCardLayout cardLayout = (RXCardLayout) north.getLayout();
+                cardLayout.show(north, "north3");
+            }
+        });
+
+        south4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                RXCardLayout cardLayout = (RXCardLayout) north.getLayout();
+                cardLayout.show(north, "north4");
+            }
+        });
+        realSouth.add(south1, "south1");
+        realSouth.add(south2, "south2");
+        realSouth.add(south3, "south3");
+        realSouth.add(south4, "south4");
+
+        box.add(realSouth);
         box.add(button);
-        realSouth.add(box, "south0");
-        contentPane.add(realSouth);
+        south.add(box);
         contentPane.add(south);
     }
 
