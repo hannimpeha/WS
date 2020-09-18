@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 import java.util.Arrays;
 import java.util.List;
 
-public class DayPanel  {
+public class DayPanel {
 
     private List<String> playerName =
             Arrays.asList("hyo", "ji", "yoo", "mi", "vi", "se", "ari");
@@ -30,10 +30,6 @@ public class DayPanel  {
 
 
     public JButton createButton() {
-        final Box box = Box.createHorizontalBox();
-        box.setBorder(BorderFactory.createEmptyBorder(5, 1, 5, 1));
-        box.add(Box.createHorizontalStrut(5));
-        box.add(Box.createHorizontalGlue());
         final JButton button = new JButton("Day");
         button.addActionListener(new ActionListener() {
             @Override
@@ -41,7 +37,6 @@ public class DayPanel  {
                 new Game(fu.setAllPlayers(), vote.run());
             }
         });
-        //box.add(button);
         return button;
     }
 

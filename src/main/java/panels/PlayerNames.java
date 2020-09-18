@@ -29,9 +29,10 @@ public class PlayerNames {
     }
 
 
-    public JButton createButton() {
+    public Box createButton() {
         final Box box = Box.createHorizontalBox();
-        box.setBorder(BorderFactory.createEmptyBorder(5, 1, 5, 1));
+        box.setBorder(BorderFactory.createEmptyBorder(
+                5, 5, 5, 5));
         box.add(Box.createHorizontalStrut(5));
         box.add(Box.createHorizontalGlue());
         final JTextField textField = new JTextField(24);
@@ -48,8 +49,8 @@ public class PlayerNames {
                 }
             }
         });
-        //box.add(button);
-        return button;
+        box.add(button);
+        return box;
     }
 
 }

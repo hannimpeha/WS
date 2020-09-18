@@ -6,6 +6,7 @@ import panels.*;
 import playerInfo.Player;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.List;
@@ -23,12 +24,11 @@ public class ConsolePane extends JPanel {
     private static JPanel north = new JPanel();
     private static JPanel south = new JPanel();
     private static JPanel realSouth = new JPanel();
-    private static JScrollPane north0 = new JScrollPane();
     private static JScrollPane north1 = new JScrollPane();
     private static JScrollPane north2 = new JScrollPane();
     private static JScrollPane north3 = new JScrollPane();
     private static JScrollPane north4 = new JScrollPane();
-    private static JButton south1 = new JButton();
+    private static Box south1 = Box.createHorizontalBox();
     private static JButton south2 = new JButton();
     private static JButton south3 = new JButton();
     private static JButton south4 = new JButton();
@@ -36,7 +36,6 @@ public class ConsolePane extends JPanel {
     private static String path = "/Users/hannimpeha/HANNIMPEHA/" +
             "Thesis/FascinatingProject" +
             "/src/main/java/resource/players.txt";
-
 
     public ConsolePane() {
         displayNorth();
@@ -74,8 +73,6 @@ public class ConsolePane extends JPanel {
                 5, 5, 5, 5));
         box.add(Box.createHorizontalStrut(5));
         box.add(Box.createHorizontalGlue());
-        final JTextField textField = new JTextField(24);
-        box.add(textField);
         JButton button = new JButton("Enter");
         button.addActionListener(new ActionListener() {
             @Override
@@ -89,14 +86,6 @@ public class ConsolePane extends JPanel {
         south2 = prp.createButton();
         south3 = dp.createButton();
         south4 = np.createButton();
-
-        south1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                RXCardLayout cardLayout = (RXCardLayout) north.getLayout();
-                cardLayout.show(north, "north1");
-            }
-        });
 
         south2.addActionListener(new ActionListener() {
             @Override

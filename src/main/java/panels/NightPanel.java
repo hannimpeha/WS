@@ -34,10 +34,6 @@ public class NightPanel {
     }
 
     public JButton createButton() {
-        final Box box = Box.createHorizontalBox();
-        box.setBorder(BorderFactory.createEmptyBorder(5, 1, 5, 1));
-        box.add(Box.createHorizontalStrut(5));
-        box.add(Box.createHorizontalGlue());
         final JButton button = new JButton("Night");
         button.addActionListener(new ActionListener() {
             @Override
@@ -46,7 +42,6 @@ public class NightPanel {
                 new Game(fu.setAllPlayers(), na.nightAction());
             }
         });
-        //box.add(button);
         return button;
     }
 

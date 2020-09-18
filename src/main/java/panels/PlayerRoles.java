@@ -34,10 +34,6 @@ public class PlayerRoles {
     }
 
     public JButton createButton() {
-        final Box box = Box.createHorizontalBox();
-        box.setBorder(BorderFactory.createEmptyBorder(5, 1, 5, 1));
-        box.add(Box.createHorizontalStrut(5));
-        box.add(Box.createHorizontalGlue());
         final JButton button = new JButton("Role");
         button.addActionListener(new ActionListener() {
             @Override
@@ -47,7 +43,6 @@ public class PlayerRoles {
             }
 
         });
-        //box.add(button);
         return button;
     }
 
