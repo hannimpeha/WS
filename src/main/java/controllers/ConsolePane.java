@@ -69,10 +69,6 @@ public class ConsolePane extends JPanel {
 
     private void displaySouth() {
         realSouth.setLayout(new RXCardLayout(20,20));
-//        south.add(pnp.createButton(), "south1");
-//        south.add(prp.createButton(), "south2");
-//        south.add(dp.createButton(), "south3");
-//        south.add(np.createButton(), "south4");
         final Box box = Box.createHorizontalBox();
         box.setBorder(BorderFactory.createEmptyBorder(
                 5, 5, 5, 5));
@@ -125,6 +121,7 @@ public class ConsolePane extends JPanel {
                 cardLayout.show(north, "north4");
             }
         });
+
         realSouth.add(south1, "south1");
         realSouth.add(south2, "south2");
         realSouth.add(south3, "south3");
