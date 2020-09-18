@@ -9,10 +9,6 @@ import playerInfo.Player;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.Arrays;
 import java.util.List;
 
 public class ConsolePane extends JPanel {
@@ -20,7 +16,6 @@ public class ConsolePane extends JPanel {
     public List<Player> playerInfo;
     public List<Node> playerNode;
     public List<Agents> playerAgent;
-    public SettingPanel sp = new SettingPanel();
     public PlayerNames pnp = new PlayerNames();
     public PlayerRoles prp = new PlayerRoles();
     public DayPanel dp = new DayPanel();
@@ -28,6 +23,7 @@ public class ConsolePane extends JPanel {
     private static JPanel contentPane = new JPanel();
     private static JPanel north = new JPanel();
     private static JPanel south = new JPanel();
+    private static JPanel realSouth = new JPanel();
     private static JScrollPane north0 = new JScrollPane();
     private static JScrollPane north1 = new JScrollPane();
     private static JScrollPane north2 = new JScrollPane();
@@ -51,18 +47,17 @@ public class ConsolePane extends JPanel {
         frame.setLocationRelativeTo(null);
         frame.add(north, BorderLayout.CENTER);
         frame.add(south, BorderLayout.PAGE_END);
+        frame.add(realSouth, BorderLayout.EAST);
         frame.pack();
         frame.setVisible(true);
     }
 
     private void displayNorth(){
         north.setLayout(new RXCardLayout(20, 20));
-        north0 = new JScrollPane(sp.createPanel());
         north1 = new JScrollPane(pnp.createPanel());
         north2 = new JScrollPane(prp.createPanel());
         north3 = new JScrollPane(dp.createPanel());
         north4 = new JScrollPane(np.createPanel());
-        north.add(north0, "north0");
         north.add(north1, "north1");
         north.add(north2, "north2");
         north.add(north3, "north3");
@@ -71,27 +66,30 @@ public class ConsolePane extends JPanel {
     }
 
     private void displaySouth() {
-        final Box box = Box.createHorizontalBox();
-        box.setBorder(BorderFactory.createEmptyBorder(5, 1, 5, 1));
-        box.add(Box.createHorizontalStrut(5));
-        box.add(Box.createHorizontalGlue());
-        final JTextField textField = new JTextField(24);
-        box.add(textField);
-        JButton button = new JButton("Enter");
-        south.setLayout(new RXCardLayout(20, 20));
-        button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                RXCardLayout cardLayout = (RXCardLayout) north.getLayout();
-                cardLayout.next(north);
-            }
-        });
-        box.add(button);
-        south.add(box, "south0");
+        south.setLayout(new RXCardLayout(20,20));
         south.add(pnp.createButton(), "south1");
         south.add(prp.createButton(), "south2");
         south.add(dp.createButton(), "south3");
         south.add(np.createButton(), "south4");
+        final Box box = Box.createHorizontalBox();
+        box.setBorder(BorderFactory.createEmptyBorder(
+                5, 5, 5, 5));
+        box.add(Box.createHorizontalStrut(5));
+        box.add(Box.createHorizontalGlue());
+        JButton button = new JButton("Enter");
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                RXCardLayout cardLayout = (RXCardLayout) north.getLayout();
+                RXCardLayout layoutCard = (RXCardLayout) south.getLayout();
+                System.out.println(e.getActionCommand());
+                cardLayout.next(north);
+                layoutCard.next(south);
+            }
+        });
+        box.add(button);
+        realSouth.add(box, "south0");
+        contentPane.add(realSouth);
         contentPane.add(south);
     }
 
