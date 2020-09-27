@@ -2,12 +2,14 @@ package panels;
 
 import ballot.Voting;
 import logic.Game;
+import playerInfo.Player;
 import util.LoadFileUtil;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class DayPanel implements State {
 
@@ -34,14 +36,17 @@ public class DayPanel implements State {
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new Game(fu.setAllPlayers(), vote.run());
+                fu.saveGame(remainingPlayer(fu.loadPlayer(), vote.run()));
+                new Game(fu.loadPlayer(), vote.run());
             }
         });
         return button;
     }
 
-    public List<String> getSurvivor() {
-        return fu.loadFile();
+    private List<Player> remainingPlayer(List<Player> playerInfo, String lynched) {
+        return playerInfo.stream()
+                .filter(a -> a.getName() == lynched)
+                .collect(Collectors.toList());
     }
 
     @Override

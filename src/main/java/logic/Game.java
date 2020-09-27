@@ -19,9 +19,6 @@ public class Game {
             "/src/main/java/resource/players.txt";
 
     public Game(List<Player> playerInfo, String lynched) {
-        this.playerInfo = playerInfo;
-        this.lynched = lynched;
-        fu.saveGame(remainingPlayer(playerInfo, lynched));
         try {
             Files.write(Paths.get(path), getAgentName(playerInfo, lynched));
         } catch (IOException e) {
@@ -36,10 +33,6 @@ public class Game {
                 .collect(Collectors.toList());
     }
 
-    private List<Player> remainingPlayer(List<Player> playerInfo, String lynched) {
-        return playerInfo.stream()
-                .filter(a -> a.getName() != lynched)
-                .collect(Collectors.toList());
-    }
+
 
 }

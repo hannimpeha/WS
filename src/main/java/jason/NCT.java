@@ -20,7 +20,6 @@ public class NCT {
     public NCT(List<Player> playerInfo) {
         ia = new InternalAction(createAgent(playerInfo));
         ia.execute(ts, un, args);
-        fu.saveGame(playerInfo);
     }
 
     private List<Agents> createAgent(List<Player> playerInfo){

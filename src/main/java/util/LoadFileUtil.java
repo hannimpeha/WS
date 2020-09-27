@@ -1,6 +1,8 @@
 package util;
 
 import jason.Agents;
+import org.checkerframework.checker.units.qual.C;
+import org.neo4j.cypher.internal.compiler.v2_0.ast.Create;
 import org.neo4j.graphdb.Node;
 import playerInfo.Player;
 
@@ -89,13 +91,16 @@ public class LoadFileUtil {
 
     public List<Player> loadPlayer() {
         try{
-            BufferedReader br = new BufferedReader(
-                    new FileReader(new File(saveFile)));
-            String[] arr = br.readLine().split(", ");
-            Player player = CreatePlayerUtil.createPlayer(
-                    arr[0], arr[1], Integer.parseInt(arr[2]));
-            playerInfo.add(player);
-        }catch(IOException e) {
+            playerName = Files.readAllLines(
+                    Paths.get(saveFile), StandardCharsets.UTF_8);
+            for(int i=0; i<playerName.size(); i++) {
+                String str = playerName.get(0);
+                String[] arr = str.split(",");
+                playerInfo.add(
+                        CreatePlayerUtil.createPlayer(
+                                arr[2], arr[1], Integer.parseInt(arr[0])));
+            }
+        } catch(IOException e) {
             e.printStackTrace();
         }
         return playerInfo;

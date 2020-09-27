@@ -38,6 +38,7 @@ public class PlayerRoles {
             public void actionPerformed(ActionEvent e) {
                 new RunCentralisedMAS();
                 new NCT(playerInfo);
+                fu.saveGame(playerInfo);
             }
 
         });

@@ -1,6 +1,5 @@
 package panels;
 
-
 import playerInfo.Player;
 import util.LoadFileUtil;
 
@@ -49,7 +48,7 @@ public class PlayerNames {
             public void actionPerformed(ActionEvent e) {
                 playerName = Arrays.asList(textField.getText().split(", "));
                 try {
-                    Files.write(Paths.get(path),playerName);
+                    Files.write(Paths.get(path), playerName);
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }

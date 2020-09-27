@@ -35,7 +35,7 @@ public class NightPanel implements State {
             @Override
             public void actionPerformed(ActionEvent e) {
                 na = new NightAction();
-                new Game(fu.setAllPlayers(), na.nightAction());
+                new Game(fu.loadPlayer(), na.nightAction());
             }
         });
         return button;
