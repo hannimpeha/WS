@@ -23,7 +23,7 @@ public class PlayerRoles {
                 new JTextArea(20, 40);
         textAreaOrder.setText("Assigned Roles are as follows\n");
         for(int i=0; i<playerInfo.size(); i++) {
-            textAreaOrder.setText(
+            textAreaOrder.append(
                     "Player "+playerInfo.get(i).getName()+" is "+
                             playerInfo.get(i).getRole()+".\n");
         }
@@ -38,7 +38,6 @@ public class PlayerRoles {
             public void actionPerformed(ActionEvent e) {
                 new RunCentralisedMAS();
                 new NCT(playerInfo);
-                fu.saveGame(playerInfo);
             }
 
         });

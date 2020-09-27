@@ -1,0 +1,7 @@
+1,Doctor,hyo,
+1,Townie,ji,
+1,Mafia,yoo,
+1,Townie,mi,
+1,Mafia,vi,
+1,Townie,se,
+1,Townie,ari,
