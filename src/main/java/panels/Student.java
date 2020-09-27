@@ -1,11 +1,13 @@
 package panels;
 
+import javax.swing.*;
+
 public class Student {
 
     private State state;
 
     public Student() {
-        this.state = new DayPanel();
+        this.state = new PlayerNames();
     }
 
     public void setState(State state) {
@@ -17,5 +19,9 @@ public class Student {
     }
 
     public String getName() { return state.getName(); }
+
+    public JPanel createPanel(){ return state.createPanel();}
+
+    public JPanel createButton() {return state.createButton();}
 
 }

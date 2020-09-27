@@ -12,26 +12,17 @@ import java.util.List;
 
 public class ConsolePane extends JPanel {
 
-    private Student student;
+    private static Student student = new Student();
     public List<Player> playerInfo;
     public List<Node> playerNode;
     public List<Agents> playerAgent;
     public PlayerNames pnp = new PlayerNames();
-    public PlayerRoles prp = new PlayerRoles();
-    public DayPanel dp = new DayPanel();
-    public NightPanel np = new NightPanel();
+    public PlayerRoles prp = new PlayerRoles(student);
+    public DayPanel dp = new DayPanel(student);
+    public NightPanel np = new NightPanel(student);
     private static JPanel contentPane = new JPanel();
-    private static JPanel north = new JPanel();
-    private static JPanel south = new JPanel();
-    private static JPanel realSouth = new JPanel();
-    private static JScrollPane north1 = new JScrollPane();
-    private static JScrollPane north2 = new JScrollPane();
-    private static JScrollPane north3 = new JScrollPane();
-    private static JScrollPane north4 = new JScrollPane();
-    private static Box south1 = Box.createHorizontalBox();
-    private static JButton south2 = new JButton();
-    private static JButton south3 = new JButton();
-    private static JButton south4 = new JButton();
+    private static JPanel north = student.getState().createPanel();
+    private static JPanel south = student.getState().createButton();
     private List<String> playerName;
     private static String path = "/Users/hannimpeha/HANNIMPEHA/" +
             "Thesis/FascinatingProject" +
@@ -54,26 +45,11 @@ public class ConsolePane extends JPanel {
         frame.setVisible(true);
     }
 
-    private void displayNorth(){
-        north.setLayout(new RXCardLayout(20, 20));
-        north1 = new JScrollPane(pnp.createPanel());
-        north2 = new JScrollPane(prp.createPanel());
-        north3 = new JScrollPane(dp.createPanel());
-        north4 = new JScrollPane(np.createPanel());
-        north.add(north1, "north1");
-        north.add(north2, "north2");
-        north.add(north3, "north3");
-        north.add(north4, "north4");
-//        north1 = new JScrollPane(student.getState().onPlayAbove(student));
-//        north.add(north1, "north1");
-        //north2 = new JScrollPane(student.getState().onExitAbove(student));
-
-        //north.add(north2, "north2");
+    private void displayNorth() {
         contentPane.add(north);
     }
 
     private void displaySouth() {
-        realSouth.setLayout(new RXCardLayout(20,20));
         final Box box = Box.createHorizontalBox();
         box.setBorder(BorderFactory.createEmptyBorder(
                 5, 5, 5, 5));
@@ -83,62 +59,14 @@ public class ConsolePane extends JPanel {
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                RXCardLayout layoutCard = (RXCardLayout) realSouth.getLayout();
-                RXCardLayout cardLayout = (RXCardLayout) north.getLayout();
-                cardLayout.next(north);
-                layoutCard.next(realSouth);
+                switch(student.getState().getName()) {
+                    case "Name" : student.setState(new PlayerRoles(student));
+                    case "Role" : student.setState(new DayPanel(student));
+                    case "Day" : student.setState(new NightPanel(student));
+                    case "Night" : student.setState(new DayPanel(student));
+                }
             }
         });
-
-        south1 = pnp.createButton();
-        south2 = prp.createButton();
-        south3 = dp.createButton();
-        south4 = np.createButton();
-
-//        JButton button = dp.createButton();
-//        button.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                System.out.println(e.getActionCommand());
-//                if(e.getActionCommand()=="Day") {
-//                    student.setState(new NightPanel(student));
-//                } else {
-//                    student.setState(new DayPanel(student));
-//                }
-//                south1 = student.getState().onPlayBottom(student);
-//            }
-//        });
-        //south2 = student.getState().onExitBottom(student);
-        south2.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                RXCardLayout cardLayout = (RXCardLayout) north.getLayout();
-                cardLayout.show(north, "north2");
-            }
-        });
-
-        south3.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                RXCardLayout cardLayout = (RXCardLayout) north.getLayout();
-                cardLayout.show(north, "north3");
-            }
-        });
-
-        south4.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                RXCardLayout cardLayout = (RXCardLayout) north.getLayout();
-                cardLayout.show(north, "north4");
-            }
-        });
-
-        realSouth.add(south1, "south1");
-        realSouth.add(south2, "south2");
-        realSouth.add(south3, "south3");
-        realSouth.add(south4, "south4");
-
-        box.add(realSouth);
         box.add(button);
         south.add(box);
         contentPane.add(south);

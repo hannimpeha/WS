@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class PlayerNames {
+public class PlayerNames implements State{
 
     protected List<String> playerName;
     protected List<Player> playerInfo = new ArrayList<>();
@@ -21,20 +21,25 @@ public class PlayerNames {
     protected static String path = "/Users/hannimpeha/HANNIMPEHA/" +
             "Thesis/FascinatingProject" +
             "/src/main/java/resource/players.txt";
+    protected Student student;
+    private static JPanel contentPane = new JPanel();
+    private static JPanel north = new JPanel();
+    private static JPanel south = new JPanel();
 
     public PlayerNames() {
     }
 
-    public JTextArea createPanel() {
+    public JPanel createPanel() {
         final JTextArea textAreaOrder =
                 new JTextArea(20, 40);
         textAreaOrder.setText("Type Players's Names");
         textAreaOrder.setEditable(false);
-        return textAreaOrder;
+        north.add(new JScrollPane(textAreaOrder));
+        return north;
     }
 
 
-    public Box createButton() {
+    public JPanel createButton() {
         final Box box = Box.createHorizontalBox();
         box.setBorder(BorderFactory.createEmptyBorder(
                 5, 5, 5, 5));
@@ -46,7 +51,9 @@ public class PlayerNames {
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                playerName = Arrays.asList(textField.getText().split(", "));
+                playerName = Arrays.asList(
+                        new JTextField(30)
+                                .getText().split(", "));
                 try {
                     Files.write(Paths.get(path), playerName);
                 } catch (IOException ioException) {
@@ -57,7 +64,13 @@ public class PlayerNames {
             }
         });
         box.add(button);
-        return box;
+        south.add(box);
+        return south;
     }
 
+
+    @Override
+    public String getName() {
+        return "Name";
+    }
 }

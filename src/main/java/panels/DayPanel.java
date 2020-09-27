@@ -16,21 +16,34 @@ public class DayPanel implements State {
     protected Voting vote = new Voting();
     protected String victim = vote.run();
     protected List<Player> playerInfo = fu.loadPlayer();
+    protected Student student;
+    private static JPanel contentPane = new JPanel();
+    private static JPanel north = new JPanel();
+    private static JPanel south = new JPanel();
 
-    public DayPanel() {
+
+    public DayPanel(Student student) {
+        this.student = student;
     }
 
-    public JTextArea createPanel() {
+    public JPanel createPanel() {
         final JTextArea textAreaOrder =
                 new JTextArea(20, 40);
         textAreaOrder.setText("There are "+playerInfo.size()+" number of Players\n");
         textAreaOrder.append("Player "+victim+" has been lynched");
         textAreaOrder.setEditable(false);
-        return textAreaOrder;
+        north.add(new JScrollPane(textAreaOrder));
+        contentPane.add(north);
+        return north;
     }
 
 
-    public JButton createButton() {
+    public JPanel createButton() {
+        final Box box = Box.createHorizontalBox();
+        box.setBorder(BorderFactory.createEmptyBorder(
+                5, 5, 5, 5));
+        box.add(Box.createHorizontalStrut(5));
+        box.add(Box.createHorizontalGlue());
         final JButton button = new JButton("Day");
         button.addActionListener(new ActionListener() {
             @Override
@@ -40,31 +53,11 @@ public class DayPanel implements State {
                         .collect(Collectors.toList()));
             }
         });
-        return button;
+        box.add(button);
+        south.add(box);
+        return south;
     }
 
-
-    @Override
-    public JTextArea onPlayAbove(Student student) {
-        student.setState(new NightPanel());
-        return createPanel();
-    }
-
-    @Override
-    public JTextArea onExitAbove(Student student) {
-        return createPanel();
-    }
-
-    @Override
-    public JButton onPlayBottom(Student student) {
-        student.setState(new NightPanel());
-        return createButton();
-    }
-
-    @Override
-    public JButton onExitBottom(Student student) {
-        return createButton();
-    }
 
     @Override
     public String getName() {

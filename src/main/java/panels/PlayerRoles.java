@@ -10,15 +10,20 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-public class PlayerRoles {
+public class PlayerRoles implements State{
 
     protected LoadFileUtil fu = new LoadFileUtil();
     protected List<Player> playerInfo = fu.loadPlayer();
+    protected Student student;
+    private static JPanel contentPane = new JPanel();
+    private static JPanel north = new JPanel();
+    private static JPanel south = new JPanel();
 
-    public PlayerRoles() {
+    public PlayerRoles(Student student) {
+        this.student = student;
     }
 
-    public JTextArea createPanel() {
+    public JPanel createPanel() {
         final JTextArea textAreaOrder =
                 new JTextArea(20, 40);
         textAreaOrder.setText("Assigned Roles are as follows\n");
@@ -28,10 +33,16 @@ public class PlayerRoles {
                             playerInfo.get(i).getRole()+".\n");
         }
         textAreaOrder.setEditable(false);
-        return textAreaOrder;
+        north.add(new JScrollPane(textAreaOrder));
+        return north;
     }
 
-    public JButton createButton() {
+    public JPanel createButton() {
+        final Box box = Box.createHorizontalBox();
+        box.setBorder(BorderFactory.createEmptyBorder(
+                5, 5, 5, 5));
+        box.add(Box.createHorizontalStrut(5));
+        box.add(Box.createHorizontalGlue());
         final JButton button = new JButton("Role");
         button.addActionListener(new ActionListener() {
             @Override
@@ -41,7 +52,14 @@ public class PlayerRoles {
             }
 
         });
-        return button;
+        box.add(button);
+        south.add(box);
+        return south;
     }
 
+
+    @Override
+    public String getName() {
+        return "Role";
+    }
 }
