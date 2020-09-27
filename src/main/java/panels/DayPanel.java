@@ -14,8 +14,9 @@ import java.util.stream.Collectors;
 public class DayPanel implements State {
 
     private LoadFileUtil fu = new LoadFileUtil();
-    private List<String> playerName = fu.loadFile();
     private Voting vote = new Voting();
+    private String victim = vote.run();
+    private List<Player> playerInfo = fu.loadPlayer();
     private Student student;
 
     public DayPanel() {
@@ -24,8 +25,8 @@ public class DayPanel implements State {
     public JTextArea createPanel() {
         final JTextArea textAreaOrder =
                 new JTextArea(20, 40);
-        textAreaOrder.setText("There are "+playerName.size()+" number of Players\n");
-        textAreaOrder.append("Player "+vote.run()+" has been lynched");
+        textAreaOrder.setText("There are "+playerInfo.size()+" number of Players\n");
+        textAreaOrder.append("Player "+victim+" has been lynched");
         textAreaOrder.setEditable(false);
         return textAreaOrder;
     }
@@ -36,8 +37,7 @@ public class DayPanel implements State {
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                fu.saveGame(remainingPlayer(fu.loadPlayer(), vote.run()));
-                new Game(fu.loadPlayer(), vote.run());
+                new Game(playerInfo, victim);
             }
         });
         return button;

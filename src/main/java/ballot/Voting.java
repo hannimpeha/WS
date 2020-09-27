@@ -40,7 +40,7 @@ public class Voting {
         ArrayList<List<String>> content = new ArrayList<List<String>>();
         String[] values = new String[0];
         try {
-            values = br.readLine().split(",");
+            values = br.readLine().split(", ");
         } catch (IOException e) {
             e.printStackTrace();
         }
