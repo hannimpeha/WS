@@ -12,8 +12,8 @@ import java.util.List;
 
 public class PlayerRoles {
 
-    private LoadFileUtil fu = new LoadFileUtil();
-    private List<Player> playerInfo = fu.loadPlayer();
+    protected LoadFileUtil fu = new LoadFileUtil();
+    protected List<Player> playerInfo = fu.loadPlayer();
 
     public PlayerRoles() {
     }

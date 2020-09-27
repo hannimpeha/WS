@@ -15,10 +15,10 @@ import java.util.List;
 
 public class PlayerNames {
 
-    private List<String> playerName;
-    private List<Player> playerInfo = new ArrayList<>();
-    private LoadFileUtil fu = new LoadFileUtil();
-    private static String path = "/Users/hannimpeha/HANNIMPEHA/" +
+    protected List<String> playerName;
+    protected List<Player> playerInfo = new ArrayList<>();
+    protected LoadFileUtil fu = new LoadFileUtil();
+    protected static String path = "/Users/hannimpeha/HANNIMPEHA/" +
             "Thesis/FascinatingProject" +
             "/src/main/java/resource/players.txt";
 

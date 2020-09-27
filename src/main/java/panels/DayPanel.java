@@ -1,7 +1,6 @@
 package panels;
 
 import ballot.Voting;
-import logic.Game;
 import playerInfo.Player;
 import util.LoadFileUtil;
 
@@ -13,11 +12,10 @@ import java.util.stream.Collectors;
 
 public class DayPanel implements State {
 
-    private LoadFileUtil fu = new LoadFileUtil();
-    private Voting vote = new Voting();
-    private String victim = vote.run();
-    private List<Player> playerInfo = fu.loadPlayer();
-    private Student student;
+    protected LoadFileUtil fu = new LoadFileUtil();
+    protected Voting vote = new Voting();
+    protected String victim = vote.run();
+    protected List<Player> playerInfo = fu.loadPlayer();
 
     public DayPanel() {
     }
@@ -37,17 +35,14 @@ public class DayPanel implements State {
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new Game(playerInfo, victim);
+                fu.saveGame(playerInfo.stream()
+                        .filter(a->a.getName().contains(victim))
+                        .collect(Collectors.toList()));
             }
         });
         return button;
     }
 
-    private List<Player> remainingPlayer(List<Player> playerInfo, String lynched) {
-        return playerInfo.stream()
-                .filter(a -> a.getName() == lynched)
-                .collect(Collectors.toList());
-    }
 
     @Override
     public JTextArea onPlayAbove(Student student) {

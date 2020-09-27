@@ -1,20 +1,23 @@
 package panels;
 
-import logic.Game;
 import logic.NightAction;
 import logic.Victory;
+import playerInfo.Player;
 import util.LoadFileUtil;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class NightPanel implements State {
 
-    private LoadFileUtil fu = new LoadFileUtil();;
-    private NightAction na;
-    private Victory victory;
-    private Student student;
+    protected LoadFileUtil fu = new LoadFileUtil();;
+    protected NightAction na = new NightAction();
+    protected Victory victory;
+    protected String victim = na.nightAction();
+    protected List<Player> playerInfo = fu.loadPlayer();
 
     public NightPanel() {
     }
@@ -34,8 +37,9 @@ public class NightPanel implements State {
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                na = new NightAction();
-                new Game(fu.loadPlayer(), na.nightAction());
+                fu.saveGame(playerInfo.stream()
+                        .filter(a->a.getName().contains(victim))
+                        .collect(Collectors.toList()));
             }
         });
         return button;
