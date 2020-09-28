@@ -12,21 +12,12 @@ public class Student {
 
     public Student() {
         this.state = new PlayerNames(this);
+        playList.add(new PlayerNames(this));
         playList.add(new PlayerRoles(this));
-        playList.add(new DayPanel(this));
-        playList.add(new NightPanel(this));
-        playList.add(new DayPanel(this));
-        playList.add(new NightPanel(this));
-        playList.add(new DayPanel(this));
-        playList.add(new NightPanel(this));
-        playList.add(new DayPanel(this));
-        playList.add(new NightPanel(this));
-        playList.add(new DayPanel(this));
-        playList.add(new NightPanel(this));
-        playList.add(new DayPanel(this));
-        playList.add(new NightPanel(this));
-        playList.add(new DayPanel(this));
-        playList.add(new NightPanel(this));
+        for (int i = 1; i <= 7; i++) {
+            playList.add(new DayPanel(this));
+            playList.add(new NightPanel(this));
+        }
     }
 
     public void setState(State state) {

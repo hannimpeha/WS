@@ -32,7 +32,6 @@ public class ConsolePane extends JPanel {
     private static JPanel south2 = new JPanel();
     private static JPanel south3 = new JPanel();
     private static JPanel south4 = new JPanel();
-    private JFrame frame = new JFrame("Hannah's Mafia Game");
     private List<String> playerName;
     private static String path = "/Users/hannimpeha/HANNIMPEHA/" +
             "Thesis/FascinatingProject" +
@@ -45,6 +44,7 @@ public class ConsolePane extends JPanel {
     }
 
     public void initFrame() {
+        JFrame frame = new JFrame("Hannah's Mafia Game");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setBounds(500, 20, 400, 450);
         frame.setLocationRelativeTo(null);
