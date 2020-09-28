@@ -1,5 +1,7 @@
 package panels;
 
+import allThatGraph.Combination;
+import allThatGraph.Probability;
 import ballot.Voting;
 import playerInfo.Player;
 import util.LoadFileUtil;
@@ -20,7 +22,8 @@ public class DayPanel implements State {
     private static JPanel contentPane = new JPanel();
     private static JPanel north = new JPanel();
     private static JPanel south = new JPanel();
-
+    private Combination combination;
+    private Probability probability;
 
     public DayPanel(Student student) {
         this.student = student;
@@ -51,6 +54,10 @@ public class DayPanel implements State {
                     fu.saveGame(playerInfo.stream()
                             .filter(a -> a.getName().contains(victim))
                             .collect(Collectors.toList()));
+                    combination = new Combination();
+                    combination.writeDot();
+                    probability = new Probability();
+                    probability.start();
                 }
             });
             box.add(button);

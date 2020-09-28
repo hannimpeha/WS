@@ -1,5 +1,7 @@
 package panels;
 
+import allThatGraph.Combination;
+import allThatGraph.Probability;
 import logic.NightAction;
 import logic.Victory;
 import playerInfo.Player;
@@ -22,6 +24,8 @@ public class NightPanel implements State {
     private static JPanel contentPane = new JPanel();
     private static JPanel north = new JPanel();
     private static JPanel south = new JPanel();
+    private Combination combination;
+    private Probability probability;
 
     public NightPanel(Student student) {
         this.student = student;
@@ -52,6 +56,11 @@ public class NightPanel implements State {
                     fu.saveGame(playerInfo.stream()
                             .filter(a -> a.getName().contains(victim))
                             .collect(Collectors.toList()));
+                    combination = new Combination();
+                    combination.writeDot();
+                    probability = new Probability();
+                    probability.start();
+
                 }
             });
             box.add(button);
