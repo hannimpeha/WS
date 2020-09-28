@@ -25,7 +25,6 @@ public class PlayerNames implements State{
     protected static JPanel contentPane = new JPanel();
     protected static JPanel north = new JPanel();
     protected static JPanel south = new JPanel();
-    private PlayerRoles prp = new PlayerRoles(student);
 
     public PlayerNames(Student student) {
         this.student = student;
