@@ -26,35 +26,35 @@ public class DayPanel implements State {
         this.student = student;
     }
 
-    public JPanel createPanel() {
-        final JTextArea textAreaOrder =
-                new JTextArea(20, 40);
-        textAreaOrder.setText("There are "+playerInfo.size()+" number of Players\n");
-        textAreaOrder.append("Player "+victim+" has been lynched");
-        textAreaOrder.setEditable(false);
-        north.add(new JScrollPane(textAreaOrder));
-        contentPane.add(north);
+    public JPanel createPanel(Student student) {
+            final JTextArea textAreaOrder =
+                    new JTextArea(20, 40);
+            textAreaOrder.setText("There are " + playerInfo.size() + " number of Players\n");
+            textAreaOrder.append("Player " + victim + " has been lynched");
+            textAreaOrder.setEditable(false);
+            north.add(new JScrollPane(textAreaOrder));
+            contentPane.add(north);
         return north;
     }
 
 
-    public JPanel createButton() {
-        final Box box = Box.createHorizontalBox();
-        box.setBorder(BorderFactory.createEmptyBorder(
-                5, 5, 5, 5));
-        box.add(Box.createHorizontalStrut(5));
-        box.add(Box.createHorizontalGlue());
-        final JButton button = new JButton("Day");
-        button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                fu.saveGame(playerInfo.stream()
-                        .filter(a->a.getName().contains(victim))
-                        .collect(Collectors.toList()));
-            }
-        });
-        box.add(button);
-        south.add(box);
+    public JPanel createButton(Student student) {
+            final Box box = Box.createHorizontalBox();
+            box.setBorder(BorderFactory.createEmptyBorder(
+                    5, 5, 5, 5));
+            box.add(Box.createHorizontalStrut(5));
+            box.add(Box.createHorizontalGlue());
+            final JButton button = new JButton("Day");
+            button.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    fu.saveGame(playerInfo.stream()
+                            .filter(a -> a.getName().contains(victim))
+                            .collect(Collectors.toList()));
+                }
+            });
+            box.add(button);
+            south.add(box);
         return south;
     }
 

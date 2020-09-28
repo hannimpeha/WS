@@ -6,6 +6,7 @@ import playerInfo.Player;
 import util.LoadFileUtil;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -23,40 +24,39 @@ public class PlayerRoles implements State{
         this.student = student;
     }
 
-    public JPanel createPanel() {
-        final JTextArea textAreaOrder =
-                new JTextArea(20, 40);
-        textAreaOrder.setText("Assigned Roles are as follows\n");
-        for(int i=0; i<playerInfo.size(); i++) {
-            textAreaOrder.append(
-                    "Player "+playerInfo.get(i).getName()+" is "+
-                            playerInfo.get(i).getRole()+".\n");
-        }
-        textAreaOrder.setEditable(false);
-        north.add(new JScrollPane(textAreaOrder));
+    public JPanel createPanel(Student student) {
+            final JTextArea textAreaOrder =
+                    new JTextArea(20, 40);
+            textAreaOrder.setText("Assigned Roles are as follows\n");
+            for (int i = 0; i < playerInfo.size(); i++) {
+                textAreaOrder.append(
+                        "Player " + playerInfo.get(i).getName() + " is " +
+                                playerInfo.get(i).getRole() + ".\n");
+            }
+            textAreaOrder.setEditable(false);
+            north.add(new JScrollPane(textAreaOrder));
         return north;
     }
 
-    public JPanel createButton() {
-        final Box box = Box.createHorizontalBox();
-        box.setBorder(BorderFactory.createEmptyBorder(
-                5, 5, 5, 5));
-        box.add(Box.createHorizontalStrut(5));
-        box.add(Box.createHorizontalGlue());
-        final JButton button = new JButton("Role");
-        button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new RunCentralisedMAS();
-                new NCT(playerInfo);
-            }
+    public JPanel createButton(Student student) {
+            final Box box = Box.createHorizontalBox();
+            box.setBorder(BorderFactory.createEmptyBorder(
+                    5, 5, 5, 5));
+            box.add(Box.createHorizontalStrut(5));
+            box.add(Box.createHorizontalGlue());
+            final JButton button = new JButton("Role");
+            button.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    new RunCentralisedMAS();
+                    new NCT(playerInfo);
+                }
 
-        });
-        box.add(button);
-        south.add(box);
+            });
+            box.add(button);
+            south.add(box);
         return south;
     }
-
 
     @Override
     public String getName() {

@@ -4,6 +4,7 @@ import playerInfo.Player;
 import util.LoadFileUtil;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -22,52 +23,53 @@ public class PlayerNames implements State{
             "Thesis/FascinatingProject" +
             "/src/main/java/resource/players.txt";
     protected Student student;
-    private static JPanel contentPane = new JPanel();
-    private static JPanel north = new JPanel();
-    private static JPanel south = new JPanel();
+    protected static JPanel contentPane = new JPanel();
+    protected static JPanel north = new JPanel();
+    protected static JPanel south = new JPanel();
+    private PlayerRoles prp = new PlayerRoles(student);
 
-    public PlayerNames() {
+    public PlayerNames(Student student) {
+        this.student = student;
     }
 
-    public JPanel createPanel() {
-        final JTextArea textAreaOrder =
-                new JTextArea(20, 40);
-        textAreaOrder.setText("Type Players's Names");
-        textAreaOrder.setEditable(false);
-        north.add(new JScrollPane(textAreaOrder));
+    public JPanel createPanel(Student student) {
+            final JTextArea textAreaOrder =
+                    new JTextArea(20, 40);
+            textAreaOrder.setText("Type Players's Names");
+            textAreaOrder.setEditable(false);
+            north.add(new JScrollPane(textAreaOrder));
         return north;
     }
 
 
-    public JPanel createButton() {
-        final Box box = Box.createHorizontalBox();
-        box.setBorder(BorderFactory.createEmptyBorder(
-                5, 5, 5, 5));
-        box.add(Box.createHorizontalStrut(5));
-        box.add(Box.createHorizontalGlue());
-        final JTextField textField = new JTextField(24);
-        box.add(textField);
-        final JButton button = new JButton("Name");
-        button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                playerName = Arrays.asList(
-                        new JTextField(30)
-                                .getText().split(", "));
-                try {
-                    Files.write(Paths.get(path), playerName);
-                } catch (IOException ioException) {
-                    ioException.printStackTrace();
+    public JPanel createButton(Student student) {
+            final Box box = Box.createHorizontalBox();
+            box.setBorder(BorderFactory.createEmptyBorder(
+                    5, 5, 5, 5));
+            box.add(Box.createHorizontalStrut(5));
+            box.add(Box.createHorizontalGlue());
+            final JTextField textField = new JTextField(24);
+            box.add(textField);
+            final JButton button = new JButton("Name");
+            button.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    playerName = Arrays.asList(
+                            new JTextField(30)
+                                    .getText().split(", "));
+                    try {
+                        Files.write(Paths.get(path), playerName);
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
+                    }
+                    playerInfo = fu.setAllPlayers();
+                    fu.saveGame(playerInfo);
                 }
-                playerInfo = fu.setAllPlayers();
-                fu.saveGame(playerInfo);
-            }
-        });
-        box.add(button);
-        south.add(box);
+            });
+            box.add(button);
+            south.add(box);
         return south;
     }
-
 
     @Override
     public String getName() {
