@@ -52,16 +52,10 @@ public class Agents extends Agent implements Node {
     }
 
     public Set<Agents> getIAmReceiving() {
-        if (getName()=="hyo") {
-            iAmReceiving.add(this);
-        }
         return iAmReceiving;
     }
 
     public Set<Agents> getIAmSending() {
-        if (getName()!="hyo") {
-            iAmSending.add(this);
-        }
         return iAmSending;
     }
 

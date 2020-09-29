@@ -3,6 +3,7 @@ package allThatGraph;
 import jason.Agents;
 import jason.BaseBelief;
 import jason.NCT;
+import org.neo4j.graphdb.Label;
 import org.neo4j.graphdb.Node;
 import org.neo4j.graphdb.RelationshipType;
 import playerInfo.Player;
@@ -14,9 +15,24 @@ import java.util.*;
 
 public class Combination {
 
-    private RelationshipType SEND;
-    private RelationshipType RECEIVE;
-    private RelationshipType KNOWS;
+    private RelationshipType SEND= new RelationshipType() {
+        @Override
+        public String name() {
+            return "send";
+        }
+    };
+    private RelationshipType RECEIVE= new RelationshipType() {
+        @Override
+        public String name() {
+            return "receive";
+        }
+    };
+    private RelationshipType KNOWS = new RelationshipType() {
+        @Override
+        public String name() {
+            return "knows";
+        }
+    };
     private List<String[]> list = new ArrayList<String[]>();
     private List<String> arr = new ArrayList<>();
     private String path = "/Users/hannimpeha/HANNIMPEHA/Thesis/" +
@@ -31,6 +47,7 @@ public class Combination {
     private List<RelationshipType> ordinary =
             Collections.unmodifiableList(Arrays.asList(SEND, RECEIVE));
     private Random random = new Random();
+    private static Label mafia, townies, doctor;
 
     public Combination() {
 
@@ -39,10 +56,12 @@ public class Combination {
     public void writeDot() {
         try(PrintStream out = new PrintStream(path, "UTF-8")) {
             out.print("digraph {\n");
-            List<Agents[]> pairs = createFriendships(makePairsFromList(agents));
-            for(Agents[] agent :pairs) {
-                if(agent[0].getIAmSending()!=null) {
-                    out.print(agent[0].getName() + "->" + agent[1].getName() + ";\n");
+            List<Agents[]> pairs = makePairsFromList(agents);
+            for(int i=0; i<pairs.size(); i++) {
+                if(pairs.get(i)[0].getRole().contains("Mafia")) {
+                    pairs.get(i)[0].createRelationshipTo(pairs.get(i)[1], KNOWS);
+                    out.print(pairs.get(i)[0].getName() + "->" +
+                            pairs.get(i)[1].getName() + ";\n");
                 }
             }
             out.println("}");
