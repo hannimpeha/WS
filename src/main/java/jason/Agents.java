@@ -18,11 +18,11 @@ public class Agents extends Agent implements Node {
     private final String role;
     private final int status;
     @Relationship(type="RECEIVE", direction = "INCOMING")
-    private Set<Agents> iAmReceiving = new HashSet<>();
+    private Set<String> iAmReceiving = new HashSet<>();
     @Relationship(type="SEND")
-    private Set<Agents> iAmSending = new HashSet<>();
+    private Set<String> iAmSending = new HashSet<>();
     @Relationship(type="KNOWS")
-    private Set<Agents> weAreMafia = new HashSet<>();
+    private Set<String> weAreMafia = new HashSet<>();
     private InternalAction ia;
     private  TransitionSystem ts =
             new TransitionSystem(this, null, null, new AgArch());
@@ -43,19 +43,15 @@ public class Agents extends Agent implements Node {
 
     public int getStatus(){ return status; }
 
-    public Set<Agents> getWeAreMafia() {
-        switch (getRole()) {
-            case "Mafia":
-                weAreMafia.add(this);
-        }
+    public Set<String> getWeAreMafia() {
         return weAreMafia;
     }
 
-    public Set<Agents> getIAmReceiving() {
+    public Set<String> getIAmReceiving() {
         return iAmReceiving;
     }
 
-    public Set<Agents> getIAmSending() {
+    public Set<String> getIAmSending() {
         return iAmSending;
     }
 

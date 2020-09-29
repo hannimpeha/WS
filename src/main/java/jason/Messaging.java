@@ -21,16 +21,16 @@ public class Messaging extends Message {
 
     void information(Agents agent){
         setSender(agent.getName());
-        for(Agents ag: agent.getIAmSending()) {
-            setReceiver(ag.getName());
+        for(String ag: agent.getIAmSending()) {
+            setReceiver(ag);
         }
         setMsgId("Mafia is "+ agent.getBB());
     }
 
     void misinformation(Agents agent){
         setSender(agent.getName());
-        for(Agents ag: agent.getIAmSending()) {
-            setReceiver(ag.getName());
+        for(String ag: agent.getIAmSending()) {
+            setReceiver(ag);
         }
         setMsgId("Mafia is "+ agent.getBB());
     }

@@ -5,6 +5,7 @@ import jason.BaseBelief;
 import jason.NCT;
 import org.neo4j.graphdb.Label;
 import org.neo4j.graphdb.Node;
+import org.neo4j.graphdb.Relationship;
 import org.neo4j.graphdb.RelationshipType;
 import playerInfo.Player;
 import util.LoadFileUtil;
@@ -15,6 +16,7 @@ import java.util.*;
 
 public class Combination {
 
+    private Relationship rel;
     private RelationshipType SEND= new RelationshipType() {
         @Override
         public String name() {
@@ -56,12 +58,11 @@ public class Combination {
     public void writeDot() {
         try(PrintStream out = new PrintStream(path, "UTF-8")) {
             out.print("digraph {\n");
-            List<Agents[]> pairs = makePairsFromList(agents);
-            for(int i=0; i<pairs.size(); i++) {
-                if(pairs.get(i)[0].getRole().contains("Mafia")) {
-                    pairs.get(i)[0].createRelationshipTo(pairs.get(i)[1], KNOWS);
-                    out.print(pairs.get(i)[0].getName() + "->" +
-                            pairs.get(i)[1].getName() + ";\n");
+            List<Agents[]> rel = createFriendships(makePairsFromList(agents));
+            for(Agents[] pair :rel) {
+                for (String str : pair[0].getWeAreMafia()) {
+                    out.print(pair[1].getName() + "->" +
+                            str + ";\n");
                 }
             }
             out.println("}");
@@ -73,13 +74,13 @@ public class Combination {
     public List<Agents[]> createFriendships(List<Agents[]> pairs){
         List<Agents[]> ultimate = new ArrayList<>();
         for(Agents[] agent : pairs) {
-            if(agent[0].getRole()=="Mafia" && agent[1].getRole()=="Mafia") {
-                agent[0].createRelationshipTo(agent[1], KNOWS);
-            } else {
-                agent[0].createRelationshipTo(agent[1],
-                        ordinary.get(random.nextInt(ordinary.size())));
-            }
-            ultimate.add(agent);
+                if (agent[0].getRole().contains("Mafia")&& agent[1].getRole().contains("Mafia")) {
+                    agent[0].getWeAreMafia().add(agent[1].getName());
+                } else {
+                    agent[0].getIAmSending().add(agent[1].getName());
+                }
+               //ultimate.add(new Node[]{agent[0], agent[1]});
+                ultimate.add(new Agents[]{agent[0], agent[1]});
         }
         return ultimate;
     }
