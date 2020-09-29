@@ -16,24 +16,10 @@ import java.util.*;
 public class Combination {
 
     private Relationship rel;
-    private RelationshipType SEND= new RelationshipType() {
-        @Override
-        public String name() {
-            return "send";
-        }
-    };
-    private RelationshipType RECEIVE= new RelationshipType() {
-        @Override
-        public String name() {
-            return "receive";
-        }
-    };
-    private RelationshipType KNOWS = new RelationshipType() {
-        @Override
-        public String name() {
-            return "knows";
-        }
-    };
+    private enum RelTypes implements RelationshipType
+    {
+        KNOWS, RECEIVE, SEND
+    }
     private List<String[]> list = new ArrayList<String[]>();
     private List<String> arr = new ArrayList<>();
     private String path = "/Users/hannimpeha/HANNIMPEHA/Thesis/" +
@@ -46,7 +32,7 @@ public class Combination {
     private List<Node[]> nodes;
     private Agents agent;
     private List<RelationshipType> ordinary =
-            Collections.unmodifiableList(Arrays.asList(SEND, RECEIVE));
+            Collections.unmodifiableList(Arrays.asList(RelTypes.SEND, RelTypes.RECEIVE));
     private Random random = new Random();
 
     public Combination() {
@@ -54,36 +40,27 @@ public class Combination {
     }
 
     public void writeDot() {
-        try(PrintStream out = new PrintStream(path, "UTF-8")) {
-            out.print("digraph {\n");
-            List<Agents[]> rel = createFriendships(makePairsFromList(agents));
-            for(Agents[] pair :rel) {
-                for (String str : pair[0].getWeAreMafia()) {
-                    out.print(pair[1].getName() + "->" +
-                            str + ";\n");
-                }
-                for (String str : pair[0].getIAmSending()) {
-                    out.print(pair[1].getName() + "->" +
-                            str + ";\n");
-                }
-            }
-            out.println("}");
-        }catch (IOException ioException) {
-            ioException.printStackTrace();
-        }
+        createFriendships(makePairsFromList(agents));
     }
 
-    public List<Agents[]> createFriendships(List<Agents[]> pairs){
-        List<Agents[]> ultimate = new ArrayList<>();
-        for(Agents[] agent : pairs) {
-                if (agent[0].getRole().contains("Mafia")&& agent[1].getRole().contains("Mafia")) {
-                    agent[0].getWeAreMafia().add(agent[1].getName());
-                } else if(agent[0].getName().contains("hyo")||agent[0].getName().contains("ji")){
-                    agent[0].getIAmSending().add(agent[1].getName());
+    public void createFriendships(List<Agents[]> pairs){
+        try(PrintStream out = new PrintStream(path, "UTF-8")) {
+            out.print("digraph {\n");
+            for (Agents[] agent : pairs) {
+                if (agent[0].getRole().contains("Mafia")&&agent[1].getRole().contains("Mafia")) {
+                    //agent[0].getWeAreMafia().add(agent[0].getName());
+                    //agent[0].createRelationshipTo(agent[1], RelTypes.KNOWS);
+                    out.print(agent[0].getName() + "->" + agent[1].getName() + ";\n");
+
+                } else if (random.nextInt(ordinary.size()) == 0) {
+                    //agent[0].getIAmSending().add(agent[0].getName());
+                    out.print(agent[0].getName() + "->" + agent[1].getName() + ";\n");
                 }
-                ultimate.add(new Agents[]{agent[0], agent[1]});
+            }
+            out.print("}");
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
         }
-        return ultimate;
     }
 
     public static List<Agents[]> makePairsFromList(List<Agents> arr) {

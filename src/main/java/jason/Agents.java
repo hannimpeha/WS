@@ -7,6 +7,7 @@ import jason.asSemantics.Unifier;
 import jason.asSyntax.Term;
 import org.neo4j.graphdb.*;
 import org.neo4j.ogm.annotation.NodeEntity;
+import org.neo4j.ogm.annotation.Properties;
 import org.neo4j.ogm.annotation.Relationship;
 import java.util.HashSet;
 import java.util.Set;
@@ -14,6 +15,7 @@ import java.util.Set;
 @NodeEntity
 public class Agents extends Agent implements Node {
 
+    @Properties
     private final String name;
     private final String role;
     private final int status;
