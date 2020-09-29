@@ -60,7 +60,7 @@ public class Combination {
             out.print("digraph {\n");
             List<Agents[]> rel = createFriendships(makePairsFromList(agents));
             for(Agents[] pair :rel) {
-                for (String str : pair[0].getWeAreMafia()) {
+                for (String str : pair[0].getIAmSending()) {
                     out.print(pair[1].getName() + "->" +
                             str + ";\n");
                 }
@@ -76,10 +76,9 @@ public class Combination {
         for(Agents[] agent : pairs) {
                 if (agent[0].getRole().contains("Mafia")&& agent[1].getRole().contains("Mafia")) {
                     agent[0].getWeAreMafia().add(agent[1].getName());
-                } else {
+                } else if(agent[0].getName().contains("hyo")||agent[0].getName().contains("ji")){
                     agent[0].getIAmSending().add(agent[1].getName());
                 }
-               //ultimate.add(new Node[]{agent[0], agent[1]});
                 ultimate.add(new Agents[]{agent[0], agent[1]});
         }
         return ultimate;
