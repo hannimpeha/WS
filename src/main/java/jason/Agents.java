@@ -19,7 +19,7 @@ public class Agents extends Agent implements Node {
     private final int status;
     @Relationship(type="RECEIVE", direction = "INCOMING")
     private Set<Agents> iAmReceiving = new HashSet<>();
-    @Relationship(type="SEND", direction = "OUTGOING")
+    @Relationship(type="SEND")
     private Set<Agents> iAmSending = new HashSet<>();
     @Relationship(type="KNOWS")
     private Set<Agents> weAreMafia = new HashSet<>();
@@ -43,11 +43,27 @@ public class Agents extends Agent implements Node {
 
     public int getStatus(){ return status; }
 
-    public Set<Agents> getWeAreMafia() { return weAreMafia; }
+    public Set<Agents> getWeAreMafia() {
+        switch (getRole()) {
+            case "Mafia":
+                weAreMafia.add(this);
+        }
+        return weAreMafia;
+    }
 
-    public Set<Agents> getiAmReceiving() { return iAmReceiving; }
+    public Set<Agents> getIAmReceiving() {
+        if (getName()=="hyo") {
+            iAmReceiving.add(this);
+        }
+        return iAmReceiving;
+    }
 
-    public Set<Agents> getiAmSending() { return iAmSending; }
+    public Set<Agents> getIAmSending() {
+        if (getName()!="hyo") {
+            iAmSending.add(this);
+        }
+        return iAmSending;
+    }
 
     @Override
     public long getId() {

@@ -21,7 +21,7 @@ public class Messaging extends Message {
 
     void information(Agents agent){
         setSender(agent.getName());
-        for(Agents ag: agent.getiAmSending()) {
+        for(Agents ag: agent.getIAmSending()) {
             setReceiver(ag.getName());
         }
         setMsgId("Mafia is "+ agent.getBB());
@@ -29,7 +29,7 @@ public class Messaging extends Message {
 
     void misinformation(Agents agent){
         setSender(agent.getName());
-        for(Agents ag: agent.getiAmSending()) {
+        for(Agents ag: agent.getIAmSending()) {
             setReceiver(ag.getName());
         }
         setMsgId("Mafia is "+ agent.getBB());

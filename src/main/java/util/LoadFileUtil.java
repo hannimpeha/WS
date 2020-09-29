@@ -94,7 +94,7 @@ public class LoadFileUtil {
             playerName = Files.readAllLines(
                     Paths.get(saveFile), StandardCharsets.UTF_8);
             for(int i=0; i<playerName.size(); i++) {
-                String str = playerName.get(0);
+                String str = playerName.get(i);
                 String[] arr = str.split(",");
                 playerInfo.add(
                         CreatePlayerUtil.createPlayer(

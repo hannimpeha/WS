@@ -4,9 +4,12 @@ import jason.asSemantics.DefaultInternalAction;
 import jason.asSemantics.TransitionSystem;
 import jason.asSemantics.Unifier;
 import jason.asSyntax.Term;
+import org.neo4j.graphdb.Node;
 
+import java.awt.*;
 import java.io.*;
 import java.util.*;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class InternalAction extends DefaultInternalAction {
@@ -20,7 +23,7 @@ public class InternalAction extends DefaultInternalAction {
 
     public InternalAction(List<Agents> agents) {
         bb = new BaseBelief(agents);
-        for(int i=0; i<agents.size(); i++) {
+        for (int i = 0; i < agents.size(); i++) {
             agent = new Agents(agents.get(i).getName(),
                     agents.get(i).getRole(),
                     agents.get(i).getStatus());

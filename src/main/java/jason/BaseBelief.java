@@ -23,9 +23,6 @@ public class BaseBelief implements BeliefBase {
     private List<Agents> playerAgent;
 
     public BaseBelief(List<Agents> agents) {
-                createEachNetwork(
-                        createFriendships(
-                                makePairsFromList(agents)));
     }
 
 
@@ -40,6 +37,7 @@ public class BaseBelief implements BeliefBase {
         for(Node[] node:pairs) {
             if(node[0].hasLabel(mafia) && node[1].hasLabel(mafia)) {
                 node[0].createRelationshipTo(node[1], KNOWS);
+                System.out.println(node[0].getLabels());
             } else {
                 node[0].createRelationshipTo(node[1],
                         ordinary.get(random.nextInt(ordinary.size())));
