@@ -3,7 +3,6 @@ package allThatGraph;
 import jason.Agents;
 import jason.BaseBelief;
 import jason.NCT;
-import org.neo4j.graphdb.Label;
 import org.neo4j.graphdb.Node;
 import org.neo4j.graphdb.Relationship;
 import org.neo4j.graphdb.RelationshipType;
@@ -49,7 +48,6 @@ public class Combination {
     private List<RelationshipType> ordinary =
             Collections.unmodifiableList(Arrays.asList(SEND, RECEIVE));
     private Random random = new Random();
-    private static Label mafia, townies, doctor;
 
     public Combination() {
 
@@ -60,6 +58,10 @@ public class Combination {
             out.print("digraph {\n");
             List<Agents[]> rel = createFriendships(makePairsFromList(agents));
             for(Agents[] pair :rel) {
+                for (String str : pair[0].getWeAreMafia()) {
+                    out.print(pair[1].getName() + "->" +
+                            str + ";\n");
+                }
                 for (String str : pair[0].getIAmSending()) {
                     out.print(pair[1].getName() + "->" +
                             str + ";\n");
