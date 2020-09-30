@@ -25,12 +25,14 @@ public class PlayerRoles implements State{
     public JPanel createPanel(Student student) {
             final JTextArea textAreaOrder =
                     new JTextArea(20, 40);
-            textAreaOrder.setText("Assigned Roles are as follows\n\n");
+            textAreaOrder.setText("\n   Assigned Roles are as follows.\n");
+            textAreaOrder.append("    ----------------------------\n");
             for (int i = 0; i < playerInfo.size(); i++) {
                 textAreaOrder.append(
-                        "Player " + playerInfo.get(i).getName() + " is " +
+                        "    Player " + playerInfo.get(i).getName() + " is " +
                                 playerInfo.get(i).getRole() + ".\n");
             }
+        textAreaOrder.append("    ----------------------------\n");
             textAreaOrder.setEditable(false);
             north.add(new JScrollPane(textAreaOrder));
         return north;

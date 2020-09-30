@@ -43,8 +43,8 @@ public class PlayerNames implements State{
                     "    *************************************************************************\n"+
                     "\n");
 
-            textAreaOrder.append("Type Players's Names\n");
-            textAreaOrder.append("Name should be separated by commas.\n");
+            textAreaOrder.append("    Type Players's Names.\n");
+            textAreaOrder.append("    Name should be separated by commas.");
             textAreaOrder.setEditable(false);
             north.add(new JScrollPane(textAreaOrder));
         return north;

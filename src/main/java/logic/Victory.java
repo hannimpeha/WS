@@ -14,9 +14,9 @@ public class Victory {
 
     public String victoryMessage() {
         if(countingMafia(playerInfo)>=countingTownie(playerInfo)) {
-            return "Mafia has won\n";
+            return "Mafia has won.\n";
         } else {
-            return "Townies still have some time\n";
+            return "Townies still have some time.\n";
         }
     }
 

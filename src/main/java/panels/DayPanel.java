@@ -46,10 +46,10 @@ public class DayPanel implements State {
                 " |____/ \\__,_| \\__, |\n" +
                 "                       |___/ \n" +
                 "                        \n");
-        textAreaOrder.append("There are " + playerName.size() + " number of Players\n");
-        textAreaOrder.append("Player " + victim + " has been lynched\n");
+        textAreaOrder.append("  There are " + playerName.size() + " number of Players.\n\n");
+        textAreaOrder.append("  Player " + victim + " has been lynched.\n\n");
         gv.readSource(path);
-        textAreaOrder.append("Their relationship was\n" + gv.getDotSource());
+        textAreaOrder.append("  Their relationship was\n\n" + "  "+ gv.getDotSource()+".");
         textAreaOrder.setEditable(false);
         north.add(new JScrollPane(textAreaOrder));
         return north;
