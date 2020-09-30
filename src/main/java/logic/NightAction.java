@@ -1,6 +1,5 @@
 package logic;
 
-import playerInfo.Player;
 import util.LoadFileUtil;
 
 import java.util.List;
