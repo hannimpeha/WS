@@ -5,7 +5,11 @@ import logic.Victory;
 import playerInfo.Player;
 import util.LoadFileUtil;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -19,11 +23,15 @@ public class NightPanel implements State {
     protected String victim = na.nightAction();
     protected Student student;
     private static JPanel north = new JPanel();
+    private static JPanel realNorth = new JPanel();
     private static JPanel south = new JPanel();
     private List<Player> playerInfo;
     private List<String> playerName;
     protected String namePath = "/Users/hannimpeha/HANNIMPEHA/Thesis/" +
             "FascinatingProject/src/main/java/resource/players.txt";
+    protected String imagePath = "/Users/hannimpeha/HANNIMPEHA/Thesis/" +
+            "FascinatingProject/src/main/java/resource/simple.png";
+    private BufferedImage myPicture;
 
     public NightPanel(Student student) {
         this.student = student;
@@ -46,8 +54,17 @@ public class NightPanel implements State {
             textAreaOrder.append("  "+victim + " has been chosen by Mafias.\n\n");
             Victory victory = new Victory();
             textAreaOrder.append("  "+victory.victoryMessage());
+            try {
+                myPicture = ImageIO.read(new File(imagePath));
+                JLabel picLabel = new JLabel(new ImageIcon(
+                    myPicture.getScaledInstance(200, 300, Image.SCALE_FAST)));
+                realNorth.add(picLabel, BorderLayout.SOUTH);
+            } catch (IOException e) {
+            e.printStackTrace();
+            }
             textAreaOrder.setEditable(false);
             north.add(new JScrollPane(textAreaOrder));
+            north.add(realNorth);
         return north;
     }
 
