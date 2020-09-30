@@ -36,9 +36,16 @@ public class NightPanel implements State {
     public JPanel createPanel(Student student) {
             final JTextArea textAreaOrder =
                     new JTextArea(20, 40);
-            textAreaOrder.setText("Night Start\n");
+            textAreaOrder.setText("\n" +
+                "  _    _   _              _        _   \n" +
+                " | \\ |  | (_)    __ _  | |__   | |_ \n" +
+                " |  \\|  | |  |  / _` | | '_  \\ | __|\n" +
+                " |  |\\  | |  | | (_|  | | | |  | | |_ \n" +
+                " |_| \\_| |_|  \\__, | |_||_|  \\__|\n" +
+                "                  |___/               \n" +
+                "                                  \n" );
             textAreaOrder.append(victim + " has been chosen by Mafias\n");
-            textAreaOrder.setText("There are " + playerName.size() + " number of Players\n");
+            textAreaOrder.append("There are " + playerName.size() + " number of Players\n");
             textAreaOrder.append(victory.victoryMessage());
             textAreaOrder.setEditable(false);
             north.add(new JScrollPane(textAreaOrder));

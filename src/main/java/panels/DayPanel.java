@@ -38,7 +38,15 @@ public class DayPanel implements State {
     public JPanel createPanel(Student student) {
         final JTextArea textAreaOrder =
                 new JTextArea(20, 40);
-        textAreaOrder.setText("There are " + playerName.size() + " number of Players\n");
+        textAreaOrder.setText("\n" +
+                "  ____                    \n" +
+                " |  _   \\   __ _   _    _ \n" +
+                " | |  |  | / _` | | |  | |\n" +
+                " | |_|  | | (_|  | | |_| |\n" +
+                " |____/ \\__,_| \\__, |\n" +
+                "                       |___/ \n" +
+                "                        \n");
+        textAreaOrder.append("There are " + playerName.size() + " number of Players\n");
         textAreaOrder.append("Player " + victim + " has been lynched\n");
         gv.readSource(path);
         textAreaOrder.append("Their relationship was\n" + gv.getDotSource());
