@@ -8,6 +8,9 @@ import util.LoadFileUtil;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,10 +23,13 @@ public class DayPanel implements State {
             .stream().filter(a->a.getStatus()==1).collect(Collectors.toList());
     protected String path = "/Users/hannimpeha/HANNIMPEHA/Thesis/" +
             "FascinatingProject/src/main/java/resource/awesome.dot";
+    protected String namePath = "/Users/hannimpeha/HANNIMPEHA/Thesis/" +
+            "FascinatingProject/src/main/java/resource/players.txt";
     protected GraphVizExe gv = new GraphVizExe();
     protected Student student;
     private static JPanel north = new JPanel();
     private static JPanel south = new JPanel();
+    private List<String> playerName = fu.loadFile();
 
     public DayPanel(Student student) {
         this.student = student;
@@ -32,7 +38,7 @@ public class DayPanel implements State {
     public JPanel createPanel(Student student) {
         final JTextArea textAreaOrder =
                 new JTextArea(20, 40);
-        textAreaOrder.setText("There are " + playerInfo.size() + " number of Players\n");
+        textAreaOrder.setText("There are " + playerName.size() + " number of Players\n");
         textAreaOrder.append("Player " + victim + " has been lynched\n");
         gv.readSource(path);
         textAreaOrder.append("Their relationship was\n" + gv.getDotSource());
@@ -56,6 +62,17 @@ public class DayPanel implements State {
                             .filter(a->a.getName().contains(victim))
                             .forEach(a->a.setStatus(0));
                     fu.saveGame(playerInfo);
+
+                    playerName = playerInfo.stream()
+                            .filter(a->a.getStatus()==1)
+                            .map(a->a.getName())
+                            .collect(Collectors.toList());
+
+                    try {
+                        Files.write(Paths.get(namePath), playerName);
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
+                    }
                 }
             });
             box.add(button);

@@ -8,6 +8,9 @@ import util.LoadFileUtil;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -22,6 +25,9 @@ public class NightPanel implements State {
     protected Student student;
     private static JPanel north = new JPanel();
     private static JPanel south = new JPanel();
+    private List<String> playerName = fu.loadFile();
+    protected String namePath = "/Users/hannimpeha/HANNIMPEHA/Thesis/" +
+            "FascinatingProject/src/main/java/resource/players.txt";
 
     public NightPanel(Student student) {
         this.student = student;
@@ -31,7 +37,8 @@ public class NightPanel implements State {
             final JTextArea textAreaOrder =
                     new JTextArea(20, 40);
             textAreaOrder.setText("Night Start\n");
-            textAreaOrder.append(victim+" has been chosen by Mafias");
+            textAreaOrder.append(victim + " has been chosen by Mafias\n");
+            textAreaOrder.setText("There are " + playerName.size() + " number of Players\n");
             textAreaOrder.append(victory.victoryMessage());
             textAreaOrder.setEditable(false);
             north.add(new JScrollPane(textAreaOrder));
@@ -52,6 +59,17 @@ public class NightPanel implements State {
                             .filter(a->a.getName().contains(victim))
                             .forEach(a->a.setStatus(0));
                     fu.saveGame(playerInfo);
+
+                    playerName = playerInfo.stream()
+                            .filter(a->a.getStatus()==1)
+                            .map(a->a.getName())
+                            .collect(Collectors.toList());
+
+                    try {
+                        Files.write(Paths.get(namePath), playerName);
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
+                    }
                 }
             });
             box.add(button);
