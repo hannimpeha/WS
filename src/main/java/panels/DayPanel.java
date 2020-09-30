@@ -32,6 +32,7 @@ public class DayPanel implements State {
     protected GraphVizExe gv = new GraphVizExe();
     protected Student student;
     private static JPanel north = new JPanel();
+    private static JPanel realNorth = new JPanel();
     private static JPanel south = new JPanel();
     private List<Player> playerInfo;
     private List<String> playerName;
@@ -61,14 +62,15 @@ public class DayPanel implements State {
         textAreaOrder.append("  Their relationship was\n\n" + "  "+ gv.getDotSource()+".");
         try {
             myPicture = ImageIO.read(new File(imagePath));
-            JLabel picLabel = new JLabel(new ImageIcon(myPicture));
-                    //.getScaledInstance(20, 20, Image.SCALE_FAST)));
-            textAreaOrder.add(picLabel);
+            JLabel picLabel = new JLabel(new ImageIcon(
+                    myPicture.getScaledInstance(400, 600, Image.SCALE_FAST)));
+            realNorth.add(picLabel, BorderLayout.SOUTH);
         } catch (IOException e) {
             e.printStackTrace();
         }
         textAreaOrder.setEditable(false);
         north.add(new JScrollPane(textAreaOrder));
+        north.add(realNorth);
         return north;
     }
 
