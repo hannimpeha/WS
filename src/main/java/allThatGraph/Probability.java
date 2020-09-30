@@ -10,17 +10,10 @@ public class Probability {
     public Probability() {
     }
 
-    public static void main(String[] args) {
-        Combination combination = new Combination();
-        combination.writeDot();
-        Probability prob = new Probability();
-        prob.start();
-    }
-
     public void start() {
         GraphVizExe gv = new GraphVizExe();
         gv.readSource(path);
-        System.out.println(gv.getDotSource());
+        //System.out.println(gv.getDotSource());
 
         String type = "gif";
 

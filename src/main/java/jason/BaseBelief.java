@@ -1,5 +1,7 @@
 package jason;
 
+import allThatGraph.Combination;
+import allThatGraph.Probability;
 import jason.asSemantics.Agent;
 import jason.asSemantics.Unifier;
 import jason.asSyntax.Atom;
@@ -23,6 +25,10 @@ public class BaseBelief implements BeliefBase {
     private List<Agents> playerAgent;
 
     public BaseBelief(List<Agents> agents) {
+        Combination combination = new Combination(agents);
+        combination.writeDot();
+        Probability prob = new Probability();
+        prob.start();
     }
 
 

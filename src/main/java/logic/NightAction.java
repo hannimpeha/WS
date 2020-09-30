@@ -5,12 +5,14 @@ import util.LoadFileUtil;
 
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 public class NightAction {
 
     private Random randomGenerator;
     private LoadFileUtil fu = new LoadFileUtil();
-    private List<Player> playerInfo = fu.loadPlayer();
+    private List<Player> playerInfo = fu.loadPlayer()
+            .stream().filter(a->a.getStatus()==1).collect(Collectors.toList());
 
     public NightAction(){
     }

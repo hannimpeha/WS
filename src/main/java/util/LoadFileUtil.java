@@ -29,7 +29,6 @@ public class LoadFileUtil {
                     "/src/main/java/resource/saveGame.txt";;
 
     public LoadFileUtil() {
-        playerRole = createRoles(this.loadFile());
     }
 
     public List<String> createRoles(List<String> playerName) {

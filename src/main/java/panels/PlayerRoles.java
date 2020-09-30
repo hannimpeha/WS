@@ -1,5 +1,6 @@
 package panels;
 
+import allThatGraph.GraphVizExe;
 import jason.NCT;
 import jason.infra.centralised.RunCentralisedMAS;
 import playerInfo.Player;

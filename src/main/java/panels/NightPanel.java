@@ -19,13 +19,12 @@ public class NightPanel implements State {
     protected NightAction na = new NightAction();
     protected Victory victory;
     protected String victim = na.nightAction();
-    protected List<Player> playerInfo = fu.loadPlayer();
+    protected List<Player> playerInfo = fu.loadPlayer()
+            .stream().filter(a->a.getStatus()==1).collect(Collectors.toList());
     protected Student student;
     private static JPanel contentPane = new JPanel();
     private static JPanel north = new JPanel();
     private static JPanel south = new JPanel();
-    private Combination combination;
-    private Probability probability;
 
     public NightPanel(Student student) {
         this.student = student;
@@ -35,7 +34,7 @@ public class NightPanel implements State {
             final JTextArea textAreaOrder =
                     new JTextArea(20, 40);
             textAreaOrder.setText("Night Start\n");
-            victory = new Victory(fu.loadPlayer());
+            victory = new Victory(playerInfo);
             textAreaOrder.append(victory.victoryMessage());
             textAreaOrder.setEditable(false);
             north.add(new JScrollPane(textAreaOrder));
@@ -53,14 +52,10 @@ public class NightPanel implements State {
             button.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    fu.saveGame(playerInfo.stream()
-                            .filter(a -> a.getName().contains(victim))
-                            .collect(Collectors.toList()));
-                    combination = new Combination();
-                    combination.writeDot();
-                    probability = new Probability();
-                    probability.start();
-
+                    playerInfo.stream()
+                            .filter(a->a.getName().contains(victim))
+                            .forEach(a->a.setStatus(0));
+                    fu.saveGame(playerInfo);
                 }
             });
             box.add(button);

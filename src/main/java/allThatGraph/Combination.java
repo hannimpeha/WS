@@ -24,19 +24,14 @@ public class Combination {
     private List<String> arr = new ArrayList<>();
     private String path = "/Users/hannimpeha/HANNIMPEHA/Thesis/" +
             "FascinatingProject/src/main/java/resource/awesome.dot";
-    private BaseBelief bb;
-    private LoadFileUtil fu = new LoadFileUtil();
-    private List<Player> playerInfo = fu.loadPlayer();
-    private NCT nct = new NCT(playerInfo);
-    private List<Agents> agents = nct.createAgent(playerInfo);
     private List<Node[]> nodes;
-    private Agents agent;
+    private List<Agents> agents;
     private List<RelationshipType> ordinary =
             Collections.unmodifiableList(Arrays.asList(RelTypes.SEND, RelTypes.RECEIVE));
     private Random random = new Random();
 
-    public Combination() {
-
+    public Combination(List<Agents> agents) {
+        this.agents = agents;
     }
 
     public void writeDot() {

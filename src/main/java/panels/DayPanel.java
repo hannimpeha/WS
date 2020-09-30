@@ -1,7 +1,6 @@
 package panels;
 
-import allThatGraph.Combination;
-import allThatGraph.Probability;
+import allThatGraph.GraphVizExe;
 import ballot.Voting;
 import playerInfo.Player;
 import util.LoadFileUtil;
@@ -17,26 +16,30 @@ public class DayPanel implements State {
     protected LoadFileUtil fu = new LoadFileUtil();
     protected Voting vote = new Voting();
     protected String victim = vote.run();
-    protected List<Player> playerInfo = fu.loadPlayer();
+    protected List<Player> playerInfo = fu.loadPlayer()
+            .stream().filter(a->a.getStatus()==1).collect(Collectors.toList());
+    private String path = "/Users/hannimpeha/HANNIMPEHA/Thesis/" +
+            "FascinatingProject/src/main/java/resource/awesome.dot";
+    protected GraphVizExe gv = new GraphVizExe();
     protected Student student;
     private static JPanel contentPane = new JPanel();
     private static JPanel north = new JPanel();
     private static JPanel south = new JPanel();
-    private Combination combination;
-    private Probability probability;
 
     public DayPanel(Student student) {
         this.student = student;
     }
 
     public JPanel createPanel(Student student) {
-            final JTextArea textAreaOrder =
-                    new JTextArea(20, 40);
-            textAreaOrder.setText("There are " + playerInfo.size() + " number of Players\n");
-            textAreaOrder.append("Player " + victim + " has been lynched");
-            textAreaOrder.setEditable(false);
-            north.add(new JScrollPane(textAreaOrder));
-            contentPane.add(north);
+        final JTextArea textAreaOrder =
+                new JTextArea(20, 40);
+        textAreaOrder.setText("There are " + playerInfo.size() + " number of Players\n");
+        textAreaOrder.append("Player " + victim + " has been lynched\n");
+        gv.readSource(path);
+        textAreaOrder.append("Their relationship was\n" + gv.getDotSource());
+        textAreaOrder.setEditable(false);
+        north.add(new JScrollPane(textAreaOrder));
+        contentPane.add(north);
         return north;
     }
 
@@ -51,13 +54,10 @@ public class DayPanel implements State {
             button.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    fu.saveGame(playerInfo.stream()
-                            .filter(a -> a.getName().contains(victim))
-                            .collect(Collectors.toList()));
-                    combination = new Combination();
-                    combination.writeDot();
-                    probability = new Probability();
-                    probability.start();
+                    playerInfo.stream()
+                            .filter(a->a.getName().contains(victim))
+                            .forEach(a->a.setStatus(0));
+                    fu.saveGame(playerInfo);
                 }
             });
             box.add(button);
