@@ -1,4 +1,4 @@
-package allThatGraph;
+package thatGraph;
 
 import java.io.File;
 

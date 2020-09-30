@@ -1,8 +1,7 @@
-package allThatGraph;
+package thatGraph;
 
 import jason.Agents;
 import org.neo4j.graphdb.Node;
-import org.neo4j.graphdb.Relationship;
 import org.neo4j.graphdb.RelationshipType;
 
 import java.io.IOException;
@@ -11,7 +10,6 @@ import java.util.*;
 
 public class Combination {
 
-    private Relationship rel;
     private enum RelTypes implements RelationshipType
     {
         KNOWS, RECEIVE, SEND
@@ -85,4 +83,5 @@ public class Combination {
         }
         return list;
     }
+
 }

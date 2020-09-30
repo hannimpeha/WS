@@ -1,21 +1,14 @@
 package controllers;
 
-import jason.Agents;
-import org.neo4j.graphdb.Node;
 import panels.*;
-import playerInfo.Player;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.List;
 
 public class ConsolePane extends JPanel {
 
     private static Student student = new Student();
-    public List<Player> playerInfo;
-    public List<Node> playerNode;
-    public List<Agents> playerAgent;
     public PlayerNames pnp = new PlayerNames(student);
     public PlayerRoles prp = new PlayerRoles(student);
     public DayPanel dp = new DayPanel(student);
@@ -32,11 +25,6 @@ public class ConsolePane extends JPanel {
     private static JPanel south2 = new JPanel();
     private static JPanel south3 = new JPanel();
     private static JPanel south4 = new JPanel();
-    private List<String> playerName;
-    private static String path = "/Users/hannimpeha/HANNIMPEHA/" +
-            "Thesis/FascinatingProject" +
-            "/src/main/java/resource/players.txt";
-
 
     public ConsolePane() {
         displayNorth();

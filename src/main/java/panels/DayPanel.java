@@ -1,6 +1,6 @@
 package panels;
 
-import allThatGraph.GraphVizExe;
+import thatGraph.GraphVizExe;
 import ballot.Voting;
 import playerInfo.Player;
 import util.LoadFileUtil;
@@ -18,11 +18,10 @@ public class DayPanel implements State {
     protected String victim = vote.run();
     protected List<Player> playerInfo = fu.loadPlayer()
             .stream().filter(a->a.getStatus()==1).collect(Collectors.toList());
-    private String path = "/Users/hannimpeha/HANNIMPEHA/Thesis/" +
+    protected String path = "/Users/hannimpeha/HANNIMPEHA/Thesis/" +
             "FascinatingProject/src/main/java/resource/awesome.dot";
     protected GraphVizExe gv = new GraphVizExe();
     protected Student student;
-    private static JPanel contentPane = new JPanel();
     private static JPanel north = new JPanel();
     private static JPanel south = new JPanel();
 
@@ -39,7 +38,6 @@ public class DayPanel implements State {
         textAreaOrder.append("Their relationship was\n" + gv.getDotSource());
         textAreaOrder.setEditable(false);
         north.add(new JScrollPane(textAreaOrder));
-        contentPane.add(north);
         return north;
     }
 

@@ -1,8 +1,6 @@
 package util;
 
 import jason.Agents;
-import org.checkerframework.checker.units.qual.C;
-import org.neo4j.cypher.internal.compiler.v2_0.ast.Create;
 import org.neo4j.graphdb.Node;
 import playerInfo.Player;
 
@@ -14,7 +12,7 @@ import java.util.*;
 
 public class LoadFileUtil {
 
-    private static SaveFileUtil su;
+    private static SaveFileUtil su = new SaveFileUtil();
     private List<String> playerName = new ArrayList<>();
     private List<String> playerRole = new ArrayList<>();
     private List<Player> playerInfo = new ArrayList<>();

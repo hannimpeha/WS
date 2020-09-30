@@ -1,10 +1,9 @@
 package playerInfo;
+
 import org.neo4j.graphdb.*;
 import org.neo4j.graphdb.Relationship;
 import org.neo4j.ogm.annotation.NodeEntity;
 
-
-import java.util.Map;
 @NodeEntity(label="townie")
 public class Townie extends Player {
 

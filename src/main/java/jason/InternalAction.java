@@ -4,9 +4,6 @@ import jason.asSemantics.DefaultInternalAction;
 import jason.asSemantics.TransitionSystem;
 import jason.asSemantics.Unifier;
 import jason.asSyntax.Term;
-import org.neo4j.graphdb.Node;
-
-import java.awt.*;
 import java.io.*;
 import java.util.*;
 import java.util.List;

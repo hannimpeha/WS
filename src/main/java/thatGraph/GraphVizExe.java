@@ -1,12 +1,11 @@
-package allThatGraph;
+package thatGraph;
 
 import java.io.*;
 
 public class GraphVizExe {
+
     private final static String osName = System.getProperty("os.name").replaceAll("\\s","");
-
     private final int[] dpiSizes = {46, 51, 57, 63, 70, 78, 86, 96, 106, 116, 128, 141, 155, 170, 187, 206, 226, 249};
-
     private int currentDpiPos = 7;
 
     public void increaseDpi() {
@@ -26,9 +25,7 @@ public class GraphVizExe {
     }
 
     private StringBuilder graph = new StringBuilder();
-
     private String tempDir;
-
     private String executable;
 
     public GraphVizExe() {

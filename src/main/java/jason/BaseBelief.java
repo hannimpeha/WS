@@ -1,7 +1,7 @@
 package jason;
 
-import allThatGraph.Combination;
-import allThatGraph.Probability;
+import thatGraph.Combination;
+import thatGraph.Probability;
 import jason.asSemantics.Agent;
 import jason.asSemantics.Unifier;
 import jason.asSyntax.Atom;
@@ -22,7 +22,6 @@ public class BaseBelief implements BeliefBase {
     private Random random = new Random();
     private List<RelationshipType> ordinary =
             Collections.unmodifiableList(Arrays.asList(SEND, RECEIVE));
-    private List<Agents> playerAgent;
 
     public BaseBelief(List<Agents> agents) {
         Combination combination = new Combination(agents);

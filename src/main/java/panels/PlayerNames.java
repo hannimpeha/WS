@@ -22,7 +22,6 @@ public class PlayerNames implements State{
             "Thesis/FascinatingProject" +
             "/src/main/java/resource/players.txt";
     protected Student student;
-    protected static JPanel contentPane = new JPanel();
     protected static JPanel north = new JPanel();
     protected static JPanel south = new JPanel();
 

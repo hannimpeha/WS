@@ -1,6 +1,5 @@
 package panels;
 
-import allThatGraph.GraphVizExe;
 import jason.NCT;
 import jason.infra.centralised.RunCentralisedMAS;
 import playerInfo.Player;
@@ -16,7 +15,6 @@ public class PlayerRoles implements State{
     protected LoadFileUtil fu = new LoadFileUtil();
     protected List<Player> playerInfo = fu.loadPlayer();
     protected Student student;
-    private static JPanel contentPane = new JPanel();
     private static JPanel north = new JPanel();
     private static JPanel south = new JPanel();
 

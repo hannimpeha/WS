@@ -1,7 +1,5 @@
 package panels;
 
-import allThatGraph.Combination;
-import allThatGraph.Probability;
 import logic.NightAction;
 import logic.Victory;
 import playerInfo.Player;
@@ -17,12 +15,11 @@ public class NightPanel implements State {
 
     protected LoadFileUtil fu = new LoadFileUtil();;
     protected NightAction na = new NightAction();
-    protected Victory victory;
     protected String victim = na.nightAction();
     protected List<Player> playerInfo = fu.loadPlayer()
             .stream().filter(a->a.getStatus()==1).collect(Collectors.toList());
+    protected Victory victory = new Victory(playerInfo);
     protected Student student;
-    private static JPanel contentPane = new JPanel();
     private static JPanel north = new JPanel();
     private static JPanel south = new JPanel();
 
@@ -34,11 +31,10 @@ public class NightPanel implements State {
             final JTextArea textAreaOrder =
                     new JTextArea(20, 40);
             textAreaOrder.setText("Night Start\n");
-            victory = new Victory(playerInfo);
+            textAreaOrder.append(victim+" has been chosen by Mafias");
             textAreaOrder.append(victory.victoryMessage());
             textAreaOrder.setEditable(false);
             north.add(new JScrollPane(textAreaOrder));
-            contentPane.add(north);
         return north;
     }
 
