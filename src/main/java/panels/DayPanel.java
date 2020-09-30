@@ -5,9 +5,13 @@ import ballot.Voting;
 import playerInfo.Player;
 import util.LoadFileUtil;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -23,12 +27,15 @@ public class DayPanel implements State {
             "FascinatingProject/src/main/java/resource/awesome.dot";
     protected String namePath = "/Users/hannimpeha/HANNIMPEHA/Thesis/" +
             "FascinatingProject/src/main/java/resource/players.txt";
+    protected String imagePath = "/Users/hannimpeha/HANNIMPEHA/Thesis/" +
+            "FascinatingProject/src/main/java/resource/simple.png";
     protected GraphVizExe gv = new GraphVizExe();
     protected Student student;
     private static JPanel north = new JPanel();
     private static JPanel south = new JPanel();
     private List<Player> playerInfo;
     private List<String> playerName;
+    private BufferedImage myPicture;
 
 
     public DayPanel(Student student) {
@@ -52,11 +59,18 @@ public class DayPanel implements State {
         textAreaOrder.append("  Player " + victim + " has been lynched.\n\n");
         gv.readSource(path);
         textAreaOrder.append("  Their relationship was\n\n" + "  "+ gv.getDotSource()+".");
+        try {
+            myPicture = ImageIO.read(new File(imagePath));
+            JLabel picLabel = new JLabel(new ImageIcon(myPicture));
+                    //.getScaledInstance(20, 20, Image.SCALE_FAST)));
+            textAreaOrder.add(picLabel);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         textAreaOrder.setEditable(false);
         north.add(new JScrollPane(textAreaOrder));
         return north;
     }
-
 
     public JPanel createButton(Student student) {
             final Box box = Box.createHorizontalBox();

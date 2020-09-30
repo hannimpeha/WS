@@ -11,7 +11,7 @@ public class Messaging extends Message {
 
     public Messaging(List<Agents> agents){
         for(Agents agent: agents) {
-            if(agent.hasRelationship(KNOWS)){
+            if(agent.getRole().contains("Mafia")){
                 misinformation(agent);
             } else {
                 information(agent);

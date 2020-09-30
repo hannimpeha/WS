@@ -15,7 +15,7 @@ public class Probability {
         gv.readSource(path);
         //System.out.println(gv.getDotSource());
 
-        String type = "gif";
+        String type = "png";
 
         String repesentationType= "dot";
 
