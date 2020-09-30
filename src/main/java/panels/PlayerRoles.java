@@ -5,10 +5,14 @@ import jason.infra.centralised.RunCentralisedMAS;
 import playerInfo.Player;
 import util.LoadFileUtil;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 public class PlayerRoles implements State{
@@ -18,7 +22,11 @@ public class PlayerRoles implements State{
     protected List<Player> playerInfo;
     protected List<String> playerName;
     private static JPanel north = new JPanel();
+    private static JPanel realNorth = new JPanel();
     private static JPanel south = new JPanel();
+    private BufferedImage myPicture;
+    protected String imagePath = "/Users/hannimpeha/HANNIMPEHA/Thesis/" +
+            "FascinatingProject/src/main/java/resource/mafia.jpg";
 
     public PlayerRoles(Student student) {
         this.student = student;
@@ -37,7 +45,17 @@ public class PlayerRoles implements State{
                                 playerInfo.get(i).getRole() + ".\n\n");
             }
             textAreaOrder.setEditable(false);
-            north.add(new JScrollPane(textAreaOrder), BorderLayout.WEST);
+            try {
+                myPicture = ImageIO.read(new File(imagePath));
+                JLabel picLabel = new JLabel(new ImageIcon(
+                        myPicture.getScaledInstance(
+                                200, 300, Image.SCALE_FAST)));
+                realNorth.add(picLabel, BorderLayout.SOUTH);
+            }catch(IOException exception) {
+                exception.printStackTrace();
+             }
+            north.add(new JScrollPane(textAreaOrder), BorderLayout.BEFORE_LINE_BEGINS);
+            north.add(realNorth);
         return north;
     }
 

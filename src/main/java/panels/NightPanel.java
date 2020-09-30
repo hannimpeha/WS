@@ -58,7 +58,8 @@ public class NightPanel implements State {
             try {
                 myPicture = ImageIO.read(new File(imagePath));
                 JLabel picLabel = new JLabel(new ImageIcon(
-                    myPicture.getScaledInstance(200, 300, Image.SCALE_FAST)));
+                    myPicture.getScaledInstance(
+                            200, 300, Image.SCALE_FAST)));
                 realNorth.add(picLabel, BorderLayout.SOUTH);
             } catch (IOException e) {
             e.printStackTrace();

@@ -3,10 +3,13 @@ package panels;
 import playerInfo.Player;
 import util.LoadFileUtil;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -22,8 +25,12 @@ public class PlayerNames implements State{
     protected static String path = "/Users/hannimpeha/HANNIMPEHA/" +
             "Thesis/FascinatingProject" +
             "/src/main/java/resource/players.txt";
+    protected String imagePath = "/Users/hannimpeha/HANNIMPEHA/Thesis/" +
+            "FascinatingProject/src/main/java/resource/mafia.jpg";
     protected static JPanel north = new JPanel();
+    protected static JPanel realNorth = new JPanel();
     protected static JPanel south = new JPanel();
+    private BufferedImage myPicture;
 
     public PlayerNames(Student student) {
         this.student = student;
@@ -46,7 +53,17 @@ public class PlayerNames implements State{
             textAreaOrder.append("    Type Players' Names.\n\n");
             textAreaOrder.append("    Name should be separated by commas.");
             textAreaOrder.setEditable(false);
-            north.add(new JScrollPane(textAreaOrder), BorderLayout.WEST);
+            try {
+                myPicture = ImageIO.read(new File(imagePath));
+                JLabel picLabel = new JLabel(
+                        new ImageIcon(myPicture.getScaledInstance(
+                                200, 300, Image.SCALE_FAST)));
+                realNorth.add(picLabel, BorderLayout.SOUTH);
+            }catch(IOException exception) {
+                exception.printStackTrace();
+            }
+            north.add(new JScrollPane(textAreaOrder), BorderLayout.BEFORE_LINE_BEGINS);
+            north.add(realNorth);
         return north;
     }
 
