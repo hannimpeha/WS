@@ -24,4 +24,5 @@ public class Ballot {
         }
         return vote;
     }
+
 }

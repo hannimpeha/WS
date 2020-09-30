@@ -104,7 +104,6 @@ public class DayPanel implements State {
         return fu.loadFile();
     }
 
-
     @Override
     public String getName() {
         return "Day";
