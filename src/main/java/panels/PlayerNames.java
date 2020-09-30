@@ -32,7 +32,8 @@ public class PlayerNames implements State{
     public JPanel createPanel(Student student) {
             final JTextArea textAreaOrder =
                     new JTextArea(20, 40);
-            textAreaOrder.setText("Type Players's Names");
+            textAreaOrder.setText("Type Players's Names\n");
+            textAreaOrder.append("Name should be separated by commas.\n");
             textAreaOrder.setEditable(false);
             north.add(new JScrollPane(textAreaOrder));
         return north;

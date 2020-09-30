@@ -22,7 +22,7 @@ public class NCT {
 
     public List<Agents> createAgent(List<Player> playerInfo){
         return playerInfo.stream()
-                .filter(a->a.getStatus()==0)
+                .filter(a->a.getStatus()!=0)
                 .map(a->new Agents(a.getName(), a.getRole(), a.getStatus()))
                 .collect(Collectors.toList());
     }

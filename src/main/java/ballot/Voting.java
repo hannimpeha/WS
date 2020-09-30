@@ -18,7 +18,6 @@ public class Voting {
     private ArrayList<List<String>> rawBallots;
     private LoadFileUtil fu = new LoadFileUtil();
     private List<String> candidates = fu.loadFile();
-    private FileReader fr;
     private String ballotPath = "/Users/hannimpeha/" +
             "HANNIMPEHA/Thesis/FascinatingProject/" +
             "src/main/java/resource/ballots.txt";
@@ -27,8 +26,6 @@ public class Voting {
     }
 
     public String run() {
-        //candidates = new ArrayList<String>(Arrays.<String>asList(
-        //          "hyo", "ji", "yoo", "mi", "vi", "se", "ari"));
         rawBallots = preliminary();
         contest = new Contest(candidates, rawBallots);
         lynched = contest.getWinner().iterator().next();
