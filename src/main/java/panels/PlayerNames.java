@@ -37,13 +37,13 @@ public class PlayerNames implements State{
                     "    **      __     __             __    _                ____                                       **\n" +
                     "    **     |   \\ /   |   __ _   / _| (_)   __ _     / ___|  __ _  _ __ __    ___        **\n" +
                     "    **     |  |\\ /|  | / _` | | |_  | |  / _` |   | |  _   / _` | | '_ ` _ \\ / _ \\       **\n" +
-                    "    **     |  |    |  | | (_|  | |  _| | | | (_|  |   | |_| | | (_| | | | | | | ||   __/        **\n" +
+                    "    **     |  |    |  | | (_|  | |  _| | | | (_|  |   | |_| | | (_|  | | | | | | | |  __/       **\n" +
                     "    **     |_|     |_| \\__,_| |_|   |_| \\__,_|   \\____| \\__,_||_||_||_|\\___|       **\n" +
                     "    **                                                                                                       **\n" +
                     "    *************************************************************************\n"+
                     "\n");
 
-            textAreaOrder.append("    Type Players's Names.\n");
+            textAreaOrder.append("    Type Players' Names.\n\n");
             textAreaOrder.append("    Name should be separated by commas.");
             textAreaOrder.setEditable(false);
             north.add(new JScrollPane(textAreaOrder));

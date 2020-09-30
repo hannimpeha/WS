@@ -44,8 +44,8 @@ public class NightPanel implements State {
                 " |_| \\_| |_|  \\__, | |_||_|  \\__|\n" +
                 "                  |___/               \n" +
                 "                                  \n" );
-            textAreaOrder.append("  "+victim + " has been chosen by Mafias.\n\n");
             textAreaOrder.append("  There are " + playerName.size()+" number of Players.\n\n");
+            textAreaOrder.append("  "+victim + " has been chosen by Mafias.\n\n");
             textAreaOrder.append("  "+victory.victoryMessage());
             textAreaOrder.setEditable(false);
             north.add(new JScrollPane(textAreaOrder));
