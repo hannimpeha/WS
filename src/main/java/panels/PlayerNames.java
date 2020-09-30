@@ -9,19 +9,18 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class PlayerNames implements State{
 
-    protected List<String> playerName;
-    protected List<Player> playerInfo = new ArrayList<>();
     protected LoadFileUtil fu;
+    protected Student student;
+    protected List<String> playerName = getPlayerName(student);
+    protected List<Player> playerInfo = getPlayerInfo(student);
     protected static String path = "/Users/hannimpeha/HANNIMPEHA/" +
             "Thesis/FascinatingProject" +
             "/src/main/java/resource/players.txt";
-    protected Student student;
     protected static JPanel north = new JPanel();
     protected static JPanel south = new JPanel();
 
@@ -71,6 +70,7 @@ public class PlayerNames implements State{
                     } catch (IOException ioException) {
                         ioException.printStackTrace();
                     }
+                    fu = new LoadFileUtil();
                     playerInfo = fu.setAllPlayers();
                     fu.saveGame(playerInfo);
                 }
@@ -81,13 +81,13 @@ public class PlayerNames implements State{
     }
 
     @Override
-    public List<Player> getPlayerInfo() {
+    public List<Player> getPlayerInfo(Student student) {
         fu = new LoadFileUtil();
         return fu.loadPlayer();
     }
 
     @Override
-    public List<String> getPlayerName() {
+    public List<String> getPlayerName(Student student) {
         fu = new LoadFileUtil();
         return fu.loadFile();
     }

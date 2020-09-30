@@ -22,7 +22,7 @@ public class NightPanel implements State {
     protected Student student;
     private static JPanel north = new JPanel();
     private static JPanel south = new JPanel();
-    private List<String> playerName = getPlayerName();
+    private List<String> playerName = getPlayerName(student);
     protected String namePath = "/Users/hannimpeha/HANNIMPEHA/Thesis/" +
             "FascinatingProject/src/main/java/resource/players.txt";
 
@@ -58,7 +58,7 @@ public class NightPanel implements State {
             box.add(Box.createHorizontalGlue());
             final JButton button = new JButton("Night");
             button.addActionListener(e -> {
-                List<Player> playerInfo = getPlayerInfo()
+                List<Player> playerInfo = getPlayerInfo(student)
                         .stream().filter(a->a.getStatus()==1).collect(Collectors.toList());
                 playerInfo.stream()
                         .filter(a->a.getName().contains(victim))
@@ -82,13 +82,13 @@ public class NightPanel implements State {
     }
 
     @Override
-    public List<Player> getPlayerInfo() {
+    public List<Player> getPlayerInfo(Student student) {
         fu = new LoadFileUtil();
         return fu.loadPlayer();
     }
 
     @Override
-    public List<String> getPlayerName() {
+    public List<String> getPlayerName(Student student) {
         fu = new LoadFileUtil();
         return fu.loadFile();
     }

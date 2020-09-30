@@ -9,7 +9,7 @@ public interface State {
 
     JPanel createPanel(Student student);
     JPanel createButton(Student student);
-    List<Player> getPlayerInfo();
-    List<String> getPlayerName();
+    List<Player> getPlayerInfo(Student student);
+    List<String> getPlayerName(Student student);
     String getName();
 }

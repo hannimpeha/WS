@@ -13,8 +13,8 @@ import java.util.List;
 public class PlayerRoles implements State{
 
     protected LoadFileUtil fu;
-    protected List<Player> playerInfo = getPlayerInfo();
     protected Student student;
+    protected List<Player> playerInfo = getPlayerInfo(student);
     private static JPanel north = new JPanel();
     private static JPanel south = new JPanel();
 
@@ -58,13 +58,13 @@ public class PlayerRoles implements State{
     }
 
     @Override
-    public List<Player> getPlayerInfo() {
+    public List<Player> getPlayerInfo(Student student) {
         fu = new LoadFileUtil();
         return fu.loadPlayer();
     }
 
     @Override
-    public List<String> getPlayerName() {
+    public List<String> getPlayerName(Student student) {
         fu = new LoadFileUtil();
         return fu.loadFile();
     }

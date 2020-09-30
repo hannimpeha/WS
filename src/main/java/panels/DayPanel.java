@@ -27,8 +27,8 @@ public class DayPanel implements State {
     protected Student student;
     private static JPanel north = new JPanel();
     private static JPanel south = new JPanel();
-    private List<Player> playerInfo = getPlayerInfo();
-    private List<String> playerName = getPlayerName();
+    private List<Player> playerInfo = getPlayerInfo(student);
+    private List<String> playerName = getPlayerName(student);
 
     public DayPanel(Student student) {
         this.student = student;
@@ -65,7 +65,7 @@ public class DayPanel implements State {
             button.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    List<Player> playerInfo = getPlayerInfo()
+                    List<Player> playerInfo = getPlayerInfo(student)
                             .stream().filter(a->a.getStatus()==1).collect(Collectors.toList());
                     playerInfo.stream()
                             .filter(a->a.getName().contains(victim))
@@ -90,13 +90,13 @@ public class DayPanel implements State {
     }
 
     @Override
-    public List<Player> getPlayerInfo() {
+    public List<Player> getPlayerInfo(Student student) {
         fu = new LoadFileUtil();
         return fu.loadPlayer();
     }
 
     @Override
-    public List<String> getPlayerName() {
+    public List<String> getPlayerName(Student student) {
         fu = new LoadFileUtil();
         return fu.loadFile();
     }
