@@ -16,11 +16,9 @@ import java.util.stream.Collectors;
 
 public class DayPanel implements State {
 
-    protected LoadFileUtil fu = new LoadFileUtil();
+    protected LoadFileUtil fu;
     protected Voting vote = new Voting();
     protected String victim = vote.run();
-    protected List<Player> playerInfo = fu.loadPlayer()
-            .stream().filter(a->a.getStatus()==1).collect(Collectors.toList());
     protected String path = "/Users/hannimpeha/HANNIMPEHA/Thesis/" +
             "FascinatingProject/src/main/java/resource/awesome.dot";
     protected String namePath = "/Users/hannimpeha/HANNIMPEHA/Thesis/" +
@@ -29,7 +27,7 @@ public class DayPanel implements State {
     protected Student student;
     private static JPanel north = new JPanel();
     private static JPanel south = new JPanel();
-    private List<String> playerName = fu.loadFile();
+    private List<String> playerName;
 
     public DayPanel(Student student) {
         this.student = student;
@@ -46,6 +44,8 @@ public class DayPanel implements State {
                 " |____/ \\__,_| \\__, |\n" +
                 "                       |___/ \n" +
                 "                        \n");
+        fu = new LoadFileUtil();
+        playerName = fu.loadFile();
         textAreaOrder.append("  There are " + playerName.size() + " number of Players.\n\n");
         textAreaOrder.append("  Player " + victim + " has been lynched.\n\n");
         gv.readSource(path);
@@ -66,6 +66,9 @@ public class DayPanel implements State {
             button.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
+                    fu = new LoadFileUtil();
+                    List<Player> playerInfo = fu.loadPlayer()
+                            .stream().filter(a->a.getStatus()==1).collect(Collectors.toList());
                     playerInfo.stream()
                             .filter(a->a.getName().contains(victim))
                             .forEach(a->a.setStatus(0));

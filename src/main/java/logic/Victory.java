@@ -1,15 +1,17 @@
 package logic;
 
 import playerInfo.Player;
+import util.LoadFileUtil;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Victory {
 
-    private List<Player> playerInfo;
+    private LoadFileUtil fu = new LoadFileUtil();
+    private List<Player> playerInfo = fu.loadPlayer();
 
-    public Victory(List<Player> playerInfo) {
-        this.playerInfo = playerInfo;
+    public Victory() {
     }
 
     public String victoryMessage() {

@@ -88,10 +88,11 @@ public class LoadFileUtil {
 
     public List<Player> loadPlayer() {
         try{
-            playerName = Files.readAllLines(
+            List<String> playerAll = new ArrayList<>();
+            playerAll = Files.readAllLines(
                     Paths.get(saveFile), StandardCharsets.UTF_8);
-            for(int i=0; i<playerName.size(); i++) {
-                String str = playerName.get(i);
+            for(int i=0; i<playerAll.size(); i++) {
+                String str = playerAll.get(i);
                 String[] arr = str.split(",");
                 playerInfo.add(
                         CreatePlayerUtil.createPlayer(

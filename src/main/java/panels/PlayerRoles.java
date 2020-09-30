@@ -32,7 +32,6 @@ public class PlayerRoles implements State{
                         "    Player " + playerInfo.get(i).getName() + " is " +
                                 playerInfo.get(i).getRole() + ".\n\n");
             }
-        textAreaOrder.append("    ----------------------------");
             textAreaOrder.setEditable(false);
             north.add(new JScrollPane(textAreaOrder));
         return north;

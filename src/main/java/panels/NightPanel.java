@@ -16,16 +16,13 @@ import java.util.stream.Collectors;
 
 public class NightPanel implements State {
 
-    protected LoadFileUtil fu = new LoadFileUtil();;
+    protected LoadFileUtil fu;
     protected NightAction na = new NightAction();
     protected String victim = na.nightAction();
-    protected List<Player> playerInfo = fu.loadPlayer()
-            .stream().filter(a->a.getStatus()==1).collect(Collectors.toList());
-    protected Victory victory = new Victory(playerInfo);
     protected Student student;
     private static JPanel north = new JPanel();
     private static JPanel south = new JPanel();
-    private List<String> playerName = fu.loadFile();
+    private List<String> playerName;
     protected String namePath = "/Users/hannimpeha/HANNIMPEHA/Thesis/" +
             "FascinatingProject/src/main/java/resource/players.txt";
 
@@ -44,8 +41,11 @@ public class NightPanel implements State {
                 " |_| \\_| |_|  \\__, | |_||_|  \\__|\n" +
                 "                  |___/               \n" +
                 "                                  \n" );
+            fu = new LoadFileUtil();
+            playerName = fu.loadFile();
             textAreaOrder.append("  There are " + playerName.size()+" number of Players.\n\n");
             textAreaOrder.append("  "+victim + " has been chosen by Mafias.\n\n");
+            Victory victory = new Victory();
             textAreaOrder.append("  "+victory.victoryMessage());
             textAreaOrder.setEditable(false);
             north.add(new JScrollPane(textAreaOrder));
@@ -59,24 +59,24 @@ public class NightPanel implements State {
             box.add(Box.createHorizontalStrut(5));
             box.add(Box.createHorizontalGlue());
             final JButton button = new JButton("Night");
-            button.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    playerInfo.stream()
-                            .filter(a->a.getName().contains(victim))
-                            .forEach(a->a.setStatus(0));
-                    fu.saveGame(playerInfo);
+            button.addActionListener(e -> {
+                fu = new LoadFileUtil();
+                List<Player> playerInfo = fu.loadPlayer()
+                        .stream().filter(a->a.getStatus()==1).collect(Collectors.toList());
+                playerInfo.stream()
+                        .filter(a->a.getName().contains(victim))
+                        .forEach(a->a.setStatus(0));
+                fu.saveGame(playerInfo);
 
-                    playerName = playerInfo.stream()
-                            .filter(a->a.getStatus()==1)
-                            .map(a->a.getName())
-                            .collect(Collectors.toList());
+                playerName = playerInfo.stream()
+                        .filter(a->a.getStatus()==1)
+                        .map(a->a.getName())
+                        .collect(Collectors.toList());
 
-                    try {
-                        Files.write(Paths.get(namePath), playerName);
-                    } catch (IOException ioException) {
-                        ioException.printStackTrace();
-                    }
+                try {
+                    Files.write(Paths.get(namePath), playerName);
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
                 }
             });
             box.add(button);
