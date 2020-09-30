@@ -1,13 +1,9 @@
 package allThatGraph;
 
 import jason.Agents;
-import jason.BaseBelief;
-import jason.NCT;
 import org.neo4j.graphdb.Node;
 import org.neo4j.graphdb.Relationship;
 import org.neo4j.graphdb.RelationshipType;
-import playerInfo.Player;
-import util.LoadFileUtil;
 
 import java.io.IOException;
 import java.io.PrintStream;
