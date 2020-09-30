@@ -4,6 +4,7 @@ import playerInfo.Player;
 import util.LoadFileUtil;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -45,7 +46,7 @@ public class PlayerNames implements State{
             textAreaOrder.append("    Type Players' Names.\n\n");
             textAreaOrder.append("    Name should be separated by commas.");
             textAreaOrder.setEditable(false);
-            north.add(new JScrollPane(textAreaOrder));
+            north.add(new JScrollPane(textAreaOrder), BorderLayout.WEST);
         return north;
     }
 

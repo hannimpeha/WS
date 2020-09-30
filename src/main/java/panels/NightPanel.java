@@ -43,17 +43,18 @@ public class NightPanel implements State {
             final JTextArea textAreaOrder =
                     new JTextArea(20, 40);
             textAreaOrder.setText("\n" +
-                "  _    _   _              _        _   \n" +
-                " | \\ |  | (_)    __ _  | |__   | |_ \n" +
-                " |  \\|  | |  |  / _` | | '_  \\ | __|\n" +
-                " |  |\\  | |  | | (_|  | | | |  | | |_ \n" +
-                " |_| \\_| |_|  \\__, | |_||_|  \\__|\n" +
-                "                  |___/               \n" +
-                "                                  \n" );
+                "   _    _   _              _        _   \n" +
+                "  | \\ |  | (_)    __ _  | |__   | |_ \n" +
+                "  |  \\|  | |  |  / _` | | '_  \\ | __|\n" +
+                "  |  |\\  | |  | | (_|  | | | |  | | |_ \n" +
+                "  |_| \\_| |_|  \\__, | |_||_|  \\__|\n" +
+                "                   |___/               \n" +
+                "                                   \n" );
             textAreaOrder.append("  There are " + playerName.size()+" number of Players.\n\n");
             textAreaOrder.append("  "+victim + " has been chosen by Mafias.\n\n");
             Victory victory = new Victory();
-            textAreaOrder.append("  "+victory.victoryMessage());
+            textAreaOrder.append("  "+victory.victoryMessage()+"\n");
+            textAreaOrder.append("   See You in the Next Day.");
             try {
                 myPicture = ImageIO.read(new File(imagePath));
                 JLabel picLabel = new JLabel(new ImageIcon(

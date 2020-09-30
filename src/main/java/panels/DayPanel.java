@@ -49,13 +49,13 @@ public class DayPanel implements State {
         final JTextArea textAreaOrder =
                 new JTextArea(20, 40);
         textAreaOrder.setText("\n" +
-                "  ____                    \n" +
-                " |  _   \\   __ _   _    _ \n" +
-                " | |  |  | / _` | | |  | |\n" +
-                " | |_|  | | (_|  | | |_| |\n" +
-                " |____/ \\__,_| \\__, |\n" +
-                "                       |___/ \n" +
-                "                        \n");
+                "   ____                    \n" +
+                "  |  _   \\   __ _   _    _ \n" +
+                "  | |  |  | / _` | | |  | |\n" +
+                "  | |_|  | | (_|  | | |_| |\n" +
+                "  |____/ \\__,_| \\__, |\n" +
+                "                        |___/ \n" +
+                "                         \n");
         textAreaOrder.append("  There are " + playerName.size() + " number of Players.\n\n");
         textAreaOrder.append("  Player " + victim + " has been lynched.\n\n");
         gv.readSource(path);

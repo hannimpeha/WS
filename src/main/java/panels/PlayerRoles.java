@@ -6,6 +6,7 @@ import playerInfo.Player;
 import util.LoadFileUtil;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -36,7 +37,7 @@ public class PlayerRoles implements State{
                                 playerInfo.get(i).getRole() + ".\n\n");
             }
             textAreaOrder.setEditable(false);
-            north.add(new JScrollPane(textAreaOrder));
+            north.add(new JScrollPane(textAreaOrder), BorderLayout.WEST);
         return north;
     }
 
