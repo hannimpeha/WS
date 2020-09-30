@@ -36,9 +36,9 @@ public class Student {
 
     public JPanel createButton() { return state.createButton(this);}
 
-    public List<Player> getPlayerInfo() { return state.getPlayerInfo();}
+    public List<Player> getPlayerInfo() { return state.getPlayerInfo(this);}
 
-    public List<String> getPlayerName() { return state.getPlayerName();}
+    public List<String> getPlayerName() { return state.getPlayerName(this);}
 
     public State nextTrack() {
         currentTrack++;

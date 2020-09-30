@@ -27,11 +27,14 @@ public class DayPanel implements State {
     protected Student student;
     private static JPanel north = new JPanel();
     private static JPanel south = new JPanel();
-    private List<Player> playerInfo = getPlayerInfo(student);
-    private List<String> playerName = getPlayerName(student);
+    private List<Player> playerInfo;
+    private List<String> playerName;
+
 
     public DayPanel(Student student) {
         this.student = student;
+        playerInfo = student.getPlayerInfo();
+        playerName = student.getPlayerName();
     }
 
     public JPanel createPanel(Student student) {

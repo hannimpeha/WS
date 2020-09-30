@@ -22,12 +22,15 @@ public class NightPanel implements State {
     protected Student student;
     private static JPanel north = new JPanel();
     private static JPanel south = new JPanel();
-    private List<String> playerName = getPlayerName(student);
+    private List<Player> playerInfo;
+    private List<String> playerName;
     protected String namePath = "/Users/hannimpeha/HANNIMPEHA/Thesis/" +
             "FascinatingProject/src/main/java/resource/players.txt";
 
     public NightPanel(Student student) {
         this.student = student;
+        playerInfo = student.getPlayerInfo();
+        playerName = student.getPlayerName();
     }
 
     public JPanel createPanel(Student student) {
@@ -86,7 +89,6 @@ public class NightPanel implements State {
         fu = new LoadFileUtil();
         return fu.loadPlayer();
     }
-
     @Override
     public List<String> getPlayerName(Student student) {
         fu = new LoadFileUtil();

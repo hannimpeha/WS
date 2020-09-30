@@ -15,9 +15,9 @@ import java.util.List;
 public class PlayerNames implements State{
 
     protected LoadFileUtil fu;
-    protected Student student;
-    protected List<String> playerName = getPlayerName(student);
-    protected List<Player> playerInfo = getPlayerInfo(student);
+    private static Student student = new Student();
+    protected List<String> playerName;
+    protected List<Player> playerInfo;
     protected static String path = "/Users/hannimpeha/HANNIMPEHA/" +
             "Thesis/FascinatingProject" +
             "/src/main/java/resource/players.txt";

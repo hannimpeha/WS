@@ -14,12 +14,15 @@ public class PlayerRoles implements State{
 
     protected LoadFileUtil fu;
     protected Student student;
-    protected List<Player> playerInfo = getPlayerInfo(student);
+    protected List<Player> playerInfo;
+    protected List<String> playerName;
     private static JPanel north = new JPanel();
     private static JPanel south = new JPanel();
 
     public PlayerRoles(Student student) {
         this.student = student;
+        playerInfo = student.getPlayerInfo();
+        playerName = student.getPlayerName();
     }
 
     public JPanel createPanel(Student student) {
