@@ -12,8 +12,8 @@ import java.util.List;
 
 public class PlayerRoles implements State{
 
-    protected LoadFileUtil fu = new LoadFileUtil();
-    protected List<Player> playerInfo = fu.loadPlayer();
+    protected LoadFileUtil fu;
+    protected List<Player> playerInfo = getPlayerInfo();
     protected Student student;
     private static JPanel north = new JPanel();
     private static JPanel south = new JPanel();
@@ -55,6 +55,18 @@ public class PlayerRoles implements State{
             box.add(button);
             south.add(box);
         return south;
+    }
+
+    @Override
+    public List<Player> getPlayerInfo() {
+        fu = new LoadFileUtil();
+        return fu.loadPlayer();
+    }
+
+    @Override
+    public List<String> getPlayerName() {
+        fu = new LoadFileUtil();
+        return fu.loadFile();
     }
 
     @Override

@@ -22,7 +22,7 @@ public class NightPanel implements State {
     protected Student student;
     private static JPanel north = new JPanel();
     private static JPanel south = new JPanel();
-    private List<String> playerName;
+    private List<String> playerName = getPlayerName();
     protected String namePath = "/Users/hannimpeha/HANNIMPEHA/Thesis/" +
             "FascinatingProject/src/main/java/resource/players.txt";
 
@@ -41,8 +41,6 @@ public class NightPanel implements State {
                 " |_| \\_| |_|  \\__, | |_||_|  \\__|\n" +
                 "                  |___/               \n" +
                 "                                  \n" );
-            fu = new LoadFileUtil();
-            playerName = fu.loadFile();
             textAreaOrder.append("  There are " + playerName.size()+" number of Players.\n\n");
             textAreaOrder.append("  "+victim + " has been chosen by Mafias.\n\n");
             Victory victory = new Victory();
@@ -60,8 +58,7 @@ public class NightPanel implements State {
             box.add(Box.createHorizontalGlue());
             final JButton button = new JButton("Night");
             button.addActionListener(e -> {
-                fu = new LoadFileUtil();
-                List<Player> playerInfo = fu.loadPlayer()
+                List<Player> playerInfo = getPlayerInfo()
                         .stream().filter(a->a.getStatus()==1).collect(Collectors.toList());
                 playerInfo.stream()
                         .filter(a->a.getName().contains(victim))
@@ -82,6 +79,18 @@ public class NightPanel implements State {
             box.add(button);
             south.add(box);
         return south;
+    }
+
+    @Override
+    public List<Player> getPlayerInfo() {
+        fu = new LoadFileUtil();
+        return fu.loadPlayer();
+    }
+
+    @Override
+    public List<String> getPlayerName() {
+        fu = new LoadFileUtil();
+        return fu.loadFile();
     }
 
     @Override

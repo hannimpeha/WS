@@ -17,7 +17,7 @@ public class PlayerNames implements State{
 
     protected List<String> playerName;
     protected List<Player> playerInfo = new ArrayList<>();
-    protected LoadFileUtil fu = new LoadFileUtil();
+    protected LoadFileUtil fu;
     protected static String path = "/Users/hannimpeha/HANNIMPEHA/" +
             "Thesis/FascinatingProject" +
             "/src/main/java/resource/players.txt";
@@ -78,6 +78,18 @@ public class PlayerNames implements State{
             box.add(button);
             south.add(box);
         return south;
+    }
+
+    @Override
+    public List<Player> getPlayerInfo() {
+        fu = new LoadFileUtil();
+        return fu.loadPlayer();
+    }
+
+    @Override
+    public List<String> getPlayerName() {
+        fu = new LoadFileUtil();
+        return fu.loadFile();
     }
 
     @Override

@@ -1,5 +1,7 @@
 package panels;
 
+import playerInfo.Player;
+
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +34,11 @@ public class Student {
 
     public JPanel createPanel(){ return state.createPanel(this);}
 
-    public JPanel createButton() {return state.createButton(this);}
+    public JPanel createButton() { return state.createButton(this);}
+
+    public List<Player> getPlayerInfo() { return state.getPlayerInfo();}
+
+    public List<String> getPlayerName() { return state.getPlayerName();}
 
     public State nextTrack() {
         currentTrack++;
