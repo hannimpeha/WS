@@ -36,13 +36,15 @@ public class PlayerRoles implements State{
     public JPanel createPanel(Student student) {
             final JTextArea textAreaOrder =
                     new JTextArea(20, 40);
-            textAreaOrder.setText("\n   Assigned Roles are as follows.\n\n");
+            textAreaOrder.setText("  Doctor | Heal another player each night | Lynch all members of the Mafia\n" +
+                    "  Townie | You have nothing to do at night. | Lynch all members of the Mafia\n" +
+                    "  Mafia | Kill a different player each night | Make the majority of the town Mafia by any means\n");
             textAreaOrder.append("    ----------------------------\n\n");
-
+            textAreaOrder.append("    Assigned Roles are as follows.\n\n");
             for (int i = 0; i < playerInfo.size(); i++) {
                 textAreaOrder.append(
                         "    Player " + playerInfo.get(i).getName() + " is " +
-                                playerInfo.get(i).getRole() + ".\n\n");
+                                playerInfo.get(i).getRole() + ".\n");
             }
             textAreaOrder.setEditable(false);
             try {
