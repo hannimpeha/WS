@@ -37,11 +37,11 @@ public class PlayerRoles implements State{
         final JTextArea textAreaOrder =
                 new JTextArea(20, 40);
         textAreaOrder.setText("\n"+
-                "    ************************************************************************\n" +
-                "    - Doctor | Heal another player each night | Lynch members of the Mafia\n" +
-                "    - Townie | You have nothing to do at night | Lynch members of the Mafia\n" +
-                "    - Mafia | Kill a Townies each night | Make the majority of the Mafia\n");
-        textAreaOrder.append("    ************************************************************************\n\n");
+                "    **************************************************************************\n" +
+                "    - Doctor | Heal another player each night | Lynch members of Mafia\n" +
+                "    - Townie | You have nothing to do at night | Lynch members of Mafia\n" +
+                "    - Mafia | Kill a Townies each night | Make the majority of Mafia\n");
+        textAreaOrder.append("    **************************************************************************\n\n");
         textAreaOrder.append("    Assigned Roles are as follows.\n\n");
         for (int i = 0; i < playerInfo.size(); i++) {
             textAreaOrder.append(

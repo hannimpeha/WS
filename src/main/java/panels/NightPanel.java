@@ -57,13 +57,13 @@ public class NightPanel implements State {
                 "                     |___/               \n" +
                 "\n" );
         textAreaOrder.append("  - Now there are [ " + playerName.size()+" ] survivors.\n");
-        textAreaOrder.append("    * Mafia : "+playerInfo.stream().filter(
+        textAreaOrder.append("    * Number of Mafia : "+playerInfo.stream().filter(
                 a->a.getRole().contains("Mafia")).collect(Collectors.toList()).size()+"\n"+
-                "    * Townie : "+playerInfo.stream().filter(
+                "    * Number of Townie : "+playerInfo.stream().filter(
                 a->a.getRole().contains("Townie")).collect(Collectors.toList()).size()+"\n"+
-                "    * Doctor : "+playerInfo.stream().filter(
+                "    * Number of Doctor : "+playerInfo.stream().filter(
                 a->a.getRole().contains("Doctor")).collect(Collectors.toList()).size()+"\n\n");
-        textAreaOrder.append("  - But, [ "+victim+" ] has been chosen by Mafias.\n\n");
+        textAreaOrder.append("  - But, [ "+victim+" ] has been chosen by Mafia.\n\n");
         textAreaOrder.append("  - Result of the Day : [ "+victory.victoryMessage()+" ]");
         try {
             myPicture = ImageIO.read(new File(imagePath));

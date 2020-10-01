@@ -77,7 +77,7 @@ public class PlayerNames implements State{
                     5, 5, 5, 5));
             box.add(Box.createHorizontalStrut(5));
             box.add(Box.createHorizontalGlue());
-            final JTextField textField = new JTextField(24);
+            final JTextField textField = new JTextField(34);
             box.add(textField);
             final JButton button = new JButton("Name");
             button.addActionListener(new ActionListener() {

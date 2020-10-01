@@ -61,13 +61,13 @@ public class DayPanel implements State {
                 "                          |___/ \n" +
                 "\n");
         textAreaOrder.append("  - There was [ "+playerName.size()+" ] number of players.\n");
-        textAreaOrder.append("    * Mafia : "+playerInfo.stream().filter(
+        textAreaOrder.append("    * Number of Mafia : "+playerInfo.stream().filter(
                 a->a.getRole().contains("Mafia")).collect(Collectors.toList()).size()+"\n"+
-                "    * Townie : "+playerInfo.stream().filter(
+                "    * Number of Townie : "+playerInfo.stream().filter(
                         a->a.getRole().contains("Townie")).collect(Collectors.toList()).size()+"\n"+
-                "    * Doctor : "+playerInfo.stream().filter(
+                "    * Number of Doctor : "+playerInfo.stream().filter(
                         a->a.getRole().contains("Doctor")).collect(Collectors.toList()).size()+"\n\n");
-        textAreaOrder.append("  - By majority vote, player [ "+victim+" ] has been lynched.\n\n");
+        textAreaOrder.append("  - By majority vote, player [ "+victim+" ] has been eliminated.\n\n");
         gv.readSource(path);
         textAreaOrder.append("  - Their relationship was\n"+"     "+gv.getDotSource());
         textAreaOrder.setEditable(false);
