@@ -18,7 +18,6 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -43,11 +42,8 @@ public class DayPanel implements State {
     private List<Player> playerInfo;
     private List<String> playerName;
     private BufferedImage myPicture;
-    private ArrayList<List<String>> rawBallots;
-    private List<String> candidates;
     private Conjectures conjectures;
     private NCT nct;
-    private Set<Map.Entry<String, Map>> person;
 
     public DayPanel(Student student) {
         this.student = student;
@@ -78,13 +74,13 @@ public class DayPanel implements State {
                         a->a.getRole().contains("Doctor")).collect(Collectors.toList()).size()+" ]\n\n");
         textAreaOrder.append("  - By the majority vote, player [ "+victim+" ] has been eliminated.\n\n");
         conjectures = new Conjectures(playerInfo);
-        person = conjectures.makingDefault().entrySet();
-        for(Map.Entry str: person) {
-            textAreaOrder.append(str.getKey() + " is thinking "
-                    +str.getValue().toString().replaceAll("(^\\[|\\]$)", "")+".");
-        }
-        gv.readSource(path);
-        textAreaOrder.append("  - The directed graph is\n"+gv.getDotSource());
+        //person = conjectures.makingDefault().entrySet();
+        conjectures.makingDefault()
+                .entrySet().stream().forEach(
+                        e->textAreaOrder.append("  - "+e.getKey()+ " has probability "+
+                                e.getValue().toString().replaceAll("(^\\[|\\]$)", "")+".\n"));
+        //gv.readSource(path);
+        //textAreaOrder.append("\n"+"  - The directed graph is\n"+gv.getDotSource());
         textAreaOrder.setEditable(false);
         try {
             myPicture = ImageIO.read(new File(imagePath));
