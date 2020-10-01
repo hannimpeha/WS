@@ -60,8 +60,8 @@ public class DayPanel implements State {
                 "  |____/ \\__,_| \\__, |\n" +
                 "                        |___/ \n" +
                 "                         \n");
-        textAreaOrder.append("  There was [" + playerName.size() + "] number of players.\n\n");
-        textAreaOrder.append("  By majority vote, player [" + victim + "] has been lynched.\n\n");
+        textAreaOrder.append("  There was [ " + playerName.size() + " ] number of players.\n\n");
+        textAreaOrder.append("  By majority vote, player [ " + victim + " ] has been lynched.\n\n");
         gv.readSource(path);
         textAreaOrder.append("  Their relationship was\n\n" + "  "+ gv.getDotSource()+".");
         textAreaOrder.setEditable(false);
@@ -80,35 +80,34 @@ public class DayPanel implements State {
     }
 
     public JPanel createButton(Student student) {
-            final Box box = Box.createHorizontalBox();
-            box.setBorder(BorderFactory.createEmptyBorder(
-                    5, 5, 5, 5));
-            box.add(Box.createHorizontalStrut(5));
-            box.add(Box.createHorizontalGlue());
-            final JButton button = new JButton("Day");
-            button.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    new RunCentralisedMAS();
-                    new NCT(playerInfo);
-                    playerInfo.stream()
-                            .filter(a->a.getName().contains(victim))
-                            .forEach(a->a.setStatus(0));
-                    fu.saveGame(playerInfo);
-
-                    playerName = playerInfo.stream()
-                            .filter(a->a.getStatus()==1)
-                            .map(a->a.getName())
-                            .collect(Collectors.toList());
-                    try {
-                        Files.write(Paths.get(namePath), playerName);
-                    } catch (IOException ioException) {
-                        ioException.printStackTrace();
-                    }
+        final Box box = Box.createHorizontalBox();
+        box.setBorder(BorderFactory.createEmptyBorder(
+                5, 5, 5, 5));
+        box.add(box.createHorizontalStrut(5));
+        box.add(Box.createHorizontalGlue());
+        final JButton button = new JButton("Day");
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new RunCentralisedMAS();
+                new NCT(playerInfo);
+                playerInfo.stream()
+                        .filter(a->a.getName().contains(victim))
+                        .forEach(a->a.setStatus(0));
+                fu.saveGame(playerInfo);
+                playerName = playerInfo.stream()
+                        .filter(a->a.getStatus()==1)
+                        .map(a->a.getName())
+                        .collect(Collectors.toList());
+                try {
+                    Files.write(Paths.get(namePath), playerName);
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
                 }
-            });
-            box.add(button);
-            south.add(box);
+            }
+        });
+        box.add(button);
+        south.add(box);
         return south;
     }
 

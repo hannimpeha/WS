@@ -1,6 +1,6 @@
 1,Mafia,hyo,
-0,Mafia,ji,
-1,Doctor,yoo,
+1,Mafia,ji,
+0,Doctor,yoo,
 1,Townie,mi,
 1,Townie,vi,
 1,Townie,se,

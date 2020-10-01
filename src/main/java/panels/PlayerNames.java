@@ -37,33 +37,34 @@ public class PlayerNames implements State{
     }
 
     public JPanel createPanel(Student student) {
-            final JTextArea textAreaOrder =
-                    new JTextArea(20, 40);
-            textAreaOrder.setText("\n" +
-                    "    ************************************************************************\n"+
-                    "    **      __     __             __    _                ____                                       **\n" +
-                    "    **     |   \\ /   |   __ _   / _| (_)   __ _     / ___|  __ _  _ __ __    ___        **\n" +
-                    "    **     |  |\\ /|  | / _` | | |_  | |  / _` |   | |  _   / _` | | '_ ` _ \\ / _ \\       **\n" +
-                    "    **     |  |    |  | | (_|  | |  _| | | | (_|  |   | |_| | | (_|  | | | | | | | |  __/       **\n" +
-                    "    **     |_|     |_| \\__,_| |_|   |_| \\__,_|   \\____| \\__,_||_||_||_|\\___|       **\n" +
-                    "    **                                                                                                       **\n" +
-                    "    *************************************************************************\n"+
-                    "\n");
+        final JTextArea textAreaOrder =
+                new JTextArea(20, 40);
+        textAreaOrder.setText("\n" +
+                "    ************************************************************************\n"+
+                "    **      __     __             __    _                ____                                       **\n" +
+                "    **     |   \\ /   |   __ _   / _| (_)   __ _     / ___|  __ _  _ __ __    ___        **\n" +
+                "    **     |  |\\ /|  | / _` | | |_  | |  / _` |   | |  _   / _` | | '_ ` _ \\ / _ \\       **\n" +
+                "    **     |  |    |  | | (_|  | |  _| | | | (_|  |   | |_| | | (_|  | | | | | | | |  __/       **\n" +
+                "    **     |_|     |_| \\__,_| |_|   |_| \\__,_|   \\____| \\__,_||_||_||_|\\___|       **\n" +
+                "    **                                                                                                       **\n" +
+                "    *************************************************************************\n"+
+                "\n");
 
-            textAreaOrder.append("    Type Players' Names.\n\n");
-            textAreaOrder.append("    Name should be separated by commas.");
-            textAreaOrder.setEditable(false);
-            try {
-                myPicture = ImageIO.read(new File(imagePath));
-                JLabel picLabel = new JLabel(
-                        new ImageIcon(myPicture.getScaledInstance(
-                                200, 300, Image.SCALE_FAST)));
-                realNorth.add(picLabel, BorderLayout.SOUTH);
-            }catch(IOException exception) {
-                exception.printStackTrace();
-            }
-            north.add(new JScrollPane(textAreaOrder), BorderLayout.BEFORE_LINE_BEGINS);
-            north.add(realNorth);
+        textAreaOrder.append("    - Type players' names.\n\n");
+        textAreaOrder.append("    - Names should be separated by commas and spaces.");
+        textAreaOrder.append("    - Roles will be assigned randomly according to the total number of players.");
+        textAreaOrder.setEditable(false);
+        try {
+            myPicture = ImageIO.read(new File(imagePath));
+            JLabel picLabel = new JLabel(
+                    new ImageIcon(myPicture.getScaledInstance(
+                            200, 300, Image.SCALE_FAST)));
+            realNorth.add(picLabel, BorderLayout.SOUTH);
+        }catch(IOException exception) {
+            exception.printStackTrace();
+        }
+        north.add(new JScrollPane(textAreaOrder), BorderLayout.BEFORE_LINE_BEGINS);
+        north.add(realNorth);
         return north;
     }
 

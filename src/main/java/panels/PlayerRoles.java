@@ -34,51 +34,51 @@ public class PlayerRoles implements State{
     }
 
     public JPanel createPanel(Student student) {
-            final JTextArea textAreaOrder =
-                    new JTextArea(20, 40);
-            textAreaOrder.setText("\n"+
-                    "    ************************************************************************\n" +
-                    "    - Doctor | Heal another player each night | Lynch all members of the Mafia\n" +
-                    "    - Townie | You have nothing to do at night. | Lynch all members of the Mafia\n" +
-                    "    - Mafia | Kill a different player each night | Make the majority of the town Mafia by any means\n");
-            textAreaOrder.append("    ************************************************************************\n\n");
-            textAreaOrder.append("    Assigned Roles are as follows.\n\n");
-            for (int i = 0; i < playerInfo.size(); i++) {
-                textAreaOrder.append(
-                        "    ["+i+"] Player " + playerInfo.get(i).getName() + " is " +
-                                playerInfo.get(i).getRole() + ".\n");
-            }
-            textAreaOrder.setEditable(false);
-            try {
-                myPicture = ImageIO.read(new File(imagePath));
-                JLabel picLabel = new JLabel(new ImageIcon(
-                        myPicture.getScaledInstance(
-                                200, 300, Image.SCALE_FAST)));
-                realNorth.add(picLabel, BorderLayout.SOUTH);
-            }catch(IOException exception) {
-                exception.printStackTrace();
-             }
-            north.add(new JScrollPane(textAreaOrder), BorderLayout.BEFORE_LINE_BEGINS);
-            north.add(realNorth);
+        final JTextArea textAreaOrder =
+                new JTextArea(20, 40);
+        textAreaOrder.setText("\n"+
+                "    ************************************************************************\n" +
+                "    - Doctor | Heal another player each night | Lynch members of the Mafia\n" +
+                "    - Townie | You have nothing to do at night | Lynch members of the Mafia\n" +
+                "    - Mafia | Kill a Townies each night | Make the majority of the Mafia\n");
+        textAreaOrder.append("    ************************************************************************\n\n");
+        textAreaOrder.append("    Assigned Roles are as follows.\n\n");
+        for (int i = 0; i < playerInfo.size(); i++) {
+            textAreaOrder.append(
+                    "    ["+(i+1)+"]  Player ( " + playerInfo.get(i).getName() + " ) is ( " +
+                            playerInfo.get(i).getRole() + " ).\n");
+        }
+        textAreaOrder.setEditable(false);
+        try {
+            myPicture = ImageIO.read(new File(imagePath));
+            JLabel picLabel = new JLabel(new ImageIcon(
+                    myPicture.getScaledInstance(
+                            200, 300, Image.SCALE_FAST)));
+            realNorth.add(picLabel, BorderLayout.SOUTH);
+        }catch(IOException exception) {
+            exception.printStackTrace();
+        }
+        north.add(new JScrollPane(textAreaOrder), BorderLayout.BEFORE_LINE_BEGINS);
+        north.add(realNorth);
         return north;
     }
 
     public JPanel createButton(Student student) {
-            final Box box = Box.createHorizontalBox();
-            box.setBorder(BorderFactory.createEmptyBorder(
-                    5, 5, 5, 5));
-            box.add(Box.createHorizontalStrut(5));
-            box.add(Box.createHorizontalGlue());
-            final JButton button = new JButton("Role");
-            button.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    new RunCentralisedMAS();
-                    new NCT(playerInfo);
-                }
-            });
-            box.add(button);
-            south.add(box);
+        final Box box = Box.createHorizontalBox();
+        box.setBorder(BorderFactory.createEmptyBorder(
+                5, 5, 5, 5));
+        box.add(Box.createHorizontalStrut(5));
+        box.add(Box.createHorizontalGlue());
+        final JButton button = new JButton("Role");
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new RunCentralisedMAS();
+                new NCT(playerInfo);
+            }
+        });
+        box.add(button);
+        south.add(box);
         return south;
     }
 

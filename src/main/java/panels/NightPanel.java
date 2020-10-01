@@ -46,9 +46,9 @@ public class NightPanel implements State {
     }
 
     public JPanel createPanel(Student student) {
-            final JTextArea textAreaOrder =
-                    new JTextArea(20, 40);
-            textAreaOrder.setText("\n" +
+        final JTextArea textAreaOrder =
+                new JTextArea(20, 40);
+        textAreaOrder.setText("\n" +
                 "   _    _   _              _        _   \n" +
                 "  | \\ |  | (_)    __ _  | |__   | |_ \n" +
                 "  |  \\|  | |  |  / _` | | '_  \\ | __|\n" +
@@ -57,51 +57,51 @@ public class NightPanel implements State {
                 "                   |___/               \n" +
                 "                                   \n" );
 
-            textAreaOrder.append("  Now there are [" + playerName.size()+"] number of players.\n\n");
-            textAreaOrder.append("  ["+victim + "] has been chosen by Mafias.\n\n");
-            textAreaOrder.append("  ["+victory.victoryMessage()+"]\n");
-            try {
-                myPicture = ImageIO.read(new File(imagePath));
-                JLabel picLabel = new JLabel(new ImageIcon(
+        textAreaOrder.append("  Now there are [ " + playerName.size()+" ] number of players.\n\n");
+        textAreaOrder.append("  But, [ "+victim + " ] has been chosen by Mafias.\n\n");
+        textAreaOrder.append("  Result of the Day : [ "+victory.victoryMessage()+" ]");
+        try {
+            myPicture = ImageIO.read(new File(imagePath));
+            JLabel picLabel = new JLabel(new ImageIcon(
                     myPicture.getScaledInstance(
                             200, 300, Image.SCALE_FAST)));
-                realNorth.add(picLabel, BorderLayout.SOUTH);
-            } catch (IOException e) {
+            realNorth.add(picLabel, BorderLayout.SOUTH);
+        } catch (IOException e) {
             e.printStackTrace();
-            }
-            textAreaOrder.setEditable(false);
-            north.add(new JScrollPane(textAreaOrder));
-            north.add(realNorth);
+        }
+        textAreaOrder.setEditable(false);
+        north.add(new JScrollPane(textAreaOrder));
+        north.add(realNorth);
         return north;
     }
 
     public JPanel createButton(Student student) {
-            final Box box = Box.createHorizontalBox();
-            box.setBorder(BorderFactory.createEmptyBorder(
-                    5, 5, 5, 5));
-            box.add(Box.createHorizontalStrut(5));
-            box.add(Box.createHorizontalGlue());
-            final JButton button = new JButton("Night");
-            button.addActionListener(e -> {
-                new RunCentralisedMAS();
-                new NCT(playerInfo);
-                playerInfo.stream()
-                        .filter(a->a.getName().contains(victim))
-                        .forEach(a->a.setStatus(0));
-                fu.saveGame(playerInfo);
+        final Box box = Box.createHorizontalBox();
+        box.setBorder(BorderFactory.createEmptyBorder(
+                5, 5, 5, 5));
+        box.add(Box.createHorizontalStrut(5));
+        box.add(Box.createHorizontalGlue());
+        final JButton button = new JButton("Night");
+        button.addActionListener(e -> {
+            new RunCentralisedMAS();
+            new NCT(playerInfo);
+            playerInfo.stream()
+                    .filter(a->a.getName().contains(victim))
+                    .forEach(a->a.setStatus(0));
+            fu.saveGame(playerInfo);
 
-                playerName = playerInfo.stream()
-                        .filter(a->a.getStatus()==1)
-                        .map(a->a.getName())
-                        .collect(Collectors.toList());
-                try {
-                    Files.write(Paths.get(namePath), playerName);
-                } catch (IOException ioException) {
-                    ioException.printStackTrace();
-                }
-            });
-            box.add(button);
-            south.add(box);
+            playerName = playerInfo.stream()
+                    .filter(a->a.getStatus()==1)
+                    .map(a->a.getName())
+                    .collect(Collectors.toList());
+            try {
+                Files.write(Paths.get(namePath), playerName);
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+        });
+        box.add(button);
+        south.add(box);
         return south;
     }
 
