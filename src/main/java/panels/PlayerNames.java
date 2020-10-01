@@ -52,7 +52,9 @@ public class PlayerNames implements State{
 
         textAreaOrder.append("    - Type players' names. (minimum 3 to maximum 12)\n\n");
         textAreaOrder.append("    - Names should be separated by commas and spaces.\n\n");
-        textAreaOrder.append("    - Roles will be assigned according to the total number of players.");
+        textAreaOrder.append("    - Roles will be assigned according to the total number of players.\n\n");
+        textAreaOrder.append("    - Day and Night phase will cycle until winning conditions are met.");
+        //textAreaOrder.append("    +---------------------[ Hannah Lee ]--------------------+");
         textAreaOrder.setEditable(false);
         try {
             myPicture = ImageIO.read(new File(imagePath));

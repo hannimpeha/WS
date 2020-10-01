@@ -49,15 +49,20 @@ public class NightPanel implements State {
         final JTextArea textAreaOrder =
                 new JTextArea(20, 40);
         textAreaOrder.setText("\n" +
-                "   _    _   _              _        _   \n" +
-                "  | \\ |  | (_)    __ _  | |__   | |_ \n" +
-                "  |  \\|  | |  |  / _` | | '_  \\ | __|\n" +
-                "  |  |\\  | |  | | (_|  | | | |  | | |_ \n" +
-                "  |_| \\_| |_|  \\__, | |_||_|  \\__|\n" +
-                "                   |___/               \n" +
-                "                                   \n" );
-
+                "     _    _   _              _        _   \n" +
+                "    | \\ |  | (_)    __ _  | |__   | |_ \n" +
+                "    |  \\|  | |  |  / _` | | '_  \\ | __|\n" +
+                "    |  |\\  | |  | | (_|  | | | |  | | |_ \n" +
+                "    |_| \\_| |_|  \\__, | |_||_|  \\__|\n" +
+                "                     |___/               \n" +
+                "\n" );
         textAreaOrder.append("  - Now there are [ " + playerName.size()+" ] survivors.\n\n");
+        textAreaOrder.append("  * Mafia : "+playerInfo.stream().filter(
+                a->a.getRole().contains("Mafia")).collect(Collectors.toList()).size()+"\n"+
+                "  * Townie : "+playerInfo.stream().filter(
+                a->a.getRole().contains("Townie")).collect(Collectors.toList()).size()+"\n"+
+                "  * Doctor : "+playerInfo.stream().filter(
+                a->a.getRole().contains("Doctor")).collect(Collectors.toList()).size()+"\n\n");
         textAreaOrder.append("  - But, [ "+victim+" ] has been chosen by Mafias.\n\n");
         textAreaOrder.append("  - Result of the Day : [ "+victory.victoryMessage()+" ]");
         try {

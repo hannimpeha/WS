@@ -53,14 +53,20 @@ public class DayPanel implements State {
         final JTextArea textAreaOrder =
                 new JTextArea(20, 40);
         textAreaOrder.setText("\n" +
-                "   ____                    \n" +
-                "  |  _   \\   __ _   _    _ \n" +
-                "  | |  |  | / _` | | |  | |\n" +
-                "  | |_|  | | (_|  | | |_| |\n" +
-                "  |____/ \\__,_| \\__, |\n" +
-                "                        |___/ \n" +
-                "                         \n");
+                "     ____                    \n" +
+                "    |  _   \\   __ _   _    _ \n" +
+                "    | |  |  | / _` | | |  | |\n" +
+                "    | |_|  | | (_|  | | |_| |\n" +
+                "    |____/ \\__,_| \\__, |\n" +
+                "                          |___/ \n" +
+                "\n");
         textAreaOrder.append("  - There was [ "+playerName.size()+" ] number of players.\n\n");
+        textAreaOrder.append("  * Mafia : "+playerInfo.stream().filter(
+                a->a.getRole().contains("Mafia")).collect(Collectors.toList()).size()+"\n"+
+                "  * Townie : "+playerInfo.stream().filter(
+                        a->a.getRole().contains("Townie")).collect(Collectors.toList()).size()+"\n"+
+                "  * Doctor : "+playerInfo.stream().filter(
+                        a->a.getRole().contains("Doctor")).collect(Collectors.toList()).size()+"\n\n");
         textAreaOrder.append("  - By majority vote, player [ "+victim+" ] has been lynched.\n\n");
         gv.readSource(path);
         textAreaOrder.append("  - Their relationship was\n"+"     "+gv.getDotSource());
