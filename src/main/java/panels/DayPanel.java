@@ -69,7 +69,7 @@ public class DayPanel implements State {
                         a->a.getRole().contains("Doctor")).collect(Collectors.toList()).size()+" ]\n\n");
         textAreaOrder.append("  - By the majority vote, player [ "+victim+" ] has been eliminated.\n\n");
         gv.readSource(path);
-        textAreaOrder.append("  - The directed graph is\n"+"     "+gv.getDotSource());
+        textAreaOrder.append("  - The directed graph is\n"+gv.getDotSource());
         textAreaOrder.setEditable(false);
         try {
             myPicture = ImageIO.read(new File(imagePath));

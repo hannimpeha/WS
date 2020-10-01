@@ -56,7 +56,7 @@ public class GraphVizExe {
     }
 
     public void addln(String line) {
-        this.graph.append(line + "\n");
+        this.graph.append(line+"\n");
     }
 
     public void addln() {
@@ -186,7 +186,7 @@ public class GraphVizExe {
             BufferedReader br = new BufferedReader(new InputStreamReader(dis));
             String line;
             while ((line = br.readLine()) != null) {
-                sb.append(line);
+                sb.append("      "+line+"\n");
             }
             dis.close();
         }

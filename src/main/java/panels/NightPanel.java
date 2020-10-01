@@ -5,6 +5,7 @@ import jason.infra.centralised.RunCentralisedMAS;
 import logic.NightAction;
 import logic.Victory;
 import playerInfo.Player;
+import thatGraph.GraphVizExe;
 import util.LoadFileUtil;
 
 import javax.imageio.ImageIO;
@@ -30,10 +31,13 @@ public class NightPanel implements State {
     private static JPanel south = new JPanel();
     private List<Player> playerInfo;
     private List<String> playerName;
+    protected String path = "/Users/hannimpeha/HANNIMPEHA/Thesis/" +
+            "FascinatingProject/src/main/java/resource/awesome.dot";
     protected String namePath = "/Users/hannimpeha/HANNIMPEHA/Thesis/" +
             "FascinatingProject/src/main/java/resource/players.txt";
     protected String imagePath = "/Users/hannimpeha/HANNIMPEHA/Thesis/" +
             "FascinatingProject/src/main/java/resource/simple.png";
+    protected GraphVizExe gv = new GraphVizExe();
     private BufferedImage myPicture;
 
     public NightPanel(Student student) {
@@ -64,7 +68,9 @@ public class NightPanel implements State {
                 "    * Number of Doctor : [ "+playerInfo.stream().filter(
                 a->a.getRole().contains("Doctor")).collect(Collectors.toList()).size()+" ]\n\n");
         textAreaOrder.append("  - But, [ "+victim+" ] has been chosen by Mafia.\n\n");
-        textAreaOrder.append("  - Result of the Day : [ "+victory.victoryMessage()+" ]");
+        textAreaOrder.append("  - Result of the Day : [ "+victory.victoryMessage()+" ]\n\n");
+        gv.readSource(path);
+        textAreaOrder.append("  - The directed graph is\n"+gv.getDotSource());
         try {
             myPicture = ImageIO.read(new File(imagePath));
             JLabel picLabel = new JLabel(new ImageIcon(
