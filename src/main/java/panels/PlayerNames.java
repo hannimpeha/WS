@@ -52,7 +52,7 @@ public class PlayerNames implements State{
 
         textAreaOrder.append("    - Type players' names.\n\n");
         textAreaOrder.append("    - Names should be separated by commas and spaces.\n\n");
-        textAreaOrder.append("    - Roles will be assigned randomly according to the total number of players.");
+        textAreaOrder.append("    - Roles will be assigned according to the total number of players.");
         textAreaOrder.setEditable(false);
         try {
             myPicture = ImageIO.read(new File(imagePath));
