@@ -4,6 +4,8 @@ import jason.asSemantics.DefaultInternalAction;
 import jason.asSemantics.TransitionSystem;
 import jason.asSemantics.Unifier;
 import jason.asSyntax.Term;
+import playerInfo.Player;
+
 import java.io.*;
 import java.util.*;
 import java.util.List;
@@ -12,30 +14,35 @@ import java.util.stream.Collectors;
 public class InternalAction extends DefaultInternalAction {
 
     private BaseBelief bb;
-    private Agents agent;
+    private List<Agents> agents;
     private Conjectures cj;
     private String path = "/Users/hannimpeha/HANNIMPEHA/" +
                     "Thesis/FascinatingProject" +
                     "/src/main/java/resource/ballots.txt";
 
-    public InternalAction(List<Agents> agents) {
+    public InternalAction(List<Player> playerInfo) {
+        agents = createAgent(playerInfo);
         bb = new BaseBelief(agents);
-        for (int i = 0; i < agents.size(); i++) {
-            agent = new Agents(agents.get(i).getName(),
-                    agents.get(i).getRole(),
-                    agents.get(i).getStatus());
+        for(Agents agent: agents) {
             agent.setBB(bb);
         }
         gossiping(agents);
-        probabilityConjecture(agents);
+        probabilityConjecture(playerInfo);
+    }
+
+    public List<Agents> createAgent(List<Player> playerInfo){
+        return playerInfo.stream()
+                .filter(a->a.getStatus()!=0)
+                .map(a->new Agents(a.getName(), a.getRole(), a.getStatus()))
+                .collect(Collectors.toList());
     }
 
     public void gossiping(List<Agents> agents) { new Messaging(agents); }
 
-    public void probabilityConjecture(List<Agents> agents) {
+    public void probabilityConjecture(List<Player> playerInfo) {
         try {
             PrintStream out = new PrintStream(path, "UTF-8");
-            cj = new Conjectures(agents);
+            cj = new Conjectures(playerInfo);
             cj.makingDefault()
                     .entrySet()
                     .forEach(a->out.print(
@@ -47,10 +54,11 @@ public class InternalAction extends DefaultInternalAction {
         }
     }
 
-    private List<String> printing(Map<String[], Double[]> values) {
+    private List<String> printing(Map<List<String>, List<Double>> values) {
         return values.entrySet()
                 .stream()
-                .map(a->Arrays.asList(a.getKey()))
+                //.map(a->Arrays.asList(a.getKey()))
+                .map(a->a.getKey())
                 .map(a->a.toString().replaceAll("(^\\[|\\]$)", ""))
                 .collect(Collectors.toList());
     }

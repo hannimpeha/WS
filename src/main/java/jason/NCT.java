@@ -16,15 +16,8 @@ public class NCT {
     private Term[] args;
 
     public NCT(List<Player> playerInfo) {
-        ia = new InternalAction(createAgent(playerInfo));
+        ia = new InternalAction(playerInfo);
         ia.execute(ts, un, args);
-    }
-
-    public List<Agents> createAgent(List<Player> playerInfo){
-        return playerInfo.stream()
-                .filter(a->a.getStatus()!=0)
-                .map(a->new Agents(a.getName(), a.getRole(), a.getStatus()))
-                .collect(Collectors.toList());
     }
 
 }

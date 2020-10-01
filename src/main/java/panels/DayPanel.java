@@ -1,5 +1,6 @@
 package panels;
 
+import jason.Conjectures;
 import jason.NCT;
 import jason.infra.centralised.RunCentralisedMAS;
 import thatGraph.GraphVizExe;
@@ -17,7 +18,10 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class DayPanel implements State {
@@ -39,7 +43,11 @@ public class DayPanel implements State {
     private List<Player> playerInfo;
     private List<String> playerName;
     private BufferedImage myPicture;
-
+    private ArrayList<List<String>> rawBallots;
+    private List<String> candidates;
+    private Conjectures conjectures;
+    private NCT nct;
+    private Set<Map.Entry<String, Map>> person;
 
     public DayPanel(Student student) {
         this.student = student;
@@ -47,6 +55,7 @@ public class DayPanel implements State {
         victim = vote.run();
         playerInfo = getPlayerInfo(student);
         playerName = getPlayerName(student);
+        nct = new NCT(playerInfo);
     }
 
     public JPanel createPanel(Student student) {
@@ -68,6 +77,12 @@ public class DayPanel implements State {
                 "    * Number of Doctor : [ "+playerInfo.stream().filter(
                         a->a.getRole().contains("Doctor")).collect(Collectors.toList()).size()+" ]\n\n");
         textAreaOrder.append("  - By the majority vote, player [ "+victim+" ] has been eliminated.\n\n");
+        conjectures = new Conjectures(playerInfo);
+        person = conjectures.makingDefault().entrySet();
+        for(Map.Entry str: person) {
+            textAreaOrder.append(str.getKey() + " is thinking "
+                    +str.getValue().toString().replaceAll("(^\\[|\\]$)", "")+".");
+        }
         gv.readSource(path);
         textAreaOrder.append("  - The directed graph is\n"+gv.getDotSource());
         textAreaOrder.setEditable(false);

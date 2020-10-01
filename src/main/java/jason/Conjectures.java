@@ -1,31 +1,58 @@
 package jason;
 
+import playerInfo.Player;
+
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Conjectures {
 
-    private Double[] defaultConjecture = new Double[]{};
+    private List<Double> defaultConjecture = new ArrayList<>();
     private Map<String, Map> sub = new HashMap<>();
-    private Map<String[], Double[]> subsub = new HashMap<>();
-    private List<Agents> agents;
-    private String[] names = new String[]{"hyo", "ji", "yoo", "mi", "vi", "se", "ari"};
+    private Map<List<String>, List<Double>> realSub = new HashMap<>();
+    private List<Player> playerInfo;
+    private List<String> names;
 
-    public Conjectures(List<Agents> agents){
-        this.agents = agents;
+    public Conjectures(List<Player> playerInfo) {
+        this.playerInfo = playerInfo;
     }
 
     public Map<String, Map> makingDefault() {
-        for(Agents agent: agents) {
+        names = playerInfo.stream().map(a->a.getName()).collect(Collectors.toList());
+        for(Player player: playerInfo) {
             double rand = Math.random();
-            if (agent.getRole() != "Mafia") {
-                defaultConjecture = new Double[]{rand /2 , rand / 3, rand /4 , rand /5 , rand / 6 , rand /7 , rand /8};
+            if (player.getRole() != "Mafia") {
+                defaultConjecture = new ArrayList<>(
+                        Arrays.asList(round(rand/1,2),
+                                round(rand/2,2),
+                                round(rand/3,2),
+                                round(rand/4,2),
+                                round(rand/5,2),
+                                round(rand/6,2),
+                                round(rand/7,2)));
             } else {
-                defaultConjecture = new Double[]{rand / 2, rand / 2, rand / 2, rand / 2, rand / 2, rand / 2, rand / 2};
+                defaultConjecture = new ArrayList<>(
+                        Arrays.asList(round(rand/2,2),
+                                round(rand/2,2),
+                                round(rand/2,2),
+                                round(rand/4,2),
+                                round(rand/5,2),
+                                round(rand/6,2),
+                                round(rand/7,2)));
             }
-            subsub.put(names, defaultConjecture);
-            sub.put(agent.getName(), subsub);
+            realSub.put(names, defaultConjecture);
+            sub.put(player.getName(), realSub);
         }
         return sub;
+    }
+
+    public static double round(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+
+        long factor = (long) Math.pow(10, places);
+        value = value * factor;
+        long tmp = Math.round(value);
+        return (double) tmp / factor;
     }
 
 }
