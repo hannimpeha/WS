@@ -1,16 +1,20 @@
 digraph {
-hyo->yoo;
+yoo->hyo;
+hyo->mi;
+mi->hyo;
 hyo->vi;
+vi->hyo;
 hyo->se;
 se->hyo;
-ari->hyo;
-yoo->mi;
-mi->yoo;
-yoo->se;
-mi->vi;
+yoo->vi;
+vi->yoo;
+se->yoo;
 vi->mi;
 se->mi;
+mi->ari;
+ari->mi;
 vi->se;
-vi->ari;
+ari->vi;
+se->ari;
 ari->se;
 }

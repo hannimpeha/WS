@@ -72,12 +72,11 @@ public class DayPanel implements State {
                         a->a.getRole().contains("Townie")).collect(Collectors.toList()).size()+" ]\n"+
                 "    * Number of Doctor : [ "+playerInfo.stream().filter(
                         a->a.getRole().contains("Doctor")).collect(Collectors.toList()).size()+" ]\n\n");
-        textAreaOrder.append("  - By the majority vote, player [ "+victim+" ] has been eliminated.\n\n");
+        textAreaOrder.append("  - By the majority vote, player [ "+victim+" ] has been eliminated.\n");
         conjectures = new Conjectures(playerInfo);
-        //person = conjectures.makingDefault().entrySet();
         conjectures.makingDefault()
                 .entrySet().stream().forEach(
-                        e->textAreaOrder.append("  - "+e.getKey()+ " has probability "+
+                        e->textAreaOrder.append("    * "+e.getKey()+ " is thinking "+
                                 e.getValue().toString().replaceAll("(^\\[|\\]$)", "")+".\n"));
         //gv.readSource(path);
         //textAreaOrder.append("\n"+"  - The directed graph is\n"+gv.getDotSource());
