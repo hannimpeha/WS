@@ -56,12 +56,12 @@ public class NightPanel implements State {
                 "    |_| \\_| |_|  \\__, | |_||_|  \\__|\n" +
                 "                     |___/               \n" +
                 "\n" );
-        textAreaOrder.append("  - Now there are [ " + playerName.size()+" ] survivors.\n\n");
-        textAreaOrder.append("  * Mafia : "+playerInfo.stream().filter(
+        textAreaOrder.append("  - Now there are [ " + playerName.size()+" ] survivors.\n");
+        textAreaOrder.append("    * Mafia : "+playerInfo.stream().filter(
                 a->a.getRole().contains("Mafia")).collect(Collectors.toList()).size()+"\n"+
-                "  * Townie : "+playerInfo.stream().filter(
+                "    * Townie : "+playerInfo.stream().filter(
                 a->a.getRole().contains("Townie")).collect(Collectors.toList()).size()+"\n"+
-                "  * Doctor : "+playerInfo.stream().filter(
+                "    * Doctor : "+playerInfo.stream().filter(
                 a->a.getRole().contains("Doctor")).collect(Collectors.toList()).size()+"\n\n");
         textAreaOrder.append("  - But, [ "+victim+" ] has been chosen by Mafias.\n\n");
         textAreaOrder.append("  - Result of the Day : [ "+victory.victoryMessage()+" ]");
