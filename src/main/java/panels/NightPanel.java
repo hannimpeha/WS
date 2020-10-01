@@ -57,9 +57,9 @@ public class NightPanel implements State {
                 "                   |___/               \n" +
                 "                                   \n" );
 
-        textAreaOrder.append("  Now there are [ " + playerName.size()+" ] number of players.\n\n");
-        textAreaOrder.append("  But, [ "+victim + " ] has been chosen by Mafias.\n\n");
-        textAreaOrder.append("  Result of the Day : [ "+victory.victoryMessage()+" ]");
+        textAreaOrder.append("  - Now there are [ " + playerName.size()+" ] survivors.\n\n");
+        textAreaOrder.append("  - But, [ "+victim+" ] has been chosen by Mafias.\n\n");
+        textAreaOrder.append("  - Result of the Day : [ "+victory.victoryMessage()+" ]");
         try {
             myPicture = ImageIO.read(new File(imagePath));
             JLabel picLabel = new JLabel(new ImageIcon(

@@ -60,10 +60,10 @@ public class DayPanel implements State {
                 "  |____/ \\__,_| \\__, |\n" +
                 "                        |___/ \n" +
                 "                         \n");
-        textAreaOrder.append("  There was [ " + playerName.size() + " ] number of players.\n\n");
-        textAreaOrder.append("  By majority vote, player [ " + victim + " ] has been lynched.\n\n");
+        textAreaOrder.append("  - There was [ "+playerName.size()+" ] number of players.\n\n");
+        textAreaOrder.append("  - By majority vote, player [ "+victim+" ] has been lynched.\n\n");
         gv.readSource(path);
-        textAreaOrder.append("  Their relationship was\n\n" + "  "+ gv.getDotSource()+".");
+        textAreaOrder.append("  - Their relationship was\n"+"     "+gv.getDotSource());
         textAreaOrder.setEditable(false);
         try {
             myPicture = ImageIO.read(new File(imagePath));

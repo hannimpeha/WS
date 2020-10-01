@@ -50,7 +50,7 @@ public class PlayerNames implements State{
                 "    *************************************************************************\n"+
                 "\n");
 
-        textAreaOrder.append("    - Type players' names.\n\n");
+        textAreaOrder.append("    - Type players' names. (minimum 3 to maximum 12)\n\n");
         textAreaOrder.append("    - Names should be separated by commas and spaces.\n\n");
         textAreaOrder.append("    - Roles will be assigned according to the total number of players.");
         textAreaOrder.setEditable(false);
