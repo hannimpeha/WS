@@ -45,8 +45,8 @@ public class PlayerRoles implements State{
         textAreaOrder.append("    Assigned Roles are as follows.\n\n");
         for (int i = 0; i < playerInfo.size(); i++) {
             textAreaOrder.append(
-                    "    ["+(i+1)+"]  Player ( " + playerInfo.get(i).getName() + " ) is ( " +
-                            playerInfo.get(i).getRole() + " ).\n");
+                    "    ("+(i+1)+")  Player [ " + playerInfo.get(i).getName() + " ] is [ " +
+                            playerInfo.get(i).getRole() + " ].\n");
         }
         textAreaOrder.setEditable(false);
         try {
