@@ -1,17 +1,19 @@
 package logic;
 
+import panels.Student;
 import playerInfo.Player;
-import util.LoadFileUtil;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Victory {
 
-    private LoadFileUtil fu = new LoadFileUtil();
-    private List<Player> playerInfo = fu.loadPlayer();
+    private Student student;
+    private List<Player> playerInfo;
 
-    public Victory() {
+    public Victory(Student student) {
+        this.student = student;
+        playerInfo = student.getPlayerInfo();
     }
 
     public String victoryMessage() {

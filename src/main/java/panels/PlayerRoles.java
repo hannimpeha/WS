@@ -30,8 +30,7 @@ public class PlayerRoles implements State{
 
     public PlayerRoles(Student student) {
         this.student = student;
-        playerInfo = student.getPlayerInfo();
-        playerName = student.getPlayerName();
+        playerInfo = getPlayerInfo(student);
     }
 
     public JPanel createPanel(Student student) {
@@ -39,6 +38,7 @@ public class PlayerRoles implements State{
                     new JTextArea(20, 40);
             textAreaOrder.setText("\n   Assigned Roles are as follows.\n\n");
             textAreaOrder.append("    ----------------------------\n\n");
+
             for (int i = 0; i < playerInfo.size(); i++) {
                 textAreaOrder.append(
                         "    Player " + playerInfo.get(i).getName() + " is " +
@@ -72,7 +72,6 @@ public class PlayerRoles implements State{
                     new RunCentralisedMAS();
                     new NCT(playerInfo);
                 }
-
             });
             box.add(button);
             south.add(box);

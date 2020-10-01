@@ -1,6 +1,6 @@
 package logic;
 
-import util.LoadFileUtil;
+import panels.Student;
 
 import java.util.List;
 import java.util.Random;
@@ -8,10 +8,12 @@ import java.util.Random;
 public class NightAction {
 
     private Random randomGenerator;
-    private LoadFileUtil fu = new LoadFileUtil();
-    private List<String> playerName = fu.loadFile();
+    private Student student;
+    private List<String> playerName;
 
-    public NightAction(){
+    public NightAction(Student student){
+        this.student = student;
+        playerName = student.getPlayerName();
     }
 
     public String nightAction() {

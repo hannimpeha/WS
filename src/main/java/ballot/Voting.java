@@ -1,25 +1,26 @@
 package ballot;
 
-import util.LoadFileUtil;
+import panels.Student;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 import java.util.List;
 
-
 public class Voting {
 
+    private Student student;
     private String lynched;
     private Contest contest;
+    private List<String> candidates;
     private ArrayList<List<String>> rawBallots;
-    private LoadFileUtil fu = new LoadFileUtil();
-    private List<String> candidates = fu.loadFile();
     private String ballotPath = "/Users/hannimpeha/" +
             "HANNIMPEHA/Thesis/FascinatingProject/" +
             "src/main/java/resource/ballots.txt";
 
-    public Voting() {
+    public Voting(Student student) {
+        this.student = student;
+        candidates = student.getPlayerName();
     }
 
     public String run() {

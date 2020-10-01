@@ -1,5 +1,7 @@
 package panels;
 
+import jason.NCT;
+import jason.infra.centralised.RunCentralisedMAS;
 import thatGraph.GraphVizExe;
 import ballot.Voting;
 import playerInfo.Player;
@@ -21,8 +23,8 @@ import java.util.stream.Collectors;
 public class DayPanel implements State {
 
     protected LoadFileUtil fu;
-    protected Voting vote = new Voting();
-    protected String victim = vote.run();
+    protected Voting vote;
+    protected String victim;
     protected String path = "/Users/hannimpeha/HANNIMPEHA/Thesis/" +
             "FascinatingProject/src/main/java/resource/awesome.dot";
     protected String namePath = "/Users/hannimpeha/HANNIMPEHA/Thesis/" +
@@ -41,8 +43,10 @@ public class DayPanel implements State {
 
     public DayPanel(Student student) {
         this.student = student;
-        playerInfo = student.getPlayerInfo();
-        playerName = student.getPlayerName();
+        vote = new Voting(student);
+        victim = vote.run();
+        playerInfo = getPlayerInfo(student);
+        playerName = getPlayerName(student);
     }
 
     public JPanel createPanel(Student student) {
@@ -60,6 +64,7 @@ public class DayPanel implements State {
         textAreaOrder.append("  Player " + victim + " has been lynched.\n\n");
         gv.readSource(path);
         textAreaOrder.append("  Their relationship was\n\n" + "  "+ gv.getDotSource()+".");
+        textAreaOrder.setEditable(false);
         try {
             myPicture = ImageIO.read(new File(imagePath));
             JLabel picLabel = new JLabel(new ImageIcon(
@@ -69,7 +74,6 @@ public class DayPanel implements State {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        textAreaOrder.setEditable(false);
         north.add(new JScrollPane(textAreaOrder));
         north.add(realNorth);
         return north;
@@ -85,8 +89,8 @@ public class DayPanel implements State {
             button.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    List<Player> playerInfo = getPlayerInfo(student)
-                            .stream().filter(a->a.getStatus()==1).collect(Collectors.toList());
+                    new RunCentralisedMAS();
+                    new NCT(playerInfo);
                     playerInfo.stream()
                             .filter(a->a.getName().contains(victim))
                             .forEach(a->a.setStatus(0));
@@ -96,7 +100,6 @@ public class DayPanel implements State {
                             .filter(a->a.getStatus()==1)
                             .map(a->a.getName())
                             .collect(Collectors.toList());
-
                     try {
                         Files.write(Paths.get(namePath), playerName);
                     } catch (IOException ioException) {

@@ -1,5 +1,7 @@
 package panels;
 
+import jason.NCT;
+import jason.infra.centralised.RunCentralisedMAS;
 import logic.NightAction;
 import logic.Victory;
 import playerInfo.Player;
@@ -19,9 +21,10 @@ import java.util.stream.Collectors;
 public class NightPanel implements State {
 
     protected LoadFileUtil fu;
-    protected NightAction na = new NightAction();
-    protected String victim = na.nightAction();
     protected Student student;
+    protected NightAction na;
+    protected String victim;
+    protected Victory victory;
     private static JPanel north = new JPanel();
     private static JPanel realNorth = new JPanel();
     private static JPanel south = new JPanel();
@@ -35,8 +38,11 @@ public class NightPanel implements State {
 
     public NightPanel(Student student) {
         this.student = student;
-        playerInfo = student.getPlayerInfo();
-        playerName = student.getPlayerName();
+        na = new NightAction(student);
+        victim = na.nightAction();
+        victory = new Victory(student);
+        playerInfo = getPlayerInfo(student);
+        playerName = getPlayerName(student);
     }
 
     public JPanel createPanel(Student student) {
@@ -50,9 +56,9 @@ public class NightPanel implements State {
                 "  |_| \\_| |_|  \\__, | |_||_|  \\__|\n" +
                 "                   |___/               \n" +
                 "                                   \n" );
+
             textAreaOrder.append("  There are " + playerName.size()+" number of Players.\n\n");
             textAreaOrder.append("  "+victim + " has been chosen by Mafias.\n\n");
-            Victory victory = new Victory();
             textAreaOrder.append("  "+victory.victoryMessage()+"\n");
             textAreaOrder.append("   See You in the Next Day.");
             try {
@@ -78,8 +84,8 @@ public class NightPanel implements State {
             box.add(Box.createHorizontalGlue());
             final JButton button = new JButton("Night");
             button.addActionListener(e -> {
-                List<Player> playerInfo = getPlayerInfo(student)
-                        .stream().filter(a->a.getStatus()==1).collect(Collectors.toList());
+                new RunCentralisedMAS();
+                new NCT(playerInfo);
                 playerInfo.stream()
                         .filter(a->a.getName().contains(victim))
                         .forEach(a->a.setStatus(0));
@@ -89,7 +95,6 @@ public class NightPanel implements State {
                         .filter(a->a.getStatus()==1)
                         .map(a->a.getName())
                         .collect(Collectors.toList());
-
                 try {
                     Files.write(Paths.get(namePath), playerName);
                 } catch (IOException ioException) {
