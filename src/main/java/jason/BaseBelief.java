@@ -30,7 +30,6 @@ public class BaseBelief implements BeliefBase {
         prob.start();
     }
 
-
     public Relationship getRelationshipBetween(Node n1, Node n2) {
         for (Relationship rel : n1.getRelationships()) {
             if (rel.getOtherNode(n1).equals(n2)) return rel;
