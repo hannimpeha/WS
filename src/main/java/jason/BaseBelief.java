@@ -20,11 +20,13 @@ public class BaseBelief implements BeliefBase {
     private RelationshipType KNOWS;
     private static Label mafia, townies, doctor;
     private Random random = new Random();
+    private List<Agents> playerAgent;
     private List<RelationshipType> ordinary =
             Collections.unmodifiableList(Arrays.asList(SEND, RECEIVE));
 
-    public BaseBelief(List<Agents> agents) {
-        Combination combination = new Combination(agents);
+    public BaseBelief(List<Agents> playerAgent) {
+        this.playerAgent = playerAgent;
+        Combination combination = new Combination(playerAgent);
         combination.writeDot();
         Probability prob = new Probability();
         prob.start();

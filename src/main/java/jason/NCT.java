@@ -6,7 +6,6 @@ import jason.asSyntax.Term;
 import playerInfo.Player;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class NCT {
 
@@ -14,9 +13,13 @@ public class NCT {
     private TransitionSystem ts;
     private Unifier un;
     private Term[] args;
+    private List<Player> playerInfo;
+    private List<Agents> playerAgent;
 
-    public NCT(List<Player> playerInfo) {
-        ia = new InternalAction(playerInfo);
+    public NCT(List<Player> playerInfo, List<Agents> playerAgent) {
+        this.playerInfo = playerInfo;
+        this.playerAgent = playerAgent;
+        ia = new InternalAction(playerInfo, playerAgent);
         ia.execute(ts, un, args);
     }
 

@@ -1,5 +1,6 @@
 package panels;
 
+import jason.Agents;
 import jason.NCT;
 import jason.infra.centralised.RunCentralisedMAS;
 import playerInfo.Player;
@@ -21,6 +22,7 @@ public class PlayerRoles implements State{
     protected Student student;
     protected List<Player> playerInfo;
     protected List<String> playerName;
+    protected List<Agents> playerAgent;
     private static JPanel north = new JPanel();
     private static JPanel realNorth = new JPanel();
     private static JPanel south = new JPanel();
@@ -31,6 +33,7 @@ public class PlayerRoles implements State{
     public PlayerRoles(Student student) {
         this.student = student;
         playerInfo = getPlayerInfo(student);
+        playerAgent = getPlayerAgent(student);
     }
 
     public JPanel createPanel(Student student) {
@@ -74,7 +77,7 @@ public class PlayerRoles implements State{
             @Override
             public void actionPerformed(ActionEvent e) {
                 new RunCentralisedMAS();
-                new NCT(playerInfo);
+                new NCT(playerInfo, playerAgent);
             }
         });
         box.add(button);
@@ -92,6 +95,12 @@ public class PlayerRoles implements State{
     public List<String> getPlayerName(Student student) {
         fu = new LoadFileUtil();
         return fu.loadFile();
+    }
+
+    @Override
+    public List<Agents> getPlayerAgent(Student stduent) {
+        fu = new LoadFileUtil();
+        return fu.loadAgents();
     }
 
     @Override

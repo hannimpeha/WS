@@ -1,5 +1,6 @@
 package panels;
 
+import jason.Agents;
 import jason.Conjectures;
 import jason.NCT;
 import jason.infra.centralised.RunCentralisedMAS;
@@ -39,6 +40,7 @@ public class DayPanel implements State {
     private static JPanel south = new JPanel();
     private List<Player> playerInfo;
     private List<String> playerName;
+    private List<Agents> playerAgent;
     private BufferedImage myPicture;
     private Conjectures conjectures;
     private NCT nct;
@@ -49,7 +51,8 @@ public class DayPanel implements State {
         victim = vote.run();
         playerInfo = getPlayerInfo(student);
         playerName = getPlayerName(student);
-        nct = new NCT(playerInfo);
+        playerAgent = getPlayerAgent(student);
+        nct = new NCT(playerInfo, playerAgent);
     }
 
     public JPanel createPanel(Student student) {
@@ -104,7 +107,7 @@ public class DayPanel implements State {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new RunCentralisedMAS();
-                new NCT(playerInfo);
+                new NCT(playerInfo, playerAgent);
                 playerInfo.stream()
                         .filter(a->a.getName().contains(victim))
                         .forEach(a->a.setStatus(0));
@@ -135,6 +138,12 @@ public class DayPanel implements State {
     public List<String> getPlayerName(Student student) {
         fu = new LoadFileUtil();
         return fu.loadFile();
+    }
+
+    @Override
+    public List<Agents> getPlayerAgent(Student stduent) {
+        fu = new LoadFileUtil();
+        return fu.loadAgents();
     }
 
     @Override

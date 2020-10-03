@@ -1,5 +1,6 @@
 package panels;
 
+import jason.Agents;
 import playerInfo.Player;
 
 import javax.swing.*;
@@ -11,5 +12,6 @@ public interface State {
     JPanel createButton(Student student);
     List<Player> getPlayerInfo(Student student);
     List<String> getPlayerName(Student student);
+    List<Agents> getPlayerAgent(Student stduent);
     String getName();
 }

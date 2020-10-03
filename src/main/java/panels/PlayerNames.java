@@ -1,5 +1,6 @@
 package panels;
 
+import jason.Agents;
 import playerInfo.Player;
 import util.LoadFileUtil;
 
@@ -94,6 +95,7 @@ public class PlayerNames implements State{
                     fu = new LoadFileUtil();
                     playerInfo = fu.setAllPlayers();
                     fu.saveGame(playerInfo);
+                    fu.setAllAgents();
                 }
             });
             box.add(button);
@@ -111,6 +113,12 @@ public class PlayerNames implements State{
     public List<String> getPlayerName(Student student) {
         fu = new LoadFileUtil();
         return fu.loadFile();
+    }
+
+    @Override
+    public List<Agents> getPlayerAgent(Student stduent) {
+        fu = new LoadFileUtil();
+        return fu.loadAgents();
     }
 
     @Override

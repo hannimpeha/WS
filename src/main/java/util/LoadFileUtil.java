@@ -17,8 +17,9 @@ public class LoadFileUtil {
     private List<String> playerRole = new ArrayList<>();
     private List<Player> playerInfo = new ArrayList<>();
     private final List<Node> playerNode = new ArrayList<>();
-    private final List<Agents> playerAgent = setAllAgents();
-    private static final String path = "/Users/hannimpeha/HANNIMPEHA/" +
+    private final List<Agents> playerAgent = new ArrayList<>();
+    private static final String path =
+            "/Users/hannimpeha/HANNIMPEHA/" +
             "Thesis/FascinatingProject" +
             "/src/main/java/resource/players.txt";
     private static final String saveFile =
@@ -56,7 +57,7 @@ public class LoadFileUtil {
     }
 
     public List<Node> setAllNodes(){
-        for (int i = 0; i < playerName.size(); i++) {
+        for (int i = 0; i < playerInfo.size(); i++) {
             playerNode.add(CreatePlayerUtil.createPlayer(
                     playerName.get(i), playerRole.get(i), i));
         }
@@ -64,9 +65,9 @@ public class LoadFileUtil {
     }
 
     public List<Agents> setAllAgents(){
-        for (int i = 0; i < playerName.size(); i++) {
+        for (int i = 0; i < playerInfo.size(); i++) {
             playerAgent.add(new Agents(
-                    playerName.get(i), playerRole.get(i), i));
+                    playerName.get(i), playerRole.get(i), 1));
         }
         return playerAgent;
     }
@@ -102,6 +103,22 @@ public class LoadFileUtil {
             e.printStackTrace();
         }
         return playerInfo;
+    }
+
+    public List<Agents> loadAgents() {
+        try{
+            List<String> playerAll = new ArrayList<>();
+            playerAll = Files.readAllLines(
+                    Paths.get(saveFile), StandardCharsets.UTF_8);
+            for(int i=0; i<playerAll.size(); i++) {
+                String str = playerAll.get(i);
+                String[] arr = str.split(",");
+                playerAgent.add(new Agents(arr[2], arr[1], Integer.parseInt(arr[0])));
+            }
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
+        return playerAgent;
     }
 
 }

@@ -14,20 +14,22 @@ import java.util.stream.Collectors;
 public class InternalAction extends DefaultInternalAction {
 
     private BaseBelief bb;
-    private List<Agents> agents;
     private Conjectures cj;
     private String path = "/Users/hannimpeha/HANNIMPEHA/" +
                     "Thesis/FascinatingProject" +
                     "/src/main/java/resource/ballots.txt";
+    private List<Agents> playerAgent;
+    private List<Player> playerInfo;
 
-    public InternalAction(List<Player> playerInfo) {
-        agents = createAgent(playerInfo);
-        bb = new BaseBelief(agents);
-        for(Agents agent: agents) {
+    public InternalAction(List<Player> playerInfo, List<Agents> playerAgent) {
+        this.playerInfo = playerInfo;
+        this.playerAgent = playerAgent;
+        bb = new BaseBelief(playerAgent);
+        for(Agents agent: playerAgent) {
             agent.setBB(bb);
         }
-        gossiping(agents);
-        probabilityConjecture(playerInfo);
+        gossiping();
+        probabilityConjecture();
     }
 
     public List<Agents> createAgent(List<Player> playerInfo){
@@ -37,9 +39,10 @@ public class InternalAction extends DefaultInternalAction {
                 .collect(Collectors.toList());
     }
 
-    public void gossiping(List<Agents> agents) { new Messaging(agents); }
+    public void gossiping() {
+        new Messaging(playerAgent); }
 
-    public void probabilityConjecture(List<Player> playerInfo) {
+    public void probabilityConjecture() {
         try {
             PrintStream out = new PrintStream(path, "UTF-8");
             cj = new Conjectures(playerInfo);

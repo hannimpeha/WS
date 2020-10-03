@@ -1,5 +1,6 @@
 package panels;
 
+import jason.Agents;
 import jason.NCT;
 import jason.infra.centralised.RunCentralisedMAS;
 import logic.NightAction;
@@ -31,6 +32,7 @@ public class NightPanel implements State {
     private static JPanel south = new JPanel();
     private List<Player> playerInfo;
     private List<String> playerName;
+    private List<Agents> playerAgent;
     protected String path = "/Users/hannimpeha/HANNIMPEHA/Thesis/" +
             "FascinatingProject/src/main/java/resource/awesome.dot";
     protected String namePath = "/Users/hannimpeha/HANNIMPEHA/Thesis/" +
@@ -47,6 +49,7 @@ public class NightPanel implements State {
         victory = new Victory(student);
         playerInfo = getPlayerInfo(student);
         playerName = getPlayerName(student);
+        playerAgent = getPlayerAgent(student);
     }
 
     public JPanel createPanel(Student student) {
@@ -95,7 +98,7 @@ public class NightPanel implements State {
         final JButton button = new JButton("Night");
         button.addActionListener(e -> {
             new RunCentralisedMAS();
-            new NCT(playerInfo);
+            new NCT(playerInfo, playerAgent);
             playerInfo.stream()
                     .filter(a->a.getName().contains(victim))
                     .forEach(a->a.setStatus(0));
@@ -125,6 +128,12 @@ public class NightPanel implements State {
     public List<String> getPlayerName(Student student) {
         fu = new LoadFileUtil();
         return fu.loadFile();
+    }
+
+    @Override
+    public List<Agents> getPlayerAgent(Student stduent) {
+        fu = new LoadFileUtil();
+        return fu.loadAgents();
     }
 
     @Override
