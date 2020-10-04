@@ -78,9 +78,9 @@ public class DayPanel implements State {
         conjectures.makingDefault()
                 .entrySet().stream().forEach(
                         e->textAreaOrder.append("    * "+e.getKey()+ " is thinking "+
-                                e.getValue().toString().replaceAll("(^\\[|\\]$)", "")+".\n\n"));
+                                e.getValue().toString().replaceAll("(^\\[|\\]$)", "")+".\n"));
         messaging = new Messaging(playerAgent);
-        textAreaOrder.append("  - This was because of [ "+messaging.getMsgId()+" ]\n");
+        textAreaOrder.append("\n"+"  - This was because of [ "+messaging.getMsgId()+" ]\n");
         //gv.readSource(path);
         //textAreaOrder.append("\n"+"  - The directed graph is\n"+gv.getDotSource());
         textAreaOrder.setEditable(false);
