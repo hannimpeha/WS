@@ -12,13 +12,12 @@ public class Messaging extends Message {
         }
     }
 
-    void information(Agents ag){
+    public void information(Agents ag){
         setSender(ag.getName());
         for(String ags: ag.getIAmSending()) {
             setReceiver(ags);
         }
         setMsgId(ag.getBB().toString());
-        System.out.println(ag.getBB().toString());
     }
 
 }

@@ -2,6 +2,7 @@ package panels;
 
 import jason.Agents;
 import jason.Conjectures;
+import jason.Messaging;
 import jason.NCT;
 import jason.infra.centralised.RunCentralisedMAS;
 import thatGraph.GraphVizExe;
@@ -12,8 +13,6 @@ import util.LoadFileUtil;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -43,6 +42,7 @@ public class DayPanel implements State {
     private List<Agents> playerAgent;
     private BufferedImage myPicture;
     private Conjectures conjectures;
+    private Messaging messaging;
     private NCT nct;
 
     public DayPanel(Student student) {
@@ -78,7 +78,9 @@ public class DayPanel implements State {
         conjectures.makingDefault()
                 .entrySet().stream().forEach(
                         e->textAreaOrder.append("    * "+e.getKey()+ " is thinking "+
-                                e.getValue().toString().replaceAll("(^\\[|\\]$)", "")+".\n"));
+                                e.getValue().toString().replaceAll("(^\\[|\\]$)", "")+".\n\n"));
+        messaging = new Messaging(playerAgent);
+        textAreaOrder.append("  - This was because of [ "+messaging.getMsgId()+" ]\n");
         //gv.readSource(path);
         //textAreaOrder.append("\n"+"  - The directed graph is\n"+gv.getDotSource());
         textAreaOrder.setEditable(false);
@@ -103,24 +105,21 @@ public class DayPanel implements State {
         box.add(box.createHorizontalStrut(5));
         box.add(Box.createHorizontalGlue());
         final JButton button = new JButton("Day");
-        button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new RunCentralisedMAS();
-                new NCT(playerInfo, playerAgent);
-                playerInfo.stream()
-                        .filter(a->a.getName().contains(victim))
-                        .forEach(a->a.setStatus(0));
-                fu.saveGame(playerInfo);
-                playerName = playerInfo.stream()
-                        .filter(a->a.getStatus()==1)
-                        .map(a->a.getName())
-                        .collect(Collectors.toList());
-                try {
-                    Files.write(Paths.get(namePath), playerName);
-                } catch (IOException ioException) {
-                    ioException.printStackTrace();
-                }
+        button.addActionListener(e -> {
+            new RunCentralisedMAS();
+            new NCT(playerInfo, playerAgent);
+            playerInfo.stream()
+                    .filter(a->a.getName().contains(victim))
+                    .forEach(a->a.setStatus(0));
+            fu.saveGame(playerInfo);
+            playerName = playerInfo.stream()
+                    .filter(a->a.getStatus()==1)
+                    .map(a->a.getName())
+                    .collect(Collectors.toList());
+            try {
+                Files.write(Paths.get(namePath), playerName);
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
             }
         });
         box.add(button);

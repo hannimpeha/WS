@@ -9,8 +9,6 @@ import util.LoadFileUtil;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -73,12 +71,9 @@ public class PlayerRoles implements State{
         box.add(Box.createHorizontalStrut(5));
         box.add(Box.createHorizontalGlue());
         final JButton button = new JButton("Role");
-        button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new RunCentralisedMAS();
-                new NCT(playerInfo, playerAgent);
-            }
+        button.addActionListener(e -> {
+            new RunCentralisedMAS();
+            new NCT(playerInfo, playerAgent);
         });
         box.add(button);
         south.add(box);
