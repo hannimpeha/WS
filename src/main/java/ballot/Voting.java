@@ -12,21 +12,19 @@ public class Voting {
     private Student student;
     private String lynched;
     private Contest contest;
-    private List<String> candidates;
+    private List<String> playerName;
     private ArrayList<List<String>> rawBallots;
     private String ballotPath = "/Users/hannimpeha/" +
             "HANNIMPEHA/Thesis/FascinatingProject/" +
             "src/main/java/resource/ballots.txt";
 
-    public Voting(Student student) {
-        this.student = student;
-        candidates = student.getPlayerName();
+    public Voting(List<String> playerName) {
+        this.playerName = playerName;
     }
 
     public String run() {
         rawBallots = preliminary();
-        contest = new Contest(candidates, rawBallots);
-        lynched = contest.getWinner().iterator().next();
+        contest = new Contest(playerName, rawBallots);
         return lynched;
     }
 
@@ -35,7 +33,7 @@ public class Voting {
         try {
             BufferedReader br = new BufferedReader(new FileReader(ballotPath));
             String[] values = new String[0];
-            values = br.readLine().split(", ");
+            values = br.readLine().split(",  ");
             content.add(Arrays.asList(values));
         } catch (IOException e) {
             e.printStackTrace();

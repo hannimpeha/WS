@@ -43,16 +43,14 @@ public class DayPanel implements State {
     private BufferedImage myPicture;
     private Conjectures conjectures;
     private Messaging messaging;
-    private NCT nct;
 
     public DayPanel(Student student) {
         this.student = student;
-        vote = new Voting(student);
-        victim = vote.run();
         playerInfo = getPlayerInfo(student);
         playerName = getPlayerName(student);
         playerAgent = getPlayerAgent(student);
-        nct = new NCT(playerInfo, playerAgent);
+        vote = new Voting(playerName);
+        victim = vote.run();
     }
 
     public JPanel createPanel(Student student) {
@@ -142,7 +140,7 @@ public class DayPanel implements State {
     @Override
     public List<Agents> getPlayerAgent(Student stduent) {
         fu = new LoadFileUtil();
-        return fu.loadAgents();
+        return fu.setAllAgents();
     }
 
     @Override

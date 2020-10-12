@@ -9,7 +9,7 @@ public class Contest {
     private HashSet<String> allCandidates;
     private boolean contestRun = false;
 
-    public Contest(Collection<String> candidates, Collection<List<String>> rawBallots) {
+    public Contest(List<String> candidates, Collection<List<String>> rawBallots) {
         allCandidates = new HashSet<>(candidates);
         activeCandidates = new HashSet<>(candidates);
         piles = new HashMap<>(candidates.size());
@@ -28,7 +28,7 @@ public class Contest {
         allCandidates.add("__initialPile");
     }
 
-    private void runContest() {
+    public void runContest() {
         contestRun = true;
         eliminateCandidates();
         Round round;

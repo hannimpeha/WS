@@ -43,6 +43,16 @@ public class LoadFileUtil {
                 playerRole = Arrays.asList("Mafia", "Mafia", "Doctor", "Townie", "Townie", "Townie");
             case 7:
                 playerRole = Arrays.asList("Mafia", "Mafia", "Doctor", "Townie", "Townie", "Townie", "Townie");
+            case 8:
+                playerRole = Arrays.asList("Mafia", "Mafia", "Doctor", "Townie", "Townie", "Townie", "Townie", "Townie");
+            case 9:
+                playerRole = Arrays.asList("Mafia", "Mafia", "Mafia", "Doctor", "Townie", "Townie", "Townie", "Townie", "Townie");
+            case 10:
+                playerRole = Arrays.asList("Mafia", "Mafia", "Mafia", "Doctor", "Townie", "Townie", "Townie", "Townie", "Townie", "Townie");
+            case 11:
+                playerRole = Arrays.asList("Mafia", "Mafia", "Mafia", "Doctor", "Townie", "Townie", "Townie", "Townie", "Townie", "Townie", "Townie");
+            case 12:
+                playerRole = Arrays.asList("Mafia", "Mafia", "Mafia", "Doctor", "Townie", "Townie", "Townie", "Townie", "Townie", "Townie", "Townie", "Townie");
         }
         Collections.shuffle(playerRole);
         return playerRole;

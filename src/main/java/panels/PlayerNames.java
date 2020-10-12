@@ -21,8 +21,9 @@ public class PlayerNames implements State{
 
     protected LoadFileUtil fu;
     private static Student student = new Student();
-    protected List<String> playerName;
-    protected List<Player> playerInfo;
+    private List<String> playerName;
+    private List<Player> playerInfo;
+    private List<Agents> playerAgent;
     protected static String path = "/Users/hannimpeha/HANNIMPEHA/" +
             "Thesis/FascinatingProject" +
             "/src/main/java/resource/players.txt";
@@ -94,6 +95,7 @@ public class PlayerNames implements State{
                     }
                     fu = new LoadFileUtil();
                     playerInfo = fu.setAllPlayers();
+                    playerAgent = fu.setAllAgents();
                     fu.saveGame(playerInfo);
                     fu.setAllAgents();
                 }
