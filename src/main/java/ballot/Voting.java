@@ -14,7 +14,7 @@ public class Voting {
     private Contest contest;
     private List<String> playerName;
     private ArrayList<List<String>> rawBallots;
-    private String ballotPath = "/Users/hannimpeha/" +
+    private String ballotPath = "/Users/hannahlee/" +
             "HANNIMPEHA/Thesis/FascinatingProject/" +
             "src/main/java/resource/ballots.txt";
 

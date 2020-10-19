@@ -33,11 +33,11 @@ public class NightPanel implements State {
     private List<Player> playerInfo;
     private List<String> playerName;
     private List<Agents> playerAgent;
-    protected String path = "/Users/hannimpeha/HANNIMPEHA/Thesis/" +
+    protected String path = "/Users/hannahlee/HANNIMPEHA/Thesis/" +
             "FascinatingProject/src/main/java/resource/awesome.dot";
-    protected String namePath = "/Users/hannimpeha/HANNIMPEHA/Thesis/" +
+    protected String namePath = "/Users/hannahlee/HANNIMPEHA/Thesis/" +
             "FascinatingProject/src/main/java/resource/players.txt";
-    protected String imagePath = "/Users/hannimpeha/HANNIMPEHA/Thesis/" +
+    protected String imagePath = "/Users/hannahlee/HANNIMPEHA/Thesis/" +
             "FascinatingProject/src/main/java/resource/simple.png";
     protected GraphVizExe gv = new GraphVizExe();
     private BufferedImage myPicture;

@@ -16,7 +16,7 @@ public class Combination {
     }
     private List<String[]> list = new ArrayList<String[]>();
     private List<String> arr = new ArrayList<>();
-    private String path = "/Users/hannimpeha/HANNIMPEHA/Thesis/" +
+    private String path = "/Users/hannahlee/HANNIMPEHA/Thesis/" +
             "FascinatingProject/src/main/java/resource/awesome.dot";
     private List<Node[]> nodes;
     private List<Agents> agents;

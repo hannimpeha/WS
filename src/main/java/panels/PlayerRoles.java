@@ -25,7 +25,7 @@ public class PlayerRoles implements State{
     private static JPanel realNorth = new JPanel();
     private static JPanel south = new JPanel();
     private BufferedImage myPicture;
-    protected String imagePath = "/Users/hannimpeha/HANNIMPEHA/Thesis/" +
+    protected String imagePath = "/Users/hannahlee/HANNIMPEHA/Thesis/" +
             "FascinatingProject/src/main/java/resource/mafia.jpg";
 
     public PlayerRoles(Student student) {

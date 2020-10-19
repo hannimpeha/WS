@@ -19,11 +19,11 @@ public class LoadFileUtil {
     private final List<Node> playerNode = new ArrayList<>();
     private final List<Agents> playerAgent = new ArrayList<>();
     private static final String path =
-            "/Users/hannimpeha/HANNIMPEHA/" +
+            "/Users/hannahlee/HANNIMPEHA/" +
             "Thesis/FascinatingProject" +
             "/src/main/java/resource/players.txt";
     private static final String saveFile =
-            "/Users/hannimpeha/HANNIMPEHA/" +
+            "/Users/hannahlee/HANNIMPEHA/" +
                     "Thesis/FascinatingProject" +
                     "/src/main/java/resource/saveGame.txt";;
 

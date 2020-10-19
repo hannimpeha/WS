@@ -15,7 +15,7 @@ public class InternalAction extends DefaultInternalAction {
 
     private BaseBelief bb;
     private Conjectures cj;
-    private String path = "/Users/hannimpeha/HANNIMPEHA/" +
+    private String path = "/Users/hannahlee/HANNIMPEHA/" +
                     "Thesis/FascinatingProject" +
                     "/src/main/java/resource/ballots.txt";
     private List<Agents> playerAgent;

@@ -26,11 +26,11 @@ public class DayPanel implements State {
     protected LoadFileUtil fu;
     protected Voting vote;
     protected String victim;
-    protected String path = "/Users/hannimpeha/HANNIMPEHA/Thesis/" +
+    protected String path = "/Users/hannahlee/HANNIMPEHA/Thesis/" +
             "FascinatingProject/src/main/java/resource/awesome.dot";
-    protected String namePath = "/Users/hannimpeha/HANNIMPEHA/Thesis/" +
+    protected String namePath = "/Users/hannahlee/HANNIMPEHA/Thesis/" +
             "FascinatingProject/src/main/java/resource/players.txt";
-    protected String imagePath = "/Users/hannimpeha/HANNIMPEHA/Thesis/" +
+    protected String imagePath = "/Users/hannahlee/HANNIMPEHA/Thesis/" +
             "FascinatingProject/src/main/java/resource/simple.png";
     protected GraphVizExe gv = new GraphVizExe();
     protected Student student;

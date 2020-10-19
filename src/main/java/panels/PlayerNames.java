@@ -24,10 +24,10 @@ public class PlayerNames implements State{
     private List<String> playerName;
     private List<Player> playerInfo;
     private List<Agents> playerAgent;
-    protected static String path = "/Users/hannimpeha/HANNIMPEHA/" +
+    protected static String path = "/Users/hannnahlee/HANNIMPEHA/" +
             "Thesis/FascinatingProject" +
             "/src/main/java/resource/players.txt";
-    protected String imagePath = "/Users/hannimpeha/HANNIMPEHA/Thesis/" +
+    protected String imagePath = "/Users/hannahlee/HANNIMPEHA/Thesis/" +
             "FascinatingProject/src/main/java/resource/mafia.jpg";
     protected static JPanel north = new JPanel();
     protected static JPanel realNorth = new JPanel();
