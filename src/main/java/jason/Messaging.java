@@ -17,7 +17,7 @@ public class Messaging extends Message {
         for(String ags: ag.getIAmSending()) {
             setReceiver(ags);
         }
-        setMsgId(ag.getBB().toString());
+        //setMsgId(ag.getBB().toString());
     }
 
 }

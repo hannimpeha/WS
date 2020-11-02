@@ -3,6 +3,7 @@ package jason;
 import jason.asSemantics.DefaultInternalAction;
 import jason.asSemantics.TransitionSystem;
 import jason.asSemantics.Unifier;
+import jason.asSyntax.ASSyntax;
 import jason.asSyntax.Term;
 import playerInfo.Player;
 
@@ -24,10 +25,10 @@ public class InternalAction extends DefaultInternalAction {
     public InternalAction(List<Player> playerInfo, List<Agents> playerAgent) {
         this.playerInfo = playerInfo;
         this.playerAgent = playerAgent;
-        bb = new BaseBelief(playerAgent);
-        for(Agents agent: playerAgent) {
-            agent.setBB(bb);
-        }
+        bb.add(ASSyntax.createLiteral("small"));
+//        for(Agents agent: playerAgent) {
+//            agent.setBB(bb);
+//        }
         gossiping();
         probabilityConjecture();
     }

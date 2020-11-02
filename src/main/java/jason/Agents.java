@@ -4,16 +4,27 @@ import jason.architecture.AgArch;
 import jason.asSemantics.Agent;
 import jason.asSemantics.TransitionSystem;
 import jason.asSemantics.Unifier;
+import jason.asSyntax.ASSyntax;
+import jason.asSyntax.Literal;
 import jason.asSyntax.Term;
 import org.neo4j.graphdb.*;
+import org.neo4j.graphdb.Label;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Properties;
 import org.neo4j.ogm.annotation.Relationship;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.HashSet;
 import java.util.Set;
 
 @NodeEntity
-public class Agents extends Agent implements Node {
+public class Agents extends AgArch implements Node {
+
+    JFrame f;
+    JButton auction;
 
     @Properties
     private final String name;
@@ -27,7 +38,7 @@ public class Agents extends Agent implements Node {
     private Set<String> weAreMafia = new HashSet<>();
     private InternalAction ia;
     private  TransitionSystem ts =
-            new TransitionSystem(this, null, null, new AgArch());
+            new TransitionSystem(new Agent(), null, null, this);
     private Unifier un = new Unifier();
     private Term[] args = new Term[]{};
 
@@ -35,6 +46,22 @@ public class Agents extends Agent implements Node {
         this.name = name;
         this.role = role;
         this.status = status;
+
+//        auction = new JButton("Start voting");
+//        auction.addActionListener(new ActionListener() {
+//            public void actionPerformed(ActionEvent e) {
+//                Literal goal = ASSyntax.createLiteral("small");
+//                getTS().getC().addAchvGoal(goal, null);
+//                auction.setEnabled(true);
+//            }
+//        });
+//
+//
+//        f = new JFrame("Auctioneer agent");
+//        f.getContentPane().setLayout(new BorderLayout());
+//        f.getContentPane().add(BorderLayout.SOUTH, auction);
+//        f.pack();
+//        f.setVisible(true);
     }
 
     public String getName() {
